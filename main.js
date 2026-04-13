@@ -1,10 +1,32 @@
+// ─── Persistent session restore ──────────────────────────────────────
+const _savedSession = JSON.parse(localStorage.getItem('agro_session') || 'null');
+
 const appState = {
   currentRoute: 'landing',
   soilData: null,
   recommendations: null,
-  isAuthenticated: false,
-  user: null
+  isAuthenticated: !!(_savedSession && _savedSession.user),
+  user: _savedSession?.user || null,
+  role: _savedSession?.role || null   // 'farmer' | 'buyer' | null
 };
+
+// Helper: persist session
+function _saveSession() {
+  if (appState.isAuthenticated) {
+    localStorage.setItem('agro_session', JSON.stringify({ user: appState.user, role: appState.role }));
+  } else {
+    localStorage.removeItem('agro_session');
+  }
+}
+
+// Helper: load registered users map
+function _getUsers() {
+  return JSON.parse(localStorage.getItem('agro_users') || '{}');
+}
+// Helper: save registered users map
+function _saveUsers(map) {
+  localStorage.setItem('agro_users', JSON.stringify(map));
+}
 
 const screens = {
   landing: function() { const auth = appState.isAuthenticated; return `
@@ -677,7 +699,7 @@ const screens = {
         </div>
         <div class="input-group">
           <label class="input-label">Email Address</label>
-          <input type="email" class="input-field" placeholder="farmer@example.com">
+          <input type="email" id="login-email" class="input-field" placeholder="farmer@example.com">
         </div>
         <div class="input-group">
           <label class="input-label">Password</label>
@@ -695,88 +717,379 @@ const screens = {
     </div>
   `,
   signup: `
-    <div class="container fade-in spacer-y" style="display: flex; justify-content: center; align-items: center; min-height: 60vh;">
-      <div class="card" style="width: 100%; max-width: 500px; padding: 3rem;">
+    <div class="container fade-in spacer-y" style="display: flex; justify-content: center; align-items: center; min-height: 70vh;">
+      <div class="card" style="width: 100%; max-width: 520px; padding: 3rem; border-top: 4px solid var(--color-primary);">
         <div style="text-align: center; margin-bottom: 2rem;">
+          <div style="font-size: 2.5rem; margin-bottom: 0.75rem;">🌿</div>
           <h2 class="display-font" style="font-size: 2rem; color: var(--color-primary);">Create Account</h2>
           <p style="color: var(--color-on-surface-variant); margin-top: 0.5rem;">Join the AgroIntel network today.</p>
         </div>
+
         <div style="display: flex; gap: 1rem;">
-           <div class="input-group" style="flex:1;">
+          <div class="input-group" style="flex:1;">
             <label class="input-label">First Name</label>
-            <input type="text" class="input-field" placeholder="John">
+            <input type="text" id="signup-fname" class="input-field" placeholder="John">
           </div>
-           <div class="input-group" style="flex:1;">
+          <div class="input-group" style="flex:1;">
             <label class="input-label">Last Name</label>
-            <input type="text" class="input-field" placeholder="Doe">
+            <input type="text" id="signup-lname" class="input-field" placeholder="Doe">
           </div>
         </div>
+
         <div class="input-group">
           <label class="input-label">Email Address</label>
-          <input type="email" class="input-field" placeholder="farmer@example.com">
+          <input type="email" id="signup-email" class="input-field" placeholder="you@example.com">
         </div>
+
         <div class="input-group">
-          <label class="input-label">Farm Region</label>
-          <input type="text" class="input-field" placeholder="e.g. Northern Valley">
+          <label class="input-label" style="font-weight: 700; color: var(--color-on-surface);">I am a...</label>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <label id="role-farmer-label" style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem 1.25rem; border: 2px solid var(--color-outline-variant); border-radius: var(--radius-md); cursor: pointer; transition: all 0.2s;" onclick="window.selectRole('farmer')">
+              <input type="radio" id="signup-role-farmer" name="signup-role" value="farmer" style="accent-color: var(--color-primary);">
+              <span style="font-size: 1.5rem;">🌾</span>
+              <div>
+                <div style="font-weight: 700; font-size: 0.95rem;">Farmer</div>
+                <div style="font-size: 0.78rem; color: var(--color-on-surface-variant);">Grow & sell crops</div>
+              </div>
+            </label>
+            <label id="role-buyer-label" style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem 1.25rem; border: 2px solid var(--color-outline-variant); border-radius: var(--radius-md); cursor: pointer; transition: all 0.2s;" onclick="window.selectRole('buyer')">
+              <input type="radio" id="signup-role-buyer" name="signup-role" value="buyer" style="accent-color: var(--color-buyer-primary);">
+              <span style="font-size: 1.5rem;">🛒</span>
+              <div>
+                <div style="font-weight: 700; font-size: 0.95rem;">Buyer</div>
+                <div style="font-size: 0.78rem; color: var(--color-on-surface-variant);">Source & purchase crops</div>
+              </div>
+            </label>
+          </div>
+          <p id="signup-role-error" style="display:none; color:#ba1a1a; font-size: 0.85rem; margin-top: 0.5rem;">⚠ Please select a role to continue.</p>
         </div>
+
         <div class="input-group">
           <label class="input-label">Password</label>
-          <input type="password" class="input-field" placeholder="Create a password">
+          <input type="password" id="signup-password" class="input-field" placeholder="Create a password">
         </div>
-        <button class="btn btn-primary" style="width: 100%; font-size: 1.1rem; padding: 1rem; margin-top: 1rem;" onclick="window.registerUser()">Create Account</button>
+
+        <button class="btn btn-primary" style="width: 100%; font-size: 1.1rem; padding: 1rem; margin-top: 0.5rem; border-radius: var(--radius-md);" onclick="window.registerUser()">Create Account →</button>
         <p style="text-align: center; margin-top: 1.5rem; font-size: 0.9rem; color: var(--color-on-surface-variant);">Already have an account? <a href="#" onclick="window.navigate('login'); event.preventDefault();" style="font-weight: 600;">Log in</a></p>
       </div>
     </div>
   `,
-  dashboard: `
+  // ─── 'dashboard' smart redirect (kept for backwards-compat button links) ───
+  dashboard: function() {
+    if (appState.role === 'buyer') { window.navigate('buyer-dashboard'); }
+    else { window.navigate('farmer-dashboard'); }
+    return '<div></div>'; // placeholder while redirect happens
+  },
+
+  // ─── FARMER DASHBOARD ──────────────────────────────────────────────────────
+  'farmer-dashboard': function() {
+    const name = appState.user?.name || 'Farmer';
+    return `
     <div class="container fade-in spacer-y">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+
+      <!-- Header -->
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem;">
         <div>
-          <h2 class="display-font" style="font-size: 2.5rem;">Intelligent Dashboard</h2>
-          <p style="color: var(--color-on-surface-variant);">Welcome back, Ramkishan J.. Your farm overview is ready.</p>
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem;">
+            <h2 class="display-font" style="font-size: 2.5rem; margin: 0;">Farmer Dashboard</h2>
+            <span class="role-badge role-badge-farmer">🌾 Farmer</span>
+          </div>
+          <p style="color: var(--color-on-surface-variant);">Welcome back, <strong>${name}</strong>. Your farm overview is ready.</p>
         </div>
-        <button class="btn btn-secondary" onclick="window.navigate('profile')">My Profile</button>
-      </div>
-
-      <div class="grid-3" style="margin: 0 0 2rem 0;">
-        <div class="card hover-card" style="border-top: 3px solid var(--color-primary); padding: 1.5rem;">
-          <div style="font-size: 2rem; margin-bottom: 0.5rem;">🌱</div>
-          <p style="color: var(--color-on-surface-variant); font-size: 0.9rem; font-weight: 600;">Soil Status</p>
-          <h4 class="display-font" style="font-size: 1.25rem;">Optimal (pH 6.5)</h4>
-        </div>
-        <div class="card hover-card" style="border-top: 3px solid var(--color-secondary); padding: 1.5rem;">
-          <div style="font-size: 2rem; margin-bottom: 0.5rem;">🧠</div>
-          <p style="color: var(--color-on-surface-variant); font-size: 0.9rem; font-weight: 600;">Last Recommendation</p>
-          <h4 class="display-font" style="font-size: 1.25rem;">Rice (Paddy)</h4>
-        </div>
-        <div class="card hover-card" style="border-top: 3px solid var(--color-tertiary); padding: 1.5rem;">
-          <div style="font-size: 2rem; margin-bottom: 0.5rem;">📈</div>
-          <p style="color: var(--color-on-surface-variant); font-size: 0.9rem; font-weight: 600;">Market Price Update</p>
-          <h4 class="display-font" style="font-size: 1.25rem;">Rice +2.4% Today</h4>
-        </div>
-        <div class="card hover-card" style="border-top: 3px solid #0060a8; padding: 1.5rem;">
-          <div style="font-size: 2rem; margin-bottom: 0.5rem;">⛅</div>
-          <p style="color: var(--color-on-surface-variant); font-size: 0.9rem; font-weight: 600;">Weather Status</p>
-          <h4 class="display-font" style="font-size: 1.25rem;">24°C, High Humidity</h4>
+        <div style="display: flex; gap: 0.75rem;">
+          <button class="btn btn-secondary" onclick="window.navigate('profile')">👤 My Profile</button>
+          <button class="btn btn-primary" onclick="window.navigate('form')">+ New Analysis</button>
         </div>
       </div>
 
-      <div class="card" style="margin-bottom: 2rem; background: var(--color-surface-container-low);">
-        <h3 class="display-font" style="margin-bottom: 1rem; color: var(--color-primary);">Quick Actions</h3>
-        <div class="grid-3" style="margin: 0; gap: 1rem;">
-          <div class="card hover-card" style="padding: 1.5rem; text-align: center; cursor: pointer; border: 1px solid var(--color-outline-variant);" onclick="window.navigate('form')">
-            <h4 class="display-font">Assess Soil</h4>
+      <!-- Stat Cards -->
+      <div class="grid-4" style="margin-bottom: 2rem;">
+        <div class="card hover-card" style="border-top: 3px solid var(--color-primary); padding: 1.75rem;">
+          <div style="font-size: 1.75rem; margin-bottom: 0.5rem;">🌱</div>
+          <p style="color: var(--color-on-surface-variant); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.25rem;">Soil Status</p>
+          <div class="stat-number" style="color: var(--color-primary);">Optimal</div>
+          <div style="font-size: 0.85rem; color: var(--color-on-surface-variant); margin-top: 0.25rem;">pH 6.5 · N-P-K Balanced</div>
+        </div>
+        <div class="card hover-card" style="border-top: 3px solid var(--color-secondary); padding: 1.75rem;">
+          <div style="font-size: 1.75rem; margin-bottom: 0.5rem;">🧠</div>
+          <p style="color: var(--color-on-surface-variant); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.25rem;">Last Recommendation</p>
+          <div class="stat-number" style="color: var(--color-secondary);">Rice</div>
+          <div style="font-size: 0.85rem; color: var(--color-on-surface-variant); margin-top: 0.25rem;">Kharif Season · 95% match</div>
+        </div>
+        <div class="card hover-card" style="border-top: 3px solid var(--color-tertiary); padding: 1.75rem;">
+          <div style="font-size: 1.75rem; margin-bottom: 0.5rem;">📈</div>
+          <p style="color: var(--color-on-surface-variant); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.25rem;">Market Update</p>
+          <div class="stat-number" style="color: #137333;">+2.4%</div>
+          <div style="font-size: 0.85rem; color: var(--color-on-surface-variant); margin-top: 0.25rem;">Rice · ₹2,450/qtl today</div>
+        </div>
+        <div class="card hover-card" style="border-top: 3px solid #0060a8; padding: 1.75rem;">
+          <div style="font-size: 1.75rem; margin-bottom: 0.5rem;">⛅</div>
+          <p style="color: var(--color-on-surface-variant); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.25rem;">Weather</p>
+          <div class="stat-number" style="color: #0060a8;">24°C</div>
+          <div style="font-size: 0.85rem; color: var(--color-on-surface-variant); margin-top: 0.25rem;">High Humidity · Partly Cloudy</div>
+        </div>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="card" style="margin-bottom: 2rem; background: var(--color-surface-container-low); border: 1px solid var(--color-surface-container-high);">
+        <h3 class="display-font" style="margin-bottom: 1.5rem; color: var(--color-primary);">⚡ Quick Actions</h3>
+        <div class="grid-4" style="gap: 1rem;">
+          <div class="quick-action-card" onclick="window.navigate('form')">
+            <span class="qa-icon">🌱</span>
+            <h4>Assess Soil</h4>
+            <p style="font-size: 0.8rem; color: var(--color-on-surface-variant);">NPK + pH analysis</p>
           </div>
-          <div class="card hover-card" style="padding: 1.5rem; text-align: center; cursor: pointer; border: 1px solid var(--color-outline-variant);" onclick="window.navigate('diagnosis')">
-            <h4 class="display-font">Disease Diagnosis</h4>
+          <div class="quick-action-card" onclick="window.navigate('diagnosis')">
+            <span class="qa-icon">🔬</span>
+            <h4>Disease Diagnosis</h4>
+            <p style="font-size: 0.8rem; color: var(--color-on-surface-variant);">AI vision scan</p>
           </div>
-          <div class="card hover-card" style="padding: 1.5rem; text-align: center; cursor: pointer; border: 1px solid var(--color-outline-variant);" onclick="window.navigate('market')">
-            <h4 class="display-font">Market Prices</h4>
+          <div class="quick-action-card" onclick="window.navigate('market')">
+            <span class="qa-icon">📊</span>
+            <h4>Market Prices</h4>
+            <p style="font-size: 0.8rem; color: var(--color-on-surface-variant);">Live mandi rates</p>
+          </div>
+          <div class="quick-action-card" onclick="window.navigate('community')">
+            <span class="qa-icon">👥</span>
+            <h4>Community</h4>
+            <p style="font-size: 0.8rem; color: var(--color-on-surface-variant);">Farmer forum</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI Insights Panel -->
+      <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; flex-wrap: wrap;">
+        <div class="card" style="border-top: 3px solid var(--color-primary);">
+          <h3 class="display-font" style="margin-bottom: 1.5rem;">🌾 AI Crop Insights</h3>
+          <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem; background: var(--color-surface-container-low); border-radius: var(--radius-md);">
+              <div style="display: flex; align-items: center; gap: 1rem;">
+                <span style="font-size: 1.75rem;">🌾</span>
+                <div>
+                  <div style="font-weight: 700;">Rice (Paddy)</div>
+                  <div style="font-size: 0.85rem; color: var(--color-on-surface-variant);">Kharif · Est. Yield 4.2 t/ha</div>
+                </div>
+              </div>
+              <span style="background: #e6f4ea; color: #137333; padding: 0.25rem 0.75rem; border-radius: var(--radius-full); font-size: 0.85rem; font-weight: 700;">95% Match</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem; background: var(--color-surface-container-low); border-radius: var(--radius-md);">
+              <div style="display: flex; align-items: center; gap: 1rem;">
+                <span style="font-size: 1.75rem;">🌽</span>
+                <div>
+                  <div style="font-weight: 700;">Maize</div>
+                  <div style="font-size: 0.85rem; color: var(--color-on-surface-variant);">Rabi · Est. Yield 3.1 t/ha</div>
+                </div>
+              </div>
+              <span style="background: var(--color-surface-container-high); color: var(--color-on-surface-variant); padding: 0.25rem 0.75rem; border-radius: var(--radius-full); font-size: 0.85rem; font-weight: 700;">82% Match</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem; background: var(--color-surface-container-low); border-radius: var(--radius-md);">
+              <div style="display: flex; align-items: center; gap: 1rem;">
+                <span style="font-size: 1.75rem;">🌿</span>
+                <div>
+                  <div style="font-weight: 700;">Jute</div>
+                  <div style="font-size: 0.85rem; color: var(--color-on-surface-variant);">Kharif · Est. Yield 2.4 t/ha</div>
+                </div>
+              </div>
+              <span style="background: var(--color-surface-container-high); color: var(--color-on-surface-variant); padding: 0.25rem 0.75rem; border-radius: var(--radius-full); font-size: 0.85rem; font-weight: 700;">76% Match</span>
+            </div>
+          </div>
+          <button class="btn btn-primary" style="width: 100%; margin-top: 1.5rem;" onclick="window.navigate('form')">Run Full Soil Analysis</button>
+        </div>
+
+        <div class="card" style="border-top: 3px solid #0060a8;">
+          <h3 class="display-font" style="margin-bottom: 1.5rem;">🌦 Weather Alert</h3>
+          <div style="text-align: center; padding: 1rem 0;">
+            <div style="font-size: 4rem;">⛅</div>
+            <div style="font-size: 2rem; font-weight: 800; color: #0060a8; font-family: var(--font-display);">24°C</div>
+            <div style="color: var(--color-on-surface-variant); margin-top: 0.5rem;">Partly Cloudy</div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1rem; font-size: 0.9rem;">
+            <div style="display: flex; justify-content: space-between;"><span>💧 Humidity</span><strong>65%</strong></div>
+            <div style="display: flex; justify-content: space-between;"><span>🌧 Rainfall (7d)</span><strong>18mm</strong></div>
+            <div style="display: flex; justify-content: space-between;"><span>💨 Wind</span><strong>12 km/h</strong></div>
+            <div style="display: flex; justify-content: space-between;"><span>☀ UV Index</span><strong>Moderate</strong></div>
+          </div>
+          <div style="margin-top: 1.25rem; padding: 0.75rem; background: #e8f5e9; border-radius: var(--radius-md); font-size: 0.85rem; color: #2e7d32;">
+            ✅ Conditions are ideal for irrigation this week.
           </div>
         </div>
       </div>
     </div>
-  `
+  `;
+  },
+
+  // ─── BUYER DASHBOARD ────────────────────────────────────────────────────────
+  'buyer-dashboard': function() {
+    const name = appState.user?.name || 'Buyer';
+    return `
+    <div class="container fade-in spacer-y">
+
+      <!-- Header -->
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem;">
+            <h2 class="display-font" style="font-size: 2.5rem; margin: 0;">Buyer Dashboard</h2>
+            <span class="role-badge role-badge-buyer">🛒 Buyer</span>
+          </div>
+          <p style="color: var(--color-on-surface-variant);">Welcome back, <strong>${name}</strong>. Here's today's market snapshot.</p>
+        </div>
+        <div style="display: flex; gap: 0.75rem;">
+          <button class="btn btn-secondary" onclick="window.navigate('buyers')">🌾 Browse Crops</button>
+          <button class="btn" style="background: var(--color-buyer-accent); color: #fff; font-weight: 600;" onclick="window.navigate('market')">📊 Live Prices</button>
+        </div>
+      </div>
+
+      <!-- Stat Cards -->
+      <div class="grid-4" style="margin-bottom: 2rem;">
+        <div class="card hover-card" style="border-top: 3px solid var(--color-buyer-accent); padding: 1.75rem;">
+          <div style="font-size: 1.75rem; margin-bottom: 0.5rem;">📦</div>
+          <p style="color: var(--color-on-surface-variant); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.25rem;">Active Listings</p>
+          <div class="stat-number" style="color: var(--color-buyer-primary);">248</div>
+          <div style="font-size: 0.85rem; color: var(--color-on-surface-variant); margin-top: 0.25rem;">Across 12 crop types</div>
+        </div>
+        <div class="card hover-card" style="border-top: 3px solid var(--color-primary); padding: 1.75rem;">
+          <div style="font-size: 1.75rem; margin-bottom: 0.5rem;">💰</div>
+          <p style="color: var(--color-on-surface-variant); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.25rem;">Total Purchases</p>
+          <div class="stat-number" style="color: var(--color-primary);">₹4.2L</div>
+          <div style="font-size: 0.85rem; color: var(--color-on-surface-variant); margin-top: 0.25rem;">This season</div>
+        </div>
+        <div class="card hover-card" style="border-top: 3px solid #137333; padding: 1.75rem;">
+          <div style="font-size: 1.75rem; margin-bottom: 0.5rem;">📉</div>
+          <p style="color: var(--color-on-surface-variant); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.25rem;">Avg. Price Saved</p>
+          <div class="stat-number" style="color: #137333;">8.3%</div>
+          <div style="font-size: 0.85rem; color: var(--color-on-surface-variant); margin-top: 0.25rem;">vs. spot market</div>
+        </div>
+        <div class="card hover-card" style="border-top: 3px solid #0060a8; padding: 1.75rem;">
+          <div style="font-size: 1.75rem; margin-bottom: 0.5rem;">🔔</div>
+          <p style="color: var(--color-on-surface-variant); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.25rem;">Price Alerts</p>
+          <div class="stat-number" style="color: #0060a8;">3</div>
+          <div style="font-size: 0.85rem; color: var(--color-on-surface-variant); margin-top: 0.25rem;">Triggered today</div>
+        </div>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="card" style="margin-bottom: 2rem; background: var(--color-buyer-surface); border: 1px solid var(--color-buyer-container);">
+        <h3 class="display-font" style="margin-bottom: 1.5rem; color: var(--color-buyer-primary);">⚡ Quick Actions</h3>
+        <div class="grid-4" style="gap: 1rem;">
+          <div class="quick-action-card buyer-card" onclick="window.navigate('buyers')">
+            <span class="qa-icon">🌾</span>
+            <h4>Browse Crops</h4>
+            <p style="font-size: 0.8rem; color: var(--color-on-surface-variant);">Find fresh listings</p>
+          </div>
+          <div class="quick-action-card buyer-card" onclick="window.navigate('market')">
+            <span class="qa-icon">📊</span>
+            <h4>Market Prices</h4>
+            <p style="font-size: 0.8rem; color: var(--color-on-surface-variant);">Live mandi rates</p>
+          </div>
+          <div class="quick-action-card buyer-card" onclick="window.navigate('buyers')">
+            <span class="qa-icon">🤝</span>
+            <h4>Buyer Network</h4>
+            <p style="font-size: 0.8rem; color: var(--color-on-surface-variant);">Connect with sellers</p>
+          </div>
+          <div class="quick-action-card buyer-card">
+            <span class="qa-icon">📦</span>
+            <h4>Order History</h4>
+            <p style="font-size: 0.8rem; color: var(--color-on-surface-variant);">Track past orders</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Available Crops + Demand Panel -->
+      <div style="display: grid; grid-template-columns: 3fr 2fr; gap: 2rem;">
+        <div class="card" style="border-top: 3px solid var(--color-buyer-accent);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+            <h3 class="display-font">🌾 Featured Crop Listings</h3>
+            <button class="btn btn-secondary" style="padding: 0.4rem 1rem; font-size: 0.85rem;" onclick="window.navigate('buyers')">View All →</button>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.25rem; background: var(--color-buyer-surface); border-radius: var(--radius-md); border: 1px solid var(--color-buyer-container);">
+              <div style="display: flex; align-items: center; gap: 1rem;">
+                <span style="font-size: 1.75rem;">🌾</span>
+                <div>
+                  <div style="font-weight: 700;">Wheat · Grade A</div>
+                  <div style="font-size: 0.85rem; color: var(--color-on-surface-variant);">📍 Pune, MH · 15 tons available</div>
+                </div>
+              </div>
+              <div style="text-align: right;">
+                <div style="font-weight: 800; font-size: 1.1rem; color: var(--color-buyer-primary);">₹2,180<span style="font-size: 0.8rem; font-weight: 400;">/qtl</span></div>
+                <button class="btn btn-secondary" style="padding: 0.3rem 0.75rem; font-size: 0.8rem; margin-top: 0.4rem;">Contact</button>
+              </div>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.25rem; background: var(--color-buyer-surface); border-radius: var(--radius-md); border: 1px solid var(--color-buyer-container);">
+              <div style="display: flex; align-items: center; gap: 1rem;">
+                <span style="font-size: 1.75rem;">🌽</span>
+                <div>
+                  <div style="font-weight: 700;">Maize · Feed Grade</div>
+                  <div style="font-size: 0.85rem; color: var(--color-on-surface-variant);">📍 Nashik, MH · 40 tons available</div>
+                </div>
+              </div>
+              <div style="text-align: right;">
+                <div style="font-weight: 800; font-size: 1.1rem; color: var(--color-buyer-primary);">₹1,960<span style="font-size: 0.8rem; font-weight: 400;">/qtl</span></div>
+                <button class="btn btn-secondary" style="padding: 0.3rem 0.75rem; font-size: 0.8rem; margin-top: 0.4rem;">Contact</button>
+              </div>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.25rem; background: var(--color-buyer-surface); border-radius: var(--radius-md); border: 1px solid var(--color-buyer-container);">
+              <div style="display: flex; align-items: center; gap: 1rem;">
+                <span style="font-size: 1.75rem;">🍅</span>
+                <div>
+                  <div style="font-weight: 700;">Tomatoes · Organic</div>
+                  <div style="font-size: 0.85rem; color: var(--color-on-surface-variant);">📍 Mumbai, MH · 8 tons available</div>
+                </div>
+              </div>
+              <div style="text-align: right;">
+                <div style="font-weight: 800; font-size: 1.1rem; color: var(--color-buyer-primary);">₹3,200<span style="font-size: 0.8rem; font-weight: 400;">/qtl</span></div>
+                <button class="btn btn-secondary" style="padding: 0.3rem 0.75rem; font-size: 0.8rem; margin-top: 0.4rem;">Contact</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Demand Tracker -->
+        <div class="card" style="border-top: 3px solid var(--color-primary);">
+          <h3 class="display-font" style="margin-bottom: 1.5rem;">📉 Local Demand</h3>
+          <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+            <div>
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <span style="font-weight: 600;">Rice</span>
+                <span style="color: var(--color-primary); font-weight: 700;">High</span>
+              </div>
+              <div class="progress-bar"><div class="progress-bar-fill" style="width: 85%; background: var(--color-primary);"></div></div>
+            </div>
+            <div>
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <span style="font-weight: 600;">Wheat</span>
+                <span style="color: var(--color-secondary); font-weight: 700;">Moderate</span>
+              </div>
+              <div class="progress-bar"><div class="progress-bar-fill" style="width: 55%; background: var(--color-secondary);"></div></div>
+            </div>
+            <div>
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <span style="font-weight: 600;">Maize</span>
+                <span style="color: #ba1a1a; font-weight: 700;">Low</span>
+              </div>
+              <div class="progress-bar"><div class="progress-bar-fill" style="width: 22%; background: #ba1a1a;"></div></div>
+            </div>
+            <div>
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <span style="font-weight: 600;">Tomatoes</span>
+                <span style="color: var(--color-buyer-primary); font-weight: 700;">Very High</span>
+              </div>
+              <div class="progress-bar"><div class="progress-bar-fill" style="width: 96%; background: var(--color-buyer-accent);"></div></div>
+            </div>
+            <div>
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <span style="font-weight: 600;">Soybeans</span>
+                <span style="font-weight: 700;">Balanced</span>
+              </div>
+              <div class="progress-bar"><div class="progress-bar-fill" style="width: 48%; background: #4a90d9;"></div></div>
+            </div>
+          </div>
+          <button class="btn" style="width:100%; margin-top: 1.5rem; background: var(--color-buyer-container); color: var(--color-buyer-primary); font-weight: 700;" onclick="window.navigate('market')">Full Market Report →</button>
+        </div>
+      </div>
+    </div>
+  `;
+  }
 };
 
 window.showDiagnosisTab = function(tabId) {
@@ -810,92 +1123,162 @@ const navLinks = document.querySelectorAll('.nav-link');
 
 function renderRoute(route) {
   if (!screens[route]) route = 'landing';
-  
-  // Route Protection Logic
-  const protectedRoutes = ['dashboard', 'form', 'diagnosis', 'market', 'buyers', 'profile'];
+
+  // ── Route protection ──────────────────────────────────────────────
+  const protectedRoutes  = ['dashboard', 'farmer-dashboard', 'buyer-dashboard',
+                             'form', 'diagnosis', 'market', 'buyers', 'profile',
+                             'knowledge', 'community'];
   const authRoutes = ['login', 'signup'];
-  
+
   if (!appState.isAuthenticated && protectedRoutes.includes(route)) {
-    console.warn("Unauthorized access attempt. Redirecting to login.");
     route = 'login';
   } else if (appState.isAuthenticated && authRoutes.includes(route)) {
-    console.warn("Already authenticated. Redirecting to dashboard.");
-    route = 'dashboard';
+    route = appState.role === 'buyer' ? 'buyer-dashboard' : 'farmer-dashboard';
   }
-  
+
+  // ── Role guards: prevent cross-dashboard access ───────────────────
+  if (appState.isAuthenticated) {
+    if (route === 'farmer-dashboard' && appState.role === 'buyer') route = 'buyer-dashboard';
+    if (route === 'buyer-dashboard'  && appState.role === 'farmer') route = 'farmer-dashboard';
+  }
+
   // Update state
   appState.currentRoute = route;
-  
-  // Update DOM
+
+  // Render
   const screenContent = screens[route];
   mainContent.innerHTML = typeof screenContent === 'function' ? screenContent() : screenContent;
-  
-  // Update Nav highlighting safely
-  const currentNavLinks = document.querySelectorAll('.nav-link');
-  currentNavLinks.forEach(link => {
-    if (link.dataset.route === route) {
-      link.classList.add('active');
-    } else {
-      link.classList.remove('active');
-    }
+
+  // Nav highlighting
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.classList.toggle('active', link.dataset.route === route);
   });
 }
 
-// Authentication Handlers
+// ─── Authentication Handlers ─────────────────────────────────────────
 window.loginUser = function() {
-  appState.isAuthenticated = true;
-  appState.user = { name: "Ramkishan J.", email: "farmer@example.com" };
+  const emailEl = document.querySelector('#login-email') || document.querySelector('input[type="email"]');
+  const email = (emailEl?.value || '').trim().toLowerCase();
+  const users = _getUsers();
+
+  if (email && users[email]) {
+    const u = users[email];
+    appState.isAuthenticated = true;
+    appState.user = { name: u.name, email: u.email };
+    appState.role = u.role;
+  } else {
+    // Demo fallback: default farmer login
+    appState.isAuthenticated = true;
+    appState.user = { name: 'Demo Farmer', email: email || 'demo@agrofarm.com' };
+    appState.role = 'farmer';
+  }
+  _saveSession();
   window.updateNavbarUI();
-  window.navigate('dashboard');
+  window.navigate(appState.role === 'buyer' ? 'buyer-dashboard' : 'farmer-dashboard');
 };
 
 window.registerUser = function() {
+  const fname   = (document.getElementById('signup-fname')?.value || '').trim();
+  const lname   = (document.getElementById('signup-lname')?.value || '').trim();
+  const email   = (document.getElementById('signup-email')?.value || '').trim().toLowerCase();
+  const password = document.getElementById('signup-password')?.value || '';
+  const roleEl  = document.querySelector('input[name="signup-role"]:checked');
+  const role    = roleEl?.value || '';
+
+  // Validation
+  const roleError = document.getElementById('signup-role-error');
+  if (!role) {
+    if (roleError) roleError.style.display = 'block';
+    return;
+  }
+  if (roleError) roleError.style.display = 'none';
+
+  const name = [(fname || 'User'), lname].filter(Boolean).join(' ');
+  const userObj = { name, email: email || 'user@agrofarm.com', role, password };
+
+  // Save to users map (mock DB)
+  if (email) {
+    const users = _getUsers();
+    users[email] = userObj;
+    _saveUsers(users);
+  }
+
   appState.isAuthenticated = true;
-  appState.user = { name: "New Farmer", email: "new@example.com" };
+  appState.user  = { name: userObj.name, email: userObj.email };
+  appState.role  = role;
+  _saveSession();
   window.updateNavbarUI();
-  window.navigate('dashboard');
+  window.navigate(role === 'buyer' ? 'buyer-dashboard' : 'farmer-dashboard');
 };
 
 window.logoutUser = function() {
   appState.isAuthenticated = false;
   appState.user = null;
+  appState.role = null;
+  _saveSession();
   window.updateNavbarUI();
   window.navigate('landing');
 };
 
 window.updateNavbarUI = function() {
-  const authButtons = document.getElementById('nav-auth-buttons');
-  const userMenu = document.getElementById('nav-user-menu');
-  const authOnlyItems = document.querySelectorAll('.auth-only');
+  const authButtons    = document.getElementById('nav-auth-buttons');
+  const userMenu       = document.getElementById('nav-user-menu');
   const guestOnlyItems = document.querySelectorAll('.guest-only');
+  const farmerItems    = document.querySelectorAll('.farmer-only');
+  const buyerItems     = document.querySelectorAll('.buyer-only');
 
   if (appState.isAuthenticated) {
     // Hide guest controls
     if (authButtons) authButtons.style.display = 'none';
     guestOnlyItems.forEach(el => el.style.display = 'none');
 
-    // Show auth nav items
-    authOnlyItems.forEach(el => el.style.display = 'block');
+    // Show role-specific nav
+    const isFarmer = appState.role === 'farmer';
+    farmerItems.forEach(el => el.style.display = isFarmer ? 'block' : 'none');
+    buyerItems.forEach(el  => el.style.display = isFarmer ? 'none' : 'block');
 
-    // Show avatar menu & populate with user data
+    // Populate avatar menu
     if (userMenu) {
       userMenu.style.display = 'flex';
-      const name = appState.user?.name || 'User';
-      const email = appState.user?.email || '';
+      const name    = appState.user?.name || 'User';
+      const email   = appState.user?.email || '';
       const initials = name.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2);
-      const avatarEl = document.getElementById('user-avatar-initials');
-      const nameEl = document.getElementById('user-menu-name');
-      const emailEl = document.getElementById('user-menu-email');
+      const role    = appState.role || 'farmer';
+
+      const avatarEl  = document.getElementById('user-avatar-initials');
+      const nameEl    = document.getElementById('user-menu-name');
+      const emailEl   = document.getElementById('user-menu-email');
+      const badgeEl   = document.getElementById('user-role-badge');
+      const dashLink  = document.getElementById('nav-dashboard-link');
+
       if (avatarEl) avatarEl.textContent = initials;
-      if (nameEl) nameEl.textContent = name;
-      if (emailEl) emailEl.textContent = email;
+      if (nameEl)   nameEl.textContent   = name;
+      if (emailEl)  emailEl.textContent  = email;
+
+      // Role badge in dropdown
+      if (badgeEl) {
+        badgeEl.className = `role-badge role-badge-${role}`;
+        badgeEl.textContent = role === 'buyer' ? '🛒 Buyer' : '🌾 Farmer';
+      }
+
+      // Avatar button: buyer gets amber ring
+      const avatarBtn = document.getElementById('user-avatar-btn');
+      if (avatarBtn) {
+        avatarBtn.style.borderColor = role === 'buyer' ? '#f59e0b' : 'var(--color-primary-fixed)';
+      }
+
+      // Dashboard link in dropdown
+      if (dashLink) {
+        dashLink.dataset.route = role === 'buyer' ? 'buyer-dashboard' : 'farmer-dashboard';
+      }
     }
   } else {
     // Restore guest controls
     if (authButtons) authButtons.style.display = 'flex';
     if (userMenu) userMenu.style.display = 'none';
     guestOnlyItems.forEach(el => el.style.display = 'flex');
-    authOnlyItems.forEach(el => el.style.display = 'none');
+    farmerItems.forEach(el  => el.style.display = 'none');
+    buyerItems.forEach(el   => el.style.display = 'none');
   }
 };
 
@@ -968,4 +1351,33 @@ window.handleImageUpload = function(input) {
       window.showDiagnosisTab('info');
     }, 2500);
   }
+};
+
+// ─── Role card visual selection ───────────────────────────────────────
+window.selectRole = function(role) {
+  const farmerLabel = document.getElementById('role-farmer-label');
+  const buyerLabel  = document.getElementById('role-buyer-label');
+  const farmerRadio = document.getElementById('signup-role-farmer');
+  const buyerRadio  = document.getElementById('signup-role-buyer');
+  const errorEl     = document.getElementById('signup-role-error');
+
+  if (!farmerLabel || !buyerLabel) return;
+
+  // Reset both cards
+  farmerLabel.style.borderColor = 'var(--color-outline-variant)';
+  farmerLabel.style.background  = '';
+  buyerLabel.style.borderColor  = 'var(--color-outline-variant)';
+  buyerLabel.style.background   = '';
+
+  if (role === 'farmer') {
+    farmerLabel.style.borderColor = 'var(--color-primary)';
+    farmerLabel.style.background  = 'var(--color-primary-fixed)';
+    if (farmerRadio) farmerRadio.checked = true;
+  } else {
+    buyerLabel.style.borderColor = 'var(--color-buyer-accent)';
+    buyerLabel.style.background  = 'var(--color-buyer-container)';
+    if (buyerRadio) buyerRadio.checked = true;
+  }
+
+  if (errorEl) errorEl.style.display = 'none';
 };

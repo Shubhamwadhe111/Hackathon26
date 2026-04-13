@@ -20,59 +20,92 @@
           </div>
           <div class="nav-links" id="main-nav-links" style="gap: 1.5rem; align-items: center;">
             <a href="#" data-route="landing" class="nav-link active">Home</a>
+
+            <!-- Guest only -->
             <div class="guest-only" style="display: flex; align-items: center; gap: 1.5rem;">
               <a href="#" data-route="about" class="nav-link">About</a>
               <a href="#" data-route="features" class="nav-link">Features</a>
             </div>
 
-            <div class="nav-item auth-only" style="display: none;">
+            <!-- ── FARMER-ONLY nav items ── -->
+            <div class="nav-item farmer-only" style="display: none;">
               <a href="#" data-route="form" class="nav-link">AI Diagnosis</a>
               <div class="dropdown-menu glass">
-                <a href="#" class="dropdown-link">Soil Analysis</a>
-                <a href="#" class="dropdown-link">Crop Recommendation</a>
-                <a href="#" class="dropdown-link">Disease Detection</a>
-                <a href="#" class="dropdown-link">Fertilizer Suggestion</a>
-                <a href="#" class="dropdown-link">Irrigation Advice</a>
+                <a href="#" data-route="form" class="dropdown-link">🌱 Soil Analysis</a>
+                <a href="#" data-route="form" class="dropdown-link">🌾 Crop Recommendation</a>
+                <a href="#" data-route="diagnosis" class="dropdown-link">🔬 Disease Detection</a>
+                <a href="#" class="dropdown-link">💧 Fertilizer Suggestion</a>
+                <a href="#" class="dropdown-link">🚿 Irrigation Advice</a>
               </div>
             </div>
 
-            <div class="nav-item auth-only" style="display: none;">
+            <div class="nav-item farmer-only" style="display: none;">
               <a href="#" data-route="market" class="nav-link">Market Prices</a>
               <div class="dropdown-menu glass">
-                <a href="#" class="dropdown-link">Today's Mandi Prices</a>
-                <a href="#" class="dropdown-link">Price Trends</a>
-                <a href="#" class="dropdown-link">Demand Forecast</a>
-                <a href="#" class="dropdown-link">Nearby Buyers</a>
-                <a href="#" class="dropdown-link">Sell Crop</a>
+                <a href="#" data-route="market" class="dropdown-link">📊 Today's Mandi Prices</a>
+                <a href="#" class="dropdown-link">📈 Price Trends</a>
+                <a href="#" class="dropdown-link">📉 Demand Forecast</a>
+                <a href="#" data-route="buyers" class="dropdown-link">🤝 Nearby Buyers</a>
+                <a href="#" class="dropdown-link">💰 Sell Crop</a>
               </div>
             </div>
 
-            <div class="nav-item auth-only" style="display: none;">
-              <a href="#" class="nav-link">Guide</a>
+            <div class="nav-item farmer-only" style="display: none;">
+              <a href="#" data-route="knowledge" class="nav-link">Guide</a>
               <div class="dropdown-menu glass">
-                <a href="#" class="dropdown-link">Crop Growing Guide</a>
-                <a href="#" class="dropdown-link">Seasonal Planner</a>
-                <a href="#" class="dropdown-link">Government Schemes</a>
-                <a href="#" class="dropdown-link">Farming Tips</a>
-                <a href="#" class="dropdown-link">Video Tutorials</a>
+                <a href="#" data-route="knowledge" class="dropdown-link">📚 Crop Growing Guide</a>
+                <a href="#" class="dropdown-link">🗓️ Seasonal Planner</a>
+                <a href="#" class="dropdown-link">🏛️ Government Schemes</a>
+                <a href="#" class="dropdown-link">💡 Farming Tips</a>
+                <a href="#" class="dropdown-link">🎬 Video Tutorials</a>
               </div>
             </div>
 
-            <div class="nav-item auth-only" style="display: none;">
+            <div class="nav-item farmer-only" style="display: none;">
               <a href="#" data-route="community" class="nav-link">Community</a>
               <div class="dropdown-menu glass">
-                <a href="#" class="dropdown-link">Discussion Forum</a>
-                <a href="#" class="dropdown-link">Ask Expert</a>
-                <a href="#" class="dropdown-link">Success Stories</a>
-                <a href="#" class="dropdown-link">Local Farmer Groups</a>
+                <a href="#" data-route="community" class="dropdown-link">💬 Discussion Forum</a>
+                <a href="#" class="dropdown-link">🎓 Ask Expert</a>
+                <a href="#" class="dropdown-link">🏆 Success Stories</a>
+                <a href="#" class="dropdown-link">👥 Local Farmer Groups</a>
               </div>
             </div>
 
-            <!-- Profile (Auth Only) -->
-            <div class="nav-item auth-only" style="display: none;">
-              <a href="#" data-route="dashboard" class="nav-link">Dashboard</a>
+            <div class="nav-item farmer-only" style="display: none;">
+              <a href="#" data-route="farmer-dashboard" class="nav-link">Dashboard</a>
             </div>
 
+            <!-- ── BUYER-ONLY nav items ── -->
+            <div class="nav-item buyer-only" style="display: none;">
+              <a href="#" data-route="market" class="nav-link">Market Prices</a>
+              <div class="dropdown-menu glass">
+                <a href="#" data-route="market" class="dropdown-link">📊 Live Mandi Rates</a>
+                <a href="#" class="dropdown-link">📈 Price Trends</a>
+                <a href="#" class="dropdown-link">📉 Demand Forecast</a>
+              </div>
+            </div>
+
+            <div class="nav-item buyer-only" style="display: none;">
+              <a href="#" data-route="buyers" class="nav-link">Browse Crops</a>
+              <div class="dropdown-menu glass">
+                <a href="#" data-route="buyers" class="dropdown-link">🌾 Available Listings</a>
+                <a href="#" class="dropdown-link">🔍 Search by Crop</a>
+                <a href="#" class="dropdown-link">📍 Search by Location</a>
+              </div>
+            </div>
+
+            <div class="nav-item buyer-only" style="display: none;">
+              <a href="#" class="nav-link">Orders</a>
+              <div class="dropdown-menu glass">
+                <a href="#" class="dropdown-link">📦 Order History</a>
+                <a href="#" class="dropdown-link">🔔 Price Alerts</a>
+                <a href="#" class="dropdown-link">❤️ Saved Listings</a>
+              </div>
+            </div>
+
+            <div class="nav-item buyer-only" style="display: none;">
+              <a href="#" data-route="buyer-dashboard" class="nav-link">Dashboard</a>
+            </div>
 
           </div>
           <div style="display: flex; align-items: center; gap: 1rem;">
@@ -85,13 +118,14 @@
               <button id="user-avatar-btn" class="user-avatar-btn" title="My Account">
                 <span id="user-avatar-initials">RJ</span>
               </button>
-              <div class="dropdown-menu glass dropdown-menu-right" style="min-width: 220px; top: calc(100% + 0.75rem);">
-                <div style="padding: 0.75rem 1rem 0.5rem; border-bottom: 1px solid var(--color-surface-container-high); margin-bottom: 0.25rem;">
+              <div class="dropdown-menu glass dropdown-menu-right" style="min-width: 240px; top: calc(100% + 0.75rem);">
+                <div style="padding: 0.75rem 1rem 0.75rem; border-bottom: 1px solid var(--color-surface-container-high); margin-bottom: 0.25rem;">
                   <div id="user-menu-name" style="font-weight: 700; color: var(--color-primary); font-size: 0.95rem;">Ramkishan J.</div>
-                  <div id="user-menu-email" style="font-size: 0.8rem; color: var(--color-on-surface-variant);">farmer@example.com</div>
+                  <div id="user-menu-email" style="font-size: 0.8rem; color: var(--color-on-surface-variant); margin-bottom: 0.5rem;">farmer@example.com</div>
+                  <span id="user-role-badge" class="role-badge role-badge-farmer">🌾 Farmer</span>
                 </div>
                 <a href="#" data-route="profile" class="dropdown-link">👤 My Profile</a>
-                <a href="#" class="dropdown-link">🌾 My Farm Details</a>
+                <a href="#" id="nav-dashboard-link" data-route="farmer-dashboard" class="dropdown-link">🏠 My Dashboard</a>
                 <a href="#" class="dropdown-link">💾 Saved Recommendations</a>
                 <a href="#" class="dropdown-link">🔔 Notifications</a>
                 <div style="border-top: 1px solid var(--color-surface-container-high); margin-top: 0.25rem; padding-top: 0.25rem;">

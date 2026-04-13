@@ -503,3 +503,128 @@ a {
   visibility: visible;
   transform: translateX(0) translateY(0);
 }
+
+/* ─── Role Badges ─────────────────────────────────────────────────── */
+.role-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.9rem;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.role-badge-farmer {
+  background: var(--color-primary-fixed);
+  color: var(--color-primary);
+  border: 1px solid rgba(23,56,9,0.15);
+}
+
+.role-badge-buyer {
+  background: #fff3e0;
+  color: #e65100;
+  border: 1px solid rgba(230,81,0,0.2);
+}
+
+/* Buyer colour variables */
+:root {
+  --color-buyer-primary: #b45309;
+  --color-buyer-accent: #f59e0b;
+  --color-buyer-surface: #fffbeb;
+  --color-buyer-container: #fef3c7;
+}
+
+/* ─── Grid 4-column ───────────────────────────────────────────────── */
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+/* ─── Hover Card ──────────────────────────────────────────────────── */
+.hover-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.hover-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-ambient);
+}
+
+/* ─── Stagger animations ──────────────────────────────────────────── */
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.stagger-1 { animation: slide-up 0.5s ease both; }
+.stagger-2 { animation: slide-up 0.5s 0.1s ease both; }
+.stagger-3 { animation: slide-up 0.5s 0.2s ease both; }
+
+/* ─── Fade-up scroll trigger ─────────────────────────────────────── */
+.fade-up-enter {
+  animation: slide-up 0.6s ease both;
+}
+
+/* ─── Stat Card number ────────────────────────────────────────────── */
+.stat-number {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+/* ─── Quick Action Card ───────────────────────────────────────────── */
+.quick-action-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1.75rem 1rem;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-container-lowest);
+  border: 1px solid var(--color-surface-container-high);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-align: center;
+}
+.quick-action-card:hover {
+  border-color: var(--color-primary);
+  background: var(--color-primary-fixed);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-ambient);
+}
+.quick-action-card .qa-icon {
+  font-size: 2rem;
+}
+.quick-action-card h4 {
+  font-size: 0.95rem;
+  color: var(--color-on-surface);
+}
+
+/* buyer quick-action hover */
+.quick-action-card.buyer-card:hover {
+  border-color: var(--color-buyer-accent);
+  background: var(--color-buyer-container);
+}
+
+/* ─── Progress Bar ────────────────────────────────────────────────── */
+.progress-bar {
+  height: 8px;
+  background: var(--color-surface-container-high);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.progress-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.8s ease;
+}
+
+/* ─── Responsive tweaks ───────────────────────────────────────────── */
+@media (max-width: 700px) {
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
