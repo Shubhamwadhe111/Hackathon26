@@ -774,6 +774,299 @@ const screens = {
       </div>
     </div>
   `,
+  // ─── F2B: Farm-to-Business Hub ──────────────────────────────────────────────
+  f2b: function() {
+    const name = appState.user?.name || 'Farmer';
+    return `
+    <div class="container fade-in spacer-y f2b-page">
+
+      <!-- Header -->
+      <div class="f2b-header">
+        <div>
+          <div class="f2b-badge">🌿 Farm to Business</div>
+          <h2 class="display-font f2b-title">Your Market Hub</h2>
+          <p class="f2b-subtitle">Manage your listings, connect with buyers & close deals — all in one place.</p>
+        </div>
+        <button class="f2b-add-btn" onclick="window.navigate('farmer-dashboard'); setTimeout(()=>window.fdNav('add-crop'),100);">
+          <span>➕</span> Add New Crop
+        </button>
+      </div>
+
+      <!-- Stat Cards Grid -->
+      <div class="f2b-stats-grid">
+        <div class="f2b-stat-card f2b-card-1">
+          <div class="f2b-stat-icon-wrap">📋</div>
+          <div class="f2b-stat-body">
+            <div class="f2b-stat-label">Total Listings</div>
+            <div class="f2b-stat-value">12</div>
+            <div class="f2b-stat-delta">↑ 2 added this week</div>
+          </div>
+          <div class="f2b-stat-trend">
+            <svg viewBox="0 0 60 30" fill="none"><polyline points="0,28 15,18 30,22 45,8 60,4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+
+        <div class="f2b-stat-card f2b-card-2">
+          <div class="f2b-stat-icon-wrap">👥</div>
+          <div class="f2b-stat-body">
+            <div class="f2b-stat-label">Active Buyers</div>
+            <div class="f2b-stat-value">8</div>
+            <div class="f2b-stat-delta">↑ 3 new today</div>
+          </div>
+          <div class="f2b-stat-trend">
+            <svg viewBox="0 0 60 30" fill="none"><polyline points="0,26 15,20 30,14 45,10 60,4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+
+        <div class="f2b-stat-card f2b-card-3">
+          <div class="f2b-stat-icon-wrap">⏳</div>
+          <div class="f2b-stat-body">
+            <div class="f2b-stat-label">Pending Offers</div>
+            <div class="f2b-stat-value">3</div>
+            <div class="f2b-stat-delta">Awaiting your response</div>
+          </div>
+          <div class="f2b-stat-trend">
+            <svg viewBox="0 0 60 30" fill="none"><polyline points="0,16 15,12 30,18 45,10 60,12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+
+        <div class="f2b-stat-card f2b-card-4">
+          <div class="f2b-stat-icon-wrap">💬</div>
+          <div class="f2b-stat-body">
+            <div class="f2b-stat-label">Recent Messages</div>
+            <div class="f2b-stat-value">5</div>
+            <div class="f2b-stat-delta">↑ 2 unread</div>
+          </div>
+          <div class="f2b-stat-trend">
+            <svg viewBox="0 0 60 30" fill="none"><polyline points="0,24 15,14 30,20 45,8 60,6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Two-column lower section -->
+      <div class="f2b-lower">
+
+        <!-- Recent Listings -->
+        <div class="f2b-panel">
+          <div class="f2b-panel-head">
+            <span class="f2b-panel-title">🌾 My Active Listings</span>
+            <button class="f2b-link-btn" onclick="window.navigate('farmer-dashboard'); setTimeout(()=>window.fdNav('listings'),100);">View All →</button>
+          </div>
+          <div class="f2b-table-wrap">
+            <table class="f2b-table">
+              <thead><tr><th>Crop</th><th>Qty (Qtl)</th><th>Price/Qtl</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td><strong>🌾 Wheat</strong></td><td>50</td><td style="font-weight:700;color:#2d5a1b;">₹2,180</td><td><span class="f2b-status active">● Active</span></td></tr>
+                <tr><td><strong>🌽 Maize</strong></td><td>30</td><td style="font-weight:700;color:#2d5a1b;">₹1,960</td><td><span class="f2b-status active">● Active</span></td></tr>
+                <tr><td><strong>🍅 Tomatoes</strong></td><td>8</td><td style="font-weight:700;color:#2d5a1b;">₹3,200</td><td><span class="f2b-status pending">⏳ Pending</span></td></tr>
+                <tr><td><strong>🌱 Rice</strong></td><td>100</td><td style="font-weight:700;color:#2d5a1b;">₹2,450</td><td><span class="f2b-status sold">✔ Sold</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <button class="f2b-add-btn-sm" onclick="window.navigate('farmer-dashboard'); setTimeout(()=>window.fdNav('add-crop'),100);">➕ Add New Crop</button>
+        </div>
+
+        <!-- Recent Messages -->
+        <div class="f2b-panel">
+          <div class="f2b-panel-head">
+            <span class="f2b-panel-title">💬 Recent Messages</span>
+            <button class="f2b-link-btn" onclick="window.navigate('farmer-dashboard'); setTimeout(()=>window.fdNav('messages'),100);">View All →</button>
+          </div>
+          <div class="f2b-msgs">
+            <div class="f2b-msg unread">
+              <div class="f2b-msg-av">RK</div>
+              <div class="f2b-msg-body">
+                <div class="f2b-msg-name">Ramesh Kumar <span class="f2b-unread-dot"></span></div>
+                <div class="f2b-msg-txt">Interested in your Wheat listing. Can you confirm the grade?</div>
+                <div class="f2b-msg-time">2 hours ago</div>
+              </div>
+            </div>
+            <div class="f2b-msg unread">
+              <div class="f2b-msg-av">AG</div>
+              <div class="f2b-msg-body">
+                <div class="f2b-msg-name">AgriCorp Ltd. <span class="f2b-unread-dot"></span></div>
+                <div class="f2b-msg-txt">We'd like to discuss bulk purchase of 500 quintals of Maize.</div>
+                <div class="f2b-msg-time">5 hours ago</div>
+              </div>
+            </div>
+            <div class="f2b-msg">
+              <div class="f2b-msg-av">SJ</div>
+              <div class="f2b-msg-body">
+                <div class="f2b-msg-name">Suresh Jha</div>
+                <div class="f2b-msg-txt">Thank you for the prompt delivery! Will definitely buy again.</div>
+                <div class="f2b-msg-time">Yesterday</div>
+              </div>
+            </div>
+            <div class="f2b-msg">
+              <div class="f2b-msg-av">PL</div>
+              <div class="f2b-msg-body">
+                <div class="f2b-msg-name">Priya Logistics</div>
+                <div class="f2b-msg-txt">Looking for 20 quintals of rice. Do you have stock available?</div>
+                <div class="f2b-msg-time">2 days ago</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Pending Offers Banner -->
+      <div class="f2b-offers-banner">
+        <div class="f2b-offers-left">
+          <span style="font-size:2rem;">⏳</span>
+          <div>
+            <div class="f2b-offers-title">3 Pending Offers Awaiting Response</div>
+            <div class="f2b-offers-sub">AgriCrop Logistics, GreenField Procurements & Local Co-op #44 have made offers on your crops.</div>
+          </div>
+        </div>
+        <button class="f2b-offers-btn" onclick="window.navigate('farmer-dashboard'); setTimeout(()=>window.fdNav('requests'),100);">Review Offers →</button>
+      </div>
+
+    </div>`;
+  },
+
+  // ─── B2F: Business-to-Farm Hub ──────────────────────────────────────────────
+  b2f: function() {
+    const name = appState.user?.name || 'Buyer';
+    return `
+    <div class="container fade-in spacer-y b2f-page">
+
+      <!-- Header -->
+      <div class="b2f-header">
+        <div>
+          <div class="b2f-badge">🛒 Business to Farm</div>
+          <h2 class="display-font b2f-title">Procurement Hub</h2>
+          <p class="b2f-subtitle">Find high-quality produce, track your orders & negotiate deals directly with farmers.</p>
+        </div>
+        <button class="b2f-add-btn" onclick="window.navigate('market')">
+          <span>🔍</span> Browse New Crops
+        </button>
+      </div>
+
+      <!-- Stat Cards Grid -->
+      <div class="b2f-stats-grid">
+        <div class="b2f-stat-card b2f-card-1">
+          <div class="b2f-stat-icon-wrap">📦</div>
+          <div class="b2f-stat-body">
+            <div class="b2f-stat-label">Active Orders</div>
+            <div class="b2f-stat-value">5</div>
+            <div class="b2f-stat-delta">↑ 2 out for delivery</div>
+          </div>
+          <div class="b2f-stat-trend">
+            <svg viewBox="0 0 60 30" fill="none"><polyline points="0,28 15,18 30,22 45,8 60,4" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+
+        <div class="b2f-stat-card b2f-card-2">
+          <div class="b2f-stat-icon-wrap">🤝</div>
+          <div class="b2f-stat-body">
+            <div class="b2f-stat-label">Negotiations</div>
+            <div class="b2f-stat-value">3</div>
+            <div class="b2f-stat-delta">↑ 1 offer received</div>
+          </div>
+          <div class="b2f-stat-trend">
+            <svg viewBox="0 0 60 30" fill="none"><polyline points="0,26 15,20 30,14 45,10 60,4" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+
+        <div class="b2f-stat-card b2f-card-3">
+          <div class="b2f-stat-icon-wrap">📑</div>
+          <div class="b2f-stat-body">
+            <div class="b2f-stat-label">Pending Quotes</div>
+            <div class="b2f-stat-value">8</div>
+            <div class="b2f-stat-delta">Awaiting seller response</div>
+          </div>
+          <div class="b2f-stat-trend">
+            <svg viewBox="0 0 60 30" fill="none"><polyline points="0,16 15,12 30,18 45,10 60,12" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+
+        <div class="b2f-stat-card b2f-card-4">
+          <div class="b2f-stat-icon-wrap">❤️</div>
+          <div class="b2f-stat-body">
+            <div class="b2f-stat-label">Saved Farmers</div>
+            <div class="b2f-stat-value">12</div>
+            <div class="b2f-stat-delta">↑ 3 new listings</div>
+          </div>
+          <div class="b2f-stat-trend">
+            <svg viewBox="0 0 60 30" fill="none"><polyline points="0,24 15,14 30,20 45,8 60,6" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Two-column lower section -->
+      <div class="b2f-lower">
+
+        <!-- Recent Procurement -->
+        <div class="b2f-panel">
+          <div class="b2f-panel-head">
+            <span class="b2f-panel-title">📉 Recent Procurement</span>
+            <button class="b2f-link-btn" onclick="window.navigate('buyer-dashboard')">Track Orders →</button>
+          </div>
+          <div class="b2f-table-wrap">
+            <table class="b2f-table">
+              <thead><tr><th>Farmer</th><th>Crop</th><th>Qty (Qtl)</th><th>Total Price</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td><strong>G. Deshmukh</strong></td><td>🌾 Wheat</td><td>100</td><td style="font-weight:700;color:#164e6e;">₹2.18L</td><td><span class="b2f-status active">● Shipped</span></td></tr>
+                <tr><td><strong>R. Patil</strong></td><td>🌽 Maize</td><td>50</td><td style="font-weight:700;color:#164e6e;">₹0.98L</td><td><span class="b2f-status active">● Confirmed</span></td></tr>
+                <tr><td><strong>S. More</strong></td><td>🍅 Tomatoes</td><td>5</td><td style="font-weight:700;color:#164e6e;">₹0.16L</td><td><span class="b2f-status pending">⏳ Verifying</span></td></tr>
+                <tr><td><strong>M. Pawar</strong></td><td>🌱 Rice</td><td>200</td><td style="font-weight:700;color:#164e6e;">₹4.90L</td><td><span class="b2f-status sold">✔ Delivered</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Recent Seller Chat -->
+        <div class="b2f-panel">
+          <div class="b2f-panel-head">
+            <span class="b2f-panel-title">💬 Seller Chat</span>
+            <button class="b2f-link-btn">View All →</button>
+          </div>
+          <div class="b2f-msgs">
+            <div class="b2f-msg unread">
+              <div class="b2f-msg-av">GD</div>
+              <div class="b2f-msg-body">
+                <div class="b2f-msg-name">Ganpat Deshmukh <span class="b2f-unread-dot"></span></div>
+                <div class="b2f-msg-txt">Sent the dispatch documents for your Wheat order.</div>
+                <div class="b2f-msg-time">1 hour ago</div>
+              </div>
+            </div>
+            <div class="b2f-msg unread">
+              <div class="b2f-msg-av">RP</div>
+              <div class="b2f-msg-body">
+                <div class="b2f-msg-name">Rajesh Patil <span class="b2f-unread-dot"></span></div>
+                <div class="b2f-msg-txt">Can you confirm the payment for the last cycle?</div>
+                <div class="b2f-msg-time">4 hours ago</div>
+              </div>
+            </div>
+            <div class="b2f-msg">
+              <div class="b2f-msg-av">SM</div>
+              <div class="b2f-msg-body">
+                <div class="b2f-msg-name">Sanjay More</div>
+                <div class="b2f-msg-txt">Will provide a better quote for organic 🍅 tomorrow.</div>
+                <div class="b2f-msg-time">Yesterday</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Global Sourcing Banner -->
+      <div class="b2f-banner">
+        <div class="b2f-banner-left">
+          <span style="font-size:2rem;">🌍</span>
+          <div>
+            <div class="b2f-banner-title">Join Global Sourcing Program</div>
+            <div class="b2f-banner-sub">Aggregate requirements with other buyers to get lower bulk prices from farmer cooperatives.</div>
+          </div>
+        </div>
+        <button class="b2f-banner-btn">Learn More →</button>
+      </div>
+
+    </div>`;
+  },
+
   // ─── 'dashboard' smart redirect (kept for backwards-compat button links) ───
   dashboard: function() {
     if (appState.role === 'buyer') { window.navigate('buyer-dashboard'); }
@@ -781,161 +1074,303 @@ const screens = {
     return '<div></div>'; // placeholder while redirect happens
   },
 
-  // ─── FARMER DASHBOARD ──────────────────────────────────────────────────────
+  // ─── FARMER DASHBOARD (Clean Container Layout) ──────────────────────────────
   'farmer-dashboard': function() {
-    const name = appState.user?.name || 'Farmer';
-    return `
-    <div class="container fade-in spacer-y">
+    const name     = appState.user?.name || 'Farmer';
+    const initials = name.split(' ').map(n => n[0]).join('').toUpperCase().slice(0,2);
+    const sec      = appState._fdSection || 'home';
 
-      <!-- Header -->
-      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem;">
+    /* ── Internal Tab Bar ── */
+    const tabNav = `
+      <div class="fd-tabs-container">
+        <div class="fd-tab-item ${sec === 'home' ? 'active' : ''}" onclick="window.fdNav('home')">Overview</div>
+        <div class="fd-tab-item ${sec === 'listings' ? 'active' : ''}" onclick="window.fdNav('listings')">My Listings</div>
+        <div class="fd-tab-item ${sec === 'add-crop' ? 'active' : ''}" onclick="window.fdNav('add-crop')">Add New Crop</div>
+        <div class="fd-tab-item ${sec === 'requests' ? 'active' : ''}" onclick="window.fdNav('requests')">Buyer Requests</div>
+        <div class="fd-tab-item ${sec === 'messages' ? 'active' : ''}" onclick="window.fdNav('messages')">Messages</div>
+        <div class="fd-tab-item ${sec === 'profile' ? 'active' : ''}" onclick="window.fdNav('profile')">Profile Settings</div>
+      </div>
+    `;
+
+    /* ── Section content renderers ── */
+
+    const sectionHome = `
+      <div class="fd-section-header">
         <div>
-          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem;">
-            <h2 class="display-font" style="font-size: 2.5rem; margin: 0;">Farmer Dashboard</h2>
-            <span class="role-badge role-badge-farmer">🌾 Farmer</span>
-          </div>
-          <p style="color: var(--color-on-surface-variant);">Welcome back, <strong>${name}</strong>. Your farm overview is ready.</p>
+          <div class="fd-section-title">Good morning, ${name.split(' ')[0]}! 👋</div>
+          <div class="fd-section-sub">Here's what's happening on your farm today.</div>
         </div>
-        <div style="display: flex; gap: 0.75rem;">
-          <button class="btn btn-secondary" onclick="window.navigate('profile')">👤 My Profile</button>
-          <button class="btn btn-primary" onclick="window.navigate('form')">+ New Analysis</button>
-        </div>
+        <button class="fd-btn-primary" onclick="window.fdNav('add-crop')">
+          ➕ Add New Crop
+        </button>
       </div>
 
       <!-- Stat Cards -->
-      <div class="grid-4" style="margin-bottom: 2rem;">
-        <div class="card hover-card" style="border-top: 3px solid var(--color-primary); padding: 1.75rem;">
-          <div style="font-size: 1.75rem; margin-bottom: 0.5rem;">🌱</div>
-          <p style="color: var(--color-on-surface-variant); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.25rem;">Soil Status</p>
-          <div class="stat-number" style="color: var(--color-primary);">Optimal</div>
-          <div style="font-size: 0.85rem; color: var(--color-on-surface-variant); margin-top: 0.25rem;">pH 6.5 · N-P-K Balanced</div>
+      <div class="fd-stats-grid">
+        <div class="fd-stat-card" style="border-left-color:#2d5a1b;">
+          <div class="fd-stat-icon">📋</div>
+          <div class="fd-stat-label">Total Listings</div>
+          <div class="fd-stat-value">12</div>
+          <div class="fd-stat-delta up">↑ 2 this week</div>
         </div>
-        <div class="card hover-card" style="border-top: 3px solid var(--color-secondary); padding: 1.75rem;">
-          <div style="font-size: 1.75rem; margin-bottom: 0.5rem;">🧠</div>
-          <p style="color: var(--color-on-surface-variant); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.25rem;">Last Recommendation</p>
-          <div class="stat-number" style="color: var(--color-secondary);">Rice</div>
-          <div style="font-size: 0.85rem; color: var(--color-on-surface-variant); margin-top: 0.25rem;">Kharif Season · 95% match</div>
+        <div class="fd-stat-card" style="border-left-color:#0060a8;">
+          <div class="fd-stat-icon">👥</div>
+          <div class="fd-stat-label">Active Buyers</div>
+          <div class="fd-stat-value">8</div>
+          <div class="fd-stat-delta up">↑ 3 new today</div>
         </div>
-        <div class="card hover-card" style="border-top: 3px solid var(--color-tertiary); padding: 1.75rem;">
-          <div style="font-size: 1.75rem; margin-bottom: 0.5rem;">📈</div>
-          <p style="color: var(--color-on-surface-variant); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.25rem;">Market Update</p>
-          <div class="stat-number" style="color: #137333;">+2.4%</div>
-          <div style="font-size: 0.85rem; color: var(--color-on-surface-variant); margin-top: 0.25rem;">Rice · ₹2,450/qtl today</div>
+        <div class="fd-stat-card" style="border-left-color:#f57f17;">
+          <div class="fd-stat-icon">⏳</div>
+          <div class="fd-stat-label">Pending Offers</div>
+          <div class="fd-stat-value">3</div>
+          <div class="fd-stat-delta" style="color:#f57f17;">Awaiting response</div>
         </div>
-        <div class="card hover-card" style="border-top: 3px solid #0060a8; padding: 1.75rem;">
-          <div style="font-size: 1.75rem; margin-bottom: 0.5rem;">⛅</div>
-          <p style="color: var(--color-on-surface-variant); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.25rem;">Weather</p>
-          <div class="stat-number" style="color: #0060a8;">24°C</div>
-          <div style="font-size: 0.85rem; color: var(--color-on-surface-variant); margin-top: 0.25rem;">High Humidity · Partly Cloudy</div>
-        </div>
-      </div>
-
-      <!-- Quick Actions -->
-      <div class="card" style="margin-bottom: 2rem; background: var(--color-surface-container-low); border: 1px solid var(--color-surface-container-high);">
-        <h3 class="display-font" style="margin-bottom: 1.5rem; color: var(--color-primary);">⚡ Quick Actions</h3>
-        <div class="grid-4" style="gap: 1rem;">
-          <div class="quick-action-card" onclick="window.navigate('form')">
-            <span class="qa-icon">🌱</span>
-            <h4>Assess Soil</h4>
-            <p style="font-size: 0.8rem; color: var(--color-on-surface-variant);">NPK + pH analysis</p>
-          </div>
-          <div class="quick-action-card" onclick="window.navigate('diagnosis')">
-            <span class="qa-icon">🔬</span>
-            <h4>Disease Diagnosis</h4>
-            <p style="font-size: 0.8rem; color: var(--color-on-surface-variant);">AI vision scan</p>
-          </div>
-          <div class="quick-action-card" onclick="window.navigate('market')">
-            <span class="qa-icon">📊</span>
-            <h4>Market Prices</h4>
-            <p style="font-size: 0.8rem; color: var(--color-on-surface-variant);">Live mandi rates</p>
-          </div>
-          <div class="quick-action-card" onclick="window.navigate('community')">
-            <span class="qa-icon">👥</span>
-            <h4>Community</h4>
-            <p style="font-size: 0.8rem; color: var(--color-on-surface-variant);">Farmer forum</p>
-          </div>
+        <div class="fd-stat-card" style="border-left-color:#7b1fa2;">
+          <div class="fd-stat-icon">💬</div>
+          <div class="fd-stat-label">Recent Messages</div>
+          <div class="fd-stat-value">5</div>
+          <div class="fd-stat-delta up">↑ 2 unread</div>
         </div>
       </div>
 
-      <!-- AI Insights Panel -->
-      <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; flex-wrap: wrap;">
-        <div class="card" style="border-top: 3px solid var(--color-primary);">
-          <h3 class="display-font" style="margin-bottom: 1.5rem;">🌾 AI Crop Insights</h3>
-          <div style="display: flex; flex-direction: column; gap: 1.25rem;">
-            <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem; background: var(--color-surface-container-low); border-radius: var(--radius-md);">
-              <div style="display: flex; align-items: center; gap: 1rem;">
-                <span style="font-size: 1.75rem;">🌾</span>
-                <div>
-                  <div style="font-weight: 700;">Rice (Paddy)</div>
-                  <div style="font-size: 0.85rem; color: var(--color-on-surface-variant);">Kharif · Est. Yield 4.2 t/ha</div>
-                </div>
-              </div>
-              <span style="background: #e6f4ea; color: #137333; padding: 0.25rem 0.75rem; border-radius: var(--radius-full); font-size: 0.85rem; font-weight: 700;">95% Match</span>
-            </div>
-            <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem; background: var(--color-surface-container-low); border-radius: var(--radius-md);">
-              <div style="display: flex; align-items: center; gap: 1rem;">
-                <span style="font-size: 1.75rem;">🌽</span>
-                <div>
-                  <div style="font-weight: 700;">Maize</div>
-                  <div style="font-size: 0.85rem; color: var(--color-on-surface-variant);">Rabi · Est. Yield 3.1 t/ha</div>
-                </div>
-              </div>
-              <span style="background: var(--color-surface-container-high); color: var(--color-on-surface-variant); padding: 0.25rem 0.75rem; border-radius: var(--radius-full); font-size: 0.85rem; font-weight: 700;">82% Match</span>
-            </div>
-            <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem; background: var(--color-surface-container-low); border-radius: var(--radius-md);">
-              <div style="display: flex; align-items: center; gap: 1rem;">
-                <span style="font-size: 1.75rem;">🌿</span>
-                <div>
-                  <div style="font-weight: 700;">Jute</div>
-                  <div style="font-size: 0.85rem; color: var(--color-on-surface-variant);">Kharif · Est. Yield 2.4 t/ha</div>
-                </div>
-              </div>
-              <span style="background: var(--color-surface-container-high); color: var(--color-on-surface-variant); padding: 0.25rem 0.75rem; border-radius: var(--radius-full); font-size: 0.85rem; font-weight: 700;">76% Match</span>
-            </div>
-          </div>
-          <button class="btn btn-primary" style="width: 100%; margin-top: 1.5rem;" onclick="window.navigate('form')">Run Full Soil Analysis</button>
-        </div>
-
-        <div class="card" style="border-top: 3px solid #0060a8;">
-          <h3 class="display-font" style="margin-bottom: 1.5rem;">🌦 Weather Alert</h3>
-          <div style="text-align: center; padding: 1rem 0;">
-            <div style="font-size: 4rem;">⛅</div>
-            <div style="font-size: 2rem; font-weight: 800; color: #0060a8; font-family: var(--font-display);">24°C</div>
-            <div style="color: var(--color-on-surface-variant); margin-top: 0.5rem;">Partly Cloudy</div>
-          </div>
-          <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1rem; font-size: 0.9rem;">
-            <div style="display: flex; justify-content: space-between;"><span>💧 Humidity</span><strong>65%</strong></div>
-            <div style="display: flex; justify-content: space-between;"><span>🌧 Rainfall (7d)</span><strong>18mm</strong></div>
-            <div style="display: flex; justify-content: space-between;"><span>💨 Wind</span><strong>12 km/h</strong></div>
-            <div style="display: flex; justify-content: space-between;"><span>☀ UV Index</span><strong>Moderate</strong></div>
-          </div>
-          <div style="margin-top: 1.25rem; padding: 0.75rem; background: #e8f5e9; border-radius: var(--radius-md); font-size: 0.85rem; color: #2e7d32;">
-            ✅ Conditions are ideal for irrigation this week.
-          </div>
+      <!-- Recent Activity -->
+      <div class="fd-panel">
+        <div class="fd-panel-title">🌾 My Active Listings</div>
+        <div style="overflow-x:auto;">
+          <table class="fd-table">
+            <thead>
+              <tr>
+                <th>Crop</th><th>Qty (Qtl)</th><th>Price/Qtl</th><th>Status</th><th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>🌾 Wheat</strong></td><td>50</td><td>₹2,180</td>
+                <td><span class="fd-status active">● Active</span></td>
+                <td><button class="fd-btn-secondary" style="font-size:0.8rem;padding:0.4rem 0.8rem;">Edit</button></td>
+              </tr>
+              <tr>
+                <td><strong>🌽 Maize</strong></td><td>30</td><td>₹1,960</td>
+                <td><span class="fd-status active">● Active</span></td>
+                <td><button class="fd-btn-secondary" style="font-size:0.8rem;padding:0.4rem 0.8rem;">Edit</button></td>
+              </tr>
+              <tr>
+                <td><strong>🍅 Tomatoes</strong></td><td>8</td><td>₹3,200</td>
+                <td><span class="fd-status pending">⏳ Pending</span></td>
+                <td><button class="fd-btn-secondary" style="font-size:0.8rem;padding:0.4rem 0.8rem;">Edit</button></td>
+              </tr>
+              <tr>
+                <td><strong>🌱 Rice</strong></td><td>100</td><td>₹2,450</td>
+                <td><span class="fd-status sold">✔ Sold</span></td>
+                <td><button class="fd-btn-secondary" style="font-size:0.8rem;padding:0.4rem 0.8rem;">View</button></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
-    </div>
-  `;
+
+      <!-- Recent Messages preview -->
+      <div class="fd-panel">
+        <div class="fd-panel-title">💬 Recent Messages</div>
+        <div class="fd-msg-item fd-msg-unread">
+          <div class="fd-msg-avatar">RK</div>
+          <div>
+            <div class="fd-msg-name">Ramesh Kumar</div>
+            <div class="fd-msg-time">2 hours ago</div>
+            <div class="fd-msg-text">Interested in your Wheat listing. Can you confirm the grade?</div>
+          </div>
+        </div>
+        <div class="fd-msg-item fd-msg-unread">
+          <div class="fd-msg-avatar">AG</div>
+          <div>
+            <div class="fd-msg-name">AgriCorp Ltd.</div>
+            <div class="fd-msg-time">5 hours ago</div>
+            <div class="fd-msg-text">We'd like to discuss bulk purchase of 500 quintals of Maize.</div>
+          </div>
+        </div>
+        <div class="fd-msg-item">
+          <div class="fd-msg-avatar">SJ</div>
+          <div>
+            <div class="fd-msg-name">Suresh Jha</div>
+            <div class="fd-msg-time">Yesterday</div>
+            <div class="fd-msg-text">Thank you for the prompt delivery!</div>
+          </div>
+        </div>
+        <button class="fd-btn-secondary" style="margin-top:1rem;" onclick="window.fdNav('messages')">View All Messages →</button>
+      </div>`;
+
+    const sectionAddCrop = `
+      <div class="fd-section-header">
+        <div>
+          <div class="fd-section-title">➕ Add New Crop</div>
+          <div class="fd-section-sub">List your produce for buyers to discover and connect.</div>
+        </div>
+      </div>
+
+      <div class="fd-panel">
+        <div class="fd-panel-title">🌾 Crop Details</div>
+        <div class="fd-form-grid" style="margin-bottom:1.25rem;">
+          <div class="fd-form-group">
+            <label>Crop Name *</label>
+            <input type="text" id="nc-crop" placeholder="e.g. Wheat, Rice, Tomato">
+          </div>
+          <div class="fd-form-group">
+            <label>Crop Category</label>
+            <select id="nc-category">
+              <option value="">Select category</option>
+              <option>Grains & Cereals</option>
+              <option>Vegetables</option>
+              <option>Pulses & Legumes</option>
+            </select>
+          </div>
+          <div class="fd-form-group">
+            <label>Quantity Available (Quintals) *</label>
+            <input type="number" id="nc-qty" placeholder="e.g. 50">
+          </div>
+          <div class="fd-form-group">
+            <label>Price per Quintal (₹) *</label>
+            <input type="number" id="nc-price" placeholder="e.g. 2200">
+          </div>
+        </div>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+          <button class="fd-btn-primary" onclick="window.fdSubmitCrop()">🌾 Publish Listing</button>
+          <button class="fd-btn-secondary" onclick="window.fdNav('home')">Cancel</button>
+        </div>
+      </div>`;
+
+    const sectionListings = `
+      <div class="fd-section-header">
+        <div>
+          <div class="fd-section-title">📋 My Listings</div>
+          <div class="fd-section-sub">All your active crop listings in one place.</div>
+        </div>
+        <button class="fd-btn-primary" onclick="window.fdNav('add-crop')">➕ Add New Crop</button>
+      </div>
+      <div class="fd-panel">
+        <div style="overflow-x:auto;">
+          <table class="fd-table">
+            <thead>
+              <tr><th>Crop</th><th>Qty (Qtl)</th><th>Price/Qtl</th><th>Status</th><th>Actions</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>🌾 Wheat</strong></td><td>50</td><td>₹2,180</td>
+                <td><span class="fd-status active">● Active</span></td>
+                <td><button class="fd-btn-secondary" style="font-size:0.8rem;padding:0.4rem 0.8rem;">Edit</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>`;
+
+    const sectionRequests = `
+      <div class="fd-section-header">
+        <div>
+          <div class="fd-section-title">🤝 Buyer Requests</div>
+          <div class="fd-section-sub">Buyers interested in your produce.</div>
+        </div>
+      </div>
+      <div class="fd-panel">
+        <div class="fd-request-card">
+          <div>
+            <div style="font-weight:700;font-size:1rem;">AgriCrop Logistics</div>
+            <div style="font-size:0.85rem;color:#666;">Mumbai, MH &nbsp;·&nbsp; Wants: Wheat (30 Qtl)</div>
+            <div style="font-size:0.85rem;margin-top:0.4rem;">Offer: <strong style="color:#2d5a1b;">₹2,250/Qtl</strong></div>
+          </div>
+          <div style="display:flex;gap:0.5rem;">
+            <button class="fd-btn-primary" style="padding:0.55rem 1rem;font-size:0.85rem;">✅ Accept</button>
+            <button class="fd-btn-danger" style="padding:0.55rem 1rem;font-size:0.85rem;">✗ Decline</button>
+          </div>
+        </div>
+      </div>`;
+
+    const sectionMessages = `
+      <div class="fd-section-header">
+        <div>
+          <div class="fd-section-title">💬 Messages</div>
+          <div class="fd-section-sub">Communicate directly with buyers.</div>
+        </div>
+      </div>
+      <div class="fd-panel">
+        <div class="fd-msg-item">
+          <div class="fd-msg-avatar">RK</div>
+          <div style="flex:1;">
+            <div style="display:flex;justify-content:space-between;"><span class="fd-msg-name">Ramesh Kumar</span><span class="fd-msg-time">2h ago</span></div>
+            <div class="fd-msg-text">Interested in your Wheat listing. Can you confirm the grade?</div>
+            <button class="fd-btn-secondary" style="margin-top:0.5rem;font-size:0.8rem;padding:0.35rem 0.8rem;">Reply</button>
+          </div>
+        </div>
+      </div>`;
+
+    const sectionProfile = `
+      <div class="fd-section-header">
+        <div>
+          <div class="fd-section-title">👤 My Profile</div>
+          <div class="fd-section-sub">Manage your farmer account details.</div>
+        </div>
+        <button class="fd-btn-primary">💾 Save Changes</button>
+      </div>
+        </div>
+        <div class="fd-form-group">
+          <label>Bio / About Your Farm</label>
+          <textarea rows="3" placeholder="Tell buyers about your farming practices..."></textarea>
+        </div>
+      </div>`;
+
+    const sections = { home: sectionHome, 'add-crop': sectionAddCrop, listings: sectionListings, requests: sectionRequests, messages: sectionMessages, profile: sectionProfile };
+    const activeSection = sections[sec] || sectionHome;
+
+    return `
+    <div class="fd-shell">
+      ${sidebar}
+
+      <!-- Mobile overlay -->
+      <div class="fd-overlay" id="fd-overlay" onclick="window.fdCloseSidebar()"></div>
+
+      <!-- Mobile FAB toggle -->
+      <button class="fd-mobile-toggle" id="fd-toggle" onclick="window.fdToggleSidebar()" title="Menu">☰</button>
+
+      <!-- Main content -->
+      <main class="fd-main">
+        <div class="container spacer-y">
+          ${tabNav}
+          ${activeSection}
+        </div>
+      </main>
+    </div>`;
   },
 
   // ─── BUYER DASHBOARD ────────────────────────────────────────────────────────
   'buyer-dashboard': function() {
     const name = appState.user?.name || 'Buyer';
-    return `
-    <div class="container fade-in spacer-y">
+    const sec  = appState._bdSection || 'home';
 
+    /* ── Internal Tab Bar (Buyer) ── */
+    const tabNav = `
+      <div class="fd-tabs-container b2f-tabs">
+        <div class="fd-tab-item ${sec === 'home' ? 'active' : ''}" onclick="window.bdNav('home')">Overview</div>
+        <div class="fd-tab-item ${sec === 'orders' ? 'active' : ''}" onclick="window.bdNav('orders')">My Orders</div>
+        <div class="fd-tab-item ${sec === 'procurement' ? 'active' : ''}" onclick="window.bdNav('procurement')">Procurement</div>
+        <div class="fd-tab-item ${sec === 'negotiations' ? 'active' : ''}" onclick="window.bdNav('negotiations')">Negotiations</div>
+        <div class="fd-tab-item ${sec === 'messages' ? 'active' : ''}" onclick="window.bdNav('messages')">Messages</div>
+      </div>
+    `;
+
+    /* ── Buyer Section Content ── */
+    const sectionHome = `
+    <div class="fade-in">
       <!-- Header -->
       <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem;">
         <div>
           <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem;">
             <h2 class="display-font" style="font-size: 2.5rem; margin: 0;">Buyer Dashboard</h2>
-            <span class="role-badge role-badge-buyer">🛒 Buyer</span>
+            <span class="role-badge role-badge-buyer">Buyer</span>
           </div>
           <p style="color: var(--color-on-surface-variant);">Welcome back, <strong>${name}</strong>. Here's today's market snapshot.</p>
         </div>
         <div style="display: flex; gap: 0.75rem;">
-          <button class="btn btn-secondary" onclick="window.navigate('buyers')">🌾 Browse Crops</button>
-          <button class="btn" style="background: var(--color-buyer-accent); color: #fff; font-weight: 600;" onclick="window.navigate('market')">📊 Live Prices</button>
+          <button class="btn btn-secondary" onclick="window.navigate('buyers')">Browse Crops</button>
+          <button class="btn" style="background: var(--color-buyer-accent); color: #fff; font-weight: 600;" onclick="window.navigate('market')">Live Prices</button>
         </div>
       </div>
 
@@ -967,249 +1402,70 @@ const screens = {
         </div>
       </div>
 
-      <!-- Quick Actions -->
-      <div class="card" style="margin-bottom: 2rem; background: var(--color-buyer-surface); border: 1px solid var(--color-buyer-container);">
-        <h3 class="display-font" style="margin-bottom: 1.5rem; color: var(--color-buyer-primary);">⚡ Quick Actions</h3>
-        <div class="grid-4" style="gap: 1rem;">
-          <div class="quick-action-card buyer-card" onclick="window.navigate('buyers')">
-            <span class="qa-icon">🌾</span>
-            <h4>Browse Crops</h4>
-            <p style="font-size: 0.8rem; color: var(--color-on-surface-variant);">Find fresh listings</p>
-          </div>
-          <div class="quick-action-card buyer-card" onclick="window.navigate('market')">
-            <span class="qa-icon">📊</span>
-            <h4>Market Prices</h4>
-            <p style="font-size: 0.8rem; color: var(--color-on-surface-variant);">Live mandi rates</p>
-          </div>
-          <div class="quick-action-card buyer-card" onclick="window.navigate('buyers')">
-            <span class="qa-icon">🤝</span>
-            <h4>Buyer Network</h4>
-            <p style="font-size: 0.8rem; color: var(--color-on-surface-variant);">Connect with sellers</p>
-          </div>
-          <div class="quick-action-card buyer-card">
-            <span class="qa-icon">📦</span>
-            <h4>Order History</h4>
-            <p style="font-size: 0.8rem; color: var(--color-on-surface-variant);">Track past orders</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Available Crops + Demand Panel -->
+      <!-- Content Grid -->
       <div style="display: grid; grid-template-columns: 3fr 2fr; gap: 2rem;">
         <div class="card" style="border-top: 3px solid var(--color-buyer-accent);">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
-            <h3 class="display-font">🌾 Featured Crop Listings</h3>
+            <h3 class="display-font">Featured Crop Listings</h3>
             <button class="btn btn-secondary" style="padding: 0.4rem 1rem; font-size: 0.85rem;" onclick="window.navigate('buyers')">View All →</button>
           </div>
           <div style="display: flex; flex-direction: column; gap: 1rem;">
-            <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.25rem; background: var(--color-buyer-surface); border-radius: var(--radius-md); border: 1px solid var(--color-buyer-container);">
-              <div style="display: flex; align-items: center; gap: 1rem;">
-                <span style="font-size: 1.75rem;">🌾</span>
-                <div>
-                  <div style="font-weight: 700;">Wheat · Grade A</div>
-                  <div style="font-size: 0.85rem; color: var(--color-on-surface-variant);">📍 Pune, MH · 15 tons available</div>
-                </div>
-              </div>
-              <div style="text-align: right;">
-                <div style="font-weight: 800; font-size: 1.1rem; color: var(--color-buyer-primary);">₹2,180<span style="font-size: 0.8rem; font-weight: 400;">/qtl</span></div>
-                <button class="btn btn-secondary" style="padding: 0.3rem 0.75rem; font-size: 0.8rem; margin-top: 0.4rem;">Contact</button>
-              </div>
-            </div>
-            <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.25rem; background: var(--color-buyer-surface); border-radius: var(--radius-md); border: 1px solid var(--color-buyer-container);">
-              <div style="display: flex; align-items: center; gap: 1rem;">
-                <span style="font-size: 1.75rem;">🌽</span>
-                <div>
-                  <div style="font-weight: 700;">Maize · Feed Grade</div>
-                  <div style="font-size: 0.85rem; color: var(--color-on-surface-variant);">📍 Nashik, MH · 40 tons available</div>
-                </div>
-              </div>
-              <div style="text-align: right;">
-                <div style="font-weight: 800; font-size: 1.1rem; color: var(--color-buyer-primary);">₹1,960<span style="font-size: 0.8rem; font-weight: 400;">/qtl</span></div>
-                <button class="btn btn-secondary" style="padding: 0.3rem 0.75rem; font-size: 0.8rem; margin-top: 0.4rem;">Contact</button>
-              </div>
-            </div>
-            <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.25rem; background: var(--color-buyer-surface); border-radius: var(--radius-md); border: 1px solid var(--color-buyer-container);">
-              <div style="display: flex; align-items: center; gap: 1rem;">
-                <span style="font-size: 1.75rem;">🍅</span>
-                <div>
-                  <div style="font-weight: 700;">Tomatoes · Organic</div>
-                  <div style="font-size: 0.85rem; color: var(--color-on-surface-variant);">📍 Mumbai, MH · 8 tons available</div>
-                </div>
-              </div>
-              <div style="text-align: right;">
-                <div style="font-weight: 800; font-size: 1.1rem; color: var(--color-buyer-primary);">₹3,200<span style="font-size: 0.8rem; font-weight: 400;">/qtl</span></div>
-                <button class="btn btn-secondary" style="padding: 0.3rem 0.75rem; font-size: 0.8rem; margin-top: 0.4rem;">Contact</button>
-              </div>
-            </div>
+             <p style="color: var(--color-on-surface-variant)">Syncing global market data...</p>
           </div>
         </div>
-
-        <!-- Demand Tracker -->
-        <div class="card" style="border-top: 3px solid var(--color-primary);">
-          <h3 class="display-font" style="margin-bottom: 1.5rem;">📉 Local Demand</h3>
-          <div style="display: flex; flex-direction: column; gap: 1.25rem;">
-            <div>
-              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                <span style="font-weight: 600;">Rice</span>
-                <span style="color: var(--color-primary); font-weight: 700;">High</span>
-              </div>
-              <div class="progress-bar"><div class="progress-bar-fill" style="width: 85%; background: var(--color-primary);"></div></div>
-            </div>
-            <div>
-              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                <span style="font-weight: 600;">Wheat</span>
-                <span style="color: var(--color-secondary); font-weight: 700;">Moderate</span>
-              </div>
-              <div class="progress-bar"><div class="progress-bar-fill" style="width: 55%; background: var(--color-secondary);"></div></div>
-            </div>
-            <div>
-              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                <span style="font-weight: 600;">Maize</span>
-                <span style="color: #ba1a1a; font-weight: 700;">Low</span>
-              </div>
-              <div class="progress-bar"><div class="progress-bar-fill" style="width: 22%; background: #ba1a1a;"></div></div>
-            </div>
-            <div>
-              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                <span style="font-weight: 600;">Tomatoes</span>
-                <span style="color: var(--color-buyer-primary); font-weight: 700;">Very High</span>
-              </div>
-              <div class="progress-bar"><div class="progress-bar-fill" style="width: 96%; background: var(--color-buyer-accent);"></div></div>
-            </div>
-            <div>
-              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                <span style="font-weight: 600;">Soybeans</span>
-                <span style="font-weight: 700;">Balanced</span>
-              </div>
-              <div class="progress-bar"><div class="progress-bar-fill" style="width: 48%; background: #4a90d9;"></div></div>
-            </div>
-          </div>
-          <button class="btn" style="width:100%; margin-top: 1.5rem; background: var(--color-buyer-container); color: var(--color-buyer-primary); font-weight: 700;" onclick="window.navigate('market')">Full Market Report →</button>
+        <div class="card" style="background: var(--color-surface-container-low);">
+          <h3 class="display-font" style="margin-bottom: 1rem;">Procurement Pulse</h3>
+          <div style="height: 120px; border-radius: 8px; background: linear-gradient(90deg, #e3f2fd, #bbdefb); margin-bottom: 1rem;"></div>
+          <p style="font-size: 0.9rem; color: var(--color-on-surface-variant);">Market demand for <strong>Paddy/Rice</strong> is up 15% this week.</p>
         </div>
       </div>
-    </div>
-  `;
-  }
+    </div>`;
+
+    const sectionOrders = `<div class="fade-in"><h2 class="display-font">My Orders</h2><div class="card"><p>No active orders found.</p></div></div>`;
+    const sectionNegotiations = `<div class="fade-in"><h2 class="display-font">Negotiations</h2><div class="card"><p>No active negotiations at this time.</p></div></div>`;
+    const sectionMessages = `<div class="fade-in"><h2 class="display-font">Messages</h2><div class="card"><p>No new messages.</p></div></div>`;
+
+    const sections = { home: sectionHome, orders: sectionOrders, procurement: sectionNegotiations, negotiations: sectionNegotiations, messages: sectionMessages };
+    const activeSection = sections[sec] || sectionHome;
+
+    return `
+    <div class="container spacer-y">
+      ${tabNav}
+      ${activeSection}
+    </div>`;
+  },
 };
 
-window.showDiagnosisTab = function(tabId) {
-  const container = document.getElementById('diagnosis-results');
-  if (container.style.display === 'none') {
-    container.style.display = 'block';
-  }
-  
-  // Hide all tabs
-  document.querySelectorAll('.tab-content').forEach(el => el.style.display = 'none');
-  // Reset all buttons
-  document.querySelectorAll('.tab-link').forEach(btn => {
-    btn.style.borderBottom = 'none';
-    btn.style.color = 'var(--color-on-surface-variant)';
-    btn.classList.remove('active');
-  });
-  
-  // Show active
-  document.getElementById('tab-' + tabId).style.display = 'block';
-  const activeBtn = document.querySelector('.tab-link[data-tab="' + tabId + '"]');
-  if(activeBtn) {
-    activeBtn.style.borderBottom = '2px solid var(--color-primary)';
-    activeBtn.style.color = 'var(--color-primary)';
-    activeBtn.classList.add('active');
-  }
-};
-
-
-const mainContent = document.getElementById('main-content');
-const navLinks = document.querySelectorAll('.nav-link');
-
-function renderRoute(route) {
-  if (!screens[route]) route = 'landing';
-
-  // ── Route protection ──────────────────────────────────────────────
-  const protectedRoutes  = ['dashboard', 'farmer-dashboard', 'buyer-dashboard',
-                             'form', 'diagnosis', 'market', 'buyers', 'profile',
-                             'knowledge', 'community'];
-  const authRoutes = ['login', 'signup'];
-
-  if (!appState.isAuthenticated && protectedRoutes.includes(route)) {
-    route = 'login';
-  } else if (appState.isAuthenticated && authRoutes.includes(route)) {
-    route = appState.role === 'buyer' ? 'buyer-dashboard' : 'farmer-dashboard';
-  }
-
-  // ── Role guards: prevent cross-dashboard access ───────────────────
-  if (appState.isAuthenticated) {
-    if (route === 'farmer-dashboard' && appState.role === 'buyer') route = 'buyer-dashboard';
-    if (route === 'buyer-dashboard'  && appState.role === 'farmer') route = 'farmer-dashboard';
-  }
-
-  // Update state
-  appState.currentRoute = route;
-
-  // Render
-  const screenContent = screens[route];
-  mainContent.innerHTML = typeof screenContent === 'function' ? screenContent() : screenContent;
-
-  // Nav highlighting
-  document.querySelectorAll('.nav-link').forEach(link => {
-    link.classList.toggle('active', link.dataset.route === route);
-  });
+// Global navigator for buttons
+window.navigate = function(route) {
+  renderRoute(route);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// ─── Authentication Handlers ─────────────────────────────────────────
-window.loginUser = function() {
-  const emailEl = document.querySelector('#login-email') || document.querySelector('input[type="email"]');
-  const email = (emailEl?.value || '').trim().toLowerCase();
-  const users = _getUsers();
-
-  if (email && users[email]) {
-    const u = users[email];
-    appState.isAuthenticated = true;
-    appState.user = { name: u.name, email: u.email };
-    appState.role = u.role;
-  } else {
-    // Demo fallback: default farmer login
-    appState.isAuthenticated = true;
-    appState.user = { name: 'Demo Farmer', email: email || 'demo@agrofarm.com' };
-    appState.role = 'farmer';
+// Nav link listeners
+document.addEventListener('click', (e) => {
+  const link = e.target.closest('.nav-link, .dropdown-link');
+  if (link && link.hasAttribute('data-route')) {
+    e.preventDefault();
+    const route = link.dataset.route;
+    window.navigate(route);
   }
-  _saveSession();
-  window.updateNavbarUI();
-  window.navigate(appState.role === 'buyer' ? 'buyer-dashboard' : 'farmer-dashboard');
-};
-
-window.registerUser = function() {
-  const fname   = (document.getElementById('signup-fname')?.value || '').trim();
-  const lname   = (document.getElementById('signup-lname')?.value || '').trim();
-  const email   = (document.getElementById('signup-email')?.value || '').trim().toLowerCase();
-  const password = document.getElementById('signup-password')?.value || '';
-  const roleEl  = document.querySelector('input[name="signup-role"]:checked');
-  const role    = roleEl?.value || '';
-
-  // Validation
-  const roleError = document.getElementById('signup-role-error');
-  if (!role) {
-    if (roleError) roleError.style.display = 'block';
-    return;
+  
+  // Mobile Menu Toggle logic
+  const mobileBtn = e.target.closest('.mobile-menu-btn');
+  if (mobileBtn) {
+    const mainNav = document.getElementById('main-nav-links');
+    if (mainNav) {
+      mainNav.classList.toggle('mobile-open');
+    }
+  } else if (!e.target.closest('.navbar')) {
+    // Close mobile menu if clicked outside
+    const mainNav = document.getElementById('main-nav-links');
+    if (mainNav && mainNav.classList.contains('mobile-open')) {
+      mainNav.classList.remove('mobile-open');
+    }
   }
-  if (roleError) roleError.style.display = 'none';
-
-  const name = [(fname || 'User'), lname].filter(Boolean).join(' ');
-  const userObj = { name, email: email || 'user@agrofarm.com', role, password };
-
-  // Save to users map (mock DB)
-  if (email) {
-    const users = _getUsers();
-    users[email] = userObj;
-    _saveUsers(users);
-  }
-
-  appState.isAuthenticated = true;
-  appState.user  = { name: userObj.name, email: userObj.email };
-  appState.role  = role;
-  _saveSession();
-  window.updateNavbarUI();
-  window.navigate(role === 'buyer' ? 'buyer-dashboard' : 'farmer-dashboard');
-};
+});
 
 window.logoutUser = function() {
   appState.isAuthenticated = false;
@@ -1228,20 +1484,16 @@ window.updateNavbarUI = function() {
   const buyerItems     = document.querySelectorAll('.buyer-only');
 
   if (appState.isAuthenticated) {
-    // Hide guest controls
     if (authButtons) authButtons.style.display = 'none';
     guestOnlyItems.forEach(el => el.style.display = 'none');
 
-    // Show role-specific nav
     const isFarmer = appState.role === 'farmer';
     farmerItems.forEach(el => el.style.display = isFarmer ? 'block' : 'none');
     buyerItems.forEach(el  => el.style.display = isFarmer ? 'none' : 'block');
 
-    // Populate avatar menu
     if (userMenu) {
       userMenu.style.display = 'flex';
       const name    = appState.user?.name || 'User';
-      const email   = appState.user?.email || '';
       const initials = name.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2);
       const role    = appState.role || 'farmer';
 
@@ -1253,27 +1505,20 @@ window.updateNavbarUI = function() {
 
       if (avatarEl) avatarEl.textContent = initials;
       if (nameEl)   nameEl.textContent   = name;
-      if (emailEl)  emailEl.textContent  = email;
-
-      // Role badge in dropdown
+      if (emailEl)  emailEl.textContent  = appState.user?.email || '';
       if (badgeEl) {
         badgeEl.className = `role-badge role-badge-${role}`;
-        badgeEl.textContent = role === 'buyer' ? '🛒 Buyer' : '🌾 Farmer';
+        badgeEl.textContent = role === 'buyer' ? 'Buyer' : 'Farmer';
       }
-
-      // Avatar button: buyer gets amber ring
       const avatarBtn = document.getElementById('user-avatar-btn');
       if (avatarBtn) {
         avatarBtn.style.borderColor = role === 'buyer' ? '#f59e0b' : 'var(--color-primary-fixed)';
       }
-
-      // Dashboard link in dropdown
       if (dashLink) {
         dashLink.dataset.route = role === 'buyer' ? 'buyer-dashboard' : 'farmer-dashboard';
       }
     }
   } else {
-    // Restore guest controls
     if (authButtons) authButtons.style.display = 'flex';
     if (userMenu) userMenu.style.display = 'none';
     guestOnlyItems.forEach(el => el.style.display = 'flex');
@@ -1281,6 +1526,7 @@ window.updateNavbarUI = function() {
     buyerItems.forEach(el   => el.style.display = 'none');
   }
 };
+
 
 
 
@@ -1315,9 +1561,15 @@ document.addEventListener('click', (e) => {
   }
 });
 
-// Initial Render
-window.updateNavbarUI();
-renderRoute(appState.currentRoute);
+window.bdNav = function(section) {
+  appState._bdSection = section;
+  const mainContent = document.getElementById('main-content');
+  if (mainContent) {
+    const screenContent = screens['buyer-dashboard'];
+    mainContent.innerHTML = typeof screenContent === 'function' ? screenContent() : screenContent;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+};
 
 // Language Toggle Logic
 const langToggle = document.getElementById('lang-toggle');
@@ -1381,3 +1633,149 @@ window.selectRole = function(role) {
 
   if (errorEl) errorEl.style.display = 'none';
 };
+
+// ─── Core Routing ────────────────────────────────────────────────────────────
+function renderRoute(route) {
+  if (!screens[route]) route = 'landing';
+
+  // Route protection
+  const protectedRoutes = ['dashboard', 'farmer-dashboard', 'buyer-dashboard', 'form', 'diagnosis', 'market', 'buyers', 'profile', 'knowledge', 'community', 'f2b', 'b2f'];
+  const authRoutes = ['login', 'signup'];
+
+  if (!appState.isAuthenticated && protectedRoutes.includes(route)) {
+    route = 'login';
+  } else if (appState.isAuthenticated && authRoutes.includes(route)) {
+    route = appState.role === 'buyer' ? 'buyer-dashboard' : 'farmer-dashboard';
+  }
+
+  // Role guards
+  if (appState.isAuthenticated) {
+    if (route === 'farmer-dashboard' && appState.role === 'buyer') route = 'buyer-dashboard';
+    if (route === 'buyer-dashboard' && appState.role === 'farmer') route = 'farmer-dashboard';
+  }
+
+  appState.currentRoute = route;
+  const mainContent = document.getElementById('main-content');
+  const screenContent = screens[route];
+  if (mainContent) {
+    mainContent.innerHTML = typeof screenContent === 'function' ? screenContent() : screenContent;
+  }
+
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.classList.toggle('active', link.dataset.route === route);
+  });
+}
+
+// ─── Authentication Handlers ───────────────────────────────────────────────
+window.loginUser = function() {
+  const emailEl = document.querySelector('#login-email') || document.querySelector('input[type="email"]');
+  const email = (emailEl?.value || '').trim().toLowerCase();
+  const users = _getUsers();
+
+  if (email && users[email]) {
+    const u = users[email];
+    appState.isAuthenticated = true;
+    appState.user = { name: u.name, email: u.email };
+    appState.role = u.role;
+  } else {
+    // Demo fallback: default farmer login
+    appState.isAuthenticated = true;
+    appState.user = { name: 'Demo Farmer', email: email || 'demo@agrofarm.com' };
+    appState.role = 'farmer';
+  }
+  _saveSession();
+  window.updateNavbarUI();
+  window.navigate(appState.role === 'buyer' ? 'buyer-dashboard' : 'farmer-dashboard');
+};
+
+window.registerUser = function() {
+  const fname = (document.getElementById('signup-fname')?.value || '').trim();
+  const lname = (document.getElementById('signup-lname')?.value || '').trim();
+  const email = (document.getElementById('signup-email')?.value || '').trim().toLowerCase();
+  const roleEl = document.querySelector('input[name="signup-role"]:checked');
+  const role = roleEl?.value || '';
+
+  // Validation
+  if (!role) {
+    const roleError = document.getElementById('signup-role-error');
+    if (roleError) roleError.style.display = 'block';
+    return;
+  }
+
+  const name = [(fname || 'User'), lname].filter(Boolean).join(' ');
+  const userObj = { name, email: email || 'user@agrofarm.com', role };
+
+  // Save to users map (mock DB)
+  if (email) {
+    const users = _getUsers();
+    users[email] = userObj;
+    _saveUsers(users);
+  }
+
+  appState.isAuthenticated = true;
+  appState.user = { name: userObj.name, email: userObj.email };
+  appState.role = role;
+  _saveSession();
+  window.updateNavbarUI();
+  window.navigate(role === 'buyer' ? 'buyer-dashboard' : 'farmer-dashboard');
+};
+
+window.logoutUser = function() {
+  appState.isAuthenticated = false;
+  appState.user = null;
+  appState.role = null;
+  _saveSession();
+  window.updateNavbarUI();
+  window.navigate('landing');
+};
+
+// ─── Farmer Dashboard helpers ───────────────────────────────────────────────
+
+// Navigate to a section inside the farmer dashboard (re-renders in-place)
+window.fdNav = function(section) {
+  appState._fdSection = section;
+  // Re-render the farmer-dashboard screen
+  const mainContent = document.getElementById('main-content');
+  if (mainContent) {
+    const screenContent = screens['farmer-dashboard'];
+    mainContent.innerHTML = typeof screenContent === 'function' ? screenContent() : screenContent;
+    // Scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+};
+
+// Add New Crop form submission
+window.fdSubmitCrop = function() {
+  const cropName = (document.getElementById('nc-crop')?.value || '').trim();
+  const qty      = document.getElementById('nc-qty')?.value;
+  const price    = document.getElementById('nc-price')?.value;
+
+  if (!cropName || !qty || !price) {
+    alert('Please fill in Crop Name, Quantity, and Price to publish your listing.');
+    return;
+  }
+
+  // Show success toast
+  const toast = document.createElement('div');
+  toast.style.cssText = `
+    position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%);
+    background: #2d5a1b; color: #fff; padding: 1rem 2rem; border-radius: 12px;
+    font-weight: 700; font-size: 0.95rem; z-index: 9999;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    animation: fadeIn 0.3s ease;
+  `;
+  toast.textContent = `✅ "${cropName}" listed successfully!`;
+  document.body.appendChild(toast);
+  setTimeout(() => {
+    toast.remove();
+    window.fdNav('listings');
+  }, 2000);
+};
+
+// ─── App Initialization ─────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  window.updateNavbarUI();
+  // Ensure we render the current route on load
+  renderRoute(appState.currentRoute);
+});
+
