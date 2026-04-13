@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Nested clone folder
+Hackathon26
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
