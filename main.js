@@ -1322,8 +1322,7 @@ const screens = {
 
     return `
     <div class="fd-shell">
-      ${sidebar}
-
+      
       <!-- Mobile overlay -->
       <div class="fd-overlay" id="fd-overlay" onclick="window.fdCloseSidebar()"></div>
 
@@ -1667,31 +1666,42 @@ function renderRoute(route) {
 }
 
 // ─── Authentication Handlers ───────────────────────────────────────────────
-window.loginUser = function() {
+window.loginUser = async function() {
   const emailEl = document.querySelector('#login-email') || document.querySelector('input[type="email"]');
   const email = (emailEl?.value || '').trim().toLowerCase();
-  const users = _getUsers();
+  const passwordEl = document.querySelector('input[type="password"]');
+  const password = (passwordEl?.value || '').trim();
 
-  if (email && users[email]) {
-    const u = users[email];
-    appState.isAuthenticated = true;
-    appState.user = { name: u.name, email: u.email };
-    appState.role = u.role;
-  } else {
-    // Demo fallback: default farmer login
-    appState.isAuthenticated = true;
-    appState.user = { name: 'Demo Farmer', email: email || 'demo@agrofarm.com' };
-    appState.role = 'farmer';
+  if (!email || !password) {
+    alert('Please enter both email and password.');
+    return;
   }
-  _saveSession();
-  window.updateNavbarUI();
-  window.navigate(appState.role === 'buyer' ? 'buyer-dashboard' : 'farmer-dashboard');
+
+  try {
+    const res = await fetch('http://localhost:5000/api/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password })
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'Login failed');
+    
+    appState.isAuthenticated = true;
+    appState.user = data.user;
+    appState.role = data.user.role;
+    _saveSession();
+    window.updateNavbarUI();
+    window.navigate(appState.role === 'buyer' ? 'buyer-dashboard' : 'farmer-dashboard');
+  } catch(e) {
+    alert(e.message);
+  }
 };
 
-window.registerUser = function() {
+window.registerUser = async function() {
   const fname = (document.getElementById('signup-fname')?.value || '').trim();
   const lname = (document.getElementById('signup-lname')?.value || '').trim();
   const email = (document.getElementById('signup-email')?.value || '').trim().toLowerCase();
+  const password = (document.getElementById('signup-password')?.value || '').trim();
   const roleEl = document.querySelector('input[name="signup-role"]:checked');
   const role = roleEl?.value || '';
 
@@ -1701,23 +1711,30 @@ window.registerUser = function() {
     if (roleError) roleError.style.display = 'block';
     return;
   }
-
-  const name = [(fname || 'User'), lname].filter(Boolean).join(' ');
-  const userObj = { name, email: email || 'user@agrofarm.com', role };
-
-  // Save to users map (mock DB)
-  if (email) {
-    const users = _getUsers();
-    users[email] = userObj;
-    _saveUsers(users);
+  if (!email || !password || !fname || !lname) {
+    alert('Please fill out all fields.');
+    return;
   }
 
-  appState.isAuthenticated = true;
-  appState.user = { name: userObj.name, email: userObj.email };
-  appState.role = role;
-  _saveSession();
-  window.updateNavbarUI();
-  window.navigate(role === 'buyer' ? 'buyer-dashboard' : 'farmer-dashboard');
+  try {
+    const res = await fetch('http://localhost:5000/api/signup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ firstName: fname, lastName: lname, email, role, password })
+    });
+    const data = await res.json();
+    
+    if (!res.ok) throw new Error(data.error || 'Registration failed');
+    
+    appState.isAuthenticated = true;
+    appState.user = { name: data.user.firstName + ' ' + data.user.lastName, email: data.user.email };
+    appState.role = data.user.role;
+    _saveSession();
+    window.updateNavbarUI();
+    window.navigate(role === 'buyer' ? 'buyer-dashboard' : 'farmer-dashboard');
+  } catch(e) {
+    alert(e.message);
+  }
 };
 
 window.logoutUser = function() {
