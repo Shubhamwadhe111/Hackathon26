@@ -1,34 +1,36 @@
 :root {
-  /* Tonal Layering Palette - Digital Agronomist */
-  --color-primary: #173809;
-  --color-primary-container: #2d4f1e;
-  --color-primary-fixed: #c5efad;
-  --color-secondary: #4a654a;
-  --color-secondary-container: #ccebc8;
-  --color-tertiary: #5d1700;
-  --color-tertiary-fixed: #ffdbd0;
+  /* Tonal Layering Palette - Soft Green Future */
+  --color-primary: #2e7d32; /* Natural Green */
+  --color-primary-container: #4caf50;
+  --color-primary-fixed: #e8f5e9;
+  --color-secondary: #004d40; /* Deep Teal */
+  --color-secondary-container: #80cbc4;
+  --color-tertiary: #558b2f; 
+  --color-tertiary-fixed: #f1f8e9;
 
-  --color-surface: #f8faf3;
+  --color-surface: #f9fbf9; 
   --color-surface-container-lowest: #ffffff;
-  --color-surface-container-low: #f3f4ed;
-  --color-surface-container-high: #e7e9e2;
-  --color-on-surface: #191c18;
-  --color-on-surface-variant: #43493e;
+  --color-surface-container-low: #f1f5f1;
+  --color-surface-container-high: #e3ebe3;
+  --color-on-surface: #1b261b;
+  --color-on-surface-variant: #4a544a;
   --color-on-primary: #ffffff;
   
-  --color-outline-variant: #c3c8bb;
+  --color-outline-variant: #c8d4c8;
 
   /* Typography */
   --font-display: 'Manrope', sans-serif;
   --font-body: 'Inter', sans-serif;
   
   /* Radii & Shadows */
-  --radius-sm: 0.25rem;
-  --radius-md: 0.75rem;
-  --radius-lg: 1rem;
+  --radius-sm: 0.5rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.5rem;
   --radius-full: 9999px;
-  --shadow-ambient: 0 8px 32px rgba(23, 56, 9, 0.06);
-  --shadow-glass: 0 4px 24px rgba(23, 56, 9, 0.04);
+  
+  /* Soft Glass Shadows */
+  --shadow-ambient: 0 12px 32px rgba(46, 125, 50, 0.08);
+  --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.05);
 }
 
 * {
@@ -793,6 +795,144 @@ a {
   height: 100%;
   border-radius: 4px;
   transition: width 0.8s ease;
+}
+
+/* ─── Stitch Hero Slab ────────────────────────────────────────────── */
+.stitch-hero-slab {
+  margin-bottom: 6rem;
+  padding: 4rem 3rem;
+  background: 
+    linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.02) 100%),
+    url('./stitch_bg.png');
+  background-size: cover;
+  background-position: center;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 32px;
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    inset 0 1px 1px rgba(255, 255, 255, 0.5),
+    inset 0 -2px 5px rgba(0, 0, 0, 0.2);
+  transform-style: preserve-3d;
+  perspective: 1200px;
+  animation: hero-slab-float 6s ease-in-out infinite alternate, slide-up-fade 1s ease-out;
+}
+
+@keyframes hero-slab-float {
+  0% { transform: translateY(0) rotateX(2deg); box-shadow: 0 20px 40px rgba(0,0,0,0.2), inset 0 1px 1px rgba(255,255,255,0.5); }
+  100% { transform: translateY(-12px) rotateX(-1deg); box-shadow: 0 30px 50px rgba(0,0,0,0.3), inset 0 1px 1px rgba(255,255,255,0.6); }
+}
+
+.stitch-btn-glow {
+  box-shadow: 0 0 20px rgba(255,255,255,0.3), 0 8px 24px rgba(0,0,0,0.2) !important;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease !important;
+}
+
+.stitch-btn-glow:hover {
+  transform: translateZ(20px) translateY(-3px) scale(1.05) !important;
+  box-shadow: 0 0 30px rgba(255,255,255,0.5), 0 12px 30px rgba(0,0,0,0.3) !important;
+}
+
+.stitch-btn-glass {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, background 0.3s ease !important;
+}
+
+.stitch-btn-glass:hover {
+  transform: translateZ(20px) translateY(-3px) scale(1.05) !important;
+  background: rgba(255,255,255,0.25) !important;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.3), inset 0 1px 2px rgba(255,255,255,0.5) !important;
+}
+
+/* ─── Stitch 3D Animated Cards ────────────────────────────────────── */
+.stitch-3d-grid {
+  perspective: 1200px;
+}
+
+.stitch-3d-card {
+  padding: 2.5rem 2rem;
+  text-align: center;
+  background: 
+    linear-gradient(135deg, rgba(46, 125, 50, 0.4) 0%, rgba(0, 77, 64, 0.2) 100%),
+    url('./stitch_bg.png');
+  background-size: cover;
+  background-position: center;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 24px;
+  color: white;
+  transform-style: preserve-3d;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+  box-shadow: 
+    0 15px 35px rgba(0,0,0,0.2), 
+    inset 0 1px 1px rgba(255,255,255,0.3);
+  position: relative;
+}
+
+.stitch-3d-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border-radius: 24px;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.1);
+  transform: translateZ(-10px);
+  pointer-events: none;
+}
+
+.stitch-3d-card:hover {
+  transform: translateY(-10px) rotateX(12deg) rotateY(-8deg);
+  box-shadow: 
+    0 30px 60px rgba(0,0,0,0.4), 
+    inset 0 1px 1px rgba(255,255,255,0.5);
+  border-color: rgba(255,255,255,0.7);
+}
+
+.stitch-3d-image {
+  width: 110px;
+  height: 110px;
+  margin: 0 auto 1.5rem auto;
+  border-radius: 50%;
+  transform-style: preserve-3d;
+  transform: translateZ(40px);
+  animation: logo-float 4s ease-in-out infinite alternate;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    0 12px 24px rgba(0, 0, 0, 0.3),
+    0 0 0 2px rgba(255, 255, 255, 0.05),
+    inset 0 2px 4px rgba(0, 0, 0, 0.05);
+  background-color: #ffffff;
+  overflow: hidden;
+  position: relative;
+}
+
+.stitch-3d-image img {
+  width: 115%;
+  height: 115%;
+  object-fit: cover;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+}
+
+.stitch-3d-card:hover .stitch-3d-image {
+  box-shadow: 
+    0 20px 32px rgba(0, 0, 0, 0.4),
+    0 0 0 3px rgba(255, 255, 255, 0.1),
+    0 0 10px rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.stitch-3d-card:hover .stitch-3d-image img {
+  transform: translate(-50%, -50%) scale(1.15) rotate(4deg);
+}
+
+@keyframes logo-float {
+  0% { transform: translateZ(40px) translateY(0); }
+  100% { transform: translateZ(55px) translateY(-12px); }
 }
 
 /* ─── Responsive tweaks ───────────────────────────────────────────── */
@@ -2095,3 +2235,54 @@ a {
   .b2f-banner-btn { width: 100%; text-align: center; }
 }
 @media (max-width: 400px) { .b2f-stats-grid { grid-template-columns: 1fr; } }
+
+/* ── Modern Homepage Overrides ───────────────────────────── */
+.modern-glass-card {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: var(--shadow-glass);
+  transition: all 0.3s ease;
+  color: var(--color-on-surface);
+}
+
+.modern-glass-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-ambient);
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+.modern-feature-card {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  padding: 3rem 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 8px 32px rgba(46, 125, 50, 0.05); /* Soft green shadow */
+  transition: all 0.3s ease;
+  text-align: center;
+  color: var(--color-on-surface);
+  height: 100%;
+}
+
+.modern-feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(46, 125, 50, 0.1);
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+.feature-icon-box {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem auto;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  box-shadow: 0 8px 16px rgba(46, 125, 50, 0.08);
+  background: #ffffff;
+  color: var(--color-primary);
+}

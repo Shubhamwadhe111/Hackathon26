@@ -30,163 +30,59 @@ function _saveUsers(map) {
 
 const screens = {
   landing: function() { const auth = appState.isAuthenticated; return `
-    <div class="fade-in stagger-1" style="position: relative; overflow: hidden; min-height: 88vh; display: flex; align-items: center; padding: 6rem 4rem 4rem; background: radial-gradient(ellipse at 60% 40%, rgba(23, 56, 9, 0.04) 0%, transparent 70%);">
+    <div style="position: relative; min-height: 100vh; padding-top: 5rem;">
+      <!-- Background & Dark Gradient Overlay -->
+      <div style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-image: url('https://images.unsplash.com/photo-1625246333195-78d9c38ad449?q=80&w=2000&auto=format&fit=crop'); background-size: cover; background-position: center; z-index: -2;"></div>
+      <div style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: linear-gradient(to bottom, rgba(10,30,10,0.4), rgba(46,125,50,0.8)); z-index: -1;"></div>
       
-      <!-- Left: Hero Text -->
-      <div style="flex: 1; max-width: 560px; z-index: 5; position: relative;">
-        <div style="display: inline-block; padding: 0.5rem 1.5rem; background: var(--color-primary-container); color: var(--color-on-primary); border-radius: 50px; font-weight: 600; margin-bottom: 2rem; animation: slide-up-fade 0.8s ease-out;">🚀 The Future of Precision Agriculture</div>
-        <h1 class="hero-title display-font" style="font-size: 4.5rem; line-height: 1.1; margin-bottom: 1.5rem; color: var(--color-primary); text-shadow: 0 4px 20px rgba(0,0,0,0.05); animation: slide-up-fade 1s ease-out;">Your Digital<br>Agronomist</h1>
-        <p class="hero-subtitle" style="font-size: 1.2rem; margin-bottom: 2.5rem; color: var(--color-on-surface-variant); line-height: 1.7; max-width: 480px; animation: slide-up-fade 1.2s ease-out;">Harness the power of neural networks to analyze soil, weather, and live market trends to uncover the absolute best crop for your exact coordinates.</p>
-        <div style="display: flex; gap: 1rem; flex-wrap: wrap; animation: slide-up-fade 1.4s ease-out;">
-          <button class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem; box-shadow: 0 10px 30px rgba(23, 56, 9, 0.2);" onclick="window.navigate('form')">Get Free Recommendation</button>
-          ${auth ? `<button class="btn btn-secondary" style="font-size:1.1rem;padding:1rem 2rem;" onclick="window.navigate('dashboard')">Go to Dashboard</button>` : `<button class="btn btn-secondary" style="font-size:1.1rem;padding:1rem 2rem;" onclick="window.navigate('about')">Learn More</button>`}
-        </div>
-      </div>
 
-      <!-- Right: AI Data Cluster Visual Panel -->
-      <div style="flex: 1; position: relative; min-height: 480px; display: flex; align-items: center; justify-content: center;">
+      <div class="container fade-in stagger-1" style="display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: calc(100vh - 5rem); padding-bottom: 4rem;">
         
-        <!-- Background glow -->
-        <div style="position: absolute; width: 380px; height: 380px; background: radial-gradient(circle, rgba(23,56,9,0.06) 0%, transparent 70%); border-radius: 50%; top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
-        
-        <!-- Card 1: Neural Match — top right -->
-        <div class="glass" style="position: absolute; top: 0; right: 0; width: 220px; padding: 1.5rem; border-radius: var(--radius-lg); animation: float-slow 8s infinite ease-in-out; border: 1px solid rgba(23,56,9,0.12); box-shadow: 0 20px 40px rgba(23, 56, 9, 0.08);">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-            <span style="font-size: 1.5rem;">🌾</span>
-            <span style="background: #e6f4ea; color: #137333; padding: 0.25rem 0.6rem; border-radius: 6px; font-weight: 700; font-size: 0.8rem;">98% Match</span>
-          </div>
-          <div style="font-weight: 700; font-size: 1rem; color: var(--color-on-surface); margin-bottom: 0.25rem;">Golden Wheat</div>
-          <div style="font-size: 0.85rem; color: var(--color-on-surface-variant);">Optimal Harvest: Oct</div>
-        </div>
+        <!-- Hero Section using Stitch 3D Aesthetic -->
+        <div class="stitch-hero-slab">
+          <div style="text-align: center; max-width: 800px; color: #ffffff;">
+            
+            <!-- Live Weather Pill -->
+            <div class="glass" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.4rem 1rem; border-radius: 50px; border: 1px solid rgba(255,255,255,0.4); margin-bottom: 1.5rem; transform: translateZ(45px); animation: slide-up-fade 0.6s ease-out; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+              <span id="live-weather-value" style="color: #fff; font-weight: 600; font-size: 0.9rem; letter-spacing: 0.02em;">⏳ Fetching field conditions...</span>
+            </div>
 
-        <!-- Card 2: Live Weather API — left middle -->
-        <div class="glass" style="position: absolute; bottom: 20%; left: 0; width: 220px; padding: 1.25rem 1.5rem; border-radius: var(--radius-lg); animation: float-fast 12s infinite ease-in-out reverse; border: 1px solid rgba(23,56,9,0.12); box-shadow: 0 20px 40px rgba(23, 56, 9, 0.08);">
-          <div style="font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-on-surface-variant); margin-bottom: 0.75rem;">Live Weather</div>
-          <div style="display: flex; align-items: center; gap: 1rem;">
-            <div style="font-size: 2.2rem;">⛅</div>
-            <div>
-              <div style="font-size: 1.6rem; font-weight: 800; color: var(--color-primary); line-height: 1;">24°C</div>
-              <div style="font-size: 0.85rem; color: var(--color-on-surface-variant); margin-top: 0.2rem;">Humidity: 65%</div>
+            <h1 class="hero-title display-font" style="font-size: 5rem; font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -0.02em; animation: slide-up-fade 0.8s ease-out; transform: translateZ(50px);">
+              Your Digital Agronomist
+            </h1>
+            <p class="hero-subtitle" style="font-size: 1.3rem; margin-bottom: 3rem; opacity: 0.95; line-height: 1.6; font-weight: 400; animation: slide-up-fade 1s ease-out; transform: translateZ(30px);">
+              AI-powered insights for crop selection, weather prediction, and soil analysis.
+            </p>
+            <div style="display: flex; gap: 1.5rem; justify-content: center; animation: slide-up-fade 1.2s ease-out; transform: translateZ(40px);">
+              <button class="btn btn-primary stitch-btn-glow" style="font-size: 1.15rem; padding: 1.2rem 2.8rem; border-radius: 50px; background: #ffffff; color: var(--color-primary); font-weight: 700;" onclick="window.navigate('form')">Start Analysis</button>
+              <button class="btn btn-secondary glass stitch-btn-glass" style="font-size: 1.15rem; padding: 1.2rem 2.8rem; border-radius: 50px; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.4); color: white;" onclick="window.navigate('dashboard')">View Dashboard</button>
             </div>
           </div>
         </div>
 
-        <!-- Card 3: Soil Diagnostics — bottom center-right -->
-        <div class="glass" style="position: absolute; bottom: 0; right: 10%; width: 210px; padding: 1.5rem; border-radius: var(--radius-lg); animation: float-slow 10s 2s infinite ease-in-out; border: 1px solid rgba(23,56,9,0.12); box-shadow: 0 20px 40px rgba(23, 56, 9, 0.08);">
-           <div style="font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-on-surface-variant); margin-bottom: 0.75rem;">Soil Diagnostics</div>
-           <div style="display: flex; gap: 0.5rem; align-items: flex-end; height: 48px; margin-bottom: 0.5rem;">
-             <div style="flex: 1; height: 80%; background: var(--color-primary); border-radius: 4px 4px 0 0;"></div>
-             <div style="flex: 1; height: 100%; background: var(--color-primary-container); border-radius: 4px 4px 0 0;"></div>
-             <div style="flex: 1; height: 60%; background: var(--color-secondary); border-radius: 4px 4px 0 0;"></div>
-           </div>
-           <div style="display: flex; justify-content: space-around; font-size: 0.78rem; font-weight: 600; color: var(--color-on-surface-variant);">
-             <span>N</span><span>P</span><span>K</span>
-           </div>
-        </div>
-
-        <!-- Center floating badge: AI Confidence -->
-        <div style="position: absolute; top: 35%; left: 20%; transform: translate(-50%, -50%); background: var(--color-primary); color: white; padding: 0.75rem 1.25rem; border-radius: 50px; font-weight: 700; font-size: 0.9rem; box-shadow: 0 8px 24px rgba(23,56,9,0.25); animation: float-slow 6s 1s infinite ease-in-out; white-space: nowrap;">
-          🧠 AI Confidence: 98.5%
-        </div>
-
-        <!-- Abstract dashed connecting lines -->
-        <svg style="position: absolute; top:0; left:0; width: 100%; height: 100%; z-index: -1; overflow: visible;" viewBox="0 0 400 480" preserveAspectRatio="xMidYMid meet">
-           <path d="M 60 340 Q 200 240 340 60" fill="transparent" stroke="rgba(23,56,9,0.12)" stroke-width="1.5" stroke-dasharray="6,6"/>
-           <path d="M 340 60 Q 300 240 200 400" fill="transparent" stroke="rgba(23,56,9,0.12)" stroke-width="1.5" stroke-dasharray="6,6"/>
-           <circle cx="340" cy="60" r="4" fill="rgba(23,56,9,0.2)"/>
-           <circle cx="60" cy="340" r="4" fill="rgba(23,56,9,0.2)"/>
-           <circle cx="200" cy="400" r="4" fill="rgba(23,56,9,0.2)"/>
-        </svg>
-      </div>
-    </div>
-
-    <!-- Impact Stats Bar -->
-    <div class="stagger-2" style="background: var(--color-primary); color: white; padding: 3rem 0; margin-top: 0rem; position: relative; z-index: 10; border-radius: 0; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
-      <div class="container" style="display: flex; justify-content: space-around; flex-wrap: wrap; text-align: center; gap: 2rem;">
-        <div>
-          <div class="display-font" style="font-size: 3.5rem; font-weight: 800; color: var(--color-primary-fixed);">98.5%</div>
-          <div style="font-size: 1.1rem; opacity: 0.9;">AI Match Accuracy</div>
-        </div>
-        <div>
-          <div class="display-font" style="font-size: 3.5rem; font-weight: 800; color: var(--color-primary-fixed);">12+</div>
-          <div style="font-size: 1.1rem; opacity: 0.9;">Monitored Parameters</div>
-        </div>
-        <div>
-          <div class="display-font" style="font-size: 3.5rem; font-weight: 800; color: var(--color-primary-fixed);">50k+</div>
-          <div style="font-size: 1.1rem; opacity: 0.9;">Farmers Empowered</div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="container fade-in spacer-y stagger-3" style="margin-top: 6rem;">
-      <div style="text-align: center; max-width: 600px; margin: 0 auto 4rem auto;">
-        <h2 class="display-font" style="font-size: 2.5rem; margin-bottom: 1rem;">Core AI Capabilities</h2>
-        <p style="color: var(--color-on-surface-variant); font-size: 1.1rem;">A comprehensive suite of tools designed to remove the guesswork from agriculture and elevate your yield.</p>
-      </div>
-      <div class="grid-4" style="margin-bottom: 6rem;">
-        <div class="card hover-card" style="text-align: center; border-radius: var(--radius-lg); position: relative; overflow: hidden; background: var(--color-surface-container-lowest);">
-          <div style="position: absolute; top:0; left:0; width:100%; height:4px; background: var(--color-primary);"></div>
-          <div style="width: 80px; height: 80px; margin: 0 auto 1.5rem auto; background: var(--color-surface-container-low); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.5rem;">🌱</div>
-          <h3 class="display-font" style="margin-bottom: 1rem; font-size: 1.3rem;">Soil Diagnostics</h3>
-          <p style="color: var(--color-on-surface-variant); font-size: 0.95rem;">Evaluate your field's exact NPK and pH levels to determine maximum yield potential.</p>
-        </div>
-        <div class="card hover-card" style="text-align: center; border-radius: var(--radius-lg); position: relative; overflow: hidden; background: var(--color-surface-container-lowest);">
-          <div style="position: absolute; top:0; left:0; width:100%; height:4px; background: #0060a8;"></div>
-          <div style="width: 80px; height: 80px; margin: 0 auto 1.5rem auto; background: var(--color-surface-container-low); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.5rem;">⛅</div>
-          <h3 class="display-font" style="margin-bottom: 1rem; font-size: 1.3rem;">Climate Sync</h3>
-          <p style="color: var(--color-on-surface-variant); font-size: 0.95rem;">Real-time API forecasts and historical climate data injected into every neural recommendation.</p>
-        </div>
-        <div class="card hover-card" style="text-align: center; border-radius: var(--radius-lg); position: relative; overflow: hidden; background: var(--color-surface-container-lowest);">
-          <div style="position: absolute; top:0; left:0; width:100%; height:4px; background: var(--color-secondary);"></div>
-          <div style="width: 80px; height: 80px; margin: 0 auto 1.5rem auto; background: var(--color-surface-container-low); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.5rem;">🧠</div>
-          <h3 class="display-font" style="margin-bottom: 1rem; font-size: 1.3rem;">Neural Routing</h3>
-          <p style="color: var(--color-on-surface-variant); font-size: 0.95rem;">Machine learning models compare your data against millions of records to find a 99% match.</p>
-        </div>
-        <div class="card hover-card" style="text-align: center; border-radius: var(--radius-lg); position: relative; overflow: hidden; background: var(--color-surface-container-lowest);">
-          <div style="position: absolute; top:0; left:0; width:100%; height:4px; background: var(--color-tertiary);"></div>
-          <div style="width: 80px; height: 80px; margin: 0 auto 1.5rem auto; background: var(--color-surface-container-low); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.5rem;">📈</div>
-          <h3 class="display-font" style="margin-bottom: 1rem; font-size: 1.3rem;">Market Predictor</h3>
-          <p style="color: var(--color-on-surface-variant); font-size: 0.95rem;">Track demand and supply forecast trends to ensure your upcoming harvest secures top rates.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- How it Works Section -->
-    <div style="background: var(--color-surface-container-low); padding: 5rem 0; margin-bottom: 4rem; position: relative;">
-      <div class="container fade-up-enter">
-        <h2 class="display-font" style="text-align: center; font-size: 2.5rem; margin-bottom: 4rem;">How The AI Works</h2>
-        <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; position: relative; z-index: 2;">
-          <div style="flex: 1; min-width: 250px; text-align: center; background: var(--color-surface); padding: 2rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-ambient);">
-            <div style="width: 60px; height: 60px; background: var(--color-primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold; margin: 0 auto 1.5rem auto;">1</div>
-            <h4 class="display-font" style="font-size: 1.3rem; margin-bottom: 1rem;">Input Field Data</h4>
-            <p style="color: var(--color-on-surface-variant);">Provide bare-minimum details about your soil health and exact GPS coordinates.</p>
+        <!-- 3 Feature Cards Section -->
+        <div class="grid-3 stitch-3d-grid" style="width: 100%; max-width: 1100px; gap: 2rem; animation: slide-up-fade 1.5s ease-out;">
+          <div class="stitch-3d-card modern-glass-card">
+            <div class="stitch-3d-image">
+               <img src="./crop_logo.png" alt="Crop Recommendation Logo" />
+            </div>
+            <h3 class="display-font" style="font-size: 1.5rem; margin-bottom: 1rem; color: #fff; transform: translateZ(30px);">Crop Recommendation</h3>
+            <p style="opacity: 0.85; font-size: 1rem; line-height: 1.5; transform: translateZ(20px);">Neural models match your soil conditions to ensure maximum harvest yield.</p>
           </div>
-          <div style="flex: 1; min-width: 250px; text-align: center; background: var(--color-surface); padding: 2rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-ambient); transform: translateY(-10px);">
-            <div style="width: 60px; height: 60px; background: var(--color-primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold; margin: 0 auto 1.5rem auto;">2</div>
-            <h4 class="display-font" style="font-size: 1.3rem; margin-bottom: 1rem;">AI Validation</h4>
-            <p style="color: var(--color-on-surface-variant);">Our proprietary neural network digests the data against external live climate APIs.</p>
+          <div class="stitch-3d-card modern-glass-card">
+            <div class="stitch-3d-image">
+               <img src="./disease_logo.png" alt="AI Disease Detection Logo" />
+            </div>
+            <h3 class="display-font" style="font-size: 1.5rem; margin-bottom: 1rem; color: #fff; transform: translateZ(30px);">AI Disease Detection</h3>
+            <p style="opacity: 0.85; font-size: 1rem; line-height: 1.5; transform: translateZ(20px);">Scan and instantly identify crop threats before they impact your farm.</p>
           </div>
-          <div style="flex: 1; min-width: 250px; text-align: center; background: var(--color-surface); padding: 2rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-ambient);">
-            <div style="width: 60px; height: 60px; background: var(--color-primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold; margin: 0 auto 1.5rem auto;">3</div>
-            <h4 class="display-font" style="font-size: 1.3rem; margin-bottom: 1rem;">Optimized Yield</h4>
-            <p style="color: var(--color-on-surface-variant);">Receive a comprehensive, highly-confident recommendation that guarantees max ROI.</p>
+          <div class="stitch-3d-card modern-glass-card">
+            <div class="stitch-3d-image">
+               <img src="./market_logo.png" alt="Market Intelligence Logo" />
+            </div>
+            <h3 class="display-font" style="font-size: 1.5rem; margin-bottom: 1rem; color: #fff; transform: translateZ(30px);">Market Intelligence</h3>
+            <p style="opacity: 0.85; font-size: 1rem; line-height: 1.5; transform: translateZ(20px);">Real-time mandi data and trend forecasts for better pricing decisions.</p>
           </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- CTA Banner -->
-    <div class="container fade-up-enter" style="margin-bottom: 6rem;">
-      <div style="background: linear-gradient(135deg, var(--color-primary), var(--color-primary-container)); border-radius: var(--radius-lg); padding: 5rem 2rem; text-align: center; color: white; box-shadow: 0 20px 40px rgba(23,56,9,0.3); position: relative; overflow: hidden;">
-        <div style="position: absolute; top: -50%; left: -10%; width: 300px; height: 300px; background: rgba(255,255,255,0.1); border-radius: 50%; filter: blur(40px);"></div>
-        <div style="position: absolute; bottom: -50%; right: -10%; width: 300px; height: 300px; background: rgba(197,239,173,0.15); border-radius: 50%; filter: blur(40px);"></div>
-        <div style="position: relative; z-index: 2;">
-          <h2 class="display-font" style="font-size: 3rem; margin-bottom: 1.5rem; color: white;">Ready to digitize your farm?</h2>
-          <p style="font-size: 1.2rem; opacity: 0.9; margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.6;">Join over 50,000 farmers leveraging next-generation artificial intelligence to secure their livelihood and maximize production.</p>
-          ${auth
-            ? `<button class="btn" style="background:white;color:var(--color-primary);font-size:1.2rem;padding:1rem 3rem;border-radius:50px;font-weight:bold;box-shadow:0 10px 20px rgba(0,0,0,0.15);transition:transform 0.2s;" onclick="window.navigate('dashboard')">Go to Your Dashboard →</button>`
-            : `<button class="btn" style="background:white;color:var(--color-primary);font-size:1.2rem;padding:1rem 3rem;border-radius:50px;font-weight:bold;box-shadow:0 10px 20px rgba(0,0,0,0.15);transition:transform 0.2s;" onclick="window.navigate('signup')">Create Free Account</button>`
-          }
         </div>
       </div>
     </div>
@@ -1658,6 +1554,23 @@ function renderRoute(route) {
   const screenContent = screens[route];
   if (mainContent) {
     mainContent.innerHTML = typeof screenContent === 'function' ? screenContent() : screenContent;
+    
+    // Post-render hooks
+    if (route === 'landing') {
+      const weatherEl = document.getElementById('live-weather-value');
+      if (weatherEl) {
+        // Fetch live weather from Open-Meteo for Pune, Maharashtra (Example Ag-hub)
+        fetch('https://api.open-meteo.com/v1/forecast?latitude=18.5204&longitude=73.8567&current=temperature_2m,relative_humidity_2m&timezone=auto')
+          .then(res => res.json())
+          .then(data => {
+            const temp = data.current.temperature_2m;
+            weatherEl.innerHTML = `🌤️ <span style="color:#a7f3d0;">${temp}°C</span> — Optimal conditions in Pune, MH`;
+          })
+          .catch(() => {
+            weatherEl.innerHTML = `🌤️ <span style="color:#a7f3d0;">24°C</span> — Optimal conditions in Pune, MH`; // fallback
+          });
+      }
+    }
   }
 
   document.querySelectorAll('.nav-link').forEach(link => {

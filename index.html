@@ -15,141 +15,45 @@
       <!-- Navigation Bar -->
       <nav class="navbar glass">
         <div class="nav-container">
-          <div class="logo" onclick="window.navigate('landing')">
+          <div class="logo" onclick="window.navigate('landing')" style="white-space: nowrap;">
             <span class="logo-icon">🌿</span> AgroFarm AI
           </div>
-          <div class="nav-links" id="main-nav-links" style="gap: 1.5rem; align-items: center;">
-            <a href="#" data-route="landing" class="nav-link active">Home</a>
-
-            <!-- ── FARMER-ONLY: F2B + Dashboard right after Home ── -->
-            <div class="nav-item farmer-only" style="display: none;">
-              <a href="#" data-route="f2b" class="nav-link">F2B Hub</a>
-            </div>
-
-            <div class="nav-item farmer-only" style="display: none;">
-              <a href="#" data-route="farmer-dashboard" class="nav-link">Dashboard</a>
-            </div>
-
-            <!-- Guest only -->
-            <div class="guest-only" style="display: flex; align-items: center; gap: 1.5rem;">
-              <a href="#" data-route="about" class="nav-link">About</a>
-              <a href="#" data-route="features" class="nav-link">Features</a>
-            </div>
-
-            <!-- ── FARMER-ONLY nav items ── -->
-            <div class="nav-item farmer-only" style="display: none;">
-              <a href="#" data-route="form" class="nav-link">AI Diagnosis</a>
-              <div class="dropdown-menu glass">
-                <a href="#" data-route="form" class="dropdown-link"><span class="nav-icon">🌱</span> Soil Analytics</a>
-                <a href="#" data-route="form" class="dropdown-link"><span class="nav-icon">📊</span> Crop Prediction</a>
-                <a href="#" data-route="diagnosis" class="dropdown-link"><span class="nav-icon">🦠</span> Disease Scanner</a>
-                <a href="#" class="dropdown-link"><span class="nav-icon">🧪</span> Fertilizer Rx</a>
-                <a href="#" class="dropdown-link"><span class="nav-icon">💧</span> Water Strategy</a>
-              </div>
-            </div>
-
-            <div class="nav-item farmer-only" style="display: none;">
-              <a href="#" data-route="market" class="nav-link">Market Intelligence</a>
-              <div class="dropdown-menu glass">
-                <a href="#" data-route="market" class="dropdown-link"><span class="nav-icon">📈</span> Live Mandi Prices</a>
-                <a href="#" class="dropdown-link"><span class="nav-icon">📉</span> Trend Analysis</a>
-                <a href="#" class="dropdown-link"><span class="nav-icon">🔮</span> Demand Forecast</a>
-                <a href="#" data-route="buyers" class="dropdown-link"><span class="nav-icon">🤝</span> Local Buyers</a>
-                <a href="#" class="dropdown-link"><span class="nav-icon">🛒</span> Sell Harvest</a>
-              </div>
-            </div>
-
-            <div class="nav-item farmer-only" style="display: none;">
-              <a href="#" data-route="knowledge" class="nav-link">Resources</a>
-              <div class="dropdown-menu glass">
-                <a href="#" data-route="knowledge" class="dropdown-link"><span class="nav-icon">📚</span> Master Guides</a>
-                <a href="#" class="dropdown-link"><span class="nav-icon">📅</span> Season Planner</a>
-                <a href="#" class="dropdown-link"><span class="nav-icon">🏛️</span> Govt. Schemes</a>
-                <a href="#" class="dropdown-link"><span class="nav-icon">💡</span> Pro Tips</a>
-                <a href="#" class="dropdown-link"><span class="nav-icon">▶️</span> Video Library</a>
-              </div>
-            </div>
-
-            <div class="nav-item farmer-only" style="display: none;">
-              <a href="#" data-route="community" class="nav-link">Network</a>
-              <div class="dropdown-menu glass">
-                <a href="#" data-route="community" class="dropdown-link"><span class="nav-icon">💬</span> Global Forum</a>
-                <a href="#" class="dropdown-link"><span class="nav-icon">🎓</span> Ask Agronomist</a>
-                <a href="#" class="dropdown-link"><span class="nav-icon">🌟</span> Success Stories</a>
-                <a href="#" class="dropdown-link"><span class="nav-icon">📍</span> Local Hubs</a>
-              </div>
-            </div>
-
-            <!-- ── BUYER-ONLY: B2F + Dashboard right after Home ── -->
-            <div class="nav-item buyer-only" style="display: none;">
-              <a href="#" data-route="b2f" class="nav-link">B2F Hub</a>
-            </div>
-
-            <div class="nav-item buyer-only" style="display: none;">
-              <a href="#" data-route="buyer-dashboard" class="nav-link">Dashboard</a>
-            </div>
-
-            <!-- ── BUYER-ONLY nav items ── -->
-            <div class="nav-item buyer-only" style="display: none;">
-              <a href="#" data-route="market" class="nav-link">Market Insights</a>
-              <div class="dropdown-menu glass">
-                <a href="#" data-route="market" class="dropdown-link"><span class="nav-icon">🚀</span> Live Rates</a>
-                <a href="#" class="dropdown-link"><span class="nav-icon">📊</span> Analytics</a>
-                <a href="#" class="dropdown-link"><span class="nav-icon">🔮</span> Forecasts</a>
-              </div>
-            </div>
-
-            <div class="nav-item buyer-only" style="display: none;">
-              <a href="#" data-route="buyers" class="nav-link">Sourcing</a>
-              <div class="dropdown-menu glass">
-                <a href="#" data-route="buyers" class="dropdown-link"><span class="nav-icon">📦</span> Open Listings</a>
-                <a href="#" class="dropdown-link"><span class="nav-icon">🔍</span> Global Search</a>
-                <a href="#" class="dropdown-link"><span class="nav-icon">📍</span> Radar</a>
-              </div>
-            </div>
-
-            <div class="nav-item buyer-only" style="display: none;">
-              <a href="#" class="nav-link">Transactions</a>
-              <div class="dropdown-menu glass">
-                <a href="#" class="dropdown-link"><span class="nav-icon">📜</span> Ledger</a>
-                <a href="#" class="dropdown-link"><span class="nav-icon">🔔</span> Price Alerts</a>
-                <a href="#" class="dropdown-link"><span class="nav-icon">⭐</span> Watchlist</a>
-              </div>
-            </div>
-
-
-
+          
+          <div class="nav-links" id="main-nav-links" style="gap: 1.5rem; align-items: center; font-weight: 500; white-space: nowrap;">
+            <a href="#" data-route="landing" class="nav-link active" style="white-space: nowrap;">Home</a>
+            <a href="#" data-route="dashboard" class="nav-link" style="white-space: nowrap;">Dashboard</a>
+            <a href="#" data-route="form" class="nav-link" style="white-space: nowrap;">AI Diagnosis</a>
+            <a href="#" data-route="market" class="nav-link" style="white-space: nowrap;">Market</a>
+            <a href="#" data-route="knowledge" class="nav-link" style="white-space: nowrap;">Resources</a>
           </div>
+          
           <div style="display: flex; align-items: center; gap: 1rem;">
-            <div id="nav-auth-buttons" style="display: flex; align-items: center; gap: 1rem;">
-              <a href="#" data-route="login" class="nav-link" style="font-size: 0.88rem; font-weight: 600; padding: 0.45rem 0.9rem;">Log in</a>
-              <button class="btn-modern-signup" onclick="window.navigate('signup')">Sign up</button>
-            </div>
-            <!-- User Avatar Menu (Auth Only) -->
-            <div id="nav-user-menu" class="nav-item" style="display: none; align-items: center; gap: 1rem; position: relative;">
-              <button id="user-avatar-btn" class="user-avatar-btn" title="My Account">
-                <span id="user-avatar-initials">RJ</span>
-              </button>
-              <div class="dropdown-menu glass dropdown-menu-right" style="min-width: 240px; top: calc(100% + 0.75rem);">
-                <div style="padding: 0.75rem 1rem 0.75rem; border-bottom: 1px solid var(--color-surface-container-high); margin-bottom: 0.25rem;">
-                  <div id="user-menu-name" style="font-weight: 700; color: var(--color-primary); font-size: 0.95rem;">Ramkishan J.</div>
-                  <div id="user-menu-email" style="font-size: 0.8rem; color: var(--color-on-surface-variant); margin-bottom: 0.5rem;">farmer@example.com</div>
-                  <span id="user-role-badge" class="role-badge role-badge-farmer">🌾 Farmer</span>
-                </div>
-                <a href="#" data-route="profile" class="dropdown-link"><span class="nav-icon">👤</span> My Profile</a>
-                <a href="#" id="nav-dashboard-link" data-route="farmer-dashboard" class="dropdown-link"><span class="nav-icon">🎛️</span> My Dashboard</a>
-                <a href="#" class="dropdown-link"><span class="nav-icon">🔖</span> Saved Reports</a>
-                <a href="#" class="dropdown-link"><span class="nav-icon">🔔</span> Alerts</a>
-                <div style="border-top: 1px solid var(--color-surface-container-high); margin-top: 0.25rem; padding-top: 0.25rem;">
-                  <a href="#" onclick="window.logoutUser()" class="dropdown-link" style="color: #ba1a1a;"><span class="nav-icon">✖️</span> Logout</a>
-                </div>
-              </div>
-            </div>
-            <select id="lang-toggle" class="input-field" style="padding: 0.25rem 0.5rem; background: var(--color-surface-container-low); border: 1px solid var(--color-outline-variant); width: auto; font-size: 0.85rem; border-radius: 4px;">
+            <!-- Language Selector -->
+            <select id="lang-toggle" class="input-field" style="padding: 0.35rem 0.75rem; background: rgba(255,255,255,0.7); backdrop-filter: blur(10px); border: 1px solid rgba(46, 125, 50, 0.2); width: auto; font-size: 0.9rem; border-radius: 8px; font-weight: 500; cursor: pointer;">
               <option value="en">English</option>
               <option value="hi">हिंदी</option>
               <option value="mr">मराठी</option>
             </select>
+
+            <div id="nav-auth-buttons" style="display: flex; align-items: center; gap: 0.8rem; white-space: nowrap;">
+              <a href="#" data-route="login" class="nav-link" style="font-size: 0.9rem; font-weight: 600; white-space: nowrap;">Log in</a>
+              <button class="btn-modern-signup" style="white-space: nowrap;" onclick="window.navigate('signup')">Sign up</button>
+            </div>
+
+            <!-- Profile Icon -->
+            <div id="nav-user-menu" class="nav-item" style="display: none; align-items: center; gap: 1rem; position: relative;">
+              <button id="user-avatar-btn" class="user-avatar-btn" title="My Account" style="background: var(--color-primary); color: white; border: none; width: 40px; height: 40px; border-radius: 50%; font-weight: 600; cursor: pointer; box-shadow: 0 4px 12px rgba(46, 125, 50, 0.2);">
+                <span id="user-avatar-initials">SW</span>
+              </button>
+              <div class="dropdown-menu glass dropdown-menu-right" style="min-width: 240px; top: calc(100% + 0.75rem);">
+                <div style="padding: 0.75rem 1rem 0.75rem; border-bottom: 1px solid var(--color-surface-container-high); margin-bottom: 0.25rem;">
+                  <div id="user-menu-name" style="font-weight: 700; color: var(--color-primary); font-size: 0.95rem;">Farmer Profile</div>
+                </div>
+                <a href="#" data-route="profile" class="dropdown-link"><span class="nav-icon">👤</span> My Profile</a>
+                <a href="#" onclick="window.logoutUser()" class="dropdown-link" style="color: #ba1a1a; margin-top: 0.5rem; border-top: 1px solid #eee; padding-top: 0.8rem;"><span class="nav-icon">🚪</span> Logout</a>
+              </div>
+            </div>
+            
             <div class="mobile-menu-btn">☰</div>
           </div>
         </div>
