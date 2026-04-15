@@ -15,7 +15,7 @@
       <!-- Navigation Bar -->
       <nav class="navbar glass">
         <div class="nav-container">
-          <div class="logo">
+          <div class="logo" onclick="window.navigate('landing')">
             <span class="logo-icon">🌿</span> AgroFarm AI
           </div>
           <div class="nav-links" id="main-nav-links" style="gap: 1.5rem; align-items: center;">
@@ -40,43 +40,43 @@
             <div class="nav-item farmer-only" style="display: none;">
               <a href="#" data-route="form" class="nav-link">AI Diagnosis</a>
               <div class="dropdown-menu glass">
-                <a href="#" data-route="form" class="dropdown-link">Soil Analysis</a>
-                <a href="#" data-route="form" class="dropdown-link">Crop Recommendation</a>
-                <a href="#" data-route="diagnosis" class="dropdown-link">Disease Detection</a>
-                <a href="#" class="dropdown-link">Fertilizer Suggestion</a>
-                <a href="#" class="dropdown-link">Irrigation Advice</a>
+                <a href="#" data-route="form" class="dropdown-link"><span class="nav-icon">🌱</span> Soil Analytics</a>
+                <a href="#" data-route="form" class="dropdown-link"><span class="nav-icon">📊</span> Crop Prediction</a>
+                <a href="#" data-route="diagnosis" class="dropdown-link"><span class="nav-icon">🦠</span> Disease Scanner</a>
+                <a href="#" class="dropdown-link"><span class="nav-icon">🧪</span> Fertilizer Rx</a>
+                <a href="#" class="dropdown-link"><span class="nav-icon">💧</span> Water Strategy</a>
               </div>
             </div>
 
             <div class="nav-item farmer-only" style="display: none;">
-              <a href="#" data-route="market" class="nav-link">Market Prices</a>
+              <a href="#" data-route="market" class="nav-link">Market Intelligence</a>
               <div class="dropdown-menu glass">
-                <a href="#" data-route="market" class="dropdown-link">Today's Mandi Prices</a>
-                <a href="#" class="dropdown-link">Price Trends</a>
-                <a href="#" class="dropdown-link">Demand Forecast</a>
-                <a href="#" data-route="buyers" class="dropdown-link">Nearby Buyers</a>
-                <a href="#" class="dropdown-link">Sell Crop</a>
+                <a href="#" data-route="market" class="dropdown-link"><span class="nav-icon">📈</span> Live Mandi Prices</a>
+                <a href="#" class="dropdown-link"><span class="nav-icon">📉</span> Trend Analysis</a>
+                <a href="#" class="dropdown-link"><span class="nav-icon">🔮</span> Demand Forecast</a>
+                <a href="#" data-route="buyers" class="dropdown-link"><span class="nav-icon">🤝</span> Local Buyers</a>
+                <a href="#" class="dropdown-link"><span class="nav-icon">🛒</span> Sell Harvest</a>
               </div>
             </div>
 
             <div class="nav-item farmer-only" style="display: none;">
-              <a href="#" data-route="knowledge" class="nav-link">Guide</a>
+              <a href="#" data-route="knowledge" class="nav-link">Resources</a>
               <div class="dropdown-menu glass">
-                <a href="#" data-route="knowledge" class="dropdown-link">Crop Growing Guide</a>
-                <a href="#" class="dropdown-link">Seasonal Planner</a>
-                <a href="#" class="dropdown-link">Government Schemes</a>
-                <a href="#" class="dropdown-link">Farming Tips</a>
-                <a href="#" class="dropdown-link">Video Tutorials</a>
+                <a href="#" data-route="knowledge" class="dropdown-link"><span class="nav-icon">📚</span> Master Guides</a>
+                <a href="#" class="dropdown-link"><span class="nav-icon">📅</span> Season Planner</a>
+                <a href="#" class="dropdown-link"><span class="nav-icon">🏛️</span> Govt. Schemes</a>
+                <a href="#" class="dropdown-link"><span class="nav-icon">💡</span> Pro Tips</a>
+                <a href="#" class="dropdown-link"><span class="nav-icon">▶️</span> Video Library</a>
               </div>
             </div>
 
             <div class="nav-item farmer-only" style="display: none;">
-              <a href="#" data-route="community" class="nav-link">Community</a>
+              <a href="#" data-route="community" class="nav-link">Network</a>
               <div class="dropdown-menu glass">
-                <a href="#" data-route="community" class="dropdown-link">Discussion Forum</a>
-                <a href="#" class="dropdown-link">Ask Expert</a>
-                <a href="#" class="dropdown-link">Success Stories</a>
-                <a href="#" class="dropdown-link">Local Farmer Groups</a>
+                <a href="#" data-route="community" class="dropdown-link"><span class="nav-icon">💬</span> Global Forum</a>
+                <a href="#" class="dropdown-link"><span class="nav-icon">🎓</span> Ask Agronomist</a>
+                <a href="#" class="dropdown-link"><span class="nav-icon">🌟</span> Success Stories</a>
+                <a href="#" class="dropdown-link"><span class="nav-icon">📍</span> Local Hubs</a>
               </div>
             </div>
 
@@ -91,29 +91,29 @@
 
             <!-- ── BUYER-ONLY nav items ── -->
             <div class="nav-item buyer-only" style="display: none;">
-              <a href="#" data-route="market" class="nav-link">Market Prices</a>
+              <a href="#" data-route="market" class="nav-link">Market Insights</a>
               <div class="dropdown-menu glass">
-                <a href="#" data-route="market" class="dropdown-link">Live Mandi Rates</a>
-                <a href="#" class="dropdown-link">Price Trends</a>
-                <a href="#" class="dropdown-link">Demand Forecast</a>
+                <a href="#" data-route="market" class="dropdown-link"><span class="nav-icon">🚀</span> Live Rates</a>
+                <a href="#" class="dropdown-link"><span class="nav-icon">📊</span> Analytics</a>
+                <a href="#" class="dropdown-link"><span class="nav-icon">🔮</span> Forecasts</a>
               </div>
             </div>
 
             <div class="nav-item buyer-only" style="display: none;">
-              <a href="#" data-route="buyers" class="nav-link">Browse Crops</a>
+              <a href="#" data-route="buyers" class="nav-link">Sourcing</a>
               <div class="dropdown-menu glass">
-                <a href="#" data-route="buyers" class="dropdown-link">Available Listings</a>
-                <a href="#" class="dropdown-link">Search by Crop</a>
-                <a href="#" class="dropdown-link">Search by Location</a>
+                <a href="#" data-route="buyers" class="dropdown-link"><span class="nav-icon">📦</span> Open Listings</a>
+                <a href="#" class="dropdown-link"><span class="nav-icon">🔍</span> Global Search</a>
+                <a href="#" class="dropdown-link"><span class="nav-icon">📍</span> Radar</a>
               </div>
             </div>
 
             <div class="nav-item buyer-only" style="display: none;">
-              <a href="#" class="nav-link">Orders</a>
+              <a href="#" class="nav-link">Transactions</a>
               <div class="dropdown-menu glass">
-                <a href="#" class="dropdown-link">Order History</a>
-                <a href="#" class="dropdown-link">Price Alerts</a>
-                <a href="#" class="dropdown-link">Saved Listings</a>
+                <a href="#" class="dropdown-link"><span class="nav-icon">📜</span> Ledger</a>
+                <a href="#" class="dropdown-link"><span class="nav-icon">🔔</span> Price Alerts</a>
+                <a href="#" class="dropdown-link"><span class="nav-icon">⭐</span> Watchlist</a>
               </div>
             </div>
 
@@ -122,8 +122,8 @@
           </div>
           <div style="display: flex; align-items: center; gap: 1rem;">
             <div id="nav-auth-buttons" style="display: flex; align-items: center; gap: 1rem;">
-              <a href="#" data-route="login" class="nav-link" style="font-size: 0.95rem; font-weight: 600; padding: 0;">Log in</a>
-              <button class="btn btn-primary" onclick="window.navigate('signup')" style="padding: 0.4rem 1rem; font-size: 0.9rem;">Sign up</button>
+              <a href="#" data-route="login" class="nav-link" style="font-size: 0.88rem; font-weight: 600; padding: 0.45rem 0.9rem;">Log in</a>
+              <button class="btn-modern-signup" onclick="window.navigate('signup')">Sign up</button>
             </div>
             <!-- User Avatar Menu (Auth Only) -->
             <div id="nav-user-menu" class="nav-item" style="display: none; align-items: center; gap: 1rem; position: relative;">
@@ -136,12 +136,12 @@
                   <div id="user-menu-email" style="font-size: 0.8rem; color: var(--color-on-surface-variant); margin-bottom: 0.5rem;">farmer@example.com</div>
                   <span id="user-role-badge" class="role-badge role-badge-farmer">🌾 Farmer</span>
                 </div>
-                <a href="#" data-route="profile" class="dropdown-link">My Profile</a>
-                <a href="#" id="nav-dashboard-link" data-route="farmer-dashboard" class="dropdown-link">My Dashboard</a>
-                <a href="#" class="dropdown-link">Saved Recommendations</a>
-                <a href="#" class="dropdown-link">Notifications</a>
+                <a href="#" data-route="profile" class="dropdown-link"><span class="nav-icon">👤</span> My Profile</a>
+                <a href="#" id="nav-dashboard-link" data-route="farmer-dashboard" class="dropdown-link"><span class="nav-icon">🎛️</span> My Dashboard</a>
+                <a href="#" class="dropdown-link"><span class="nav-icon">🔖</span> Saved Reports</a>
+                <a href="#" class="dropdown-link"><span class="nav-icon">🔔</span> Alerts</a>
                 <div style="border-top: 1px solid var(--color-surface-container-high); margin-top: 0.25rem; padding-top: 0.25rem;">
-                  <a href="#" onclick="window.logoutUser()" class="dropdown-link" style="color: #ba1a1a;">Logout</a>
+                  <a href="#" onclick="window.logoutUser()" class="dropdown-link" style="color: #ba1a1a;"><span class="nav-icon">✖️</span> Logout</a>
                 </div>
               </div>
             </div>
@@ -170,5 +170,18 @@
       </footer>
     </div>
     <script type="module" src="/main.js"></script>
+    <script>
+      /* 3D Navbar: intensify shadow on scroll */
+      (function () {
+        var nav = document.querySelector('.navbar');
+        window.addEventListener('scroll', function () {
+          if (window.scrollY > 20) {
+            nav.classList.add('scrolled');
+          } else {
+            nav.classList.remove('scrolled');
+          }
+        }, { passive: true });
+      })();
+    </script>
   </body>
 </html>
