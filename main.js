@@ -59,7 +59,25 @@ const i18n = {
     diag_wheat_rust: "Wheat Rust Identified", diag_treatment: "Treatment: Neem oil application suggested.",
     auth_join: "Join AgroFarm AI", auth_fname: "First Name", auth_lname: "Last Name", auth_role_select: "Select Your Role:", auth_role_farmer_opt: "Farmer", auth_role_buyer_opt: "Buyer / Business",
     auth_create: "Create Account", auth_have_acc: "Already have an account?",
-    chat_kisan_name: "Kisan AI Assistant", chat_kisan_sub: "Online · Farming Expert", chat_biz_name: "Business AI Assistant", chat_biz_sub: "Online · Procurement Expert"
+    nav_feat: "Features", nav_about: "About", nav_f2b: "F2B Hub", nav_b2f: "B2F Hub",
+    home_stories_badge: "⭐ Farmer Stories", home_stories_title: "Trusted by Farmers Across India", home_stories_sub: "Real results from real farmers who transformed their operations with AgroFarm AI.",
+    home_testimonial_1: "The AI diagnosis tool saved my entire wheat crop this season. I identified a rust infection 2 weeks before it became critical — that's ₹3 lakh saved.",
+    home_testimonial_2: "Switching to AgroFarm AI helped us reduce fertilizer costs by 30% while increasing our yield. The soil analysis precision is truly unmatched.",
+    home_testimonial_3: "The Market module gives me real-time prices from different mandis. I finally feel I have the power to negotiate fairly.",
+    home_testimonial_4: "As an agri-business, the F2B/B2F portal has connected us to 120+ verified farms. Procurement is now faster and cheaper.",
+    home_auth_1: "Ramesh Kumar", home_role_1: "🌾 Wheat Farmer, Punjab",
+    home_auth_2: "Priya Deshpande", home_role_2: "🌿 Organic Farmer, Maharashtra",
+    home_auth_3: "Arjun Singh", home_role_3: "🧅 Vegetable Grower, UP",
+    home_auth_4: "Meera Gupta", home_role_4: "🏢 Agri-Business, Gujarat",
+    footer_tagline: "Empowering the world's most vital industry with the precision of AI and the wisdom of tradition.",
+    footer_platform: "Platform", footer_resources: "Resources", footer_company: "Company", footer_contact: "Contact",
+    chat_kisan_welcome: "Namaste! I am your AI farming assistant. How can I help you today?",
+    chat_kisan_placeholder: "Ask anything...", chat_kisan_tooltip: "Ask Kisan Assistant",
+    chat_suggest_1: "🌾 Rice diseases", chat_suggest_2: "📈 Market prices", chat_suggest_3: "🌤️ Weather check",
+    chat_suggest_1: "🌾 Rice diseases", chat_suggest_2: "📈 Market prices", chat_suggest_3: "🌤️ Weather check",
+    chat_kisan_name: "Kisan AI Assistant", chat_kisan_sub: "Online · Farming Expert", chat_biz_name: "Business AI Assistant", chat_biz_sub: "Online · Procurement Expert",
+    news_placeholder: "Enter your email address...", nav_careers: "Careers", nav_privacy: "Privacy Policy", nav_cases: "Case Studies", nav_govt: "Govt. Schemes", nav_help: "Help Center",
+    chat_typing: "Typing...", chat_error: "Failed to connect to server.", chat_error_api: "Error connecting to AI."
   },
   hi: {
     nav_home: "मुख्य पृष्ठ", nav_dashboard: "डैशबोर्ड", nav_soil: "मृदा विश्लेषण", nav_market: "बाज़ार", nav_resources: "संसाधन",
@@ -114,7 +132,25 @@ const i18n = {
     diag_wheat_rust: "गेहूँ का रतुआ पहचाना गया", diag_treatment: "उपचार: नीम के तेल के उपयोग का सुझाव दिया गया है।",
     auth_join: "AgroFarm AI में शामिल हों", auth_fname: "पहला नाम", auth_lname: "अंतिम नाम", auth_role_select: "अपनी भूमिका चुनें:", auth_role_farmer_opt: "किसान", auth_role_buyer_opt: "खरीदार / व्यवसाय",
     auth_create: "खाता बनाएँ", auth_have_acc: "क्या आपके पास पहले से खाता है?",
-    chat_kisan_name: "किसान AI सहायक", chat_kisan_sub: "ऑनलाइन · कृषि विशेषज्ञ", chat_biz_name: "बिजनेस AI सहायक", chat_biz_sub: "ऑनलाइन · खरीद विशेषज्ञ"
+    nav_feat: "विशेषताएं", nav_about: "हमारे बारे में", nav_f2b: "F2B हब", nav_b2f: "B2F हब",
+    home_stories_badge: "⭐ किसान कहानियाँ", home_stories_title: "भारत भर के किसानों द्वारा विश्वसनीय", home_stories_sub: "उन वास्तविक किसानों के वास्तविक परिणाम जिन्होंने AgroFarm AI के साथ अपने कार्यों को बदल दिया।",
+    home_testimonial_1: "AI निदान उपकरण ने इस सीजन में मेरी पूरी गेहूं की फसल बचा ली। मैंने गंभीर होने से 2 सप्ताह पहले जंग के संक्रमण की पहचान की - यानी ₹3 लाख की बचत।",
+    home_testimonial_2: "AgroFarm AI पर जाने से हमें अपनी उपज बढ़ाते हुए उर्वरक लागत को 30% तक कम करने में मदद मिली। मिट्टी विश्लेषण की सटीकता वास्तव में बेजोड़ है।",
+    home_testimonial_3: "मार्केट मॉड्यूल मुझे विभिन्न मंडियों से वास्तविक समय की कीमतें देता है। मुझे आखिरकार लगता है कि मेरे पास निष्पक्ष रूप से बातचीत करने की शक्ति है।",
+    home_testimonial_4: "एक कृषि-व्यवसाय के रूप में, F2B/B2F पोर्टल ने हमें 120+ सत्यापित खेतों से जोड़ा है। खरीद अब तेज और सस्ती है।",
+    home_auth_1: "रमेश कुमार", home_role_1: "🌾 गेहूं किसान, पंजाब",
+    home_auth_2: "प्रिया देशपांडे", home_role_2: "🌿 जैविक किसान, महाराष्ट्र",
+    home_auth_3: "अर्जुन सिंह", home_role_3: "🧅 सब्जी उत्पादक, यूपी",
+    home_auth_4: "मीरा गुप्ता", home_role_4: "🏢 कृषि-व्यवसाय, गुजरात",
+    footer_tagline: "AI की सटीकता और परंपरा के ज्ञान के साथ दुनिया के सबसे महत्वपूर्ण उद्योग को सशक्त बनाना।",
+    footer_platform: "प्लेटफॉर्म", footer_resources: "संसाधन", footer_company: "कंपनी", footer_contact: "संपर्क",
+    chat_kisan_welcome: "नमस्ते! मैं आपका AI खेती सहायक हूँ। आज मैं आपकी क्या मदद कर सकता हूँ?",
+    chat_kisan_placeholder: "कुछ भी पूछें...", chat_kisan_tooltip: "किसान सहायक से पूछें",
+    chat_suggest_1: "🌾 चावल के रोग", chat_suggest_2: "📈 बाजार भाव", chat_suggest_3: "🌤️ मौसम की जांच",
+    chat_suggest_1: "🌾 चावल के रोग", chat_suggest_2: "📈 बाजार भाव", chat_suggest_3: "🌤️ मौसम की जांच",
+    chat_kisan_name: "किसान AI सहायक", chat_kisan_sub: "ऑनलाइन · कृषि विशेषज्ञ", chat_biz_name: "बिजनेस AI सहायक", chat_biz_sub: "ऑनलाइन · खरीद विशेषज्ञ",
+    news_placeholder: "अपना ईमेल पता दर्ज करें...", nav_careers: "करियर", nav_privacy: "गोपनीयता नीति", nav_cases: "केस स्टडीज", nav_govt: "सरकारी योजनाएं", nav_help: "सहायता केंद्र",
+    chat_typing: "टाइपिंग...", chat_error: "सर्वर से कनेक्ट करने में विफल।", chat_error_api: "AI से कनेक्ट करने में त्रुटि।"
   },
   mr: {
     nav_home: "मुखपृष्ठ", nav_dashboard: "डॅशबोर्ड", nav_soil: "माती विश्लेषण", nav_market: "बाजार", nav_resources: "संसाधने",
@@ -169,7 +205,25 @@ const i18n = {
     diag_wheat_rust: "गव्हाचा तांबेरा आढळला", diag_treatment: "उपचार: कडुनिंबाच्या तेलाचा वापर सुचवला आहे.",
     auth_join: "AgroFarm AI मध्ये सामील व्हा", auth_fname: "पहिले नाव", auth_lname: "आडनाव", auth_role_select: "तुमची भूमिका निवडा:", auth_role_farmer_opt: "शेतकरी", auth_role_buyer_opt: "खरेदीदार / व्यवसाय",
     auth_create: "खाते तयार करा", auth_have_acc: "तुमचे आधीच खाते आहे का?",
-    chat_kisan_name: "शेतकरी AI सहाय्यक", chat_kisan_sub: "ऑनलाइन · कृषी तज्ञ", chat_biz_name: "बिझनेस AI सहाय्यक", chat_biz_sub: "ऑनलाइन · खरेदी तज्ञ"
+    nav_feat: "वैशिष्ट्ये", nav_about: "आमच्याबद्दल", nav_f2b: "F2B हब", nav_b2f: "B2F हब",
+    home_stories_badge: "⭐ शेतकरी कथा", home_stories_title: "भारतभरातील शेतकऱ्यांचा विश्वास", home_stories_sub: "त्या खऱ्या शेतकऱ्यांचे खरे परिणाम ज्यांनी AgroFarm AI सह त्यांच्या शेतीमध्ये बदल घडडून आणला.",
+    home_testimonial_1: "AI निदान साधनाने या हंगामात माझे संपूर्ण गव्हाचे पीक वाचवले. मी गंभीर होण्यापूर्वी २ आठवडे तांबेरा रोगाची ओळख पटवली - म्हणजे ₹३ लाखांची बचत.",
+    home_testimonial_2: "AgroFarm AI कडे वळल्यामुळे आम्हाला उत्पादनात वाढ करताना खत खर्चात ३०% घट करण्यास मदत झाली. माती विश्लेषणाची अचूकता खरोखर अतुलनीय आहे.",
+    home_testimonial_3: "मार्केट मॉड्यूल मला विविध मंड्यांमधून रिअल-टाइम किमती देते. मला अखेर वाटते की माझ्याकडे योग्यरित्या वाटाघाटी करण्याची शक्ती आहे.",
+    home_testimonial_4: "कृषी-व्यवसाय म्हणून, F2B/B2F पोर्टलने आम्हाला १२०+ सत्यापित शेतांशी जोडले आहे. खरेदी आता जलद आणि स्वस्त आहे.",
+    home_auth_1: "रमेश कुमार", home_role_1: "🌾 गहू शेतकरी, पंजाब",
+    home_auth_2: "प्रिया देशपांडे", home_role_2: "🌿 सेंद्रिय शेतकरी, महाराष्ट्र",
+    home_auth_3: "अर्जुन सिंह", home_role_3: "🧅 भाजीपाला उत्पादक, युपी",
+    home_auth_4: "मीरा गुप्ता", home_role_4: "🏢 कृषी-व्यवसाय, गुजरात",
+    footer_tagline: "AI ची अचूकता आणि परंपरेच्या ज्ञानासह जगातील सर्वात महत्त्वाच्या उद्योगाला सक्षम बनवणे.",
+    footer_platform: "प्लॅटफॉर्म", footer_resources: "संसाधन", footer_company: "कंपनी", footer_contact: "संपर्क",
+    chat_kisan_welcome: "नमस्ते! मी तुमचा AI शेती सहाय्यक आहे. आज मी तुमची काय मदत करू शकतो?",
+    chat_kisan_placeholder: "काहीही विचारा...", chat_kisan_tooltip: "किसान सहाय्यकाला विचारा",
+    chat_suggest_1: "🌾 भात रोग", chat_suggest_2: "📈 बाजार भाव", chat_suggest_3: "🌤️ हवामान तपासणी",
+    chat_suggest_1: "🌾 भात रोग", chat_suggest_2: "📈 बाजार भाव", chat_suggest_3: "🌤️ हवामान तपासणी",
+    chat_kisan_name: "शेतकरी AI सहाय्यक", chat_kisan_sub: "ऑनलाइन · कृषी तज्ञ", chat_biz_name: "बिझनेस AI सहाय्यक", chat_biz_sub: "ऑनलाइन · खरेदी तज्ञ",
+    news_placeholder: "तुमचा ईमेल पत्ता प्रविष्ट करा...", nav_careers: "करिअर", nav_privacy: "गोपनीयता धोरण", nav_cases: "केस स्टडीज", nav_govt: "शासकीय योजना", nav_help: "मदत केंद्र",
+    chat_typing: "टायपिंग...", chat_error: "सर्व्हरशी कनेक्ट करण्यात अयशस्वी।", chat_error_api: "AI शी कनेक्ट करण्यात त्रुटी।"
   }
 };
 
@@ -296,52 +350,52 @@ const screens = {
       <section class="home-testimonials-section">
         <div class="container">
           <div class="home-section-header">
-            <div class="home-section-badge" style="background: rgba(255,193,7,0.15); color: #7a5c00;">⭐ Farmer Stories</div>
-            <h2 class="home-section-title">Trusted by Farmers Across India</h2>
-            <p class="home-section-sub">Real results from real farmers who transformed their operations with AgroFarm AI.</p>
+            <div class="home-section-badge" style="background: rgba(255,193,7,0.15); color: #7a5c00;" data-i18n="home_stories_badge">${t('home_stories_badge')}</div>
+            <h2 class="home-section-title" data-i18n="home_stories_title">${t('home_stories_title')}</h2>
+            <p class="home-section-sub" data-i18n="home_stories_sub">${t('home_stories_sub')}</p>
           </div>
           <div class="home-testimonials-track" id="testimonials-track">
             <div class="home-testimonial-card">
               <div class="home-testimonial-stars">★★★★★</div>
-              <p class="home-testimonial-quote">"The AI diagnosis tool saved my entire wheat crop this season. I identified a rust infection 2 weeks before it became critical — that's ₹3 lakh saved."</p>
+              <p class="home-testimonial-quote">${t('home_testimonial_1')}</p>
               <div class="home-testimonial-author">
                 <div class="home-testimonial-avatar">RK</div>
                 <div>
-                  <div class="home-testimonial-name">Ramesh Kumar</div>
-                  <div class="home-testimonial-role">🌾 Wheat Farmer, Punjab</div>
+                  <div class="home-testimonial-name">${t('home_auth_1')}</div>
+                  <div class="home-testimonial-role">${t('home_role_1')}</div>
                 </div>
               </div>
             </div>
             <div class="home-testimonial-card">
               <div class="home-testimonial-stars">★★★★★</div>
-              <p class="home-testimonial-quote">"Switching to AgroFarm AI helped us reduce fertilizer costs by 30% while increasing our yield. The soil analysis precision is truly unmatched in my experience."</p>
+              <p class="home-testimonial-quote">${t('home_testimonial_2')}</p>
               <div class="home-testimonial-author">
                 <div class="home-testimonial-avatar">PD</div>
                 <div>
-                  <div class="home-testimonial-name">Priya Deshpande</div>
-                  <div class="home-testimonial-role">🌿 Organic Farmer, Maharashtra</div>
+                  <div class="home-testimonial-name">${t('home_auth_2')}</div>
+                  <div class="home-testimonial-role">${t('home_role_2')}</div>
                 </div>
               </div>
             </div>
             <div class="home-testimonial-card">
               <div class="home-testimonial-stars">★★★★★</div>
-              <p class="home-testimonial-quote">"The Market module gives me real-time prices from different mandis. I finally feel I have the power to negotiate fairly and sell at peak value."</p>
+              <p class="home-testimonial-quote">${t('home_testimonial_3')}</p>
               <div class="home-testimonial-author">
                 <div class="home-testimonial-avatar">AS</div>
                 <div>
-                  <div class="home-testimonial-name">Arjun Singh</div>
-                  <div class="home-testimonial-role">🧅 Vegetable Grower, UP</div>
+                  <div class="home-testimonial-name">${t('home_auth_3')}</div>
+                  <div class="home-testimonial-role">${t('home_role_3')}</div>
                 </div>
               </div>
             </div>
             <div class="home-testimonial-card">
               <div class="home-testimonial-stars">★★★★★</div>
-              <p class="home-testimonial-quote">"As an agri-business, the F2B/B2F portal has connected us to 120+ verified farms. Procurement is now faster, traceable, and 25% cheaper."</p>
+              <p class="home-testimonial-quote">${t('home_testimonial_4')}</p>
               <div class="home-testimonial-author">
                 <div class="home-testimonial-avatar">MG</div>
                 <div>
-                  <div class="home-testimonial-name">Meera Gupta</div>
-                  <div class="home-testimonial-role">🏢 Agri-Business, Gujarat</div>
+                  <div class="home-testimonial-name">${t('home_auth_4')}</div>
+                  <div class="home-testimonial-role">${t('home_role_4')}</div>
                 </div>
               </div>
             </div>
@@ -366,7 +420,7 @@ const screens = {
           <h2 style="font-family: var(--font-display); font-size: 2.5rem; font-weight: 800; color: #fff; margin-bottom: 0.75rem;">${t('news_title')}</h2>
           <p style="color: rgba(255,255,255,0.7); margin-bottom: 2rem; font-size: 1.05rem;">${t('news_sub')}</p>
           <form class="home-newsletter-form" onsubmit="return false;">
-            <input type="email" class="home-newsletter-input" placeholder="Enter your email address..." id="newsletter-email">
+            <input type="email" class="home-newsletter-input" placeholder="${t('news_placeholder')}" id="newsletter-email">
             <button type="submit" class="home-newsletter-btn" onclick="window.handleNewsletterSignup()">${t('news_btn')}</button>
           </form>
         </div>
@@ -377,7 +431,7 @@ const screens = {
           <div class="home-footer-grid">
             <div class="home-footer-brand">
               <div class="home-footer-logo">🌿 AgroFarm AI</div>
-              <p class="home-footer-tagline">Empowering the world's most vital industry with the precision of AI and the wisdom of tradition.</p>
+              <p class="home-footer-tagline">${t('footer_tagline')}</p>
               <div class="home-footer-socials">
                 <a href="#" class="home-social-btn" title="Twitter">𝕏</a>
                 <a href="#" class="home-social-btn" title="Facebook">f</a>
@@ -386,25 +440,25 @@ const screens = {
               </div>
             </div>
             <div class="home-footer-col">
-              <h4 class="home-footer-heading">Platform</h4>
-              <a href="#" class="home-footer-link" onclick="window.navigate('form'); return false;">Soil Analysis</a>
-              <a href="#" class="home-footer-link" onclick="window.navigate('diagnosis'); return false;">AI Diagnosis</a>
-              <a href="#" class="home-footer-link" onclick="window.navigate('market'); return false;">Market Intelligence</a>
-              <a href="#" class="home-footer-link" onclick="window.navigate('f2b'); return false;">F2B Portal</a>
+              <h4 class="home-footer-heading">${t('footer_platform')}</h4>
+              <a href="#" class="home-footer-link" onclick="window.navigate('form'); return false;">${t('nav_soil')}</a>
+              <a href="#" class="home-footer-link" onclick="window.navigate('diagnosis'); return false;">${t('ai_diagnosis')}</a>
+              <a href="#" class="home-footer-link" onclick="window.navigate('market'); return false;">${t('nav_market')}</a>
+              <a href="#" class="home-footer-link" onclick="window.navigate('f2b'); return false;">${t('nav_f2b')}</a>
             </div>
             <div class="home-footer-col">
-              <h4 class="home-footer-heading">Resources</h4>
-              <a href="#" class="home-footer-link" onclick="window.navigate('knowledge'); return false;">Knowledge Hub</a>
-              <a href="#" class="home-footer-link">Case Studies</a>
-              <a href="#" class="home-footer-link">Govt. Schemes</a>
-              <a href="#" class="home-footer-link">Help Center</a>
+              <h4 class="home-footer-heading">${t('footer_resources')}</h4>
+              <a href="#" class="home-footer-link" onclick="window.navigate('knowledge'); return false;">${t('nav_resources')}</a>
+              <a href="#" class="home-footer-link">${t('nav_cases')}</a>
+              <a href="#" class="home-footer-link">${t('nav_govt')}</a>
+              <a href="#" class="home-footer-link">${t('nav_help')}</a>
             </div>
             <div class="home-footer-col">
-              <h4 class="home-footer-heading">Company</h4>
-              <a href="#" class="home-footer-link">About Us</a>
-              <a href="#" class="home-footer-link">Careers</a>
-              <a href="#" class="home-footer-link">Privacy Policy</a>
-              <a href="#" class="home-footer-link">Contact</a>
+              <h4 class="home-footer-heading">${t('footer_company')}</h4>
+              <a href="#" class="home-footer-link" data-i18n="nav_about">${t('nav_about')}</a>
+              <a href="#" class="home-footer-link">${t('nav_careers')}</a>
+              <a href="#" class="home-footer-link">${t('nav_privacy')}</a>
+              <a href="#" class="home-footer-link" data-i18n="footer_contact">${t('footer_contact')}</a>
             </div>
           </div>
           <div class="home-footer-bottom">
@@ -1160,7 +1214,18 @@ document.addEventListener('DOMContentLoaded', () => {
 function updateStaticUI() {
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
-    el.innerText = t(key);
+    const translated = t(key);
+    
+    // Handle special attributes
+    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+      if (el.hasAttribute('placeholder')) el.setAttribute('placeholder', translated);
+    }
+    if (el.hasAttribute('title')) el.setAttribute('title', translated);
+    
+    // Default to innerText if NOT just an attribute target
+    if (el.innerText !== "" || (!el.hasAttribute('placeholder') && !el.hasAttribute('title'))) {
+        el.innerText = translated;
+    }
   });
 }
 
@@ -1206,7 +1271,7 @@ window.dbAiSend = async function() {
     botMsg.innerHTML = data.reply.replace(/\n/g, '<br>');
     body.appendChild(botMsg);
   } catch (e) {
-    loader.textContent = 'Error connecting to AI.';
+    loader.textContent = t('chat_error_api');
   }
   body.scrollTop = body.scrollHeight;
 };
@@ -1229,7 +1294,7 @@ window.sendKisanMessage = async function(msgText) {
   const loader = document.createElement('div');
   loader.className = 'ai-typing-loader';
   loader.style.cssText = 'align-self: flex-start; background: white; color: var(--color-on-surface); padding: 0.5rem 1rem; border-radius: 4px 16px 16px 16px; font-size: 0.9rem; border: 1px solid var(--color-outline-variant); margin-bottom: 1rem;';
-  loader.innerHTML = '<span style="font-size:0.8rem;opacity:0.6;">Typing... <div class="pulse-ring" style="display:inline-block; position:relative; top:auto; left:auto; width:10px; height:10px; margin-left:5px;"></div></span>';
+  loader.innerHTML = `<span style="font-size:0.8rem;opacity:0.6;">${t('chat_typing')} <div class="pulse-ring" style="display:inline-block; position:relative; top:auto; left:auto; width:10px; height:10px; margin-left:5px;"></div></span>`;
   body.appendChild(loader);
   body.scrollTop = body.scrollHeight;
   
@@ -1250,7 +1315,7 @@ window.sendKisanMessage = async function(msgText) {
     loader.remove();
     const errBubble = document.createElement('div');
     errBubble.style.cssText = 'align-self: flex-start; background: #fff0f0; color: #ba1a1a; padding: 0.75rem 1rem; border-radius: 4px 16px 16px 16px; font-size: 0.9rem; margin-bottom: 1rem; border: 1px solid #ffcdcf;';
-    errBubble.innerText = 'Failed to connect to the assistant server.';
+    errBubble.innerText = t('chat_error');
     body.appendChild(errBubble);
   }
   body.scrollTop = body.scrollHeight;
