@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
+    <!-- Chart.js for Market Terminal -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
     <div id="app">
@@ -21,8 +23,8 @@
           
           <div class="nav-links" id="main-nav-links" style="gap: 1.5rem; align-items: center; font-weight: 500; white-space: nowrap;">
             <a href="#" data-route="landing" class="nav-link active" style="white-space: nowrap;">Home</a>
-            <a href="#" data-route="dashboard" class="nav-link" style="white-space: nowrap;">Dashboard</a>
-            <a href="#" data-route="form" class="nav-link" style="white-space: nowrap;">AI Diagnosis</a>
+            <a href="#" data-route="dashboard" id="nav-dashboard-link" class="nav-link" style="white-space: nowrap;">Dashboard</a>
+            <a href="#" data-route="form" class="nav-link" style="white-space: nowrap;">Soil Analysis</a>
             <a href="#" data-route="market" class="nav-link" style="white-space: nowrap;">Market</a>
             <a href="#" data-route="knowledge" class="nav-link" style="white-space: nowrap;">Resources</a>
           </div>
@@ -73,6 +75,45 @@
         </div>
       </footer>
     </div>
+    <!-- Floating Kisan AI Chatbot Widget -->
+    <div id="kisan-chatbot-trigger" onclick="window.toggleKisanChat()" title="Ask Kisan Assistant">
+      <span style="font-size: 1.5rem;">🤖</span>
+      <div class="pulse-ring"></div>
+    </div>
+
+    <div id="kisan-chatbot-window" class="glass" style="display: none; position: fixed; bottom: 5.5rem; right: 2rem; width: 360px; height: 500px; border-radius: 20px; flex-direction: column; overflow: hidden; z-index: 2000; box-shadow: 0 12px 48px rgba(0,0,0,0.15); border: 1px solid rgba(255,255,255,0.8);">
+      <!-- Header -->
+      <div style="background: var(--color-primary); color: white; padding: 1.25rem; display: flex; justify-content: space-between; align-items: center;">
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <div style="background: white; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">👨‍🌾</div>
+          <div>
+            <div style="font-weight: 800; font-size: 0.95rem; line-height: 1;">Kisan Assistant</div>
+            <div style="font-size: 0.7rem; opacity: 0.9; margin-top: 2px;">Online & Ready to Help</div>
+          </div>
+        </div>
+        <button onclick="window.toggleKisanChat()" style="background: rgba(255,255,255,0.2); border: none; color: white; width: 28px; height: 28px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-weight: 800;">✕</button>
+      </div>
+
+      <!-- Chat Body -->
+      <div id="kisan-chat-body" style="flex: 1; padding: 1.25rem; overflow-y: auto; display: flex; flex-direction: column; background: rgba(255,255,255,0.4);">
+        <div style="align-self: flex-start; background: white; color: var(--color-on-surface); padding: 0.75rem 1rem; border-radius: 4px 16px 16px 16px; font-size: 0.9rem; max-width: 85%; margin-bottom: 1rem; border: 1px solid var(--color-outline-variant); box-shadow: var(--shadow-glass);">
+          Namaste! I am your AI farming assistant. How can I help you today?
+        </div>
+        
+        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;">
+          <button onclick="window.kisanSuggest('Rice diseases')" class="insight-chip" style="cursor: pointer; border: none; font-size: 0.75rem;">🌾 Rice diseases</button>
+          <button onclick="window.kisanSuggest('Market prices')" class="insight-chip" style="cursor: pointer; border: none; font-size: 0.75rem;">📈 Market prices</button>
+          <button onclick="window.kisanSuggest('Weather check')" class="insight-chip" style="cursor: pointer; border: none; font-size: 0.75rem;">🌤️ Weather check</button>
+        </div>
+      </div>
+
+      <!-- Footer / Input -->
+      <div style="padding: 1rem; background: white; border-top: 1px solid var(--color-outline-variant); display: flex; gap: 0.5rem;">
+        <input type="text" id="kisan-input" placeholder="Ask anything..." style="flex: 1; border: 1px solid var(--color-outline-variant); border-radius: 999px; padding: 0.6rem 1rem; font-size: 0.9rem; outline: none;" onkeypress="if(event.key==='Enter') window.sendKisanMessage()">
+        <button onclick="window.sendKisanMessage()" style="background: var(--color-primary); color: white; border: none; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.1rem;">➔</button>
+      </div>
+    </div>
+
     <script type="module" src="./main.js"></script>
     <script>
       /* 3D Navbar: intensify shadow on scroll */
