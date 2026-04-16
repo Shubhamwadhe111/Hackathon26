@@ -40,11 +40,26 @@ const i18n = {
     feat_soil_title: "Soil Analysis", feat_soil_desc: "Deep-dive into nutrient profiles and moisture levels with satellite-assisted mapping technology.",
     feat_diag_title: "AI Diagnosis", feat_diag_desc: "Upload a leaf photo — get instant pest & disease identification with treatment guidance.",
     feat_market_title: "Market", feat_market_desc: "Access live mandi prices, wholesale trends, and best-time-to-sell recommendations.",
-    feat_f2b_title: "F2B / B2F", feat_f2b_desc: "Bridge farmers and agri-businesses with direct bulk contracts and verified supply chains.",
     news_title: "Stay Ahead of the Season", news_sub: "Get AI insights, market forecasts & farming tips delivered to your inbox.", news_btn: "Subscribe",
     db_ask_ai: "Ask AI", db_welcome_farmer: "Namaste! I'm your AI farming assistant. Ask me about your crops, diseases, market prices, or soil health!",
     db_welcome_buyer: "Hello! I'm your procurement AI assistant. I can help you with vendor checks, market trends, and quality verification.",
-    db_ai_placeholder_farmer: "Ask anything about your farm...", db_ai_placeholder_buyer: "Ask about market trends..."
+    db_ai_placeholder_farmer: "Ask anything about your farm...", db_ai_placeholder_buyer: "Ask about market trends...",
+    db_farmer_title: "Farmer Dashboard", db_weather_fetching: "🌤️ Fetching weather...", db_new_report: "New Soil Report", db_farm_center: "FARM INTELLIGENCE CENTER",
+    db_monitoring: "Your fields are being monitored.", db_alerts_needed: "alert needs attention.", db_view_alerts: "View Alerts",
+    db_kpi_fields: "TOTAL FIELDS", db_kpi_alerts: "ACTIVE ALERTS", db_kpi_pending: "PENDING REPORTS", db_kpi_market: "MARKET PRICE INDEX",
+    db_health_score: "Crop Health Score", db_last_30d: "Last 30 days — Field average", db_field_map: "Field Location Map", db_map_sub: "Health status by field",
+    db_recent_alerts: "Recent Alerts", db_mark_read: "Mark All Read", db_tasks: "Upcoming Tasks", db_task_all: "All", db_task_pending: "Pending", db_task_done: "Done",
+    db_th_task: "Task", db_th_field: "Field", db_th_due: "Due Date", db_th_status: "Status",
+    db_proc_title: "Procurement Dashboard", db_biz_hub: "📦 Business Intelligence Hub", db_explore_market: "Explore Market", db_proc_intel: "PROCUREMENT INTELLIGENCE",
+    db_orders_desc: "active procurement orders.", db_view_orders: "View Orders", db_kpi_orders: "ACTIVE ORDERS", db_kpi_farms: "VERIFIED FARMS", db_kpi_bids: "PENDING BIDS", db_kpi_spend: "SPEND THIS MONTH",
+    soil_intel_hub: "Soil Intelligence Hub", soil_analytics: "Analytics / Intelligence", soil_new_scan: "NEW SCAN", soil_field_config: "FIELD CONFIG",
+    soil_field_id: "Field Identifier", soil_geo: "Geo-Location", soil_date: "Sampling Date", soil_sample_scan: "SAMPLE SCAN", soil_nutrient_prof: "NUTRIENT PROFILE",
+    soil_health_index: "HEALTH INDEX", soil_awaiting: "Awaiting Data Input", soil_awaiting_sub: "Complete the form and upload a sample to initiate AI perception.",
+    soil_ai_insights: "AI INSIGHTS", soil_analyzing: "Analyzing your soil data to generate customized agronomic advice...", soil_export_pdf: "EXPORT PDF", soil_chronology: "CHRONOLOGY",
+    diag_wheat_rust: "Wheat Rust Identified", diag_treatment: "Treatment: Neem oil application suggested.",
+    auth_join: "Join AgroFarm AI", auth_fname: "First Name", auth_lname: "Last Name", auth_role_select: "Select Your Role:", auth_role_farmer_opt: "Farmer", auth_role_buyer_opt: "Buyer / Business",
+    auth_create: "Create Account", auth_have_acc: "Already have an account?",
+    chat_kisan_name: "Kisan AI Assistant", chat_kisan_sub: "Online · Farming Expert", chat_biz_name: "Business AI Assistant", chat_biz_sub: "Online · Procurement Expert"
   },
   hi: {
     nav_home: "मुख्य पृष्ठ", nav_dashboard: "डैशबोर्ड", nav_soil: "मृदा विश्लेषण", nav_market: "बाज़ार", nav_resources: "संसाधन",
@@ -83,7 +98,23 @@ const i18n = {
     news_title: "मौसम से एक कदम आगे रहें", news_sub: "AI अंतर्दृष्टि, बाज़ार पूर्वानुमान और खेती की टिप्स अपने इनबॉक्स में पाएं।", news_btn: "सदस्यता लें",
     db_ask_ai: "AI से पूछें", db_welcome_farmer: "नमस्ते! मैं आपका AI कृषि सहायक हूँ। अपनी फसलों, बीमारियों, बाजार की कीमतों या मिट्टी के स्वास्थ्य के बारे में पूछें!",
     db_welcome_buyer: "नमस्ते! मैं आपका खरीद AI सहायक हूँ। मैं विक्रेता जाँच, बाज़ार रुझान और गुणवत्ता सत्यापन में आपकी मदद कर सकता हूँ।",
-    db_ai_placeholder_farmer: "अपने खेत के बारे में कुछ भी पूछें...", db_ai_placeholder_buyer: "बाज़ार के रुझानों के बारे में पूछें..."
+    db_ai_placeholder_farmer: "अपने खेत के बारे में कुछ भी पूछें...", db_ai_placeholder_buyer: "बाज़ार के रुझानों के बारे में पूछें...",
+    db_farmer_title: "किसान डैशबोर्ड", db_weather_fetching: "🌤️ मौसम की जानकारी ली जा रही है...", db_new_report: "नया मृदा रिपोर्ट", db_farm_center: "कृषि इंटेलिजेंस केंद्र",
+    db_monitoring: "आपके खेतों की निगरानी की जा रही है।", db_alerts_needed: "अलर्ट पर ध्यान देने की आवश्यकता है।", db_view_alerts: "अलर्ट देखें",
+    db_kpi_fields: "कुल खेत", db_kpi_alerts: "सक्रिय अलर्ट", db_kpi_pending: "लंबित रिपोर्ट", db_kpi_market: "बाज़ार मूल्य सूचकांक",
+    db_health_score: "फसल स्वास्थ्य स्कोर", db_last_30d: "पिछले 30 दिन — खेत का औसत", db_field_map: "खेत स्थान मानचित्र", db_map_sub: "खेत के अनुसार स्वास्थ्य स्थिति",
+    db_recent_alerts: "हाल के अलर्ट", db_mark_read: "सभी पढ़े हुए चिह्नित करें", db_tasks: "आगामी कार्य", db_task_all: "सभी", db_task_pending: "लंबित", db_task_done: "पूर्ण",
+    db_th_task: "कार्य", db_th_field: "खेत", db_th_due: "नियत तिथि", db_th_status: "स्थिति",
+    db_proc_title: "खरीद डैशबोर्ड", db_biz_hub: "📦 बिजनेस इंटेलिजेंस हब", db_explore_market: "बाज़ार एक्सप्लोर करें", db_proc_intel: "खरीद इंटेलिजेंस",
+    db_orders_desc: "सक्रिय खरीद ऑर्डर हैं।", db_view_orders: "ऑर्डर देखें", db_kpi_orders: "सक्रिय ऑर्डर", db_kpi_farms: "सत्यापित खेत", db_kpi_bids: "लंबित बोलियां", db_kpi_spend: "इस महीने का खर्च",
+    soil_intel_hub: "मृदा इंटेलिजेंस हब", soil_analytics: "एनालिटिक्स / इंटेलिजेंस", soil_new_scan: "नया स्कैन", soil_field_config: "खेत कॉन्फिगरेशन",
+    soil_field_id: "खेत की पहचान", soil_geo: "जियो-लोकेशन", soil_date: "नमूना तिथि", soil_sample_scan: "नमूना स्कैन", soil_nutrient_prof: "पोषक तत्व प्रोफ़ाइल",
+    soil_health_index: "स्वास्थ्य सूचकांक", soil_awaiting: "डेटा इनपुट की प्रतीक्षा है", soil_awaiting_sub: "AI धारणा शुरू करने के लिए फॉर्म भरें और नमूना अपलोड करें।",
+    soil_ai_insights: "AI अंतर्दृष्टि", soil_analyzing: "अनुकूलित कृषि सलाह उत्पन्न करने के लिए आपके मृदा डेटा का विश्लेषण किया जा रहा है...", soil_export_pdf: "PDF एक्सपोर्ट करें", soil_chronology: "कालक्रम",
+    diag_wheat_rust: "गेहूँ का रतुआ पहचाना गया", diag_treatment: "उपचार: नीम के तेल के उपयोग का सुझाव दिया गया है।",
+    auth_join: "AgroFarm AI में शामिल हों", auth_fname: "पहला नाम", auth_lname: "अंतिम नाम", auth_role_select: "अपनी भूमिका चुनें:", auth_role_farmer_opt: "किसान", auth_role_buyer_opt: "खरीदार / व्यवसाय",
+    auth_create: "खाता बनाएँ", auth_have_acc: "क्या आपके पास पहले से खाता है?",
+    chat_kisan_name: "किसान AI सहायक", chat_kisan_sub: "ऑनलाइन · कृषि विशेषज्ञ", chat_biz_name: "बिजनेस AI सहायक", chat_biz_sub: "ऑनलाइन · खरीद विशेषज्ञ"
   },
   mr: {
     nav_home: "मुखपृष्ठ", nav_dashboard: "डॅशबोर्ड", nav_soil: "माती विश्लेषण", nav_market: "बाजार", nav_resources: "संसाधने",
@@ -122,7 +153,23 @@ const i18n = {
     news_title: "हंगामापूर्वी तयार राहा", news_sub: "AI अंतर्दृष्टी, बाजार अंदाज आणि शेती टिप्स तुमच्या इनबॉक्समध्ये मिळवा.", news_btn: "सदस्य व्हा",
     db_ask_ai: "AI ला विचारा", db_welcome_farmer: "नमस्ते! मी तुमचा AI शेती सहाय्यक आहे. तुमची पिके, रोग, बाजारभाव किंवा मातीच्या आरोग्याबद्दल विचारा!",
     db_welcome_buyer: "नमस्ते! मी तुमचा खरेदी AI सहाय्यक आहे. मी विक्रेता तपासणी, बाजार कल आणि गुणवत्ता पडताळणीमध्ये मदत करू शकतो.",
-    db_ai_placeholder_farmer: "तुमच्या शेताबद्दल काहीही विचारा...", db_ai_placeholder_buyer: "बाजार कल बद्दल विचारा..."
+    db_ai_placeholder_farmer: "तुमच्या शेताबद्दल काहीही विचारा...", db_ai_placeholder_buyer: "बाजार कल बद्दल विचारा...",
+    db_farmer_title: "शेतकरी डॅशबोर्ड", db_weather_fetching: "🌤️ हवामानाची माहिती घेतली जात आहे...", db_new_report: "नवीन माती अहवाल", db_farm_center: "कृषी इंटेलिजन्स केंद्र",
+    db_monitoring: "तुमच्या शेतात लक्ष ठेवले जात आहे.", db_alerts_needed: "अलर्टकडे लक्ष देणे आवश्यक आहे.", db_view_alerts: "अलर्ट पाहा",
+    db_kpi_fields: "एकूण शेते", db_kpi_alerts: "सक्रिय अलर्ट", db_kpi_pending: "प्रलंबित अहवाल", db_kpi_market: "बाजारभाव निर्देशांक",
+    db_health_score: "पीक आरोग्य स्कोअर", db_last_30d: "गेले ३० दिवस — शेत सरासरी", db_field_map: "शेत स्थान नकाशा", db_map_sub: "शेतानुसार आरोग्य स्थिती",
+    db_recent_alerts: "अलीकडील अलर्ट", db_mark_read: "सर्व वाचलेले म्हणून चिन्हांकित करा", db_tasks: "आगामी कार्ये", db_task_all: "सर्व", db_task_pending: "प्रलंबित", db_task_done: "पूर्ण",
+    db_th_task: "कार्य", db_th_field: "शेत", db_th_due: "नियत तारीख", db_th_status: "स्थिती",
+    db_proc_title: "खरेदी डॅशबोर्ड", db_biz_hub: "📦 बिझनेस इंटेलिजन्स हब", db_explore_market: "बाजार एक्सप्लोर करा", db_proc_intel: "खरेदी इंटेलिजन्स",
+    db_orders_desc: "सक्रिय खरेदी ऑर्डर्स आहेत.", db_view_orders: "ऑर्डर्स पाहा", db_kpi_orders: "सक्रिय ऑर्डर्स", db_kpi_farms: "सत्यापित शेते", db_kpi_bids: "प्रलंबित बोली", db_kpi_spend: "या महिन्याचा खर्च",
+    soil_intel_hub: "माती इंटेलिजन्स हब", soil_analytics: "एनालिटिक्स / इंटेलिजन्स", soil_new_scan: "नवीन स्कॅन", soil_field_config: "शेत कॉन्फिगरेशन",
+    soil_field_id: "शेत ओळख", soil_geo: "जिओ-लोकेशन", soil_date: "नमुना तारीख", soil_sample_scan: "नमुना स्कॅन", soil_nutrient_prof: "पोषक तत्व प्रोफाइल",
+    soil_health_index: "आरोग्य सूचकांक", soil_awaiting: "डेटा इनपुटची प्रतीक्षा आहे", soil_awaiting_sub: "AI आकलन सुरू करण्यासाठी फॉर्म भरा आणि नमुना अपलोड करा.",
+    soil_ai_insights: "AI अंतर्दृष्टी", soil_analyzing: "तुमच्या शेतीसाठी सानुकूलित सल्ला देण्यासाठी तुमच्या मातीच्या डेटाचे विश्लेषण केले जात आहे...", soil_export_pdf: "PDF एक्सपोर्ट करा", soil_chronology: "कालक्रम",
+    diag_wheat_rust: "गव्हाचा तांबेरा आढळला", diag_treatment: "उपचार: कडुनिंबाच्या तेलाचा वापर सुचवला आहे.",
+    auth_join: "AgroFarm AI मध्ये सामील व्हा", auth_fname: "पहिले नाव", auth_lname: "आडनाव", auth_role_select: "तुमची भूमिका निवडा:", auth_role_farmer_opt: "शेतकरी", auth_role_buyer_opt: "खरेदीदार / व्यवसाय",
+    auth_create: "खाते तयार करा", auth_have_acc: "तुमचे आधीच खाते आहे का?",
+    chat_kisan_name: "शेतकरी AI सहाय्यक", chat_kisan_sub: "ऑनलाइन · कृषी तज्ञ", chat_biz_name: "बिझनेस AI सहाय्यक", chat_biz_sub: "ऑनलाइन · खरेदी तज्ञ"
   }
 };
 
@@ -446,25 +493,25 @@ const screens = {
         <!-- Top Title Area -->
         <div class="spacer-bottom" style="display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap;">
           <div>
-            <h2 class="display-font" style="font-size:2.8rem; margin-bottom:0.4rem;">Farmer Dashboard</h2>
+            <h2 class="display-font" style="font-size:2.8rem; margin-bottom:0.4rem;">${t('db_farmer_title')}</h2>
             <div style="color:var(--color-primary); font-weight:600; display:flex; align-items:center; gap:0.5rem;">
-              <span id="db-weather-pill" style="background:rgba(46,125,50,0.1); padding:0.25rem 0.75rem; border-radius:99px; font-size:0.85rem;">🌤️ Fetching weather...</span> 
+              <span id="db-weather-pill" style="background:rgba(46,125,50,0.1); padding:0.25rem 0.75rem; border-radius:99px; font-size:0.85rem;">${t('db_weather_fetching')}</span> 
               <span style="color:#ccc;">|</span> 
               <span style="color:#888; font-size:0.85rem;">${dateStr}</span>
             </div>
           </div>
-          <button class="btn-primary" style="padding:0.8rem 1.8rem; font-size:0.95rem;" onclick="window.navigate('form')">+ New Soil Report</button>
+          <button class="btn-primary" style="padding:0.8rem 1.8rem; font-size:0.95rem;" onclick="window.navigate('soil-analysis')">${t('db_new_report')}</button>
         </div>
 
         <!-- Welcome Banner -->
         <div class="db-welcome-banner" style="margin-top:0;">
           <div class="db-welcome-left">
-            <div class="db-welcome-subtitle">FARM INTELLIGENCE CENTER</div>
+            <div class="db-welcome-subtitle">${t('db_farm_center')}</div>
             <h2 class="db-welcome-title">${greeting}, ${name.split(' ')[0]} 👋</h2>
-            <p class="db-welcome-desc">Your 3 fields are being monitored. <strong>1 alert</strong> needs your attention today.</p>
+            <p class="db-welcome-desc">${t('db_monitoring')} <strong>1 ${t('db_alerts_needed')}</strong></p>
             <div style="display:flex; gap:0.75rem; flex-wrap:wrap; margin-top:0.25rem;">
-              <button class="db-banner-btn" onclick="document.getElementById('db-alerts-panel').scrollIntoView({behavior:'smooth'})">View Alerts →</button>
-              <button class="db-banner-btn-ghost" onclick="window.navigate('diagnosis')">Run AI Diagnosis</button>
+              <button class="db-banner-btn" onclick="document.getElementById('db-alerts-panel').scrollIntoView({behavior:'smooth'})">${t('db_view_alerts')} →</button>
+              <button class="db-banner-btn-ghost" onclick="window.navigate('diagnosis')">${t('feat_diag_title')}</button>
             </div>
           </div>
           <div class="db-welcome-illustration">🌾</div>
@@ -474,28 +521,28 @@ const screens = {
         <div class="db-kpi-row">
           <div class="db-kpi-card" style="--kpi-color:#2E7D32;">
             <div class="db-kpi-icon">🌾</div>
-            <div class="db-kpi-label">TOTAL FIELDS</div>
+            <div class="db-kpi-label">${t('db_kpi_fields')}</div>
             <div class="db-kpi-value">3</div>
             <div class="db-kpi-trend up">↑ Added 1 last month</div>
             <div class="db-kpi-sparkline"><canvas id="spark-0" width="80" height="28"></canvas></div>
           </div>
           <div class="db-kpi-card" style="--kpi-color:#F57F17;">
             <div class="db-kpi-icon">⚠️</div>
-            <div class="db-kpi-label">ACTIVE ALERTS</div>
+            <div class="db-kpi-label">${t('db_kpi_alerts')}</div>
             <div class="db-kpi-value">1 <span class="db-kpi-badge">!</span></div>
             <div class="db-kpi-trend down">↓ Down from 4 last week</div>
             <div class="db-kpi-sparkline"><canvas id="spark-1" width="80" height="28"></canvas></div>
           </div>
           <div class="db-kpi-card" style="--kpi-color:#1565C0;">
             <div class="db-kpi-icon">📋</div>
-            <div class="db-kpi-label">PENDING REPORTS</div>
+            <div class="db-kpi-label">${t('db_kpi_pending')}</div>
             <div class="db-kpi-value">2</div>
             <div class="db-kpi-trend neutral">→ No change this week</div>
             <div class="db-kpi-sparkline"><canvas id="spark-2" width="80" height="28"></canvas></div>
           </div>
           <div class="db-kpi-card" style="--kpi-color:#6A1B9A;">
             <div class="db-kpi-icon">📊</div>
-            <div class="db-kpi-label">MARKET PRICE INDEX</div>
+            <div class="db-kpi-label">${t('db_kpi_market')}</div>
             <div class="db-kpi-value">₹2,340</div>
             <div class="db-kpi-trend up">↑ +5.2% this week</div>
             <div class="db-kpi-sparkline"><canvas id="spark-3" width="80" height="28"></canvas></div>
@@ -508,8 +555,8 @@ const screens = {
             <div class="db-panel">
               <div class="db-panel-header">
                 <div>
-                  <div class="db-panel-title">Crop Health Score</div>
-                  <div class="db-panel-sub">Last 30 days — Field average</div>
+                  <div class="db-panel-title">${t('db_health_score')}</div>
+                  <div class="db-panel-sub">${t('db_last_30d')}</div>
                 </div>
                 <div class="db-panel-actions">
                   <span class="db-filter-pill active">30D</span>
@@ -524,10 +571,10 @@ const screens = {
             <div class="db-panel" style="margin-top:1.5rem;">
               <div class="db-panel-header">
                 <div>
-                  <div class="db-panel-title">Field Location Map</div>
-                  <div class="db-panel-sub">Health status by field</div>
+                  <div class="db-panel-title">${t('db_field_map')}</div>
+                  <div class="db-panel-sub">${t('db_map_sub')}</div>
                 </div>
-                <button class="db-panel-btn" onclick="window.navigate('form')">+ New Report</button>
+                <button class="db-panel-btn" onclick="window.navigate('soil-analysis')">${t('db_new_report')}</button>
               </div>
               <div id="db-field-map" style="height:260px; border-radius:12px; overflow:hidden; background:#e8f5e9;"></div>
               <div class="db-map-legend">
@@ -540,8 +587,8 @@ const screens = {
           <div class="db-col-right">
             <div class="db-panel" id="db-alerts-panel">
               <div class="db-panel-header">
-                <div class="db-panel-title">Recent Alerts</div>
-                <button class="db-text-btn" onclick="window.dbMarkAllRead()">Mark All Read</button>
+                <div class="db-panel-title">${t('db_recent_alerts')}</div>
+                <button class="db-text-btn" onclick="window.dbMarkAllRead()">${t('db_mark_read')}</button>
               </div>
               <div id="db-notifications-list">
                 <div class="db-notif" data-id="n1" style="--notif-color:#F44336;">
@@ -563,15 +610,15 @@ const screens = {
               </div>
             </div>
             <div class="db-panel" style="margin-top:1.5rem;">
-              <div class="db-panel-header"><div class="db-panel-title">Upcoming Tasks</div></div>
+              <div class="db-panel-header"><div class="db-panel-title">${t('db_tasks')}</div></div>
               <div class="db-task-filters" id="db-task-filters">
-                <span class="db-filter-pill active" onclick="window.dbFilterTasks('all', this)">All</span>
-                <span class="db-filter-pill" onclick="window.dbFilterTasks('pending', this)">Pending</span>
-                <span class="db-filter-pill" onclick="window.dbFilterTasks('done', this)">Done</span>
+                <span class="db-filter-pill active" onclick="window.dbFilterTasks('all', this)">${t('db_task_all')}</span>
+                <span class="db-filter-pill" onclick="window.dbFilterTasks('pending', this)">${t('db_task_pending')}</span>
+                <span class="db-filter-pill" onclick="window.dbFilterTasks('done', this)">${t('db_task_done')}</span>
               </div>
               <div class="db-task-table-wrap">
                 <table class="db-task-table">
-                  <thead><tr><th>Task</th><th>Field</th><th>Due Date</th><th>Status</th></tr></thead>
+                  <thead><tr><th>${t('db_th_task')}</th><th>${t('db_th_field')}</th><th>${t('db_th_due')}</th><th>${t('db_th_status')}</th></tr></thead>
                   <tbody id="db-task-tbody">
                     <tr data-status="pending"><td>Apply fertilizer</td><td>Field A</td><td>Apr 18</td><td><span class="db-status-pill pending">Pending</span></td></tr>
                     <tr data-status="inprogress"><td>Irrigation check</td><td>Field B</td><td>Apr 17</td><td><span class="db-status-pill inprogress">In Progress</span></td></tr>
@@ -618,25 +665,25 @@ const screens = {
         <!-- Top Title Area -->
         <div class="spacer-bottom" style="display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap;">
           <div>
-            <h2 class="display-font" style="font-size:2.8rem; margin-bottom:0.4rem;">Procurement Dashboard</h2>
+            <h2 class="display-font" style="font-size:2.8rem; margin-bottom:0.4rem;">${t('db_proc_title')}</h2>
             <div style="color:var(--color-primary); font-weight:600; display:flex; align-items:center; gap:0.5rem;">
-              <span style="background:rgba(21,101,192,0.1); color:#1565C0; padding:0.25rem 0.75rem; border-radius:99px; font-size:0.85rem;">📦 Business Intelligence Hub</span> 
+              <span style="background:rgba(21,101,192,0.1); color:#1565C0; padding:0.25rem 0.75rem; border-radius:99px; font-size:0.85rem;">${t('db_biz_hub')}</span> 
               <span style="color:#ccc;">|</span> 
               <span style="color:#888; font-size:0.85rem;">${dateStr}</span>
             </div>
           </div>
-          <button class="btn-primary" style="padding:0.8rem 1.8rem; font-size:0.95rem; background:#1565C0;" onclick="window.navigate('market')">Explore Market</button>
+          <button class="btn-primary" style="padding:0.8rem 1.8rem; font-size:0.95rem; background:#1565C0;" onclick="window.navigate('market')">${t('db_explore_market')}</button>
         </div>
 
         <!-- Welcome Banner (blue theme for buyer) -->
         <div class="db-welcome-banner" style="margin-top:0; background:linear-gradient(135deg,#1565C0,#1976D2,#42A5F5);">
           <div class="db-welcome-left">
-            <div class="db-welcome-subtitle">PROCUREMENT INTELLIGENCE</div>
+            <div class="db-welcome-subtitle">${t('db_proc_intel')}</div>
             <h2 class="db-welcome-title">${greeting}, ${name.split(' ')[0]} 👋</h2>
-            <p class="db-welcome-desc">5 active procurement orders. <strong>2 bids</strong> awaiting your response.</p>
+            <p class="db-welcome-desc">5 ${t('db_orders_desc')} <strong>2 bids</strong> awaiting your response.</p>
             <div style="display:flex; gap:0.75rem; flex-wrap:wrap; margin-top:0.25rem;">
-              <button class="db-banner-btn" onclick="window.navigate('b2f')">View Orders →</button>
-              <button class="db-banner-btn-ghost" onclick="window.navigate('market')">Market Prices</button>
+              <button class="db-banner-btn" onclick="window.navigate('b2f')">${t('db_view_orders')} →</button>
+              <button class="db-banner-btn-ghost" onclick="window.navigate('market')">${t('nav_market')}</button>
             </div>
           </div>
           <div class="db-welcome-illustration">🏭</div>
@@ -646,28 +693,28 @@ const screens = {
         <div class="db-kpi-row">
           <div class="db-kpi-card" style="--kpi-color:#1565C0;">
             <div class="db-kpi-icon">📦</div>
-            <div class="db-kpi-label">ACTIVE ORDERS</div>
+            <div class="db-kpi-label">${t('db_kpi_orders')}</div>
             <div class="db-kpi-value">5</div>
             <div class="db-kpi-trend up">↑ +2 this month</div>
             <div class="db-kpi-sparkline"><canvas id="spark-0" width="80" height="28"></canvas></div>
           </div>
           <div class="db-kpi-card" style="--kpi-color:#2E7D32;">
             <div class="db-kpi-icon">🌾</div>
-            <div class="db-kpi-label">VERIFIED FARMS</div>
+            <div class="db-kpi-label">${t('db_kpi_farms')}</div>
             <div class="db-kpi-value">120</div>
             <div class="db-kpi-trend up">↑ +14 farms added</div>
             <div class="db-kpi-sparkline"><canvas id="spark-1" width="80" height="28"></canvas></div>
           </div>
           <div class="db-kpi-card" style="--kpi-color:#F57F17;">
             <div class="db-kpi-icon">🤝</div>
-            <div class="db-kpi-label">PENDING BIDS</div>
+            <div class="db-kpi-label">${t('db_kpi_bids')}</div>
             <div class="db-kpi-value">2 <span class="db-kpi-badge">!</span></div>
             <div class="db-kpi-trend neutral">→ Awaiting response</div>
             <div class="db-kpi-sparkline"><canvas id="spark-2" width="80" height="28"></canvas></div>
           </div>
           <div class="db-kpi-card" style="--kpi-color:#6A1B9A;">
             <div class="db-kpi-icon">💰</div>
-            <div class="db-kpi-label">SPEND THIS MONTH</div>
+            <div class="db-kpi-label">${t('db_kpi_spend')}</div>
             <div class="db-kpi-value">₹8.4L</div>
             <div class="db-kpi-trend down">↓ -3% vs last month</div>
             <div class="db-kpi-sparkline"><canvas id="spark-3" width="80" height="28"></canvas></div>
@@ -684,7 +731,7 @@ const screens = {
 
       <div class="db-ai-chat-panel" id="db-ai-chat-panel">
         <div class="db-ai-chat-header" style="background: linear-gradient(135deg, #1565C0, #1976D2);">
-          <div style="display:flex;align-items:center;gap:0.75rem;"><span style="font-size:1.5rem;">🤖</span><div><div style="font-weight:800;font-size:0.95rem;">Business AI Assistant</div><div style="font-size:0.72rem;opacity:0.8;">Online · Procurement Expert</div></div></div>
+          <div style="display:flex;align-items:center;gap:0.75rem;"><span style="font-size:1.5rem;">🤖</span><div><div style="font-weight:800;font-size:0.95rem;">${t('chat_biz_name')}</div><div style="font-size:0.72rem;opacity:0.8;">${t('chat_biz_sub')}</div></div></div>
           <button onclick="window.dbToggleAiChat()" style="background:rgba(255,255,255,0.15);border:none;color:white;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:0.9rem;">✕</button>
         </div>
         <div class="db-ai-chat-body" id="db-ai-chat-body">
@@ -698,7 +745,7 @@ const screens = {
     `;
   },
   diagnosis: function() {
-    return `<div class="db-wrapper spacer-y fade-in"><h2 class="display-font">${t('ai_diagnosis')}</h2><div id="diagnosis-dropzone" class="card" style="padding:4rem; text-align:center; border: 2px dashed #ccc; cursor:pointer;" onclick="document.getElementById('file-upload').click()"><input type="file" id="file-upload" style="display:none;" onchange="window.handleImageUpload(this)">📸 ${t('upload_leaf')}</div><div id="diagnosis-scanning" class="card" style="display:none; text-align:center; padding:4rem;">🧬 ${t('scanning')}</div><div id="diagnosis-results" class="card" style="display:none; padding:2rem;"><h3>Wheat Rust Identified</h3><p>Treatment: Neem oil application suggested.</p></div></div>`;
+    return `<div class="db-wrapper spacer-y fade-in"><h2 class="display-font">${t('feat_diag_title')}</h2><div id="diagnosis-dropzone" class="card" style="padding:4rem; text-align:center; border: 2px dashed #ccc; cursor:pointer;" onclick="document.getElementById('file-upload').click()"><input type="file" id="file-upload" style="display:none;" onchange="window.handleImageUpload(this)">📸 ${t('feat_diag_desc')}</div><div id="diagnosis-scanning" class="card" style="display:none; text-align:center; padding:4rem;">🧬 ${t('soil_analyzing')}</div><div id="diagnosis-results" class="card" style="display:none; padding:2rem;"><h3>${t('diag_wheat_rust')}</h3><p>${t('diag_treatment')}</p></div></div>`;
   },
   login: function() {
     return `<div class="container spacer-y" style="display:flex; justify-content:center;"><div class="card" style="width:400px; padding:3rem;"><h2 class="display-font" style="text-align:center;">${t('sign_in')}</h2><div class="input-group"><label>${t('email')}</label><input type="email" id="login-email" class="input-field"></div><div class="input-group"><label>${t('password')}</label><input type="password" id="login-pass" class="input-field"></div><button class="btn btn-primary" style="width:100%; margin-top:2rem;" onclick="window.loginUser()">${t('login')}</button></div></div>`;
@@ -707,51 +754,51 @@ const screens = {
     return `
       <div class="container spacer-y" style="display:flex; justify-content:center;">
         <div class="card" style="width:450px; padding:3rem;">
-          <h2 class="display-font" style="text-align:center; margin-bottom:2rem;">Join AgroFarm AI</h2>
+          <h2 class="display-font" style="text-align:center; margin-bottom:2rem;">${t('auth_join')}</h2>
           <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
-            <div class="input-group"><label>First Name</label><input type="text" id="signup-fname" class="input-field" placeholder="Ramesh"></div>
-            <div class="input-group"><label>Last Name</label><input type="text" id="signup-lname" class="input-field" placeholder="Kumar"></div>
+            <div class="input-group"><label>${t('auth_fname')}</label><input type="text" id="signup-fname" class="input-field" placeholder="Ramesh"></div>
+            <div class="input-group"><label>${t('auth_lname')}</label><input type="text" id="signup-lname" class="input-field" placeholder="Kumar"></div>
           </div>
-          <div class="input-group"><label>Email</label><input type="email" id="signup-email" class="input-field" placeholder="ramesh@example.com"></div>
-          <div class="input-group"><label>Password</label><input type="password" id="signup-pass" class="input-field" placeholder="••••••••"></div>
+          <div class="input-group"><label>${t('email')}</label><input type="email" id="signup-email" class="input-field" placeholder="ramesh@example.com"></div>
+          <div class="input-group"><label>${t('password')}</label><input type="password" id="signup-pass" class="input-field" placeholder="••••••••"></div>
           <div class="input-group">
-            <label style="margin-bottom:0.75rem; display:block;">Select Your Role:</label>
+            <label style="margin-bottom:0.75rem; display:block;">${t('auth_role_select')}</label>
             <div style="display:flex; gap:1.5rem; align-items:center;">
-              <label style="cursor:pointer; display:flex; align-items:center; gap:0.5rem;"><input type="radio" name="signup-role" value="farmer" checked> Farmer</label>
-              <label style="cursor:pointer; display:flex; align-items:center; gap:0.5rem;"><input type="radio" name="signup-role" value="buyer"> Buyer / Business</label>
+              <label style="cursor:pointer; display:flex; align-items:center; gap:0.5rem;"><input type="radio" name="signup-role" value="farmer" checked> ${t('auth_role_farmer_opt')}</label>
+              <label style="cursor:pointer; display:flex; align-items:center; gap:0.5rem;"><input type="radio" name="signup-role" value="buyer"> ${t('auth_role_buyer_opt')}</label>
             </div>
           </div>
-          <button class="btn btn-primary" style="width:100%; margin-top:1.5rem;" onclick="window.registerUser()">Create Account</button>
+          <button class="btn btn-primary" style="width:100%; margin-top:1.5rem;" onclick="window.registerUser()">${t('auth_create')}</button>
           <div style="text-align:center; margin-top:1.5rem; font-size:0.9rem; color:#666;">
-            Already have an account? <a href="#" onclick="window.navigate('login')" style="color:var(--color-primary); font-weight:700;">Sign In</a>
+            ${t('auth_have_acc')} <a href="#" onclick="window.navigate('login')" style="color:var(--color-primary); font-weight:700;">${t('nav_login')}</a>
           </div>
         </div>
       </div>`;
   },
 
   f2b: function() {
-    return `<div class="db-wrapper spacer-y fade-in"><h2 class="display-font" style="font-size:2.5rem;">Farm-to-Business Hub</h2><p style="color:#666; margin-bottom:2rem;">Direct bulk supply channels for corporate procurement.</p><div class="grid-3"><div class="card"><h3>Active Contracts</h3><div class="stat-number">03</div></div><div class="card"><h3>Bids Received</h3><div class="stat-number">08</div></div><div class="card"><h3>Logistics</h3><div class="stat-number">Ready</div></div></div></div>`;
+    return `<div class="db-wrapper spacer-y fade-in"><h2 class="display-font" style="font-size:2.5rem;">${t('feat_f2b_title')}</h2><p style="color:#666; margin-bottom:2rem;">${t('feat_f2b_desc')}</p><div class="grid-3"><div class="card"><h3>Active Contracts</h3><div class="stat-number">03</div></div><div class="card"><h3>Bids Received</h3><div class="stat-number">08</div></div><div class="card"><h3>Logistics</h3><div class="stat-number">Ready</div></div></div></div>`;
   },
   b2f: function() {
     return `<div class="db-wrapper spacer-y fade-in"><h2 class="display-font" style="font-size:2.5rem;">Business-to-Farm Portal</h2><p style="color:#666; margin-bottom:2rem;">Source raw materials and produce directly from verified growers.</p><div class="grid-3"><div class="card"><h3>Active Requests</h3><div class="stat-number">04</div></div><div class="card"><h3>Verified Farms</h3><div class="stat-number">120</div></div><div class="card"><h3>Processing</h3><div class="stat-number">Active</div></div></div></div>`;
   },
   knowledge: function() {
-    return `<div class="container spacer-y fade-in"><h2 class="display-font" style="font-size:2.5rem;">Resource Center</h2><p>Agri-Intelligence and latest government schemes.</p><div class="grid-3"><div class="card"><h3>Schemes</h3><p>PM-KISAN dashboard links.</p></div><div class="card"><h3>Techniques</h3><p>Hydroponics and drip irrigation guides.</p></div><div class="card"><h3>Pests</h3><p>Comprehensive identification guide.</p></div></div></div>`;
+    return `<div class="container spacer-y fade-in"><h2 class="display-font" style="font-size:2.5rem;">${t('nav_resources')}</h2><p>Agri-Intelligence and latest government schemes.</p><div class="grid-3"><div class="card"><h3>Schemes</h3><p>PM-KISAN dashboard links.</p></div><div class="card"><h3>Techniques</h3><p>Hydroponics and drip irrigation guides.</p></div><div class="card"><h3>Pests</h3><p>Comprehensive identification guide.</p></div></div></div>`;
   },
   community: function() {
-    return `<div class="container spacer-y fade-in"><h2 class="display-font">Farmer Community</h2><div class="card" style="padding:4rem; text-align:center;"><p>Discussion forums and community expert panels are syncing...</p></div></div>`;
+    return `<div class="container spacer-y fade-in"><h2 class="display-font">Farmer Community</h2><div class="card" style="padding:4rem; text-align:center;"><p>${t('market_intel')}</p></div></div>`;
   },
   'soil-analysis': function() {
     return `
       <div class="db-wrapper spacer-y fade-in">
         <div class="soil-header">
           <div>
-            <div class="soil-breadcrumb">Analytics / Intelligence</div>
-            <h1 class="display-font" style="margin:0; font-size:2.5rem; letter-spacing:-1px;">Soil Intelligence Hub</h1>
+            <div class="soil-breadcrumb">${t('soil_analytics')}</div>
+            <h1 class="display-font" style="margin:0; font-size:2.5rem; letter-spacing:-1px;">${t('soil_intel_hub')}</h1>
           </div>
           <div style="display:flex; gap:1rem;">
              <button class="premium-btn-ai" onclick="document.getElementById('soil-form-card').scrollIntoView({behavior:'smooth'})">
-                <span style="font-size:1.2rem;">✨</span> NEW SCAN
+                <span style="font-size:1.2rem;">✨</span> ${t('soil_new_scan')}
              </button>
           </div>
         </div>
@@ -760,17 +807,17 @@ const screens = {
           
           <!-- Column 1: Configurator -->
           <div class="glass-card-premium" id="soil-form-card" style="padding:2rem;">
-            <h3 class="display-font" style="margin-top:0; font-size:1.1rem; color:var(--color-primary);">FIELD CONFIG</h3>
-            <div class="input-group"><label>Field Identifier</label><input type="text" id="soil-field" class="input-field" placeholder="North Wheat Plot"></div>
+            <h3 class="display-font" style="margin-top:0; font-size:1.1rem; color:var(--color-primary);">${t('soil_field_config')}</h3>
+            <div class="input-group"><label>${t('soil_field_id')}</label><input type="text" id="soil-field" class="input-field" placeholder="North Wheat Plot"></div>
             <div class="input-group">
-              <label>Geo-Location</label>
+              <label>${t('soil_geo')}</label>
               <select id="soil-location" class="input-field">
                 <option value="Kolhapur">Kolhapur Central</option>
                 <option value="Sangli">Sangli East</option>
                 <option value="Satara">Satara North</option>
               </select>
             </div>
-            <div class="input-group"><label>Sampling Date</label><input type="date" id="soil-date" class="input-field"></div>
+            <div class="input-group"><label>${t('soil_date')}</label><input type="date" id="soil-date" class="input-field"></div>
             
             <div class="soil-scan-container" onclick="document.getElementById('soil-file').click()">
               <div class="soil-scanner-line" id="scanner-line"></div>
@@ -778,23 +825,23 @@ const screens = {
                 <input type="file" id="soil-file" style="display:none;" onchange="window.handleSoilUpload(this)">
                 <div id="upload-placeholder">
                   <div style="font-size:2rem; margin-bottom:0.5rem;">📷</div>
-                  <strong style="font-size:0.85rem;">SAMPLE SCAN</strong>
+                  <strong style="font-size:0.85rem;">${t('soil_sample_scan')}</strong>
                 </div>
                 <img id="soil-preview" style="display:none; width:100%; border-radius:12px;">
               </div>
             </div>
 
-            <h4 style="margin: 1.5rem 0 1rem; font-size:0.8rem; color:#888; letter-spacing:1px;">NUTRIENT PROFILE</h4>
+            <h4 style="margin: 1.5rem 0 1rem; font-size:0.8rem; color:#888; letter-spacing:1px;">${t('soil_nutrient_prof')}</h4>
             <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
-              <div class="input-group" style="margin:0;"><label>pH</label><input type="number" step="0.1" id="soil-ph" class="input-field" value="6.5"></div>
-              <div class="input-group" style="margin:0;"><label>N</label><input type="number" id="soil-n" class="input-field" value="40"></div>
-              <div class="input-group" style="margin:0;"><label>P</label><input type="number" id="soil-p" class="input-field" value="25"></div>
-              <div class="input-group" style="margin:0;"><label>K</label><input type="number" id="soil-k" class="input-field" value="30"></div>
-              <div class="input-group" style="margin:0;"><label>Moist %</label><input type="number" id="soil-moisture" class="input-field" value="15"></div>
+              <div class="input-group" style="margin:0;"><label>${t('ph')}</label><input type="number" step="0.1" id="soil-ph" class="input-field" value="6.5"></div>
+              <div class="input-group" style="margin:0;"><label>${t('nitrogen')}</label><input type="number" id="soil-n" class="input-field" value="40"></div>
+              <div class="input-group" style="margin:0;"><label>${t('phosphorus')}</label><input type="number" id="soil-p" class="input-field" value="25"></div>
+              <div class="input-group" style="margin:0;"><label>${t('potassium')}</label><input type="number" id="soil-k" class="input-field" value="30"></div>
+              <div class="input-group" style="margin:0;"><label>${t('humidity')}</label><input type="number" id="soil-moisture" class="input-field" value="15"></div>
               <div class="input-group" style="margin:0;"><label>O.M %</label><input type="number" id="soil-om" class="input-field" value="2.5"></div>
             </div>
 
-            <button class="premium-btn-ai" style="width:100%; margin-top:2rem;" onclick="window.runSoilAnalysis()">RUN AI DIAGNOSIS</button>
+            <button class="premium-btn-ai" style="width:100%; margin-top:2rem;" onclick="window.runSoilAnalysis()">${t('feat_diag_title')}</button>
           </div>
 
           <!-- Column 2: The Heart (Visualizer) -->
@@ -804,16 +851,16 @@ const screens = {
                   <canvas id="soilGaugeChart"></canvas>
                   <div class="soil-gauge-score" style="bottom:10px;">
                     <div class="soil-gauge-value" id="res-score" style="font-size:4rem;">--</div>
-                    <div class="soil-gauge-label">HEALTH INDEX</div>
+                    <div class="soil-gauge-label">${t('soil_health_index')}</div>
                   </div>
                 </div>
                 
                 <div class="stat-chip-grid">
-                    <div class="stat-chip"><div class="stat-chip-val" id="chip-ph">--</div><div class="stat-chip-label">pH Level</div></div>
-                    <div class="stat-chip"><div class="stat-chip-val" id="chip-n">--</div><div class="stat-chip-label">Nitrogen</div></div>
-                    <div class="stat-chip"><div class="stat-chip-val" id="chip-p">--</div><div class="stat-chip-label">Phosphor</div></div>
-                    <div class="stat-chip"><div class="stat-chip-val" id="chip-k">--</div><div class="stat-chip-label">Potassium</div></div>
-                    <div class="stat-chip"><div class="stat-chip-val" id="chip-moist">--</div><div class="stat-chip-label">Moisture</div></div>
+                    <div class="stat-chip"><div class="stat-chip-val" id="chip-ph">--</div><div class="stat-chip-label">${t('ph')}</div></div>
+                    <div class="stat-chip"><div class="stat-chip-val" id="chip-n">--</div><div class="stat-chip-label">${t('nitrogen')}</div></div>
+                    <div class="stat-chip"><div class="stat-chip-val" id="chip-p">--</div><div class="stat-chip-label">${t('phosphorus')}</div></div>
+                    <div class="stat-chip"><div class="stat-chip-val" id="chip-k">--</div><div class="stat-chip-label">${t('potassium')}</div></div>
+                    <div class="stat-chip"><div class="stat-chip-val" id="chip-moist">--</div><div class="stat-chip-label">${t('humidity')}</div></div>
                     <div class="stat-chip"><div class="stat-chip-val" id="chip-om">--</div><div class="stat-chip-label">Org. Matt</div></div>
                 </div>
                 
@@ -824,8 +871,8 @@ const screens = {
             
             <div id="soil-placeholder-card" class="glass-card-premium" style="padding:5rem; text-align:center; color:#ccc; border:2px dashed #eee;">
                <div style="font-size:4rem; margin-bottom:1.5rem; opacity:0.3;">📡</div>
-               <h2 style="margin:0; opacity:0.5;">Awaiting Data Input</h2>
-               <p style="opacity:0.4;">Complete the form and upload a sample to initiate AI perception.</p>
+               <h2 style="margin:0; opacity:0.5;">${t('soil_awaiting')}</h2>
+               <p style="opacity:0.4;">${t('soil_awaiting_sub')}</p>
             </div>
           </div>
 
@@ -1120,11 +1167,48 @@ function updateStaticUI() {
 // ─── Chatbot Logic ──────────────────────────────────────────────────
 window.toggleKisanChat = function() {
   const win = document.getElementById('kisan-chatbot-window');
-  if (win.style.display === 'none' || !win.style.display) {
-    win.style.display = 'flex';
-  } else {
-    win.style.display = 'none';
+  if (win) win.style.display = (win.style.display === 'none' || !win.style.display) ? 'flex' : 'none';
+};
+
+window.dbToggleAiChat = function() {
+  const win = document.getElementById('db-ai-chat-panel');
+  if (win) win.classList.toggle('active');
+};
+
+window.dbAiSend = async function() {
+  const input = document.getElementById('db-ai-input');
+  const text = input?.value.trim();
+  if (!text) return;
+  input.value = '';
+
+  const body = document.getElementById('db-ai-chat-body');
+  const userMsg = document.createElement('div');
+  userMsg.className = 'db-ai-msg user';
+  userMsg.textContent = text;
+  body.appendChild(userMsg);
+  body.scrollTop = body.scrollHeight;
+
+  const loader = document.createElement('div');
+  loader.className = 'db-ai-msg bot typing';
+  loader.textContent = '...';
+  body.appendChild(loader);
+
+  try {
+    const res = await fetch('http://localhost:5000/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: text, lang: appState.lang })
+    });
+    const data = await res.json();
+    loader.remove();
+    const botMsg = document.createElement('div');
+    botMsg.className = 'db-ai-msg bot';
+    botMsg.innerHTML = data.reply.replace(/\n/g, '<br>');
+    body.appendChild(botMsg);
+  } catch (e) {
+    loader.textContent = 'Error connecting to AI.';
   }
+  body.scrollTop = body.scrollHeight;
 };
 
 window.sendKisanMessage = async function(msgText) {
