@@ -347,6 +347,26 @@ const screens = {
       </section>
 
       <!-- ═══ TESTIMONIALS CAROUSEL ═══ -->
+      <section id="kisan-ai" class="home-ai-section">
+        <div class="container">
+          <div class="home-section-header">
+            <div class="home-section-badge" style="background: rgba(46,125,50,0.1); color: var(--color-primary);" data-i18n="chat_kisan_name">Kisan AI Knowledge Hub</div>
+            <h2 class="home-section-title">Ask our AI Agronomist</h2>
+            <p class="home-section-sub">Get instant answers for crops, soil, and weather from our local agricultural database.</p>
+          </div>
+          
+          <div id="chatbox" class="glass-card-premium home-chat-box">
+             <div id="messages" class="home-chat-messages">
+                <div class="ai-msg bot">Namaste! I am the Kisan AI Assistant. Ask me anything about farming!</div>
+             </div>
+             <div class="home-chat-input-wrapper">
+                <input id="userInput" type="text" placeholder="Ask about wheat, soil, PM-Kisan..." class="home-chat-input" onkeypress="if(event.key==='Enter') window.sendMessage()">
+                <button class="btn-modern-signup home-chat-btn" onclick="window.sendMessage()">Send</button>
+             </div>
+          </div>
+        </div>
+      </section>
+
       <section class="home-testimonials-section">
         <div class="container">
           <div class="home-section-header">
@@ -1212,7 +1232,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 window.getBotReply = function(userInput) {
-    if (!window.chatbotData) return null; // Safety check
+    if (!window.chatbotData) return "Sorry, data is not loaded.";
     userInput = userInput.toLowerCase();
 
     for (let item of window.chatbotData) {
@@ -1220,7 +1240,8 @@ window.getBotReply = function(userInput) {
             return item.answer;
         }
     }
-    return null; // Return null if no local match
+
+    return "Sorry, I don't understand. Please ask something else.";
 };
 
 function updateStaticUI() {
@@ -1428,7 +1449,40 @@ window.initLandingPage = function() {
     dots.forEach((d, i) => d.classList.toggle('active', i === currentTestimonial));
   }
 
-  window.scrollTestimonials = function(dir) { showTestimonial(currentTestimonial + dir); };
+  window.sendMessage = function() {
+    const input = document.getElementById('userInput');
+    const messages = document.getElementById('messages');
+    const text = input.value.trim();
+    if (!text) return;
+
+    input.value = '';
+    
+    // User Message
+    const userDiv = document.createElement('div');
+    userDiv.className = 'ai-msg user';
+    userDiv.innerText = text;
+    messages.appendChild(userDiv);
+    
+    // Typing indicator
+    const loader = document.createElement('div');
+    loader.className = 'ai-msg bot typing';
+    loader.innerText = '...';
+    messages.appendChild(loader);
+    messages.scrollTop = messages.scrollHeight;
+
+    // Process Reply
+    setTimeout(() => {
+        loader.remove();
+        const reply = window.getBotReply(text);
+        const botDiv = document.createElement('div');
+        botDiv.className = 'ai-msg bot';
+        botDiv.innerText = reply;
+        messages.appendChild(botDiv);
+        messages.scrollTop = messages.scrollHeight;
+    }, 600);
+};
+
+window.scrollTestimonials = function(dir) { showTestimonial(currentTestimonial + dir); };
   window.goToTestimonial = function(idx) { showTestimonial(idx); };
 
   // Auto-advance testimonials every 5s

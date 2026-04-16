@@ -4006,3 +4006,102 @@ body.in-dashboard .navbar {
   .db-kpi-row { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
   .db-welcome-title { font-size: 1.3rem; }
 }
+
+/* ─── Homepage AI Knowledge Hub Section ─── */
+.home-ai-section {
+  padding: 8rem 0;
+  background: radial-gradient(circle at top right, rgba(46, 125, 50, 0.03), transparent),
+              radial-gradient(circle at bottom left, rgba(46, 125, 50, 0.02), transparent);
+}
+
+.home-chat-box {
+  max-width: 900px;
+  margin: 3rem auto 0;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid rgba(46, 125, 50, 0.1);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.06);
+}
+
+.home-chat-messages {
+  flex: 1;
+  padding: 2.5rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.home-chat-input-wrapper {
+  padding: 1.5rem 2.5rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-top: 1px solid rgba(46, 125, 50, 0.1);
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.home-chat-input {
+  flex: 1;
+  background: white;
+  border: 1.5px solid rgba(46, 125, 50, 0.1);
+  border-radius: 999px;
+  padding: 0.85rem 1.5rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.home-chat-input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 4px rgba(46, 125, 50, 0.1);
+}
+
+.home-chat-btn {
+  padding: 0.85rem 2rem;
+  font-size: 0.95rem;
+}
+
+/* Chat Bubbles */
+.ai-msg {
+  max-width: 75%;
+  padding: 1rem 1.5rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  position: relative;
+  animation: slide-up-fade 0.4s ease-out;
+}
+
+.ai-msg.bot {
+  align-self: flex-start;
+  background: white;
+  color: var(--color-on-surface);
+  border-radius: 4px 20px 20px 20px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.ai-msg.user {
+  align-self: flex-end;
+  background: var(--color-primary);
+  color: white;
+  border-radius: 20px 20px 4px 20px;
+  box-shadow: 0 8px 20px rgba(46, 125, 50, 0.2);
+}
+
+.ai-msg.typing {
+  font-weight: 800;
+  color: var(--color-primary);
+  letter-spacing: 2px;
+}
+
+@media (max-width: 768px) {
+  .home-chat-box { height: 500px; margin-top: 2rem; }
+  .home-chat-messages { padding: 1.5rem; }
+  .home-chat-input-wrapper { padding: 1rem 1.5rem; }
+  .ai-msg { max-width: 90%; }
+}

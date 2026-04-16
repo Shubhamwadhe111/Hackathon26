@@ -1,4 +1,4 @@
-const chatbotData = [
+window.chatbotData = [
   {question:"Which crop should I grow in summer?",answer:"Grow maize, sunflower, cotton, or groundnut depending on water availability."},
   {question:"Which crop is best for high rainfall?",answer:"Rice is best for high rainfall conditions."},
   {question:"Which crop needs less water?",answer:"Millets, pulses, and gram need less water."},
