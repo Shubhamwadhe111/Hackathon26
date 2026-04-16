@@ -199,12 +199,21 @@ def kisan_chat():
             'gemini-1.5-flash',
             system_instruction=SYSTEM_PROMPT
         )
-        lang_instruction = f"The user prefers to communicate in {'Hindi' if lang=='hi' else 'Marathi' if lang=='mr' else 'English'}. Please reply entirely in this language.\n\nFarmer's Query: {message}"
+        lang_name = 'Hindi' if lang == 'hi' else 'Marathi' if lang == 'mr' else 'English'
+        lang_instruction = (
+            f"IMPORTANT LANGUAGE RULE: You MUST reply ONLY in {lang_name}. "
+            f"Do NOT use any other language in your response, regardless of what language the farmer used to ask. "
+            f"If the farmer wrote in English but the site is set to {lang_name}, still reply fully in {lang_name}.\n\n"
+            f"Farmer's Query: {message}"
+        )
         response = model.generate_content(lang_instruction)
         return jsonify({"reply": response.text})
     except Exception as e:
         print(f"Gemini API Error: {e}")
-        return jsonify({"reply": "Oops! I encountered an error connecting to the AI system. Please try again later."})
+        err = "Oops! I encountered an error connecting to the AI system. Please try again later."
+        if lang == 'hi': err = "क्षमा करें! AI सिस्टम से कनेक्ट करने में समस्या हुई। कृपया दोबारा कोशिश करें।"
+        elif lang == 'mr': err = "क्षमस्व! AI सिस्टमशी कनेक्ट करताना त्रुटी आली. कृपया पुन्हा प्रयत्न करा."
+        return jsonify({"reply": err})
 
 # --- Live Weather & Geocoding Logic ---
 
