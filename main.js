@@ -1211,20 +1211,44 @@ document.addEventListener('DOMContentLoaded', () => {
   renderRoute(appState.currentRoute); 
 });
 
+window.getBotReply = function(userInput) {
+    if (!window.chatbotData) return null; // Safety check
+    userInput = userInput.toLowerCase();
+
+    for (let item of window.chatbotData) {
+        if (userInput.includes(item.question.toLowerCase())) {
+            return item.answer;
+        }
+    }
+    return null; // Return null if no local match
+};
+
 function updateStaticUI() {
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
     const translated = t(key);
     
+    let attrHandled = false;
     // Handle special attributes
     if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-      if (el.hasAttribute('placeholder')) el.setAttribute('placeholder', translated);
+      if (el.hasAttribute('placeholder')) {
+        el.setAttribute('placeholder', translated);
+        attrHandled = true;
+      }
     }
-    if (el.hasAttribute('title')) el.setAttribute('title', translated);
+    if (el.hasAttribute('title')) {
+      el.setAttribute('title', translated);
+      attrHandled = true;
+    }
     
-    // Default to innerText if NOT just an attribute target
-    if (el.innerText !== "" || (!el.hasAttribute('placeholder') && !el.hasAttribute('title'))) {
+    // Update text content only if:
+    // 1. It wasn't just an attribute update OR
+    // 2. The element doesn't have complex children (preserving icons/spans)
+    if (!attrHandled || (el.children.length === 0 && el.innerText.trim() !== "")) {
+      // Only overwrite if it's a simple text-carrying element or wasn't handled as an attribute
+      if (el.children.length === 0) {
         el.innerText = translated;
+      }
     }
   });
 }
@@ -1257,6 +1281,20 @@ window.dbAiSend = async function() {
   loader.className = 'db-ai-msg bot typing';
   loader.textContent = '...';
   body.appendChild(loader);
+
+  // ─── Try Local Data First ───
+  const localReply = window.getBotReply(text);
+  if (localReply) {
+    setTimeout(() => {
+      loader.remove();
+      const botMsg = document.createElement('div');
+      botMsg.className = 'db-ai-msg bot';
+      botMsg.innerHTML = localReply.replace(/\n/g, '<br>');
+      body.appendChild(botMsg);
+      body.scrollTop = body.scrollHeight;
+    }, 500); // Small delay for UX
+    return;
+  }
 
   try {
     const res = await fetch('http://localhost:5000/api/chat', {
@@ -1296,6 +1334,20 @@ window.sendKisanMessage = async function(msgText) {
   loader.style.cssText = 'align-self: flex-start; background: white; color: var(--color-on-surface); padding: 0.5rem 1rem; border-radius: 4px 16px 16px 16px; font-size: 0.9rem; border: 1px solid var(--color-outline-variant); margin-bottom: 1rem;';
   loader.innerHTML = `<span style="font-size:0.8rem;opacity:0.6;">${t('chat_typing')} <div class="pulse-ring" style="display:inline-block; position:relative; top:auto; left:auto; width:10px; height:10px; margin-left:5px;"></div></span>`;
   body.appendChild(loader);
+
+  // ─── Try Local Data First ───
+  const localReply = window.getBotReply(text);
+  if (localReply) {
+    setTimeout(() => {
+      loader.remove();
+      const botBubble = document.createElement('div');
+      botBubble.style.cssText = 'align-self: flex-start; background: white; color: var(--color-on-surface); padding: 0.75rem 1rem; border-radius: 4px 16px 16px 16px; font-size: 0.9rem; max-width: 85%; margin-bottom: 1rem; border: 1px solid var(--color-outline-variant); box-shadow: var(--shadow-glass);';
+      botBubble.innerHTML = localReply.replace(/\n/g, '<br>');
+      body.appendChild(botBubble);
+      body.scrollTop = body.scrollHeight;
+    }, 600);
+    return;
+  }
   body.scrollTop = body.scrollHeight;
   
   try {
