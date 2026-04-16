@@ -1,0 +1,195 @@
+/* ═══════════════════════════════════════════════════
+   AgroFarm AI — Profile Page
+   Classes prefixed with profile-
+═══════════════════════════════════════════════════ */
+
+.profile-wrapper {
+  padding: 2rem 2.5rem 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  animation: fadeIn 0.4s ease;
+  background: #f9f9f9;
+  min-height: 100vh;
+}
+
+/* ── Header ──────────────────────────────────────── */
+.profile-header {
+  background: white;
+  border-radius: 24px;
+  padding: 3rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  flex-wrap: wrap;
+}
+.profile-avatar-large {
+  width: 140px; height: 140px;
+  border-radius: 50%;
+  background: var(--color-primary, #2e7d32);
+  color: white;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: 3.5rem;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 8px 32px rgba(46,125,50,0.2);
+}
+.profile-header-info { flex: 1; min-width: 250px; }
+.profile-name {
+  font-family: 'Manrope', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin: 0 0 0.25rem;
+  color: var(--color-on-surface);
+}
+.profile-role {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin: 0 0 0.5rem;
+}
+.profile-email {
+  font-size: 0.95rem;
+  color: var(--color-on-surface-variant);
+  margin: 0 0 0.25rem;
+}
+.profile-joined {
+  font-size: 0.85rem;
+  color: var(--color-on-surface-variant);
+  margin: 0;
+}
+.profile-edit-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(46,125,50,0.2);
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+.profile-edit-btn:hover { background: #1c6b1c; transform: translateY(-1px); }
+
+/* ── Grid ────────────────────────────────────────── */
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+@media (max-width: 900px) { .profile-grid { grid-template-columns: 1fr; } }
+
+.profile-left,
+.profile-right { display: flex; flex-direction: column; gap: 1.5rem; }
+
+/* ── Cards ───────────────────────────────────────── */
+.profile-card {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+}
+.profile-card-title {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin: 0 0 1.5rem;
+  color: var(--color-on-surface);
+}
+
+/* Info Grid */
+.profile-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+@media (max-width: 600px) { .profile-info-grid { grid-template-columns: 1fr; } }
+
+.profile-info-item { display: flex; flex-direction: column; gap: 0.35rem; }
+.profile-info-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: var(--color-on-surface-variant);
+}
+.profile-info-value {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-on-surface);
+}
+
+/* Settings List */
+.profile-settings-list { display: flex; flex-direction: column; gap: 0.25rem; }
+.profile-setting-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.9rem 1rem;
+  background: transparent;
+  border: none;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-on-surface);
+  cursor: pointer;
+  transition: background 0.15s;
+  text-align: left;
+}
+.profile-setting-item:hover { background: #f3f3f3; }
+.profile-setting-item .material-symbols-outlined:first-child { color: var(--color-primary); font-size: 1.2rem; }
+.profile-setting-item span:nth-child(2) { flex: 1; }
+.profile-chevron { color: var(--color-on-surface-variant); font-size: 1.1rem; }
+
+/* Stats Grid */
+.profile-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+.profile-stat { text-align: center; }
+.profile-stat-value {
+  font-family: 'Manrope', sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  margin-bottom: 0.25rem;
+}
+.profile-stat-label {
+  font-size: 0.75rem;
+  color: var(--color-on-surface-variant);
+  font-weight: 600;
+}
+
+/* Danger Zone */
+.profile-danger { border: 2px solid #fecaca; background: #fef2f2; }
+.profile-danger .profile-card-title { color: #dc2626; }
+.profile-danger-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.75rem;
+  background: #dc2626;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.profile-danger-btn:hover { background: #b91c1c; }

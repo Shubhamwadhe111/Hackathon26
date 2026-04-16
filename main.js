@@ -79,152 +79,6 @@ const i18n = {
     news_placeholder: "Enter your email address...", nav_careers: "Careers", nav_privacy: "Privacy Policy", nav_cases: "Case Studies", nav_govt: "Govt. Schemes", nav_help: "Help Center",
     chat_typing: "Typing...", chat_error: "Failed to connect to server.", chat_error_api: "Error connecting to AI."
   },
-  hi: {
-    nav_home: "मुख्य पृष्ठ", nav_dashboard: "डैशबोर्ड", nav_soil: "मृदा विश्लेषण", nav_market: "बाज़ार", nav_resources: "संसाधन",
-    nav_login: "लॉग इन", nav_signup: "साइन अप", profile_title: "किसान प्रोफ़ाइल", profile_my: "मेरी प्रोफ़ाइल", profile_logout: "लॉग आउट",
-    hero_title: "आपका डिजिटल कृषिविज्ञानी", hero_subtitle: "फसल चयन, मौसम की भविष्यवाणी और मृदा विश्लेषण के लिए AI-संचालित सूक्ष्म-दृष्टि।",
-    btn_get_started: "प्रारंभ करें", btn_market_view: "बाज़ार दृश्य",
-    soil_title: "मृदा विश्लेषण", soil_subtitle: "उपग्रहों से सिंक करें या मैन्युअल रूप से पैरामीटर दर्ज करें।",
-    nutritional_mapping: "पोषण मानचित्रण", nitrogen: "नाइट्रोजन (N)", phosphorus: "फास्फोरस (P)", potassium: "पोटेशियम (K)",
-    climate_vectors: "जलवायु संकेतक", sync_refresh: "ताज़ा करें", sync_satellites: "उपग्रह सिंक करें",
-    temp: "तापमान (°C)", humidity: "आर्द्रता (%)", rainfall: "वर्षा (mm)",
-    generate_matrix: "अनुशंसा उत्पन्न करें",
-    intel_report: "इंटेलिजेंस रिपोर्ट", recalculate: "पुनर्गणना करें",
-    market_values: "बाज़ार मूल्य", save_analysis: "विश्लेषण सहेजें",
-    market_intel: "बाज़ार इंटेलिजेंस", syncing_mandi: "मंडी दरें सिंक हो रही हैं...",
-    district: "ज़िला", commodity: "सामग्री", price: "मूल्य",
-    linking_agmarknet: "AGMARKNET से लिंक हो रहा है...",
-    ops_center: "ऑपरेशन केंद्र", ops_welcome: "वापसी पर स्वागत है", ops_health: "आपके खेत के वेक्टर स्वस्थ हैं।",
-    listings: "लिस्टिंग", buyers: "खरीदार", health: "स्वास्थ्य", normal: "सामान्य",
-    procurement_hub: "खरीद हब", active_orders: "सक्रिय ऑर्डर",
-    ai_diagnosis: "AI निदान", upload_leaf: "पत्ती अपलोड करें", scanning: "रोगजनकों को स्कैन किया जा रहा है...",
-    sign_in: "साइन इन", email: "ईमेल", password: "पासवर्ड", login: "लॉगिन",
-    register: "पंजीकरण", role: "भूमिका", role_farmer: "किसान", role_buyer: "खरीदार", create_account: "खाता बनाएँ",
-    auth_sync: "कृषि उपग्रहों से कनेक्शन अधिकृत करें?", authorize: "अधिकृत करें", cancel: "रद्द करें",
-    sat_sync_title: "उपग्रह सिंक", linking: "लिंक हो रहा है...",
-    hero_badge: "🛰️ AI-संचालित कृषि बुद्धिमत्ता",
-    hero_main_title: "स्मार्ट खेती", hero_main_sub: "यहाँ से शुरू होती है",
-    hero_sub: "AI की मदद से अपनी फसल की उपज, मिट्टी की सेहत और बाजार के मुनाफे को बेहतर बनाएं।",
-    stat_farmers: "कुल किसान", stat_crops: "निगरानी में फसलें", stat_soil: "मिट्टी रिपोर्ट", stat_ai: "AI निदान पूर्ण",
-    feat_title: "स्मार्ट खेती के लिए सब कुछ",
-    feat_home_title: "मुख्य पृष्ठ", feat_home_desc: "आपका केंद्रीय कमांड सेंटर — हर सुबह मौसम, अलर्ट और फसल की स्थिति एक नज़र में देखें।",
-    feat_dash_title: "डैशबोर्ड", feat_dash_desc: "रियल-टाइम चार्ट और पूर्वानुमान विश्लेषण के साथ खेत का प्रदर्शन देखें।",
-    feat_soil_title: "मृदा विश्लेषण", feat_soil_desc: "उपग्रह-सहायता से पोषक तत्वों और नमी का गहन विश्लेषण करें।",
-    feat_diag_title: "AI निदान", feat_diag_desc: "पत्ती की फोटो अपलोड करें — तुरंत कीट और रोग पहचान और उपचार पाएं।",
-    feat_market_title: "बाज़ार", feat_market_desc: "लाइव मंडी कीमतें, थोक रुझान और सर्वोत्तम बिक्री समय की सिफ़ारिशें प्राप्त करें।",
-    feat_f2b_title: "F2B / B2F", feat_f2b_desc: "किसानों और कृषि व्यवसायों को सीधे थोक अनुबंध और आपूर्ति श्रृंखला से जोड़ें।",
-    news_title: "मौसम से एक कदम आगे रहें", news_sub: "AI अंतर्दृष्टि, बाज़ार पूर्वानुमान और खेती की टिप्स अपने इनबॉक्स में पाएं।", news_btn: "सदस्यता लें",
-    db_ask_ai: "AI से पूछें", db_welcome_farmer: "नमस्ते! मैं आपका AI कृषि सहायक हूँ। अपनी फसलों, बीमारियों, बाजार की कीमतों या मिट्टी के स्वास्थ्य के बारे में पूछें!",
-    db_welcome_buyer: "नमस्ते! मैं आपका खरीद AI सहायक हूँ। मैं विक्रेता जाँच, बाज़ार रुझान और गुणवत्ता सत्यापन में आपकी मदद कर सकता हूँ।",
-    db_ai_placeholder_farmer: "अपने खेत के बारे में कुछ भी पूछें...", db_ai_placeholder_buyer: "बाज़ार के रुझानों के बारे में पूछें...",
-    db_farmer_title: "किसान डैशबोर्ड", db_weather_fetching: "🌤️ मौसम की जानकारी ली जा रही है...", db_new_report: "नया मृदा रिपोर्ट", db_farm_center: "कृषि इंटेलिजेंस केंद्र",
-    db_monitoring: "आपके खेतों की निगरानी की जा रही है।", db_alerts_needed: "अलर्ट पर ध्यान देने की आवश्यकता है।", db_view_alerts: "अलर्ट देखें",
-    db_kpi_fields: "कुल खेत", db_kpi_alerts: "सक्रिय अलर्ट", db_kpi_pending: "लंबित रिपोर्ट", db_kpi_market: "बाज़ार मूल्य सूचकांक",
-    db_health_score: "फसल स्वास्थ्य स्कोर", db_last_30d: "पिछले 30 दिन — खेत का औसत", db_field_map: "खेत स्थान मानचित्र", db_map_sub: "खेत के अनुसार स्वास्थ्य स्थिति",
-    db_recent_alerts: "हाल के अलर्ट", db_mark_read: "सभी पढ़े हुए चिह्नित करें", db_tasks: "आगामी कार्य", db_task_all: "सभी", db_task_pending: "लंबित", db_task_done: "पूर्ण",
-    db_th_task: "कार्य", db_th_field: "खेत", db_th_due: "नियत तिथि", db_th_status: "स्थिति",
-    db_proc_title: "खरीद डैशबोर्ड", db_biz_hub: "📦 बिजनेस इंटेलिजेंस हब", db_explore_market: "बाज़ार एक्सप्लोर करें", db_proc_intel: "खरीद इंटेलिजेंस",
-    db_orders_desc: "सक्रिय खरीद ऑर्डर हैं।", db_view_orders: "ऑर्डर देखें", db_kpi_orders: "सक्रिय ऑर्डर", db_kpi_farms: "सत्यापित खेत", db_kpi_bids: "लंबित बोलियां", db_kpi_spend: "इस महीने का खर्च",
-    soil_intel_hub: "मृदा इंटेलिजेंस हब", soil_analytics: "एनालिटिक्स / इंटेलिजेंस", soil_new_scan: "नया स्कैन", soil_field_config: "खेत कॉन्फिगरेशन",
-    soil_field_id: "खेत की पहचान", soil_geo: "जियो-लोकेशन", soil_date: "नमूना तिथि", soil_sample_scan: "नमूना स्कैन", soil_nutrient_prof: "पोषक तत्व प्रोफ़ाइल",
-    soil_health_index: "स्वास्थ्य सूचकांक", soil_awaiting: "डेटा इनपुट की प्रतीक्षा है", soil_awaiting_sub: "AI धारणा शुरू करने के लिए फॉर्म भरें और नमूना अपलोड करें।",
-    soil_ai_insights: "AI अंतर्दृष्टि", soil_analyzing: "अनुकूलित कृषि सलाह उत्पन्न करने के लिए आपके मृदा डेटा का विश्लेषण किया जा रहा है...", soil_export_pdf: "PDF एक्सपोर्ट करें", soil_chronology: "कालक्रम",
-    diag_wheat_rust: "गेहूँ का रतुआ पहचाना गया", diag_treatment: "उपचार: नीम के तेल के उपयोग का सुझाव दिया गया है।",
-    auth_join: "AgroFarm AI में शामिल हों", auth_fname: "पहला नाम", auth_lname: "अंतिम नाम", auth_role_select: "अपनी भूमिका चुनें:", auth_role_farmer_opt: "किसान", auth_role_buyer_opt: "खरीदार / व्यवसाय",
-    auth_create: "खाता बनाएँ", auth_have_acc: "क्या आपके पास पहले से खाता है?",
-    nav_feat: "विशेषताएं", nav_about: "हमारे बारे में", nav_f2b: "F2B हब", nav_b2f: "B2F हब",
-    home_stories_badge: "⭐ किसान कहानियाँ", home_stories_title: "भारत भर के किसानों द्वारा विश्वसनीय", home_stories_sub: "उन वास्तविक किसानों के वास्तविक परिणाम जिन्होंने AgroFarm AI के साथ अपने कार्यों को बदल दिया।",
-    home_testimonial_1: "AI निदान उपकरण ने इस सीजन में मेरी पूरी गेहूं की फसल बचा ली। मैंने गंभीर होने से 2 सप्ताह पहले जंग के संक्रमण की पहचान की - यानी ₹3 लाख की बचत।",
-    home_testimonial_2: "AgroFarm AI पर जाने से हमें अपनी उपज बढ़ाते हुए उर्वरक लागत को 30% तक कम करने में मदद मिली। मिट्टी विश्लेषण की सटीकता वास्तव में बेजोड़ है।",
-    home_testimonial_3: "मार्केट मॉड्यूल मुझे विभिन्न मंडियों से वास्तविक समय की कीमतें देता है। मुझे आखिरकार लगता है कि मेरे पास निष्पक्ष रूप से बातचीत करने की शक्ति है।",
-    home_testimonial_4: "एक कृषि-व्यवसाय के रूप में, F2B/B2F पोर्टल ने हमें 120+ सत्यापित खेतों से जोड़ा है। खरीद अब तेज और सस्ती है।",
-    home_auth_1: "रमेश कुमार", home_role_1: "🌾 गेहूं किसान, पंजाब",
-    home_auth_2: "प्रिया देशपांडे", home_role_2: "🌿 जैविक किसान, महाराष्ट्र",
-    home_auth_3: "अर्जुन सिंह", home_role_3: "🧅 सब्जी उत्पादक, यूपी",
-    home_auth_4: "मीरा गुप्ता", home_role_4: "🏢 कृषि-व्यवसाय, गुजरात",
-    footer_tagline: "AI की सटीकता और परंपरा के ज्ञान के साथ दुनिया के सबसे महत्वपूर्ण उद्योग को सशक्त बनाना।",
-    footer_platform: "प्लेटफॉर्म", footer_resources: "संसाधन", footer_company: "कंपनी", footer_contact: "संपर्क",
-    chat_kisan_welcome: "नमस्ते! मैं आपका AI खेती सहायक हूँ। आज मैं आपकी क्या मदद कर सकता हूँ?",
-    chat_kisan_placeholder: "कुछ भी पूछें...", chat_kisan_tooltip: "किसान सहायक से पूछें",
-    chat_suggest_1: "🌾 चावल के रोग", chat_suggest_2: "📈 बाजार भाव", chat_suggest_3: "🌤️ मौसम की जांच",
-    chat_suggest_1: "🌾 चावल के रोग", chat_suggest_2: "📈 बाजार भाव", chat_suggest_3: "🌤️ मौसम की जांच",
-    chat_kisan_name: "किसान AI सहायक", chat_kisan_sub: "ऑनलाइन · कृषि विशेषज्ञ", chat_biz_name: "बिजनेस AI सहायक", chat_biz_sub: "ऑनलाइन · खरीद विशेषज्ञ",
-    news_placeholder: "अपना ईमेल पता दर्ज करें...", nav_careers: "करियर", nav_privacy: "गोपनीयता नीति", nav_cases: "केस स्टडीज", nav_govt: "सरकारी योजनाएं", nav_help: "सहायता केंद्र",
-    chat_typing: "टाइपिंग...", chat_error: "सर्वर से कनेक्ट करने में विफल।", chat_error_api: "AI से कनेक्ट करने में त्रुटि।"
-  },
-  mr: {
-    nav_home: "मुखपृष्ठ", nav_dashboard: "डॅशबोर्ड", nav_soil: "माती विश्लेषण", nav_market: "बाजार", nav_resources: "संसाधने",
-    nav_login: "लॉग इन", nav_signup: "साइन अप", profile_title: "शेतकरी प्रोफाइल", profile_my: "माझी प्रोफाइल", profile_logout: "लॉग आउट",
-    hero_title: "तुमचा डिजिटल कृषीतज्ञ", hero_subtitle: "पीक निवड, हवामान अंदाज आणि माती विश्लेषणासाठी एआय-समर्थित माहिती.",
-    btn_get_started: "सुरू करा", btn_market_view: "बाजार दृश्य",
-    soil_title: "माती विश्लेषण", soil_subtitle: "उपग्रहांशी सिंक करा किंवा स्वतः पॅरामीटर्स प्रविष्ट करा.",
-    nutritional_mapping: "पोषण मॅपिंग", nitrogen: "नायट्रोजन (N)", phosphorus: "फॉस्फरस (P)", potassium: "पोटॅशियम (K)",
-    climate_vectors: "हवामान घटक", sync_refresh: "रिफ्रेश करा", sync_satellites: "उपग्रह सिंक करा",
-    temp: "तापमान (°C)", humidity: "आर्द्रता (%)", rainfall: "पाऊस (mm)",
-    generate_matrix: "शिफारस व्युत्पन्न करा",
-    intel_report: "इंटेलिजन्स रिपोर्ट", recalculate: "पुन्हा गणना करा",
-    market_values: "बाजार मूल्य", save_analysis: "विश्लेषण जतन करा",
-    market_intel: "बाजार इंटेलिजन्स", syncing_mandi: "मंडी दर सिंक होत आहेत...",
-    district: "जिल्हा", commodity: "कमोडिटी", price: "किंमत",
-    linking_agmarknet: "AGMARKNET शी लिंक होत आहे...",
-    ops_center: "ऑपरेशन केंद्र", ops_welcome: "पुन्हा स्वागत आहे", ops_health: "तूमच्या शेतातील व्हेक्टर्स निरोगी आहेत.",
-    listings: "लिस्टिंग", buyers: "खरेदीदार", health: "आरोग्य", normal: "सामान्य",
-    procurement_hub: "खरेदी केंद्र", active_orders: "सक्रिय ऑर्डर्स",
-    ai_diagnosis: "AI निदान", upload_leaf: "पान अपलोड करा", scanning: "रोगजनकांचे स्कॅनिंग...",
-    sign_in: "साइन इन", email: "ईमेल", password: "पासवर्ड", login: "लॉगिन",
-    register: "नोंदणी", role: "भूमिका", role_farmer: "शेतकरी", role_buyer: "खरेदीदार", create_account: "खाते तयार करा",
-    auth_sync: "कृषी उपग्रहांशी कनेक्शन अधिकृत करावे?", authorize: "अधिकृत करा", cancel: "रद्द करा",
-    sat_sync_title: "उपग्रह सिंक", linking: "लिंक होत आहे...",
-    hero_badge: "🛰️ AI-समर्थित कृषी बुद्धिमत्ता",
-    hero_main_title: "स्मार्ट शेती", hero_main_sub: "इथून सुरू होते",
-    hero_sub: "AI च्या मदतीने तुमची पीक उत्पादकता, मातीचे आरोग्य आणि बाजारातील नफा सुधारा.",
-    stat_farmers: "एकूण शेतकरी", stat_crops: "देखरेखीतील पिके", stat_soil: "माती अहवाल", stat_ai: "AI निदान पूर्ण",
-    feat_title: "स्मार्ट शेतीसाठी सर्वकाही",
-    feat_home_title: "मुखपृष्ठ", feat_home_desc: "तुमचे केंद्रीय नियंत्रण केंद्र — दररोज सकाळी हवामान, अलर्ट आणि पीक स्थिती एका नजरेत पाहा.",
-    feat_dash_title: "डॅशबोर्ड", feat_dash_desc: "रिअल-टाइम चार्ट आणि भविष्यसूचक विश्लेषणासह शेत कामगिरी पाहा.",
-    feat_soil_title: "माती विश्लेषण", feat_soil_desc: "उपग्रह-सहाय्याने पोषक तत्त्वे आणि ओलावा यांचे सखोल विश्लेषण करा.",
-    feat_diag_title: "AI निदान", feat_diag_desc: "पानाचा फोटो अपलोड करा — तात्काळ कीड आणि रोग ओळख व उपचार मिळवा.",
-    feat_market_title: "बाजार", feat_market_desc: "थेट मंडी किमती, घाऊक ट्रेंड आणि सर्वोत्तम विक्री वेळाच्या शिफारशी मिळवा.",
-    feat_f2b_title: "F2B / B2F", feat_f2b_desc: "शेतकरी आणि कृषी व्यवसायांना थेट थोक करारांद्वारे जोडा.",
-    news_title: "हंगामापूर्वी तयार राहा", news_sub: "AI अंतर्दृष्टी, बाजार अंदाज आणि शेती टिप्स तुमच्या इनबॉक्समध्ये मिळवा.", news_btn: "सदस्य व्हा",
-    db_ask_ai: "AI ला विचारा", db_welcome_farmer: "नमस्ते! मी तुमचा AI शेती सहाय्यक आहे. तुमची पिके, रोग, बाजारभाव किंवा मातीच्या आरोग्याबद्दल विचारा!",
-    db_welcome_buyer: "नमस्ते! मी तुमचा खरेदी AI सहाय्यक आहे. मी विक्रेता तपासणी, बाजार कल आणि गुणवत्ता पडताळणीमध्ये मदत करू शकतो.",
-    db_ai_placeholder_farmer: "तुमच्या शेताबद्दल काहीही विचारा...", db_ai_placeholder_buyer: "बाजार कल बद्दल विचारा...",
-    db_farmer_title: "शेतकरी डॅशबोर्ड", db_weather_fetching: "🌤️ हवामानाची माहिती घेतली जात आहे...", db_new_report: "नवीन माती अहवाल", db_farm_center: "कृषी इंटेलिजन्स केंद्र",
-    db_monitoring: "तुमच्या शेतात लक्ष ठेवले जात आहे.", db_alerts_needed: "अलर्टकडे लक्ष देणे आवश्यक आहे.", db_view_alerts: "अलर्ट पाहा",
-    db_kpi_fields: "एकूण शेते", db_kpi_alerts: "सक्रिय अलर्ट", db_kpi_pending: "प्रलंबित अहवाल", db_kpi_market: "बाजारभाव निर्देशांक",
-    db_health_score: "पीक आरोग्य स्कोअर", db_last_30d: "गेले ३० दिवस — शेत सरासरी", db_field_map: "शेत स्थान नकाशा", db_map_sub: "शेतानुसार आरोग्य स्थिती",
-    db_recent_alerts: "अलीकडील अलर्ट", db_mark_read: "सर्व वाचलेले म्हणून चिन्हांकित करा", db_tasks: "आगामी कार्ये", db_task_all: "सर्व", db_task_pending: "प्रलंबित", db_task_done: "पूर्ण",
-    db_th_task: "कार्य", db_th_field: "शेत", db_th_due: "नियत तारीख", db_th_status: "स्थिती",
-    db_proc_title: "खरेदी डॅशबोर्ड", db_biz_hub: "📦 बिझनेस इंटेलिजन्स हब", db_explore_market: "बाजार एक्सप्लोर करा", db_proc_intel: "खरेदी इंटेलिजन्स",
-    db_orders_desc: "सक्रिय खरेदी ऑर्डर्स आहेत.", db_view_orders: "ऑर्डर्स पाहा", db_kpi_orders: "सक्रिय ऑर्डर्स", db_kpi_farms: "सत्यापित शेते", db_kpi_bids: "प्रलंबित बोली", db_kpi_spend: "या महिन्याचा खर्च",
-    soil_intel_hub: "माती इंटेलिजन्स हब", soil_analytics: "एनालिटिक्स / इंटेलिजन्स", soil_new_scan: "नवीन स्कॅन", soil_field_config: "शेत कॉन्फिगरेशन",
-    soil_field_id: "शेत ओळख", soil_geo: "जिओ-लोकेशन", soil_date: "नमुना तारीख", soil_sample_scan: "नमुना स्कॅन", soil_nutrient_prof: "पोषक तत्व प्रोफाइल",
-    soil_health_index: "आरोग्य सूचकांक", soil_awaiting: "डेटा इनपुटची प्रतीक्षा आहे", soil_awaiting_sub: "AI आकलन सुरू करण्यासाठी फॉर्म भरा आणि नमुना अपलोड करा.",
-    soil_ai_insights: "AI अंतर्दृष्टी", soil_analyzing: "तुमच्या शेतीसाठी सानुकूलित सल्ला देण्यासाठी तुमच्या मातीच्या डेटाचे विश्लेषण केले जात आहे...", soil_export_pdf: "PDF एक्सपोर्ट करा", soil_chronology: "कालक्रम",
-    diag_wheat_rust: "गव्हाचा तांबेरा आढळला", diag_treatment: "उपचार: कडुनिंबाच्या तेलाचा वापर सुचवला आहे.",
-    auth_join: "AgroFarm AI मध्ये सामील व्हा", auth_fname: "पहिले नाव", auth_lname: "आडनाव", auth_role_select: "तुमची भूमिका निवडा:", auth_role_farmer_opt: "शेतकरी", auth_role_buyer_opt: "खरेदीदार / व्यवसाय",
-    auth_create: "खाते तयार करा", auth_have_acc: "तुमचे आधीच खाते आहे का?",
-    nav_feat: "वैशिष्ट्ये", nav_about: "आमच्याबद्दल", nav_f2b: "F2B हब", nav_b2f: "B2F हब",
-    home_stories_badge: "⭐ शेतकरी कथा", home_stories_title: "भारतभरातील शेतकऱ्यांचा विश्वास", home_stories_sub: "त्या खऱ्या शेतकऱ्यांचे खरे परिणाम ज्यांनी AgroFarm AI सह त्यांच्या शेतीमध्ये बदल घडडून आणला.",
-    home_testimonial_1: "AI निदान साधनाने या हंगामात माझे संपूर्ण गव्हाचे पीक वाचवले. मी गंभीर होण्यापूर्वी २ आठवडे तांबेरा रोगाची ओळख पटवली - म्हणजे ₹३ लाखांची बचत.",
-    home_testimonial_2: "AgroFarm AI कडे वळल्यामुळे आम्हाला उत्पादनात वाढ करताना खत खर्चात ३०% घट करण्यास मदत झाली. माती विश्लेषणाची अचूकता खरोखर अतुलनीय आहे.",
-    home_testimonial_3: "मार्केट मॉड्यूल मला विविध मंड्यांमधून रिअल-टाइम किमती देते. मला अखेर वाटते की माझ्याकडे योग्यरित्या वाटाघाटी करण्याची शक्ती आहे.",
-    home_testimonial_4: "कृषी-व्यवसाय म्हणून, F2B/B2F पोर्टलने आम्हाला १२०+ सत्यापित शेतांशी जोडले आहे. खरेदी आता जलद आणि स्वस्त आहे.",
-    home_auth_1: "रमेश कुमार", home_role_1: "🌾 गहू शेतकरी, पंजाब",
-    home_auth_2: "प्रिया देशपांडे", home_role_2: "🌿 सेंद्रिय शेतकरी, महाराष्ट्र",
-    home_auth_3: "अर्जुन सिंह", home_role_3: "🧅 भाजीपाला उत्पादक, युपी",
-    home_auth_4: "मीरा गुप्ता", home_role_4: "🏢 कृषी-व्यवसाय, गुजरात",
-    footer_tagline: "AI ची अचूकता आणि परंपरेच्या ज्ञानासह जगातील सर्वात महत्त्वाच्या उद्योगाला सक्षम बनवणे.",
-    footer_platform: "प्लॅटफॉर्म", footer_resources: "संसाधन", footer_company: "कंपनी", footer_contact: "संपर्क",
-    chat_kisan_welcome: "नमस्ते! मी तुमचा AI शेती सहाय्यक आहे. आज मी तुमची काय मदत करू शकतो?",
-    chat_kisan_placeholder: "काहीही विचारा...", chat_kisan_tooltip: "किसान सहाय्यकाला विचारा",
-    chat_suggest_1: "🌾 भात रोग", chat_suggest_2: "📈 बाजार भाव", chat_suggest_3: "🌤️ हवामान तपासणी",
-    chat_suggest_1: "🌾 भात रोग", chat_suggest_2: "📈 बाजार भाव", chat_suggest_3: "🌤️ हवामान तपासणी",
-    chat_kisan_name: "शेतकरी AI सहाय्यक", chat_kisan_sub: "ऑनलाइन · कृषी तज्ञ", chat_biz_name: "बिझनेस AI सहाय्यक", chat_biz_sub: "ऑनलाइन · खरेदी तज्ञ",
-    news_placeholder: "तुमचा ईमेल पत्ता प्रविष्ट करा...", nav_careers: "करिअर", nav_privacy: "गोपनीयता धोरण", nav_cases: "केस स्टडीज", nav_govt: "शासकीय योजना", nav_help: "मदत केंद्र",
-    chat_typing: "टायपिंग...", chat_error: "सर्व्हरशी कनेक्ट करण्यात अयशस्वी।", chat_error_api: "AI शी कनेक्ट करण्यात त्रुटी।"
-  }
 };
 
 const appState = {
@@ -233,7 +87,7 @@ const appState = {
   user: _savedSession?.user || null,
   role: _savedSession?.role || null, // 'farmer' | 'buyer'
   fieldConditions: null,
-  lang: _savedSession?.lang || 'en',
+  lang: 'en',
   _soilGauge: null,
   _soilBar: null,
   _fdSection: 'home',
@@ -241,7 +95,7 @@ const appState = {
 };
 
 function t(key) {
-  return i18n[appState.lang]?.[key] || i18n['en'][key] || key;
+  return i18n.en[key] || key;
 }
 
 function _saveSession() {
@@ -269,7 +123,7 @@ const screens = {
           <h1 class="home-hero-title">${t('hero_main_title')}<br>${t('hero_main_sub')}</h1>
           <p class="home-hero-sub">${t('hero_sub')}</p>
           <div class="home-hero-ctas">
-            <button class="home-cta-primary" onclick="window.navigate('form')" id="cta-get-started">${t('btn_get_started')} →</button>
+            <button class="home-cta-primary" onclick="window.navigate('soil-analysis')" id="cta-get-started">${t('btn_get_started')} →</button>
             <button class="home-cta-ghost" onclick="window.navigate('market')" id="cta-explore-market">${t('btn_market_view')}</button>
           </div>
         </div>
@@ -322,7 +176,7 @@ const screens = {
               <h3 class="home-feature-title">${t('feat_dash_title')}</h3>
               <p class="home-feature-desc">${t('feat_dash_desc')}</p>
             </div>
-            <div class="home-feature-card" onclick="window.navigate('form')">
+            <div class="home-feature-card" onclick="window.navigate('soil-analysis')">
               <div class="home-feature-icon">🌱</div>
               <h3 class="home-feature-title">${t('feat_soil_title')}</h3>
               <p class="home-feature-desc">${t('feat_soil_desc')}</p>
@@ -441,7 +295,7 @@ const screens = {
             </div>
             <div class="home-footer-col">
               <h4 class="home-footer-heading">${t('footer_platform')}</h4>
-              <a href="#" class="home-footer-link" onclick="window.navigate('form'); return false;">${t('nav_soil')}</a>
+              <a href="#" class="home-footer-link" onclick="window.navigate('soil-analysis'); return false;">${t('nav_soil')}</a>
               <a href="#" class="home-footer-link" onclick="window.navigate('diagnosis'); return false;">${t('ai_diagnosis')}</a>
               <a href="#" class="home-footer-link" onclick="window.navigate('market'); return false;">${t('nav_market')}</a>
               <a href="#" class="home-footer-link" onclick="window.navigate('f2b'); return false;">${t('nav_f2b')}</a>
@@ -469,41 +323,12 @@ const screens = {
       </footer>
     `;
   },
-  form: function() {
-    return `
-      <div class="container fade-in spacer-y">
-        <h2 class="display-font" style="font-size: 2.5rem; margin-bottom: 0.5rem;">${t('soil_title')}</h2>
-        <p style="color: var(--color-on-surface-variant); margin-bottom: 2rem;">${t('soil_subtitle')}</p>
-        <div style="max-width: 800px; display: flex; flex-direction: column; gap: 2rem;">
-          <div class="card" style="border-top: 3px solid var(--color-primary);">
-            <h3 class="display-font" style="margin-bottom: 1.5rem;">🌱 ${t('nutritional_mapping')}</h3>
-            <div class="grid-3" style="margin: 0; gap: 1rem;">
-              <div class="input-group"><label>${t('nitrogen')}</label><input type="number" id="field-N" class="input-field" placeholder="90"></div>
-              <div class="input-group"><label>${t('phosphorus')}</label><input type="number" id="field-P" class="input-field" placeholder="42"></div>
-              <div class="input-group"><label>${t('potassium')}</label><input type="number" id="field-K" class="input-field" placeholder="43"></div>
-            </div>
-          </div>
-          <div class="card" style="border-top: 3px solid #0060a8;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
-               <h3 class="display-font">⛅ ${t('climate_vectors')}</h3>
-               <button class="btn btn-secondary" onclick="window.requestSatelliteSync()">🛰️ ${appState.fieldConditions ? t('sync_refresh') : t('sync_satellites')}</button>
-            </div>
-            <div class="grid-3" style="margin: 0; gap: 1rem;">
-              <div class="input-group"><label>${t('temp')}</label><input type="number" id="field-temp" class="input-field" value="${appState.fieldConditions?.temp || ''}"></div>
-              <div class="input-group"><label>${t('humidity')}</label><input type="number" id="field-humidity" class="input-field" value="${appState.fieldConditions?.humidity || ''}"></div>
-              <div class="input-group"><label>${t('rainfall')}</label><input type="number" id="field-rainfall" class="input-field" value="${appState.fieldConditions?.rainfall || ''}"></div>
-            </div>
-          </div>
-          <button class="btn btn-primary" style="width: 100%; padding: 1.2rem;" onclick="window.navigate('results')">${t('generate_matrix')}</button>
-        </div>
-      </div>`;
-  },
   results: function() {
     return `
       <div class="container fade-in spacer-y">
         <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2rem;">
           <div><h2 class="display-font" style="font-size: 2.5rem;">${t('intel_report')}</h2></div>
-          <button class="btn btn-secondary" onclick="window.navigate('form')">${t('recalculate')}</button>
+          <button class="btn btn-secondary" onclick="window.navigate('soil-analysis')">${t('recalculate')}</button>
         </div>
         <div class="card" style="border-top: 4px solid var(--color-primary); display: flex; gap: 2rem; flex-wrap: wrap;">
           <div style="flex: 1; min-width: 300px;">
@@ -521,23 +346,1595 @@ const screens = {
   },
   market: function() {
     return `
-      <div class="container fade-in spacer-y">
-        <h2 class="display-font" style="font-size: 2.5rem; margin-bottom: 2rem;">${t('market_intel')}</h2>
-        <div class="card" style="margin-bottom: 2rem; height: 350px;">
-          <canvas id="marketChart"></canvas>
-          <div id="chart-loader" style="text-align:center; padding-top:100px;">${t('syncing_mandi')}</div>
+      <div class="mkt-wrapper">
+
+        <!-- Header -->
+        <header class="mkt-header">
+          <div class="mkt-header-left">
+            <h1 class="mkt-title">Market Intelligence</h1>
+            <p class="mkt-subtitle">Real-time Mandi price monitoring &amp; predictive AI analysis</p>
+          </div>
+          <div class="mkt-header-right">
+            <select class="mkt-select">
+              <option>Maharashtra</option>
+              <option>Madhya Pradesh</option>
+              <option>Uttar Pradesh</option>
+            </select>
+            <select class="mkt-select">
+              <option>Nashik</option>
+              <option>Indore</option>
+              <option>Agra</option>
+            </select>
+            <div class="mkt-date-pill">
+              <span class="material-symbols-outlined" style="font-size:1rem;">calendar_today</span>
+              <span id="mkt-date">24 May, 2024</span>
+            </div>
+            <button class="mkt-notif-btn">
+              <span class="material-symbols-outlined">notifications</span>
+              <span class="mkt-notif-dot"></span>
+            </button>
+          </div>
+        </header>
+
+        <!-- Live Ticker -->
+        <section class="mkt-ticker">
+          <div class="mkt-ticker-badge">
+            <span class="mkt-live-dot"></span>
+            <span>LIVE MANDI</span>
+          </div>
+          <div class="mkt-ticker-track">
+            <div class="mkt-ticker-scroll">
+              <span class="mkt-tick-item">Wheat <strong>₹2,450</strong> <em class="mkt-up">▲ 1.2%</em></span>
+              <span class="mkt-tick-item">Rice (Basmati) <strong>₹6,800</strong> <em class="mkt-down">▼ 0.5%</em></span>
+              <span class="mkt-tick-item">Onion <strong>₹1,850</strong> <em class="mkt-up">▲ 4.8%</em></span>
+              <span class="mkt-tick-item">Tomato <strong>₹2,200</strong> <em class="mkt-up">▲ 12.3%</em></span>
+              <span class="mkt-tick-item">Maize <strong>₹2,100</strong> <em class="mkt-neutral">● 0.0%</em></span>
+              <span class="mkt-tick-item">Mustard <strong>₹5,400</strong> <em class="mkt-up">▲ 0.8%</em></span>
+              <span class="mkt-tick-item">Wheat <strong>₹2,450</strong> <em class="mkt-up">▲ 1.2%</em></span>
+              <span class="mkt-tick-item">Rice (Basmati) <strong>₹6,800</strong> <em class="mkt-down">▼ 0.5%</em></span>
+              <span class="mkt-tick-item">Onion <strong>₹1,850</strong> <em class="mkt-up">▲ 4.8%</em></span>
+              <span class="mkt-tick-item">Tomato <strong>₹2,200</strong> <em class="mkt-up">▲ 12.3%</em></span>
+              <span class="mkt-tick-item">Maize <strong>₹2,100</strong> <em class="mkt-neutral">● 0.0%</em></span>
+              <span class="mkt-tick-item">Mustard <strong>₹5,400</strong> <em class="mkt-up">▲ 0.8%</em></span>
+            </div>
+          </div>
+        </section>
+
+        <!-- KPI Cards -->
+        <section class="mkt-kpi-grid">
+          <div class="mkt-kpi-card">
+            <p class="mkt-kpi-label">Total Arrivals Today</p>
+            <h3 class="mkt-kpi-value">42.5K <span class="mkt-kpi-unit">MT</span></h3>
+            <div class="mkt-kpi-bar"><div class="mkt-kpi-bar-fill" style="width:65%"></div></div>
+          </div>
+          <div class="mkt-kpi-card">
+            <p class="mkt-kpi-label">Top Commodity</p>
+            <div class="mkt-kpi-row">
+              <h3 class="mkt-kpi-value">Onion</h3>
+              <span style="font-size:2rem;">🧅</span>
+            </div>
+            <p class="mkt-kpi-share">22% Vol Share</p>
+          </div>
+          <div class="mkt-kpi-card mkt-kpi-gainer">
+            <p class="mkt-kpi-label">Biggest Gainer</p>
+            <h3 class="mkt-kpi-value">Tomato</h3>
+            <p class="mkt-kpi-change mkt-pos">
+              <span class="material-symbols-outlined" style="font-size:1rem;">trending_up</span> +12.3% Today
+            </p>
+          </div>
+          <div class="mkt-kpi-card mkt-kpi-loser">
+            <p class="mkt-kpi-label">Biggest Loser</p>
+            <h3 class="mkt-kpi-value">Garlic</h3>
+            <p class="mkt-kpi-change mkt-neg">
+              <span class="material-symbols-outlined" style="font-size:1rem;">trending_down</span> -4.2% Today
+            </p>
+          </div>
+          <div class="mkt-kpi-card">
+            <div class="mkt-kpi-row" style="align-items:center;">
+              <div>
+                <p class="mkt-kpi-label">Sentiment</p>
+                <h3 class="mkt-kpi-value mkt-bullish">Bullish</h3>
+              </div>
+              <div class="mkt-gauge-wrap">
+                <svg class="mkt-gauge-svg" viewBox="0 0 36 36">
+                  <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#e8e8e8" stroke-width="3"/>
+                  <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#16A34A" stroke-dasharray="75,100" stroke-width="3"/>
+                </svg>
+                <span class="mkt-gauge-val">75%</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Chart + Movers -->
+        <section class="mkt-chart-grid">
+          <div class="mkt-chart-card">
+            <div class="mkt-chart-head">
+              <h2 class="mkt-section-title">Price Trend Analysis</h2>
+              <div class="mkt-tab-group">
+                <button class="mkt-tab active" onclick="window.mktSetTab(this,'7D')">7D</button>
+                <button class="mkt-tab" onclick="window.mktSetTab(this,'1M')">1M</button>
+                <button class="mkt-tab" onclick="window.mktSetTab(this,'3M')">3M</button>
+              </div>
+            </div>
+            <div class="mkt-canvas-wrap">
+              <canvas id="marketChart"></canvas>
+            </div>
+            <div class="mkt-legend">
+              <label class="mkt-legend-item"><input type="checkbox" checked> Onion (Red)</label>
+              <label class="mkt-legend-item"><input type="checkbox"> Wheat</label>
+              <label class="mkt-legend-item"><input type="checkbox"> Tomato</label>
+            </div>
+          </div>
+
+          <div class="mkt-movers-card">
+            <h2 class="mkt-section-title">Top Movers</h2>
+            <div class="mkt-movers-section">
+              <h4 class="mkt-movers-label mkt-pos">Daily Gainers</h4>
+              <div class="mkt-mover-row">
+                <div class="mkt-mover-left"><span class="mkt-mover-emoji">🍅</span><div><p class="mkt-mover-name">Tomato</p><p class="mkt-mover-var">Hybrid</p></div></div>
+                <div class="mkt-mover-right"><p class="mkt-mover-pct mkt-pos">+12.3%</p><p class="mkt-mover-price">₹2,200</p></div>
+              </div>
+              <div class="mkt-mover-row">
+                <div class="mkt-mover-left"><span class="mkt-mover-emoji">🥔</span><div><p class="mkt-mover-name">Potato</p><p class="mkt-mover-var">Jyoti</p></div></div>
+                <div class="mkt-mover-right"><p class="mkt-mover-pct mkt-pos">+4.5%</p><p class="mkt-mover-price">₹1,450</p></div>
+              </div>
+            </div>
+            <div class="mkt-movers-section mkt-movers-divider">
+              <h4 class="mkt-movers-label mkt-neg">Daily Losers</h4>
+              <div class="mkt-mover-row">
+                <div class="mkt-mover-left"><span class="mkt-mover-emoji">🧄</span><div><p class="mkt-mover-name">Garlic</p><p class="mkt-mover-var">Local</p></div></div>
+                <div class="mkt-mover-right"><p class="mkt-mover-pct mkt-neg">-4.2%</p><p class="mkt-mover-price">₹12,400</p></div>
+              </div>
+              <div class="mkt-mover-row">
+                <div class="mkt-mover-left"><span class="mkt-mover-emoji">🍋</span><div><p class="mkt-mover-name">Lemon</p><p class="mkt-mover-var">Seedless</p></div></div>
+                <div class="mkt-mover-right"><p class="mkt-mover-pct mkt-neg">-2.8%</p><p class="mkt-mover-price">₹8,100</p></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Mandi Price Table -->
+        <section class="mkt-table-section">
+          <div class="mkt-table-head">
+            <h2 class="mkt-section-title">Daily Mandi Prices</h2>
+            <div class="mkt-table-actions">
+              <div class="mkt-search-box">
+                <span class="material-symbols-outlined">search</span>
+                <input type="text" placeholder="Search Mandi or Commodity..." id="mkt-search" oninput="window.mktSearch(this.value)">
+              </div>
+              <button class="mkt-action-btn" title="Export"><span class="material-symbols-outlined">file_download</span></button>
+              <button class="mkt-action-btn" title="Filter"><span class="material-symbols-outlined">filter_list</span></button>
+            </div>
+          </div>
+          <div class="mkt-table-wrap">
+            <table class="mkt-table">
+              <thead>
+                <tr>
+                  <th>Commodity</th><th>Variety</th><th>Market / District</th>
+                  <th>Min / Max</th><th>Modal Price</th><th>Arrivals (MT)</th>
+                  <th>Change</th><th></th>
+                </tr>
+              </thead>
+              <tbody id="mkt-tbody">
+                <tr>
+                  <td><div class="mkt-comm-cell"><span>🧅</span><strong>Onion</strong></div></td>
+                  <td>Red</td>
+                  <td><div class="mkt-loc-cell"><span>Lasalgaon</span><small>Nashik, MH</small></div></td>
+                  <td class="mkt-range">₹1,650 – ₹2,100</td>
+                  <td class="mkt-modal">₹1,850</td>
+                  <td><div class="mkt-arr-cell"><span>1,240</span><div class="mkt-arr-bar"><div style="width:80%"></div></div></div></td>
+                  <td><span class="mkt-badge mkt-badge-pos">+4.8%</span></td>
+                  <td><button class="mkt-more-btn"><span class="material-symbols-outlined">more_vert</span></button></td>
+                </tr>
+                <tr>
+                  <td><div class="mkt-comm-cell"><span>🌾</span><strong>Wheat</strong></div></td>
+                  <td>LOK-1</td>
+                  <td><div class="mkt-loc-cell"><span>Indore Mandi</span><small>Indore, MP</small></div></td>
+                  <td class="mkt-range">₹2,300 – ₹2,600</td>
+                  <td class="mkt-modal">₹2,450</td>
+                  <td><div class="mkt-arr-cell"><span>2,850</span><div class="mkt-arr-bar"><div style="width:60%"></div></div></div></td>
+                  <td><span class="mkt-badge mkt-badge-pos">+1.2%</span></td>
+                  <td><button class="mkt-more-btn"><span class="material-symbols-outlined">more_vert</span></button></td>
+                </tr>
+                <tr>
+                  <td><div class="mkt-comm-cell"><span>🍅</span><strong>Tomato</strong></div></td>
+                  <td>Hybrid</td>
+                  <td><div class="mkt-loc-cell"><span>Azadpur</span><small>Delhi, NCR</small></div></td>
+                  <td class="mkt-range">₹1,900 – ₹2,500</td>
+                  <td class="mkt-modal">₹2,200</td>
+                  <td><div class="mkt-arr-cell"><span>640</span><div class="mkt-arr-bar"><div style="width:35%"></div></div></div></td>
+                  <td><span class="mkt-badge mkt-badge-pos">+12.3%</span></td>
+                  <td><button class="mkt-more-btn"><span class="material-symbols-outlined">more_vert</span></button></td>
+                </tr>
+                <tr>
+                  <td><div class="mkt-comm-cell"><span>🧄</span><strong>Garlic</strong></div></td>
+                  <td>Local</td>
+                  <td><div class="mkt-loc-cell"><span>Mahuva Mandi</span><small>Surat, GJ</small></div></td>
+                  <td class="mkt-range">₹11,800 – ₹13,000</td>
+                  <td class="mkt-modal">₹12,400</td>
+                  <td><div class="mkt-arr-cell"><span>420</span><div class="mkt-arr-bar"><div style="width:25%"></div></div></div></td>
+                  <td><span class="mkt-badge mkt-badge-neg">-4.2%</span></td>
+                  <td><button class="mkt-more-btn"><span class="material-symbols-outlined">more_vert</span></button></td>
+                </tr>
+                <tr>
+                  <td><div class="mkt-comm-cell"><span>🌽</span><strong>Maize</strong></div></td>
+                  <td>Yellow</td>
+                  <td><div class="mkt-loc-cell"><span>Gulbarga</span><small>Kalaburagi, KA</small></div></td>
+                  <td class="mkt-range">₹1,980 – ₹2,200</td>
+                  <td class="mkt-modal">₹2,100</td>
+                  <td><div class="mkt-arr-cell"><span>1,100</span><div class="mkt-arr-bar"><div style="width:50%"></div></div></div></td>
+                  <td><span class="mkt-badge mkt-badge-neu">0.0%</span></td>
+                  <td><button class="mkt-more-btn"><span class="material-symbols-outlined">more_vert</span></button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="mkt-pagination">
+            <p class="mkt-page-info">Showing 1–5 of 124 Mandis</p>
+            <div class="mkt-page-btns">
+              <button class="mkt-page-btn">1</button>
+              <button class="mkt-page-btn mkt-page-active">2</button>
+              <button class="mkt-page-btn">3</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Map + Queue Status -->
+        <section class="mkt-map-grid">
+          <div class="mkt-map-card">
+            <div class="mkt-map-overlay-label">
+              <h3>Nearby Markets</h3>
+              <p>Showing results for 50 km radius</p>
+            </div>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d120000!2d73.7898!3d20.0059!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1700000000000"
+              width="100%" height="100%" style="border:0;border-radius:16px;" allowfullscreen loading="lazy">
+            </iframe>
+          </div>
+
+          <div class="mkt-queue-card">
+            <h2 class="mkt-section-title">Market Queue Status</h2>
+            <div class="mkt-queue-list">
+              <div class="mkt-queue-item">
+                <div class="mkt-queue-icon mkt-qi-green"><span class="material-symbols-outlined">location_on</span></div>
+                <div class="mkt-queue-info">
+                  <h4>Pimpalgaon Baswant</h4>
+                  <p><span class="material-symbols-outlined" style="font-size:0.75rem;">directions_car</span> 12.4 km away</p>
+                </div>
+                <div class="mkt-queue-status">
+                  <span class="mkt-queue-badge mkt-qb-green">Fast Moving</span>
+                  <small>Arrival: 12,000 MT</small>
+                </div>
+              </div>
+              <div class="mkt-queue-item">
+                <div class="mkt-queue-icon mkt-qi-yellow"><span class="material-symbols-outlined">location_on</span></div>
+                <div class="mkt-queue-info">
+                  <h4>Yeola Mandi</h4>
+                  <p><span class="material-symbols-outlined" style="font-size:0.75rem;">directions_car</span> 34.8 km away</p>
+                </div>
+                <div class="mkt-queue-status">
+                  <span class="mkt-queue-badge mkt-qb-yellow">Moderate Delay</span>
+                  <small>Arrival: 8,400 MT</small>
+                </div>
+              </div>
+              <div class="mkt-queue-item">
+                <div class="mkt-queue-icon mkt-qi-red"><span class="material-symbols-outlined">location_on</span></div>
+                <div class="mkt-queue-info">
+                  <h4>Manmad Sub-Mandi</h4>
+                  <p><span class="material-symbols-outlined" style="font-size:0.75rem;">directions_car</span> 42.1 km away</p>
+                </div>
+                <div class="mkt-queue-status">
+                  <span class="mkt-queue-badge mkt-qb-red">Congested</span>
+                  <small>Arrival: 15,200 MT</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Weather + AI Insights + Forecast -->
+        <section class="mkt-bottom-grid">
+          <div class="mkt-weather-card">
+            <div class="mkt-weather-head">
+              <div>
+                <h2 class="mkt-section-title">Weather</h2>
+                <p class="mkt-weather-loc">Nashik, Maharashtra</p>
+              </div>
+              <span class="material-symbols-outlined mkt-weather-icon">light_mode</span>
+            </div>
+            <div class="mkt-temp-row">
+              <h3 class="mkt-temp">32°</h3>
+              <p class="mkt-condition">Clear Skies</p>
+            </div>
+            <div class="mkt-weather-details">
+              <div class="mkt-weather-detail"><p class="mkt-detail-label">Humidity</p><p class="mkt-detail-val">45%</p></div>
+              <div class="mkt-weather-detail"><p class="mkt-detail-label">Wind</p><p class="mkt-detail-val">12 km/h</p></div>
+            </div>
+          </div>
+
+          <div class="mkt-ai-card">
+            <div class="mkt-ai-head">
+              <span class="material-symbols-outlined" style="color:var(--color-primary);">auto_awesome</span>
+              <h2 class="mkt-ai-title">AI Impact Insights</h2>
+            </div>
+            <div class="mkt-ai-alert mkt-ai-warn">
+              <p class="mkt-ai-alert-title">🌧️ Rain Alert: Supply Risk</p>
+              <p>Forecasted rainfall in Nashik belt (May 26–28) may delay harvest. Expect <strong>8–15% spike</strong> in Onion prices.</p>
+            </div>
+            <div class="mkt-ai-alert mkt-ai-success">
+              <p class="mkt-ai-alert-title">📈 Market Opportunity</p>
+              <p>High demand for Basmati in export terminals. Current modal prices are 5% below peak. <strong>Optimal hold period: 10 days</strong>.</p>
+            </div>
+          </div>
+
+          <div class="mkt-forecast-card">
+            <h2 class="mkt-section-title">5-Day Forecast</h2>
+            <div class="mkt-forecast-list">
+              <div class="mkt-forecast-row"><span class="mkt-fday">Fri</span><span class="material-symbols-outlined mkt-ficon">cloud</span><div class="mkt-ftemps"><span>31°</span><span class="mkt-flow">22°</span></div></div>
+              <div class="mkt-forecast-row"><span class="mkt-fday">Sat</span><span class="material-symbols-outlined mkt-ficon mkt-frain">rainy</span><div class="mkt-ftemps"><span>28°</span><span class="mkt-flow">20°</span></div></div>
+              <div class="mkt-forecast-row"><span class="mkt-fday">Sun</span><span class="material-symbols-outlined mkt-ficon mkt-fstorm">thunderstorm</span><div class="mkt-ftemps"><span>26°</span><span class="mkt-flow">19°</span></div></div>
+              <div class="mkt-forecast-row"><span class="mkt-fday">Mon</span><span class="material-symbols-outlined mkt-ficon">partly_cloudy_day</span><div class="mkt-ftemps"><span>29°</span><span class="mkt-flow">21°</span></div></div>
+              <div class="mkt-forecast-row"><span class="mkt-fday">Tue</span><span class="material-symbols-outlined mkt-ficon">light_mode</span><div class="mkt-ftemps"><span>33°</span><span class="mkt-flow">23°</span></div></div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    `;
+  },
+  diagnosis: function() {
+    return `
+      <div class="diagnosis-page-wrapper">
+        <!-- Hero Header -->
+        <header class="diagnosis-hero">
+          <div class="hero-content">
+            <span class="hero-badge">
+              <span class="material-symbols-outlined">verified</span>
+              Precision Diagnostics
+            </span>
+            <h1 class="hero-title">AI Crop Diagnosis</h1>
+            <p class="hero-subtitle">Advanced neural networks processing multi-spectral imagery and sensor fusion to protect your harvest.</p>
+          </div>
+          <button class="hero-btn" onclick="document.getElementById('diag-file-upload').click()">
+            <span class="material-symbols-outlined">upload_file</span>
+            <span>Analyze New Sample</span>
+          </button>
+          <input type="file" id="diag-file-upload" style="display:none;" accept="image/*" onchange="window.handleDiagnosisUpload(this)">
+        </header>
+
+        <!-- Main Bento Grid -->
+        <div class="diagnosis-grid">
+          
+          <!-- Left Column: Field Analytics -->
+          <aside class="analytics-panel">
+            <div class="analytics-card">
+              <div class="analytics-header">
+                <h2 class="analytics-title">Field Analytics</h2>
+                <span class="live-badge">Live Feed</span>
+              </div>
+
+              <!-- Soil Moisture -->
+              <div class="metric-card">
+                <div class="metric-header">
+                  <span class="metric-label">Soil Moisture</span>
+                  <span class="material-symbols-outlined metric-icon icon-primary">water_drop</span>
+                </div>
+                <div class="metric-value-row">
+                  <span class="metric-value">42%</span>
+                  <span class="metric-trend trend-up">
+                    <span class="material-symbols-outlined">trending_up</span>
+                    2%
+                  </span>
+                </div>
+                <div class="metric-bar">
+                  <div class="metric-bar-fill bar-primary" style="width: 42%"></div>
+                </div>
+              </div>
+
+              <!-- Nitrogen -->
+              <div class="metric-card">
+                <div class="metric-header">
+                  <span class="metric-label">Nitrogen Level</span>
+                  <span class="material-symbols-outlined metric-icon icon-secondary">science</span>
+                </div>
+                <div class="metric-value-row">
+                  <span class="metric-value">18<span class="metric-unit">mg/kg</span></span>
+                  <span class="metric-trend trend-down">
+                    <span class="material-symbols-outlined">trending_down</span>
+                    5%
+                  </span>
+                </div>
+                <div class="metric-bar">
+                  <div class="metric-bar-fill bar-secondary" style="width: 65%"></div>
+                </div>
+              </div>
+
+              <!-- Temperature -->
+              <div class="metric-card">
+                <div class="metric-header">
+                  <span class="metric-label">Ambient Temp</span>
+                  <span class="material-symbols-outlined metric-icon icon-error">thermostat</span>
+                </div>
+                <div class="metric-value-row">
+                  <span class="metric-value">24°C</span>
+                  <span class="metric-trend trend-stable">Stable</span>
+                </div>
+                <div class="metric-bar">
+                  <div class="metric-bar-fill bar-error" style="width: 48%"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Expert Consult CTA -->
+            <div class="consult-cta">
+              <div class="consult-content">
+                <h3 class="consult-title">Need a human eye?</h3>
+                <p class="consult-text">Talk to an agronomist about this diagnosis to confirm treatment protocols.</p>
+                <button class="consult-btn">Schedule Call</button>
+              </div>
+              <span class="material-symbols-outlined consult-icon">support_agent</span>
+            </div>
+          </aside>
+
+          <!-- Right Column: AI Diagnosis Results -->
+          <section class="results-panel">
+            <div class="results-card">
+              <div class="results-main">
+                <!-- Image Preview -->
+                <div class="image-preview">
+                  <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=400&h=400&fit=crop" alt="Corn leaf with disease symptoms" class="preview-img">
+                </div>
+
+                <!-- Result Header -->
+                <div class="result-header">
+                  <div class="result-title-row">
+                    <h2 class="result-title">Corn Northern Leaf Blight</h2>
+                    <span class="severity-badge badge-critical">CRITICAL</span>
+                  </div>
+                  <div class="confidence-row">
+                    <span class="material-symbols-outlined confidence-icon">verified</span>
+                    <span class="confidence-text">98.4% Confidence Score</span>
+                  </div>
+                  <p class="result-description">
+                    Identified large, cigar-shaped necrotic lesions. This pathogen thrives in high humidity and moderate temperatures (18-27°C). Immediate action required to prevent spore dispersal to adjacent North-West fields.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Impact Metrics -->
+              <div class="impact-metrics">
+                <!-- Sustainability -->
+                <div class="impact-card impact-primary">
+                  <div class="impact-header">
+                    <span class="material-symbols-outlined impact-icon">eco</span>
+                    <span class="impact-label">Sustainability Impact</span>
+                  </div>
+                  <div class="impact-value">82<span class="impact-max">/100</span></div>
+                  <p class="impact-text">Bio-fungicide recommendation reduces chemical runoff by 40% vs. traditional methods.</p>
+                </div>
+
+                <!-- Yield Projection -->
+                <div class="impact-card impact-critical">
+                  <div class="impact-header">
+                    <span class="material-symbols-outlined impact-icon">trending_down</span>
+                    <span class="impact-label">Yield Projection</span>
+                  </div>
+                  <div class="impact-value impact-negative">-15%<span class="impact-note">if untreated</span></div>
+                  <p class="impact-text">Estimated loss of 32 bushels per acre based on current infection rate.</p>
+                </div>
+              </div>
+
+              <!-- Treatment Protocol -->
+              <div class="protocol-section">
+                <h3 class="protocol-title">Next Steps & Treatment Protocol</h3>
+                <div class="protocol-steps">
+                  <div class="protocol-step">
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                      <h4 class="step-title">Targeted Fungicide Application</h4>
+                      <p class="step-text">Apply Prothioconazole (Group 3) specifically to Field A4 and B2 within 48 hours.</p>
+                    </div>
+                  </div>
+                  <div class="protocol-step">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                      <h4 class="step-title">Optimize Irrigation</h4>
+                      <p class="step-text">Reduce night-time overhead irrigation to decrease leaf wetness duration.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
         </div>
-        <div class="card" style="padding: 0; overflow: hidden;">
-          <table style="width: 100%; border-collapse: collapse;">
-            <thead style="background: var(--color-surface-container-low);"><tr><th style="padding:1.2rem;">${t('district')}</th><th style="padding:1.2rem;">${t('commodity')}</th><th style="padding:1.2rem; text-align:right;">${t('price')}</th></tr></thead>
-            <tbody id="market-tbody"><tr><td colspan="3" style="padding:2rem; text-align:center;">${t('linking_agmarknet')}</td></tr></tbody>
-          </table>
+
+        <!-- Historical Records Table -->
+        <section class="history-section">
+          <div class="history-header">
+            <h2 class="history-title">Historical Records</h2>
+            <div class="history-actions">
+              <button class="history-btn">Filter By Crop</button>
+              <button class="history-btn">Export PDF</button>
+            </div>
+          </div>
+
+          <div class="history-table-wrapper">
+            <table class="history-table">
+              <thead>
+                <tr>
+                  <th>Sample Date</th>
+                  <th>Crop Variety</th>
+                  <th>Detected Issue</th>
+                  <th>Confidence</th>
+                  <th>Severity</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="td-date">May 12, 2024</td>
+                  <td>Hybrid Maize V3</td>
+                  <td>Leaf Blight</td>
+                  <td>98.4%</td>
+                  <td><span class="severity-pill pill-critical">CRITICAL</span></td>
+                  <td class="td-status status-resolved">Resolved</td>
+                </tr>
+                <tr>
+                  <td class="td-date">May 05, 2024</td>
+                  <td>Soybean Elite 2</td>
+                  <td>Nitrogen Deficiency</td>
+                  <td>92.1%</td>
+                  <td><span class="severity-pill pill-medium">MEDIUM</span></td>
+                  <td class="td-status status-progress">In Progress</td>
+                </tr>
+                <tr>
+                  <td class="td-date">Apr 28, 2024</td>
+                  <td>Hybrid Maize V3</td>
+                  <td>No Issues Detected</td>
+                  <td>99.8%</td>
+                  <td><span class="severity-pill pill-none">NONE</span></td>
+                  <td class="td-status status-archived">Archived</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    `;
+  },
+  'buyer-dashboard': function() {
+    const name = appState.user?.name || 'Meera Gupta';
+    const now = new Date();
+    const dateStr = now.toLocaleDateString('en-IN', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
+    const hour = now.getHours();
+    const greeting = hour < 12 ? 'Good Morning' : hour < 17 ? 'Good Afternoon' : 'Good Evening';
+    return `
+      <div class="bdb-page">
+
+        <!-- ── Buyer Navbar ── -->
+        <div class="bdb-nav-outer">
+          <nav class="bdb-nav">
+
+            <!-- Hamburger checkbox (CSS-only mobile) -->
+            <input type="checkbox" id="bdb-menu-toggle" class="bdb-menu-checkbox" />
+
+            <!-- Logo -->
+            <div class="bdb-logo">
+              <span class="bdb-logo-icon">🌿</span>
+              <span class="bdb-logo-text">AgroFarm AI</span>
+            </div>
+
+            <!-- Nav Links -->
+            <ul class="bdb-nav-links" id="bdb-nav-links">
+              <li><a href="#" class="bdb-nav-item bdb-active" onclick="return false;">Home</a></li>
+              <li><a href="#" class="bdb-nav-item" onclick="window.navigate('market'); return false;">Browse Produce</a></li>
+              <li><a href="#" class="bdb-nav-item" onclick="window.navigate('market'); return false;">Market</a></li>
+              <li><a href="#" class="bdb-nav-item" onclick="window.navigate('f2b'); return false;">Connect with Farmers</a></li>
+              <li><a href="#" class="bdb-nav-item" onclick="return false;">My Orders</a></li>
+              <li><a href="#" class="bdb-nav-item" onclick="return false;">Messages</a></li>
+            </ul>
+
+            <!-- Right Controls -->
+            <div class="bdb-nav-right">
+
+              <!-- Language Switcher (pure CSS hover dropdown) -->
+              <div class="bdb-lang-wrap">
+                <div class="bdb-lang-pill">
+                  <span class="bdb-globe">🌐</span>
+                  <span class="bdb-lang-code">EN</span>
+                  <span class="bdb-chevron">▾</span>
+                </div>
+                <ul class="bdb-lang-dropdown">
+                  <li class="bdb-lang-opt bdb-lang-selected">English</li>
+                  <li class="bdb-lang-opt">हिंदी</li>
+                  <li class="bdb-lang-opt">मराठी</li>
+                </ul>
+              </div>
+
+              <!-- Cart -->
+              <button class="bdb-icon-btn" title="Cart">
+                <span class="bdb-icon">🛒</span>
+                <span class="bdb-badge">3</span>
+              </button>
+
+              <!-- Notifications -->
+              <button class="bdb-icon-btn" title="Notifications">
+                <span class="bdb-icon">🔔</span>
+              </button>
+
+              <!-- Avatar -->
+              <div class="bdb-avatar" title="${name}">${name.charAt(0).toUpperCase()}</div>
+
+              <!-- Hamburger label -->
+              <label for="bdb-menu-toggle" class="bdb-hamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
+              </label>
+            </div>
+          </nav>
+        </div>
+
+        <!-- ── Dashboard Content ── -->
+        <div class="bdb-content" id="db-content">
+          <div class="db-wrapper spacer-y fade-in">
+
+            <!-- Header -->
+            <div class="spacer-bottom" style="display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap;">
+              <div>
+                <h2 class="display-font" style="font-size:2.8rem; margin-bottom:0.4rem;">${t('db_proc_title')}</h2>
+                <div style="color:var(--color-primary); font-weight:600; display:flex; align-items:center; gap:0.5rem;">
+                  <span style="background:rgba(46,125,50,0.1); padding:0.25rem 0.75rem; border-radius:99px; font-size:0.85rem;">${dateStr}</span>
+                </div>
+              </div>
+              <button class="btn-primary" style="padding:0.8rem 1.8rem; font-size:0.95rem;" onclick="window.navigate('b2f')">${t('db_biz_hub')}</button>
+            </div>
+
+            <!-- Welcome Banner -->
+            <div class="db-welcome-banner" style="margin-top:0; background:linear-gradient(135deg,#1565C0,#1976D2);">
+              <div class="db-welcome-left">
+                <div class="db-welcome-subtitle">${t('db_proc_intel')}</div>
+                <h2 class="db-welcome-title">${greeting}, ${name.split(' ')[0]} 👋</h2>
+                <p class="db-welcome-desc">You have <strong>4 ${t('db_orders_desc')}</strong></p>
+                <div style="display:flex; gap:0.75rem; flex-wrap:wrap; margin-top:0.25rem;">
+                  <button class="db-banner-btn" onclick="window.navigate('b2f')">${t('db_view_orders')} →</button>
+                  <button class="db-banner-btn-ghost" onclick="window.navigate('market')">${t('db_explore_market')}</button>
+                </div>
+              </div>
+              <div class="db-welcome-illustration">📦</div>
+            </div>
+
+            <!-- KPI Cards -->
+            <div class="db-kpi-row">
+              <div class="db-kpi-card" style="--kpi-color:#1565C0;">
+                <div class="db-kpi-icon">📋</div>
+                <div class="db-kpi-label">${t('db_kpi_orders')}</div>
+                <div class="db-kpi-value">4</div>
+                <div class="db-kpi-trend up">↑ +2 this week</div>
+              </div>
+              <div class="db-kpi-card" style="--kpi-color:#2E7D32;">
+                <div class="db-kpi-icon">✅</div>
+                <div class="db-kpi-label">${t('db_kpi_farms')}</div>
+                <div class="db-kpi-value">120</div>
+                <div class="db-kpi-trend up">↑ 8 new this month</div>
+              </div>
+              <div class="db-kpi-card" style="--kpi-color:#F57F17;">
+                <div class="db-kpi-icon">⏳</div>
+                <div class="db-kpi-label">${t('db_kpi_bids')}</div>
+                <div class="db-kpi-value">7</div>
+                <div class="db-kpi-trend neutral">→ Awaiting response</div>
+              </div>
+              <div class="db-kpi-card" style="--kpi-color:#6A1B9A;">
+                <div class="db-kpi-icon">💰</div>
+                <div class="db-kpi-label">${t('db_kpi_spend')}</div>
+                <div class="db-kpi-value">₹4.2L</div>
+                <div class="db-kpi-trend up">↑ +12% vs last month</div>
+              </div>
+            </div>
+
+            <!-- AI Chat Panel -->
+            <div class="db-ai-chat-panel" id="db-ai-chat-panel">
+              <div class="db-ai-chat-header">
+                <div style="display:flex;align-items:center;gap:0.75rem;"><span style="font-size:1.5rem;">🤖</span><div><div style="font-weight:800;font-size:0.95rem;">Business AI Assistant</div><div style="font-size:0.72rem;opacity:0.8;">Online · Procurement Expert</div></div></div>
+                <button onclick="window.dbToggleAiChat()" style="background:rgba(255,255,255,0.15);border:none;color:white;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:0.9rem;">✕</button>
+              </div>
+              <div class="db-ai-chat-body" id="db-ai-chat-body">
+                <div class="db-ai-msg bot">${t('db_welcome_buyer')}</div>
+              </div>
+              <div class="db-ai-chat-footer">
+                <input type="text" id="db-ai-input" class="db-ai-input" placeholder="${t('db_ai_placeholder_buyer')}" onkeypress="if(event.key==='Enter') window.dbAiSend()">
+                <button onclick="window.dbAiSend()" class="db-ai-send" style="background:#1565C0;">➔</button>
+              </div>
+            </div>
+
+            <button class="db-ai-fab" id="db-ai-fab" onclick="window.dbToggleAiChat()" title="${t('db_ask_ai')}">
+              <span class="db-ai-fab-icon">🤖</span>
+              <span class="db-ai-fab-label">${t('db_ask_ai')}</span>
+              <div class="db-ai-pulse"></div>
+            </button>
+
+          </div>
+        </div>
+      </div>
+    `;
+  },
+
+  login: function() {
+    return `<div class="container spacer-y" style="display:flex; justify-content:center;">
+      <div class="card" style="width:420px; padding:3rem;">
+        <h2 class="display-font" style="text-align:center; margin-bottom:0.5rem;">${t('sign_in')}</h2>
+        <p style="text-align:center; color:#888; font-size:0.9rem; margin-bottom:2rem;">Sign in to your account</p>
+
+        <!-- Demo Quick Access -->
+        <div style="background:#f0faf0; border:1.5px solid #c8e6c9; border-radius:14px; padding:1.25rem; margin-bottom:1.75rem;">
+          <p style="font-size:0.78rem; font-weight:700; color:#2e7d32; text-transform:uppercase; letter-spacing:0.06em; margin:0 0 0.75rem;">⚡ Quick Demo Access</p>
+          <div style="display:flex; gap:0.75rem;">
+            <button onclick="window.demoLogin('farmer')" style="flex:1; padding:0.65rem; background:#2e7d32; color:white; border:none; border-radius:10px; font-weight:700; font-size:0.875rem; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:0.4rem;">
+              🌾 Farmer Panel
+            </button>
+            <button onclick="window.demoLogin('buyer')" style="flex:1; padding:0.65rem; background:#1565c0; color:white; border:none; border-radius:10px; font-weight:700; font-size:0.875rem; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:0.4rem;">
+              📦 Buyer Panel
+            </button>
+          </div>
+        </div>
+
+        <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1.5rem;">
+          <div style="flex:1; height:1px; background:#e5e7eb;"></div>
+          <span style="font-size:0.8rem; color:#9ca3af; font-weight:500;">or sign in with email</span>
+          <div style="flex:1; height:1px; background:#e5e7eb;"></div>
+        </div>
+
+        <div class="input-group"><label>${t('email')}</label><input type="email" id="login-email" class="input-field" placeholder="you@example.com"></div>
+        <div class="input-group"><label>${t('password')}</label><input type="password" id="login-pass" class="input-field" placeholder="••••••••"></div>
+        <button class="btn btn-primary" style="width:100%; margin-top:2rem;" onclick="window.loginUser()">${t('login')}</button>
+        <p style="text-align:center; margin-top:1.25rem; font-size:0.85rem; color:#888;">
+          Don't have an account? <a href="#" onclick="window.navigate('signup')" style="color:var(--color-primary); font-weight:700;">Sign up</a>
+        </p>
+      </div>
+    </div>`;
+  },
+  signup: function() {
+    return `
+      <div class="container spacer-y" style="display:flex; justify-content:center;">
+        <div class="card" style="width:450px; padding:3rem;">
+          <h2 class="display-font" style="text-align:center; margin-bottom:2rem;">${t('auth_join')}</h2>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+            <div class="input-group"><label>${t('auth_fname')}</label><input type="text" id="signup-fname" class="input-field" placeholder="Ramesh"></div>
+            <div class="input-group"><label>${t('auth_lname')}</label><input type="text" id="signup-lname" class="input-field" placeholder="Kumar"></div>
+          </div>
+          <div class="input-group"><label>${t('email')}</label><input type="email" id="signup-email" class="input-field" placeholder="ramesh@example.com"></div>
+          <div class="input-group"><label>${t('password')}</label><input type="password" id="signup-pass" class="input-field" placeholder="••••••••"></div>
+          <div class="input-group">
+            <label style="margin-bottom:0.75rem; display:block;">${t('auth_role_select')}</label>
+            <div style="display:flex; gap:1.5rem; align-items:center;">
+              <label style="cursor:pointer; display:flex; align-items:center; gap:0.5rem;"><input type="radio" name="signup-role" value="farmer" checked> ${t('auth_role_farmer_opt')}</label>
+              <label style="cursor:pointer; display:flex; align-items:center; gap:0.5rem;"><input type="radio" name="signup-role" value="buyer"> ${t('auth_role_buyer_opt')}</label>
+            </div>
+          </div>
+          <button class="btn btn-primary" style="width:100%; margin-top:1.5rem;" onclick="window.registerUser()">${t('auth_create')}</button>
+          <div style="text-align:center; margin-top:1.5rem; font-size:0.9rem; color:#666;">
+            ${t('auth_have_acc')} <a href="#" onclick="window.navigate('login')" style="color:var(--color-primary); font-weight:700;">${t('nav_login')}</a>
+          </div>
         </div>
       </div>`;
   },
+
+  f2b: function() {
+    return `
+      <div class="f2b-wrapper">
+
+        <!-- F2B Panel -->
+        <div id="f2b-panel" class="f2b-main-grid">
+
+          <!-- Left: List Your Produce -->
+          <section class="f2b-form-card">
+            <div class="f2b-form-header">
+              <h2 class="f2b-form-title">List Your Produce</h2>
+              <span class="f2b-listing-id">New Listing ID: #8821-X</span>
+            </div>
+
+            <form class="f2b-form" onsubmit="return false;">
+              <!-- Crop Variety + Quantity -->
+              <div class="f2b-form-row">
+                <div class="f2b-field">
+                  <label class="f2b-label">Crop Variety</label>
+                  <div class="f2b-select-wrap">
+                    <select class="f2b-select">
+                      <option>Select variety...</option>
+                      <option>Golden Durum Wheat</option>
+                      <option>Organic Arabica Coffee</option>
+                      <option>Non-GMO Soybeans</option>
+                      <option>High-Yield Maize</option>
+                      <option>Basmati Rice</option>
+                      <option>Red Onion</option>
+                    </select>
+                    <span class="material-symbols-outlined f2b-select-icon">expand_more</span>
+                  </div>
+                </div>
+                <div class="f2b-field">
+                  <label class="f2b-label">Quantity Available</label>
+                  <div class="f2b-qty-row">
+                    <input class="f2b-input" type="number" placeholder="0.00" min="0" />
+                    <select class="f2b-select f2b-unit-select">
+                      <option>Metric Tons</option>
+                      <option>Bushels</option>
+                      <option>Kilograms</option>
+                      <option>Quintals</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Grade -->
+              <div class="f2b-field">
+                <label class="f2b-label">Quality Grade</label>
+                <div class="f2b-grade-group">
+                  <label class="f2b-grade-option">
+                    <input type="radio" name="f2b-grade" value="premium" checked />
+                    <span class="f2b-grade-pill">
+                      <span class="material-symbols-outlined">verified</span> Premium
+                    </span>
+                  </label>
+                  <label class="f2b-grade-option">
+                    <input type="radio" name="f2b-grade" value="standard" />
+                    <span class="f2b-grade-pill">
+                      <span class="material-symbols-outlined">check_circle</span> Standard
+                    </span>
+                  </label>
+                  <label class="f2b-grade-option">
+                    <input type="radio" name="f2b-grade" value="industrial" />
+                    <span class="f2b-grade-pill">
+                      <span class="material-symbols-outlined">factory</span> Industrial
+                    </span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Target Price -->
+              <div class="f2b-field">
+                <label class="f2b-label">Target Price per Unit (₹)</label>
+                <div class="f2b-price-wrap">
+                  <span class="f2b-price-prefix">₹</span>
+                  <input class="f2b-input f2b-price-input" type="text" placeholder="0.00" />
+                </div>
+              </div>
+
+              <!-- Upload -->
+              <div class="f2b-field">
+                <label class="f2b-label">Batch Imagery / Crop Photos</label>
+                <div class="f2b-upload-zone" onclick="document.getElementById('f2b-file-input').click()">
+                  <input type="file" id="f2b-file-input" accept="image/*" multiple style="display:none" />
+                  <span class="material-symbols-outlined f2b-upload-icon">cloud_upload</span>
+                  <h3 class="f2b-upload-title">Drag &amp; Drop or Click to Upload</h3>
+                  <p class="f2b-upload-sub">Upload high-resolution photos of crop samples and soil condition.</p>
+                </div>
+              </div>
+
+              <!-- Submit -->
+              <button class="f2b-submit-btn" type="submit">
+                Publish Listing
+                <span class="material-symbols-outlined">send</span>
+              </button>
+            </form>
+          </section>
+
+          <!-- Right: Buyer Open Requirements -->
+          <aside class="f2b-aside">
+            <div class="f2b-aside-header">
+              <h3 class="f2b-aside-title">Buyer Open Requirements</h3>
+              <button class="f2b-refresh-btn" title="Refresh">
+                <span class="material-symbols-outlined">refresh</span>
+              </button>
+            </div>
+
+            <!-- Requirement Card 1 -->
+            <div class="f2b-req-card">
+              <div class="f2b-req-urgent">
+                <span class="material-symbols-outlined" style="font-size:0.8rem;">bolt</span> Urgent Supply
+              </div>
+              <div class="f2b-req-top">
+                <div class="f2b-req-icon"><span class="material-symbols-outlined">agriculture</span></div>
+                <div>
+                  <h4 class="f2b-req-name">Hard Red Winter Wheat</h4>
+                  <p class="f2b-req-id">Req ID: BAY-992-K</p>
+                </div>
+              </div>
+              <div class="f2b-req-details">
+                <div class="f2b-req-row"><span>Needed Volume</span><strong>500 MT</strong></div>
+                <div class="f2b-req-row"><span>Offered Price</span><strong class="f2b-price-green">₹51,250 / MT</strong></div>
+              </div>
+              <button class="f2b-fulfill-btn">
+                Fulfill Order <span class="material-symbols-outlined">arrow_forward</span>
+              </button>
+            </div>
+
+            <!-- Requirement Card 2 -->
+            <div class="f2b-req-card">
+              <div class="f2b-req-top">
+                <div class="f2b-req-icon"><span class="material-symbols-outlined">spa</span></div>
+                <div>
+                  <h4 class="f2b-req-name">High-Oleic Soybeans</h4>
+                  <p class="f2b-req-id">Req ID: BAY-811-S</p>
+                </div>
+              </div>
+              <div class="f2b-req-details">
+                <div class="f2b-req-row"><span>Needed Volume</span><strong>1,200 MT</strong></div>
+                <div class="f2b-req-row"><span>Offered Price</span><strong class="f2b-price-green">₹42,500 / MT</strong></div>
+              </div>
+              <button class="f2b-fulfill-btn">
+                Fulfill Order <span class="material-symbols-outlined">arrow_forward</span>
+              </button>
+            </div>
+
+            <!-- Requirement Card 3 -->
+            <div class="f2b-req-card">
+              <div class="f2b-req-top">
+                <div class="f2b-req-icon"><span class="material-symbols-outlined">grass</span></div>
+                <div>
+                  <h4 class="f2b-req-name">Organic Basmati Rice</h4>
+                  <p class="f2b-req-id">Req ID: BAY-774-R</p>
+                </div>
+              </div>
+              <div class="f2b-req-details">
+                <div class="f2b-req-row"><span>Needed Volume</span><strong>300 MT</strong></div>
+                <div class="f2b-req-row"><span>Offered Price</span><strong class="f2b-price-green">₹68,000 / MT</strong></div>
+              </div>
+              <button class="f2b-fulfill-btn">
+                Fulfill Order <span class="material-symbols-outlined">arrow_forward</span>
+              </button>
+            </div>
+
+            <!-- Upgrade Banner -->
+            <div class="f2b-upgrade-banner">
+              <p class="f2b-upgrade-text">Want prioritized bidding?</p>
+              <a href="#" class="f2b-upgrade-link">Upgrade to AgroFarm Pro →</a>
+            </div>
+          </aside>
+        </div>
+
+        <!-- My Active Listings Table -->
+        <section class="f2b-listings-section">
+          <div class="f2b-listings-header">
+            <h3 class="f2b-listings-title">My Active Listings</h3>
+            <div class="f2b-listings-actions">
+              <button class="f2b-icon-btn"><span class="material-symbols-outlined">filter_list</span></button>
+              <button class="f2b-icon-btn"><span class="material-symbols-outlined">search</span></button>
+            </div>
+          </div>
+          <div class="f2b-table-wrap">
+            <table class="f2b-table">
+              <thead>
+                <tr>
+                  <th>Listing Details</th>
+                  <th>Quantity &amp; Grade</th>
+                  <th>Status</th>
+                  <th>Inquiries</th>
+                  <th style="text-align:right;">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="f2b-listing-cell">
+                      <div class="f2b-listing-thumb">🌾</div>
+                      <div>
+                        <div class="f2b-listing-name">Golden Harvest Wheat</div>
+                        <div class="f2b-listing-id">#LS-7721-B</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="f2b-listing-qty">150 MT</div>
+                    <div class="f2b-listing-grade">Premium Grade</div>
+                  </td>
+                  <td><span class="f2b-status-badge f2b-status-active">Active</span></td>
+                  <td>
+                    <div class="f2b-inq-cell">
+                      <span class="material-symbols-outlined" style="font-size:1rem;color:#ca8a04;">forum</span>
+                      <span class="f2b-inq-count">12 Inquiries</span>
+                    </div>
+                  </td>
+                  <td style="text-align:right;">
+                    <button class="f2b-more-btn"><span class="material-symbols-outlined">more_horiz</span></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="f2b-listing-cell">
+                      <div class="f2b-listing-thumb">☕</div>
+                      <div>
+                        <div class="f2b-listing-name">Highland Arabica</div>
+                        <div class="f2b-listing-id">#LS-8891-C</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="f2b-listing-qty">45 MT</div>
+                    <div class="f2b-listing-grade">Premium Grade</div>
+                  </td>
+                  <td><span class="f2b-status-badge f2b-status-negotiation">Negotiation</span></td>
+                  <td>
+                    <div class="f2b-inq-cell">
+                      <span class="material-symbols-outlined" style="font-size:1rem;color:#ca8a04;">forum</span>
+                      <span class="f2b-inq-count">3 Inquiries</span>
+                    </div>
+                  </td>
+                  <td style="text-align:right;">
+                    <button class="f2b-more-btn"><span class="material-symbols-outlined">more_horiz</span></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="f2b-listing-cell">
+                      <div class="f2b-listing-thumb">🧅</div>
+                      <div>
+                        <div class="f2b-listing-name">Red Onion Batch</div>
+                        <div class="f2b-listing-id">#LS-9012-O</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="f2b-listing-qty">90 MT</div>
+                    <div class="f2b-listing-grade">Standard Grade</div>
+                  </td>
+                  <td><span class="f2b-status-badge f2b-status-pending">Pending</span></td>
+                  <td>
+                    <div class="f2b-inq-cell">
+                      <span class="material-symbols-outlined" style="font-size:1rem;color:#ca8a04;">forum</span>
+                      <span class="f2b-inq-count">1 Inquiry</span>
+                    </div>
+                  </td>
+                  <td style="text-align:right;">
+                    <button class="f2b-more-btn"><span class="material-symbols-outlined">more_horiz</span></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="f2b-listings-footer">
+            <button class="f2b-view-all-btn">View All Archive</button>
+          </div>
+        </section>
+
+      </div>
+    `;
+  },
+  b2f: function() {
+    return `
+      <div class="b2f-wrapper">
+
+        <!-- Page Title -->
+        <div class="b2f-page-header">
+          <h2 class="b2f-page-title">Bayer Strategic Sourcing</h2>
+          <div class="b2f-page-tags">
+            <span class="b2f-tag">Global Overview</span>
+            <span class="b2f-tag b2f-tag-primary">B2F — Buyer Focus</span>
+            <span class="b2f-tag">Regional Bids</span>
+          </div>
+        </div>
+
+        <!-- Main Grid -->
+        <div class="b2f-main-grid">
+
+          <!-- LEFT: Main Content -->
+          <div class="b2f-left">
+
+            <!-- Stats Row -->
+            <div class="b2f-stats-row">
+              <div class="b2f-stat-card">
+                <h3 class="b2f-stat-label">Active Requirements</h3>
+                <div class="b2f-stat-value">24</div>
+                <p class="b2f-stat-trend b2f-trend-up">
+                  <span class="material-symbols-outlined">trending_up</span> +3 this week
+                </p>
+              </div>
+              <div class="b2f-stat-card">
+                <h3 class="b2f-stat-label">Pending Offers</h3>
+                <div class="b2f-stat-value">142</div>
+                <p class="b2f-stat-trend b2f-trend-warn">
+                  <span class="material-symbols-outlined">schedule</span> Requires review
+                </p>
+              </div>
+              <div class="b2f-stat-card b2f-stat-green">
+                <h3 class="b2f-stat-label">Procured Vol (Q3)</h3>
+                <div class="b2f-stat-value b2f-stat-white">4.2k</div>
+                <p class="b2f-stat-trend b2f-trend-light">Metric Tons</p>
+              </div>
+            </div>
+
+            <!-- Active Requirements Table -->
+            <div class="b2f-table-card">
+              <div class="b2f-table-head">
+                <h3 class="b2f-section-title">My Active Buying Requirements</h3>
+                <button class="b2f-view-all-btn">
+                  View All <span class="material-symbols-outlined">arrow_forward</span>
+                </button>
+              </div>
+              <div class="b2f-table-wrap">
+                <table class="b2f-table">
+                  <thead>
+                    <tr>
+                      <th>Crop / Grade</th>
+                      <th>Target Price (₹/Quintal)</th>
+                      <th>Vol Required</th>
+                      <th>Offers</th>
+                      <th style="text-align:right;">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div class="b2f-crop-cell">
+                          <div class="b2f-crop-icon b2f-icon-green"><span class="material-symbols-outlined">grass</span></div>
+                          <div>
+                            <p class="b2f-crop-name">Wheat — Sharbati</p>
+                            <p class="b2f-crop-sub">Grade A+ · MP Region</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="b2f-price-cell">₹3,200</td>
+                      <td class="b2f-vol-cell">500 MT</td>
+                      <td><span class="b2f-offers-badge">12 New</span></td>
+                      <td style="text-align:right;"><span class="b2f-status-active">Active</span></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="b2f-crop-cell">
+                          <div class="b2f-crop-icon b2f-icon-yellow"><span class="material-symbols-outlined">spa</span></div>
+                          <div>
+                            <p class="b2f-crop-name">Soybean — Yellow</p>
+                            <p class="b2f-crop-sub">Standard · MH Region</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="b2f-price-cell">₹4,850</td>
+                      <td class="b2f-vol-cell">1,200 MT</td>
+                      <td><span class="b2f-offers-badge b2f-offers-urgent">3 Urgent</span></td>
+                      <td style="text-align:right;"><span class="b2f-status-active">Active</span></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="b2f-crop-cell">
+                          <div class="b2f-crop-icon b2f-icon-green"><span class="material-symbols-outlined">agriculture</span></div>
+                          <div>
+                            <p class="b2f-crop-name">Basmati Rice</p>
+                            <p class="b2f-crop-sub">Premium · UP Region</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="b2f-price-cell">₹6,800</td>
+                      <td class="b2f-vol-cell">300 MT</td>
+                      <td><span class="b2f-offers-badge">7 New</span></td>
+                      <td style="text-align:right;"><span class="b2f-status-active">Active</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Incoming Farmer Offers -->
+            <div>
+              <h3 class="b2f-section-title" style="margin-bottom:1.25rem;">Incoming Farmer Offers</h3>
+              <div class="b2f-offers-grid">
+
+                <!-- Offer Card 1 -->
+                <div class="b2f-offer-card">
+                  <span class="b2f-top-match">Top Match</span>
+                  <div class="b2f-offer-farmer">
+                    <div class="b2f-farmer-avatar">RK</div>
+                    <div>
+                      <h4 class="b2f-farmer-name">Rajesh Kumar</h4>
+                      <p class="b2f-farmer-loc">
+                        <span class="material-symbols-outlined">location_on</span> Sehore, MP
+                      </p>
+                    </div>
+                  </div>
+                  <div class="b2f-offer-details">
+                    <div class="b2f-offer-row"><span>Offering</span><strong>Wheat (Sharbati)</strong></div>
+                    <div class="b2f-offer-row"><span>Volume</span><strong>50 MT</strong></div>
+                    <div class="b2f-offer-row"><span>Asking Price</span><strong class="b2f-ask-price">₹3,250<small>/q</small></strong></div>
+                  </div>
+                  <div class="b2f-offer-actions">
+                    <button class="b2f-btn-accept">Accept</button>
+                    <button class="b2f-btn-counter">Counter</button>
+                  </div>
+                </div>
+
+                <!-- Offer Card 2 -->
+                <div class="b2f-offer-card">
+                  <div class="b2f-offer-farmer">
+                    <div class="b2f-farmer-avatar b2f-avatar-yellow">SP</div>
+                    <div>
+                      <h4 class="b2f-farmer-name">Suresh Patel</h4>
+                      <p class="b2f-farmer-loc">
+                        <span class="material-symbols-outlined">location_on</span> Latur, MH
+                      </p>
+                    </div>
+                  </div>
+                  <div class="b2f-offer-details">
+                    <div class="b2f-offer-row"><span>Offering</span><strong>Soybean</strong></div>
+                    <div class="b2f-offer-row"><span>Volume</span><strong>120 MT</strong></div>
+                    <div class="b2f-offer-row"><span>Asking Price</span><strong class="b2f-ask-price">₹4,900<small>/q</small></strong></div>
+                  </div>
+                  <div class="b2f-offer-actions">
+                    <button class="b2f-btn-accept">Accept</button>
+                    <button class="b2f-btn-counter">Counter</button>
+                  </div>
+                </div>
+
+                <!-- Offer Card 3 -->
+                <div class="b2f-offer-card">
+                  <div class="b2f-offer-farmer">
+                    <div class="b2f-farmer-avatar b2f-avatar-blue">AM</div>
+                    <div>
+                      <h4 class="b2f-farmer-name">Anita Mishra</h4>
+                      <p class="b2f-farmer-loc">
+                        <span class="material-symbols-outlined">location_on</span> Lucknow, UP
+                      </p>
+                    </div>
+                  </div>
+                  <div class="b2f-offer-details">
+                    <div class="b2f-offer-row"><span>Offering</span><strong>Basmati Rice</strong></div>
+                    <div class="b2f-offer-row"><span>Volume</span><strong>80 MT</strong></div>
+                    <div class="b2f-offer-row"><span>Asking Price</span><strong class="b2f-ask-price">₹6,750<small>/q</small></strong></div>
+                  </div>
+                  <div class="b2f-offer-actions">
+                    <button class="b2f-btn-accept">Accept</button>
+                    <button class="b2f-btn-counter">Counter</button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT: Sidebar -->
+          <div class="b2f-right">
+
+            <!-- AI Insight -->
+            <div class="b2f-ai-card">
+              <div class="b2f-ai-head">
+                <div class="b2f-ai-icon"><span class="material-symbols-outlined">psychology</span></div>
+                <h3 class="b2f-ai-title">AgroFarm AI Insight</h3>
+              </div>
+              <p class="b2f-ai-text">
+                Historical data suggests Wheat prices in MP region will peak in 2 weeks.
+                Recommend securing required volumes for <strong>Sharbati Grade A+</strong>
+                now at current ₹3,200/q levels.
+              </p>
+              <button class="b2f-ai-link">
+                View Price Forecast <span class="material-symbols-outlined">trending_up</span>
+              </button>
+            </div>
+
+            <!-- Quick Post Requirement -->
+            <div class="b2f-form-card">
+              <h3 class="b2f-section-title" style="margin-bottom:1.5rem;">Quick Post Requirement</h3>
+              <form class="b2f-quick-form" onsubmit="return false;">
+                <div class="b2f-qfield">
+                  <label class="b2f-qlabel">Crop Category</label>
+                  <select class="b2f-qselect">
+                    <option>Select Crop...</option>
+                    <option>Wheat</option>
+                    <option>Soybean</option>
+                    <option>Rice</option>
+                    <option>Maize</option>
+                    <option>Onion</option>
+                  </select>
+                </div>
+                <div class="b2f-qrow">
+                  <div class="b2f-qfield">
+                    <label class="b2f-qlabel">Volume (MT)</label>
+                    <input class="b2f-qinput" type="number" placeholder="e.g. 100" min="0" />
+                  </div>
+                  <div class="b2f-qfield">
+                    <label class="b2f-qlabel">Target (₹/q)</label>
+                    <input class="b2f-qinput" type="number" placeholder="e.g. 3000" min="0" />
+                  </div>
+                </div>
+                <div class="b2f-upload-zone">
+                  <span class="material-symbols-outlined">upload_file</span>
+                  <p>Attach Specs (Optional)</p>
+                </div>
+                <button class="b2f-broadcast-btn" type="submit">
+                  Broadcast to Network
+                </button>
+              </form>
+            </div>
+
+            <!-- Q3 Buying Goals -->
+            <div class="b2f-goals-card">
+              <h3 class="b2f-section-title" style="margin-bottom:1.5rem;">Q3 Buying Goals</h3>
+              <div class="b2f-goals-list">
+                <div class="b2f-goal-item">
+                  <div class="b2f-goal-head">
+                    <div>
+                      <span class="b2f-goal-name">Wheat Procurement</span>
+                      <span class="b2f-goal-sub">2.1k / 3.0k MT</span>
+                    </div>
+                    <span class="b2f-goal-pct b2f-pct-green">70%</span>
+                  </div>
+                  <div class="b2f-progress-bar">
+                    <div class="b2f-progress-fill b2f-fill-green" style="width:70%"></div>
+                  </div>
+                </div>
+                <div class="b2f-goal-item">
+                  <div class="b2f-goal-head">
+                    <div>
+                      <span class="b2f-goal-name">Soybean Procurement</span>
+                      <span class="b2f-goal-sub">1.8k / 4.0k MT</span>
+                    </div>
+                    <span class="b2f-goal-pct b2f-pct-yellow">45%</span>
+                  </div>
+                  <div class="b2f-progress-bar">
+                    <div class="b2f-progress-fill b2f-fill-yellow" style="width:45%"></div>
+                  </div>
+                </div>
+                <div class="b2f-goal-item">
+                  <div class="b2f-goal-head">
+                    <div>
+                      <span class="b2f-goal-name">Rice Procurement</span>
+                      <span class="b2f-goal-sub">0.9k / 2.0k MT</span>
+                    </div>
+                    <span class="b2f-goal-pct b2f-pct-green">45%</span>
+                  </div>
+                  <div class="b2f-progress-bar">
+                    <div class="b2f-progress-fill b2f-fill-green" style="width:45%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    `;
+  },
+  knowledge: function() {
+    return `
+      <div class="res-wrapper">
+
+        <!-- Page Header -->
+        <header class="res-header">
+          <h1 class="res-title">Resources</h1>
+          <p class="res-subtitle">Everything you need to farm smarter</p>
+          <div class="res-search-wrap">
+            <span class="material-symbols-outlined res-search-icon">search</span>
+            <input class="res-search-input" type="text" placeholder="Search guides, videos, schemes..." oninput="window.resSearch(this.value)" />
+          </div>
+        </header>
+
+        <!-- Category Tabs -->
+        <div class="res-tabs" id="res-tabs">
+          <button class="res-tab res-tab-active" onclick="window.resFilter('all', this)">All</button>
+          <button class="res-tab" onclick="window.resFilter('video', this)">Videos</button>
+          <button class="res-tab" onclick="window.resFilter('article', this)">Articles</button>
+          <button class="res-tab" onclick="window.resFilter('guide', this)">Guides</button>
+          <button class="res-tab" onclick="window.resFilter('scheme', this)">Government Schemes</button>
+          <button class="res-tab" onclick="window.resFilter('weather', this)">Weather Advisories</button>
+          <button class="res-tab" onclick="window.resFilter('tool', this)">Tools &amp; Calculators</button>
+        </div>
+
+        <!-- Featured Hero -->
+        <section class="res-hero">
+          <div class="res-hero-overlay"></div>
+          <div class="res-hero-content">
+            <span class="res-hero-badge">Guide</span>
+            <h2 class="res-hero-title">Mastering Soil Health for 2024</h2>
+            <p class="res-hero-desc">A comprehensive approach to increasing organic matter, managing pH levels, and optimizing microbiome vitality for peak yield.</p>
+            <button class="res-hero-btn">
+              Read Guide <span class="material-symbols-outlined">arrow_forward</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- Main Layout -->
+        <div class="res-main-grid">
+
+          <!-- Left: Resource Cards -->
+          <div class="res-left">
+            <h3 class="res-section-title">Latest Resources</h3>
+            <div class="res-cards-grid" id="res-cards-grid">
+
+              <!-- Article Card -->
+              <article class="res-card" data-type="article">
+                <div class="res-card-img-wrap">
+                  <div class="res-card-img res-img-wheat"></div>
+                  <span class="res-card-badge res-badge-article">Article</span>
+                  <button class="res-bookmark-btn"><span class="material-symbols-outlined">bookmark_border</span></button>
+                </div>
+                <div class="res-card-body">
+                  <div class="res-card-meta">
+                    <span>12 Min Read</span><span>•</span><span>Oct 24, 2023</span>
+                  </div>
+                  <h4 class="res-card-title">Optimizing Water Usage in Drought Conditions</h4>
+                  <p class="res-card-desc">Learn advanced drip irrigation techniques and scheduling models to maximize crop survival during extended dry periods.</p>
+                  <div class="res-card-author">
+                    <div class="res-author-avatar">JS</div>
+                    <span>Dr. James Smith</span>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Video Card -->
+              <article class="res-card" data-type="video">
+                <div class="res-card-img-wrap">
+                  <div class="res-card-img res-img-tractor"></div>
+                  <div class="res-play-overlay">
+                    <div class="res-play-btn"><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">play_arrow</span></div>
+                  </div>
+                  <span class="res-card-badge res-badge-video">Video</span>
+                  <span class="res-duration-badge">18:45</span>
+                  <button class="res-bookmark-btn"><span class="material-symbols-outlined">bookmark_border</span></button>
+                </div>
+                <div class="res-card-body">
+                  <div class="res-card-meta"><span>Oct 20, 2023</span></div>
+                  <h4 class="res-card-title">Equipment Maintenance: Pre-Harvest Checklist</h4>
+                  <p class="res-card-desc">A step-by-step video guide to preparing your combine and tractors for the demanding harvest season.</p>
+                  <div class="res-card-author">
+                    <div class="res-author-avatar">EM</div>
+                    <span>Elena Martinez</span>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Scheme Card -->
+              <article class="res-card" data-type="scheme">
+                <div class="res-card-body" style="padding-top:1.5rem;">
+                  <div class="res-scheme-top">
+                    <span class="res-card-badge res-badge-scheme" style="position:static;">Scheme</span>
+                    <button class="res-bookmark-btn" style="position:static;background:none;color:var(--color-on-surface-variant);"><span class="material-symbols-outlined">bookmark_border</span></button>
+                  </div>
+                  <h4 class="res-card-title" style="margin-top:0.75rem;">Sustainable Agriculture Subsidy 2024</h4>
+                  <p class="res-card-desc">Financial support for transitioning to organic farming practices and implementing water-saving technologies.</p>
+                  <div class="res-scheme-details">
+                    <div class="res-scheme-row"><span>Benefit</span><strong>Up to ₹5,00,000</strong></div>
+                    <div class="res-scheme-row"><span>Deadline</span><strong class="res-deadline">Dec 15, 2024</strong></div>
+                  </div>
+                  <button class="res-eligibility-btn">Check Eligibility</button>
+                </div>
+              </article>
+
+              <!-- Guide Card -->
+              <article class="res-card" data-type="guide">
+                <div class="res-card-img-wrap">
+                  <div class="res-card-img res-img-drone"></div>
+                  <span class="res-card-badge res-badge-guide">Guide</span>
+                  <button class="res-bookmark-btn"><span class="material-symbols-outlined">bookmark_border</span></button>
+                </div>
+                <div class="res-card-body">
+                  <div class="res-card-meta">
+                    <span>30 Min Read</span><span>•</span><span>Oct 18, 2023</span>
+                  </div>
+                  <h4 class="res-card-title">Precision Agriculture Mapping Techniques</h4>
+                  <p class="res-card-desc">Utilizing drone imagery and satellite data to create detailed prescription maps for variable rate application.</p>
+                  <div class="res-card-author">
+                    <div class="res-author-avatar">AA</div>
+                    <span>AgroFarm AI Team</span>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Article Card 2 -->
+              <article class="res-card" data-type="article">
+                <div class="res-card-img-wrap">
+                  <div class="res-card-img res-img-soil"></div>
+                  <span class="res-card-badge res-badge-article">Article</span>
+                  <button class="res-bookmark-btn"><span class="material-symbols-outlined">bookmark_border</span></button>
+                </div>
+                <div class="res-card-body">
+                  <div class="res-card-meta">
+                    <span>8 Min Read</span><span>•</span><span>Nov 2, 2023</span>
+                  </div>
+                  <h4 class="res-card-title">Understanding NPK Ratios for Different Crops</h4>
+                  <p class="res-card-desc">A practical breakdown of nitrogen, phosphorus, and potassium requirements across major Indian crops.</p>
+                  <div class="res-card-author">
+                    <div class="res-author-avatar">PD</div>
+                    <span>Prof. P. Desai</span>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Scheme Card 2 -->
+              <article class="res-card" data-type="scheme">
+                <div class="res-card-body" style="padding-top:1.5rem;">
+                  <div class="res-scheme-top">
+                    <span class="res-card-badge res-badge-scheme" style="position:static;">Scheme</span>
+                    <button class="res-bookmark-btn" style="position:static;background:none;color:var(--color-on-surface-variant);"><span class="material-symbols-outlined">bookmark_border</span></button>
+                  </div>
+                  <h4 class="res-card-title" style="margin-top:0.75rem;">PM-KISAN Direct Benefit Transfer</h4>
+                  <p class="res-card-desc">₹6,000 per year direct income support to all farmer families across India in three equal installments.</p>
+                  <div class="res-scheme-details">
+                    <div class="res-scheme-row"><span>Benefit</span><strong>₹6,000 / year</strong></div>
+                    <div class="res-scheme-row"><span>Status</span><strong style="color:#16a34a;">Open</strong></div>
+                  </div>
+                  <button class="res-eligibility-btn">Check Eligibility</button>
+                </div>
+              </article>
+
+            </div>
+          </div>
+
+          <!-- Right: Sidebar -->
+          <aside class="res-sidebar">
+
+            <!-- Quick Tools -->
+            <div class="res-tools-card">
+              <div class="res-tools-head">
+                <h3 class="res-section-title">Quick Tools</h3>
+                <a href="#" class="res-view-all">View All</a>
+              </div>
+              <div class="res-tools-grid">
+                <div class="res-tool-item res-tool-green">
+                  <div class="res-tool-icon res-ti-green"><span class="material-symbols-outlined">science</span></div>
+                  <span>Fertilizer<br/>Calculator</span>
+                </div>
+                <div class="res-tool-item res-tool-yellow">
+                  <div class="res-tool-icon res-ti-yellow"><span class="material-symbols-outlined">grass</span></div>
+                  <span>Crop Yield<br/>Estimator</span>
+                </div>
+                <div class="res-tool-item res-tool-blue">
+                  <div class="res-tool-icon res-ti-blue"><span class="material-symbols-outlined">account_balance_wallet</span></div>
+                  <span>Profit/Loss<br/>Calculator</span>
+                </div>
+                <div class="res-tool-item res-tool-sky">
+                  <div class="res-tool-icon res-ti-sky"><span class="material-symbols-outlined">water_drop</span></div>
+                  <span>Irrigation<br/>Planner</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Weather Alert -->
+            <div class="res-alert-card">
+              <div class="res-alert-bg-icon"><span class="material-symbols-outlined">warning</span></div>
+              <div class="res-alert-content">
+                <div class="res-alert-head">
+                  <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">storm</span>
+                  <span class="res-alert-label">High Alert</span>
+                </div>
+                <h4 class="res-alert-title">Frost Warning — Region B</h4>
+                <p class="res-alert-desc">Temperatures expected to drop below freezing tonight. Deploy protective measures for sensitive crops.</p>
+                <button class="res-alert-btn">Read Advisory</button>
+              </div>
+            </div>
+
+            <!-- Govt Schemes Quick Links -->
+            <div class="res-schemes-card">
+              <h3 class="res-section-title" style="margin-bottom:1rem;">Govt. Schemes</h3>
+              <div class="res-scheme-links">
+                <a href="#" class="res-scheme-link">
+                  <span class="material-symbols-outlined">account_balance</span>
+                  <span>PM-KISAN Portal</span>
+                  <span class="material-symbols-outlined res-link-arrow">chevron_right</span>
+                </a>
+                <a href="#" class="res-scheme-link">
+                  <span class="material-symbols-outlined">water</span>
+                  <span>Pradhan Mantri Krishi Sinchayee</span>
+                  <span class="material-symbols-outlined res-link-arrow">chevron_right</span>
+                </a>
+                <a href="#" class="res-scheme-link">
+                  <span class="material-symbols-outlined">shield</span>
+                  <span>Fasal Bima Yojana</span>
+                  <span class="material-symbols-outlined res-link-arrow">chevron_right</span>
+                </a>
+                <a href="#" class="res-scheme-link">
+                  <span class="material-symbols-outlined">eco</span>
+                  <span>Paramparagat Krishi Vikas</span>
+                  <span class="material-symbols-outlined res-link-arrow">chevron_right</span>
+                </a>
+              </div>
+            </div>
+
+          </aside>
+        </div>
+      </div>
+    `;
+  },
+  community: function() {
+    return `<div class="container spacer-y fade-in"><h2 class="display-font">Farmer Community</h2><div class="card" style="padding:4rem; text-align:center;"><p>${t('market_intel')}</p></div></div>`;
+  },
   'farmer-dashboard': function() {
     const name = appState.user?.name || 'Ramesh Kumar';
-    const initials = name.split(' ').map(n=>n[0]).join('').toUpperCase().slice(0,2);
     const now = new Date();
     const dateStr = now.toLocaleDateString('en-IN', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
     const hour = now.getHours();
@@ -549,8 +1946,8 @@ const screens = {
           <div>
             <h2 class="display-font" style="font-size:2.8rem; margin-bottom:0.4rem;">${t('db_farmer_title')}</h2>
             <div style="color:var(--color-primary); font-weight:600; display:flex; align-items:center; gap:0.5rem;">
-              <span id="db-weather-pill" style="background:rgba(46,125,50,0.1); padding:0.25rem 0.75rem; border-radius:99px; font-size:0.85rem;">${t('db_weather_fetching')}</span> 
-              <span style="color:#ccc;">|</span> 
+              <span id="db-weather-pill" style="background:rgba(46,125,50,0.1); padding:0.25rem 0.75rem; border-radius:99px; font-size:0.85rem;">${t('db_weather_fetching')}</span>
+              <span style="color:#ccc;">|</span>
               <span style="color:#888; font-size:0.85rem;">${dateStr}</span>
             </div>
           </div>
@@ -564,7 +1961,7 @@ const screens = {
             <h2 class="db-welcome-title">${greeting}, ${name.split(' ')[0]} 👋</h2>
             <p class="db-welcome-desc">${t('db_monitoring')} <strong>1 ${t('db_alerts_needed')}</strong></p>
             <div style="display:flex; gap:0.75rem; flex-wrap:wrap; margin-top:0.25rem;">
-              <button class="db-banner-btn" onclick="document.getElementById('db-alerts-panel').scrollIntoView({behavior:'smooth'})">${t('db_view_alerts')} →</button>
+              <button class="db-banner-btn" onclick="document.getElementById('db-alerts-panel')?.scrollIntoView({behavior:'smooth'})">${t('db_view_alerts')} →</button>
               <button class="db-banner-btn-ghost" onclick="window.navigate('diagnosis')">${t('feat_diag_title')}</button>
             </div>
           </div>
@@ -683,273 +2080,589 @@ const screens = {
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- AI Chat Floating Button + Panel -->
-      <button class="db-ai-fab" id="db-ai-fab" onclick="window.dbToggleAiChat()" title="${t('db_ask_ai')}">
-        <span class="db-ai-fab-icon">🤖</span>
-        <span class="db-ai-fab-label">${t('db_ask_ai')}</span>
-        <div class="db-ai-pulse"></div>
-      </button>
-
-      <div class="db-ai-chat-panel" id="db-ai-chat-panel">
-        <div class="db-ai-chat-header">
-          <div style="display:flex;align-items:center;gap:0.75rem;"><span style="font-size:1.5rem;">🤖</span><div><div style="font-weight:800;font-size:0.95rem;">Kisan AI Assistant</div><div style="font-size:0.72rem;opacity:0.8;">Online · Farming Expert</div></div></div>
-          <button onclick="window.dbToggleAiChat()" style="background:rgba(255,255,255,0.15);border:none;color:white;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:0.9rem;">✕</button>
-        </div>
-        <div class="db-ai-chat-body" id="db-ai-chat-body">
-          <div class="db-ai-msg bot">${t('db_welcome_farmer')}</div>
-        </div>
-        <div class="db-ai-chat-footer">
-          <input type="text" id="db-ai-input" class="db-ai-input" placeholder="${t('db_ai_placeholder_farmer')}" onkeypress="if(event.key==='Enter') window.dbAiSend()">
-          <button onclick="window.dbAiSend()" class="db-ai-send">➔</button>
+        <!-- AI Chat -->
+        <button class="db-ai-fab" id="db-ai-fab" onclick="window.dbToggleAiChat()" title="${t('db_ask_ai')}">
+          <span class="db-ai-fab-icon">🤖</span>
+          <span class="db-ai-fab-label">${t('db_ask_ai')}</span>
+          <div class="db-ai-pulse"></div>
+        </button>
+        <div class="db-ai-chat-panel" id="db-ai-chat-panel">
+          <div class="db-ai-chat-header">
+            <div style="display:flex;align-items:center;gap:0.75rem;"><span style="font-size:1.5rem;">🤖</span><div><div style="font-weight:800;font-size:0.95rem;">Kisan AI Assistant</div><div style="font-size:0.72rem;opacity:0.8;">Online · Farming Expert</div></div></div>
+            <button onclick="window.dbToggleAiChat()" style="background:rgba(255,255,255,0.15);border:none;color:white;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:0.9rem;">✕</button>
+          </div>
+          <div class="db-ai-chat-body" id="db-ai-chat-body">
+            <div class="db-ai-msg bot">${t('db_welcome_farmer')}</div>
+          </div>
+          <div class="db-ai-chat-footer">
+            <input type="text" id="db-ai-input" class="db-ai-input" placeholder="${t('db_ai_placeholder_farmer')}" onkeypress="if(event.key==='Enter') window.dbAiSend()">
+            <button onclick="window.dbAiSend()" class="db-ai-send">➔</button>
+          </div>
         </div>
       </div>
     `;
   },
-  'buyer-dashboard': function() {
-    const name = appState.user?.name || 'Meera Gupta';
+  profile: function() {
+    const name = appState.user?.name || 'Ramesh Kumar';
+    const email = appState.user?.email || 'ramesh@example.com';
+    const role = appState.role === 'buyer' ? 'Buyer / Business' : 'Farmer';
     const initials = name.split(' ').map(n=>n[0]).join('').toUpperCase().slice(0,2);
-    const now = new Date();
-    const dateStr = now.toLocaleDateString('en-IN', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
-    const hour = now.getHours();
-    const greeting = hour < 12 ? 'Good Morning' : hour < 17 ? 'Good Afternoon' : 'Good Evening';
+    const joinDate = 'January 2024';
+    
     return `
-      <div class="db-wrapper spacer-y fade-in" id="db-content">
-        <!-- Top Title Area -->
-        <div class="spacer-bottom" style="display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap;">
-          <div>
-            <h2 class="display-font" style="font-size:2.8rem; margin-bottom:0.4rem;">${t('db_proc_title')}</h2>
-            <div style="color:var(--color-primary); font-weight:600; display:flex; align-items:center; gap:0.5rem;">
-              <span style="background:rgba(21,101,192,0.1); color:#1565C0; padding:0.25rem 0.75rem; border-radius:99px; font-size:0.85rem;">${t('db_biz_hub')}</span> 
-              <span style="color:#ccc;">|</span> 
-              <span style="color:#888; font-size:0.85rem;">${dateStr}</span>
-            </div>
+      <div class="profile-wrapper">
+        
+        <!-- Profile Header -->
+        <div class="profile-header">
+          <div class="profile-avatar-large">${initials}</div>
+          <div class="profile-header-info">
+            <h1 class="profile-name">${name}</h1>
+            <p class="profile-role">${role}</p>
+            <p class="profile-email">${email}</p>
+            <p class="profile-joined">Member since ${joinDate}</p>
           </div>
-          <button class="btn-primary" style="padding:0.8rem 1.8rem; font-size:0.95rem; background:#1565C0;" onclick="window.navigate('market')">${t('db_explore_market')}</button>
+          <button class="profile-edit-btn" onclick="alert('Edit profile coming soon!')">
+            <span class="material-symbols-outlined">edit</span> Edit Profile
+          </button>
         </div>
 
-        <!-- Welcome Banner (blue theme for buyer) -->
-        <div class="db-welcome-banner" style="margin-top:0; background:linear-gradient(135deg,#1565C0,#1976D2,#42A5F5);">
-          <div class="db-welcome-left">
-            <div class="db-welcome-subtitle">${t('db_proc_intel')}</div>
-            <h2 class="db-welcome-title">${greeting}, ${name.split(' ')[0]} 👋</h2>
-            <p class="db-welcome-desc">5 ${t('db_orders_desc')} <strong>2 bids</strong> awaiting your response.</p>
-            <div style="display:flex; gap:0.75rem; flex-wrap:wrap; margin-top:0.25rem;">
-              <button class="db-banner-btn" onclick="window.navigate('b2f')">${t('db_view_orders')} →</button>
-              <button class="db-banner-btn-ghost" onclick="window.navigate('market')">${t('nav_market')}</button>
-            </div>
-          </div>
-          <div class="db-welcome-illustration">🏭</div>
-        </div>
+        <!-- Profile Content Grid -->
+        <div class="profile-grid">
 
-        <!-- KPI Cards -->
-        <div class="db-kpi-row">
-          <div class="db-kpi-card" style="--kpi-color:#1565C0;">
-            <div class="db-kpi-icon">📦</div>
-            <div class="db-kpi-label">${t('db_kpi_orders')}</div>
-            <div class="db-kpi-value">5</div>
-            <div class="db-kpi-trend up">↑ +2 this month</div>
-            <div class="db-kpi-sparkline"><canvas id="spark-0" width="80" height="28"></canvas></div>
-          </div>
-          <div class="db-kpi-card" style="--kpi-color:#2E7D32;">
-            <div class="db-kpi-icon">🌾</div>
-            <div class="db-kpi-label">${t('db_kpi_farms')}</div>
-            <div class="db-kpi-value">120</div>
-            <div class="db-kpi-trend up">↑ +14 farms added</div>
-            <div class="db-kpi-sparkline"><canvas id="spark-1" width="80" height="28"></canvas></div>
-          </div>
-          <div class="db-kpi-card" style="--kpi-color:#F57F17;">
-            <div class="db-kpi-icon">🤝</div>
-            <div class="db-kpi-label">${t('db_kpi_bids')}</div>
-            <div class="db-kpi-value">2 <span class="db-kpi-badge">!</span></div>
-            <div class="db-kpi-trend neutral">→ Awaiting response</div>
-            <div class="db-kpi-sparkline"><canvas id="spark-2" width="80" height="28"></canvas></div>
-          </div>
-          <div class="db-kpi-card" style="--kpi-color:#6A1B9A;">
-            <div class="db-kpi-icon">💰</div>
-            <div class="db-kpi-label">${t('db_kpi_spend')}</div>
-            <div class="db-kpi-value">₹8.4L</div>
-            <div class="db-kpi-trend down">↓ -3% vs last month</div>
-            <div class="db-kpi-sparkline"><canvas id="spark-3" width="80" height="28"></canvas></div>
-          </div>
-        </div>
-      </div>
+          <!-- Left Column -->
+          <div class="profile-left">
 
-      <!-- AI Chat Floating Button + Panel -->
-      <button class="db-ai-fab" id="db-ai-fab" onclick="window.dbToggleAiChat()" title="${t('db_ask_ai')}">
-        <span class="db-ai-fab-icon">🤖</span>
-        <span class="db-ai-fab-label">${t('db_ask_ai')}</span>
-        <div class="db-ai-pulse"></div>
-      </button>
-
-      <div class="db-ai-chat-panel" id="db-ai-chat-panel">
-        <div class="db-ai-chat-header" style="background: linear-gradient(135deg, #1565C0, #1976D2);">
-          <div style="display:flex;align-items:center;gap:0.75rem;"><span style="font-size:1.5rem;">🤖</span><div><div style="font-weight:800;font-size:0.95rem;">${t('chat_biz_name')}</div><div style="font-size:0.72rem;opacity:0.8;">${t('chat_biz_sub')}</div></div></div>
-          <button onclick="window.dbToggleAiChat()" style="background:rgba(255,255,255,0.15);border:none;color:white;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:0.9rem;">✕</button>
-        </div>
-        <div class="db-ai-chat-body" id="db-ai-chat-body">
-          <div class="db-ai-msg bot">${t('db_welcome_buyer')}</div>
-        </div>
-        <div class="db-ai-chat-footer">
-          <input type="text" id="db-ai-input" class="db-ai-input" placeholder="${t('db_ai_placeholder_buyer')}" onkeypress="if(event.key==='Enter') window.dbAiSend()">
-          <button onclick="window.dbAiSend()" class="db-ai-send" style="background:#1565C0;">➔</button>
-        </div>
-      </div>
-    `;
-  },
-  diagnosis: function() {
-    return `<div class="db-wrapper spacer-y fade-in"><h2 class="display-font">${t('feat_diag_title')}</h2><div id="diagnosis-dropzone" class="card" style="padding:4rem; text-align:center; border: 2px dashed #ccc; cursor:pointer;" onclick="document.getElementById('file-upload').click()"><input type="file" id="file-upload" style="display:none;" onchange="window.handleImageUpload(this)">📸 ${t('feat_diag_desc')}</div><div id="diagnosis-scanning" class="card" style="display:none; text-align:center; padding:4rem;">🧬 ${t('soil_analyzing')}</div><div id="diagnosis-results" class="card" style="display:none; padding:2rem;"><h3>${t('diag_wheat_rust')}</h3><p>${t('diag_treatment')}</p></div></div>`;
-  },
-  login: function() {
-    return `<div class="container spacer-y" style="display:flex; justify-content:center;"><div class="card" style="width:400px; padding:3rem;"><h2 class="display-font" style="text-align:center;">${t('sign_in')}</h2><div class="input-group"><label>${t('email')}</label><input type="email" id="login-email" class="input-field"></div><div class="input-group"><label>${t('password')}</label><input type="password" id="login-pass" class="input-field"></div><button class="btn btn-primary" style="width:100%; margin-top:2rem;" onclick="window.loginUser()">${t('login')}</button></div></div>`;
-  },
-  signup: function() {
-    return `
-      <div class="container spacer-y" style="display:flex; justify-content:center;">
-        <div class="card" style="width:450px; padding:3rem;">
-          <h2 class="display-font" style="text-align:center; margin-bottom:2rem;">${t('auth_join')}</h2>
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
-            <div class="input-group"><label>${t('auth_fname')}</label><input type="text" id="signup-fname" class="input-field" placeholder="Ramesh"></div>
-            <div class="input-group"><label>${t('auth_lname')}</label><input type="text" id="signup-lname" class="input-field" placeholder="Kumar"></div>
-          </div>
-          <div class="input-group"><label>${t('email')}</label><input type="email" id="signup-email" class="input-field" placeholder="ramesh@example.com"></div>
-          <div class="input-group"><label>${t('password')}</label><input type="password" id="signup-pass" class="input-field" placeholder="••••••••"></div>
-          <div class="input-group">
-            <label style="margin-bottom:0.75rem; display:block;">${t('auth_role_select')}</label>
-            <div style="display:flex; gap:1.5rem; align-items:center;">
-              <label style="cursor:pointer; display:flex; align-items:center; gap:0.5rem;"><input type="radio" name="signup-role" value="farmer" checked> ${t('auth_role_farmer_opt')}</label>
-              <label style="cursor:pointer; display:flex; align-items:center; gap:0.5rem;"><input type="radio" name="signup-role" value="buyer"> ${t('auth_role_buyer_opt')}</label>
-            </div>
-          </div>
-          <button class="btn btn-primary" style="width:100%; margin-top:1.5rem;" onclick="window.registerUser()">${t('auth_create')}</button>
-          <div style="text-align:center; margin-top:1.5rem; font-size:0.9rem; color:#666;">
-            ${t('auth_have_acc')} <a href="#" onclick="window.navigate('login')" style="color:var(--color-primary); font-weight:700;">${t('nav_login')}</a>
-          </div>
-        </div>
-      </div>`;
-  },
-
-  f2b: function() {
-    return `<div class="db-wrapper spacer-y fade-in"><h2 class="display-font" style="font-size:2.5rem;">${t('feat_f2b_title')}</h2><p style="color:#666; margin-bottom:2rem;">${t('feat_f2b_desc')}</p><div class="grid-3"><div class="card"><h3>Active Contracts</h3><div class="stat-number">03</div></div><div class="card"><h3>Bids Received</h3><div class="stat-number">08</div></div><div class="card"><h3>Logistics</h3><div class="stat-number">Ready</div></div></div></div>`;
-  },
-  b2f: function() {
-    return `<div class="db-wrapper spacer-y fade-in"><h2 class="display-font" style="font-size:2.5rem;">Business-to-Farm Portal</h2><p style="color:#666; margin-bottom:2rem;">Source raw materials and produce directly from verified growers.</p><div class="grid-3"><div class="card"><h3>Active Requests</h3><div class="stat-number">04</div></div><div class="card"><h3>Verified Farms</h3><div class="stat-number">120</div></div><div class="card"><h3>Processing</h3><div class="stat-number">Active</div></div></div></div>`;
-  },
-  knowledge: function() {
-    return `<div class="container spacer-y fade-in"><h2 class="display-font" style="font-size:2.5rem;">${t('nav_resources')}</h2><p>Agri-Intelligence and latest government schemes.</p><div class="grid-3"><div class="card"><h3>Schemes</h3><p>PM-KISAN dashboard links.</p></div><div class="card"><h3>Techniques</h3><p>Hydroponics and drip irrigation guides.</p></div><div class="card"><h3>Pests</h3><p>Comprehensive identification guide.</p></div></div></div>`;
-  },
-  community: function() {
-    return `<div class="container spacer-y fade-in"><h2 class="display-font">Farmer Community</h2><div class="card" style="padding:4rem; text-align:center;"><p>${t('market_intel')}</p></div></div>`;
-  },
-  'soil-analysis': function() {
-    return `
-      <div class="db-wrapper spacer-y fade-in">
-        <div class="soil-header">
-          <div>
-            <div class="soil-breadcrumb">${t('soil_analytics')}</div>
-            <h1 class="display-font" style="margin:0; font-size:2.5rem; letter-spacing:-1px;">${t('soil_intel_hub')}</h1>
-          </div>
-          <div style="display:flex; gap:1rem;">
-             <button class="premium-btn-ai" onclick="document.getElementById('soil-form-card').scrollIntoView({behavior:'smooth'})">
-                <span style="font-size:1.2rem;">✨</span> ${t('soil_new_scan')}
-             </button>
-          </div>
-        </div>
-
-        <div class="grid-3" style="grid-template-columns: 320px 1fr 380px; gap: 2rem; align-items: start;">
-          
-          <!-- Column 1: Configurator -->
-          <div class="glass-card-premium" id="soil-form-card" style="padding:2rem;">
-            <h3 class="display-font" style="margin-top:0; font-size:1.1rem; color:var(--color-primary);">${t('soil_field_config')}</h3>
-            <div class="input-group"><label>${t('soil_field_id')}</label><input type="text" id="soil-field" class="input-field" placeholder="North Wheat Plot"></div>
-            <div class="input-group">
-              <label>${t('soil_geo')}</label>
-              <select id="soil-location" class="input-field">
-                <option value="Kolhapur">Kolhapur Central</option>
-                <option value="Sangli">Sangli East</option>
-                <option value="Satara">Satara North</option>
-              </select>
-            </div>
-            <div class="input-group"><label>${t('soil_date')}</label><input type="date" id="soil-date" class="input-field"></div>
-            
-            <div class="soil-scan-container" onclick="document.getElementById('soil-file').click()">
-              <div class="soil-scanner-line" id="scanner-line"></div>
-              <div class="soil-dropzone" id="soil-upload" style="margin-bottom:0; border-style:dotted;">
-                <input type="file" id="soil-file" style="display:none;" onchange="window.handleSoilUpload(this)">
-                <div id="upload-placeholder">
-                  <div style="font-size:2rem; margin-bottom:0.5rem;">📷</div>
-                  <strong style="font-size:0.85rem;">${t('soil_sample_scan')}</strong>
+            <!-- Personal Information -->
+            <div class="profile-card">
+              <h3 class="profile-card-title">Personal Information</h3>
+              <div class="profile-info-grid">
+                <div class="profile-info-item">
+                  <span class="profile-info-label">Full Name</span>
+                  <span class="profile-info-value">${name}</span>
                 </div>
-                <img id="soil-preview" style="display:none; width:100%; border-radius:12px;">
+                <div class="profile-info-item">
+                  <span class="profile-info-label">Email Address</span>
+                  <span class="profile-info-value">${email}</span>
+                </div>
+                <div class="profile-info-item">
+                  <span class="profile-info-label">Phone Number</span>
+                  <span class="profile-info-value">+91 98765 43210</span>
+                </div>
+                <div class="profile-info-item">
+                  <span class="profile-info-label">Location</span>
+                  <span class="profile-info-value">${role === 'Farmer' ? 'Nashik, Maharashtra' : 'Mumbai, Maharashtra'}</span>
+                </div>
+                <div class="profile-info-item">
+                  <span class="profile-info-label">Account Type</span>
+                  <span class="profile-info-value">${role}</span>
+                </div>
+                <div class="profile-info-item">
+                  <span class="profile-info-label">Language</span>
+                  <span class="profile-info-value">English</span>
+                </div>
               </div>
             </div>
 
-            <h4 style="margin: 1.5rem 0 1rem; font-size:0.8rem; color:#888; letter-spacing:1px;">${t('soil_nutrient_prof')}</h4>
-            <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
-              <div class="input-group" style="margin:0;"><label>${t('ph')}</label><input type="number" step="0.1" id="soil-ph" class="input-field" value="6.5"></div>
-              <div class="input-group" style="margin:0;"><label>${t('nitrogen')}</label><input type="number" id="soil-n" class="input-field" value="40"></div>
-              <div class="input-group" style="margin:0;"><label>${t('phosphorus')}</label><input type="number" id="soil-p" class="input-field" value="25"></div>
-              <div class="input-group" style="margin:0;"><label>${t('potassium')}</label><input type="number" id="soil-k" class="input-field" value="30"></div>
-              <div class="input-group" style="margin:0;"><label>${t('humidity')}</label><input type="number" id="soil-moisture" class="input-field" value="15"></div>
-              <div class="input-group" style="margin:0;"><label>O.M %</label><input type="number" id="soil-om" class="input-field" value="2.5"></div>
+            ${role === 'Farmer' ? `
+            <!-- Farm Details (Farmer only) -->
+            <div class="profile-card">
+              <h3 class="profile-card-title">Farm Details</h3>
+              <div class="profile-info-grid">
+                <div class="profile-info-item">
+                  <span class="profile-info-label">Farm Name</span>
+                  <span class="profile-info-value">Green Valley Farms</span>
+                </div>
+                <div class="profile-info-item">
+                  <span class="profile-info-label">Total Area</span>
+                  <span class="profile-info-value">12.5 Acres</span>
+                </div>
+                <div class="profile-info-item">
+                  <span class="profile-info-label">Primary Crops</span>
+                  <span class="profile-info-value">Wheat, Onion, Tomato</span>
+                </div>
+                <div class="profile-info-item">
+                  <span class="profile-info-label">Farming Type</span>
+                  <span class="profile-info-value">Organic</span>
+                </div>
+              </div>
             </div>
+            ` : `
+            <!-- Business Details (Buyer only) -->
+            <div class="profile-card">
+              <h3 class="profile-card-title">Business Details</h3>
+              <div class="profile-info-grid">
+                <div class="profile-info-item">
+                  <span class="profile-info-label">Company Name</span>
+                  <span class="profile-info-value">Gupta Agri Enterprises</span>
+                </div>
+                <div class="profile-info-item">
+                  <span class="profile-info-label">Business Type</span>
+                  <span class="profile-info-value">Wholesale Procurement</span>
+                </div>
+                <div class="profile-info-item">
+                  <span class="profile-info-label">GST Number</span>
+                  <span class="profile-info-value">27XXXXX1234X1ZX</span>
+                </div>
+                <div class="profile-info-item">
+                  <span class="profile-info-label">Annual Volume</span>
+                  <span class="profile-info-value">5,000+ MT</span>
+                </div>
+              </div>
+            </div>
+            `}
 
-            <button class="premium-btn-ai" style="width:100%; margin-top:2rem;" onclick="window.runSoilAnalysis()">${t('feat_diag_title')}</button>
           </div>
 
-          <!-- Column 2: The Heart (Visualizer) -->
-          <div style="display:flex; flex-direction:column; gap:2rem;">
-            <div class="glass-card-premium" id="soil-results-panel" style="display:none; padding:2.5rem; text-align:center;">
-                <div class="soil-gauge-container" style="width:400px; height:220px; margin: 0 auto; position: relative;">
-                  <canvas id="soilGaugeChart"></canvas>
-                  <div class="soil-gauge-score" style="bottom:10px;">
-                    <div class="soil-gauge-value" id="res-score" style="font-size:4rem;">--</div>
-                    <div class="soil-gauge-label">${t('soil_health_index')}</div>
-                  </div>
+          <!-- Right Column -->
+          <div class="profile-right">
+
+            <!-- Account Settings -->
+            <div class="profile-card">
+              <h3 class="profile-card-title">Account Settings</h3>
+              <div class="profile-settings-list">
+                <button class="profile-setting-item">
+                  <span class="material-symbols-outlined">lock</span>
+                  <span>Change Password</span>
+                  <span class="material-symbols-outlined profile-chevron">chevron_right</span>
+                </button>
+                <button class="profile-setting-item">
+                  <span class="material-symbols-outlined">notifications</span>
+                  <span>Notification Preferences</span>
+                  <span class="material-symbols-outlined profile-chevron">chevron_right</span>
+                </button>
+                <button class="profile-setting-item">
+                  <span class="material-symbols-outlined">language</span>
+                  <span>Language & Region</span>
+                  <span class="material-symbols-outlined profile-chevron">chevron_right</span>
+                </button>
+                <button class="profile-setting-item">
+                  <span class="material-symbols-outlined">security</span>
+                  <span>Privacy & Security</span>
+                  <span class="material-symbols-outlined profile-chevron">chevron_right</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Activity Stats -->
+            <div class="profile-card">
+              <h3 class="profile-card-title">Activity Overview</h3>
+              <div class="profile-stats-grid">
+                <div class="profile-stat">
+                  <div class="profile-stat-value">${role === 'Farmer' ? '24' : '18'}</div>
+                  <div class="profile-stat-label">${role === 'Farmer' ? 'Reports Generated' : 'Orders Placed'}</div>
                 </div>
-                
-                <div class="stat-chip-grid">
-                    <div class="stat-chip"><div class="stat-chip-val" id="chip-ph">--</div><div class="stat-chip-label">${t('ph')}</div></div>
-                    <div class="stat-chip"><div class="stat-chip-val" id="chip-n">--</div><div class="stat-chip-label">${t('nitrogen')}</div></div>
-                    <div class="stat-chip"><div class="stat-chip-val" id="chip-p">--</div><div class="stat-chip-label">${t('phosphorus')}</div></div>
-                    <div class="stat-chip"><div class="stat-chip-val" id="chip-k">--</div><div class="stat-chip-label">${t('potassium')}</div></div>
-                    <div class="stat-chip"><div class="stat-chip-val" id="chip-moist">--</div><div class="stat-chip-label">${t('humidity')}</div></div>
-                    <div class="stat-chip"><div class="stat-chip-val" id="chip-om">--</div><div class="stat-chip-label">Org. Matt</div></div>
+                <div class="profile-stat">
+                  <div class="profile-stat-value">${role === 'Farmer' ? '8' : '42'}</div>
+                  <div class="profile-stat-label">${role === 'Farmer' ? 'Active Listings' : 'Connections'}</div>
                 </div>
-                
-                <div style="margin-top:2.5rem; height:180px;">
-                  <canvas id="soilNutrientChart"></canvas>
+                <div class="profile-stat">
+                  <div class="profile-stat-value">156</div>
+                  <div class="profile-stat-label">Days Active</div>
                 </div>
+              </div>
+            </div>
+
+            <!-- Danger Zone -->
+            <div class="profile-card profile-danger">
+              <h3 class="profile-card-title">Danger Zone</h3>
+              <button class="profile-danger-btn" onclick="if(confirm('Are you sure you want to delete your account? This cannot be undone.')) alert('Account deletion requested')">
+                <span class="material-symbols-outlined">delete_forever</span>
+                Delete Account
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    `;
+  },
+    'soil-analysis': function() {
+    return `
+      <div class="soil-page-wrapper">
+        <!-- Hero Header -->
+        <div class="soil-hero-header">
+          <div class="soil-hero-content">
+            <div class="soil-breadcrumb">
+              <span>Analytics</span>
+              <span class="breadcrumb-sep">/</span>
+              <span>Intelligence</span>
+            </div>
+            <h1 class="soil-hero-title">Soil Intelligence Hub</h1>
+            <p class="soil-hero-subtitle">AI-powered soil monitoring and nutrient analysis for smarter farming</p>
+          </div>
+          <button class="soil-new-scan-btn" onclick="document.getElementById('soil-config-panel').scrollIntoView({behavior:'smooth'})">
+            <span class="btn-icon">✦</span>
+            <span>NEW SCAN</span>
+          </button>
+        </div>
+
+        <!-- Main 3-Column Grid -->
+        <div class="soil-main-grid">
+          
+          <!-- LEFT: Field Configuration -->
+          <div class="soil-panel soil-config-panel" id="soil-config-panel">
+            <div class="panel-header">
+              <span class="panel-icon">⚙️</span>
+              <h3 class="panel-title">FIELD CONFIG</h3>
             </div>
             
-            <div id="soil-placeholder-card" class="glass-card-premium" style="padding:5rem; text-align:center; color:#ccc; border:2px dashed #eee;">
-               <div style="font-size:4rem; margin-bottom:1.5rem; opacity:0.3;">📡</div>
-               <h2 style="margin:0; opacity:0.5;">${t('soil_awaiting')}</h2>
-               <p style="opacity:0.4;">${t('soil_awaiting_sub')}</p>
+            <div class="form-group">
+              <label class="form-label">Field Identifier</label>
+              <input type="text" id="soil-field" class="form-input" placeholder="North Wheat Plot" value="North Wheat Plot">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Geo-Location</label>
+              <div class="custom-select-wrapper">
+                <span class="select-icon">📍</span>
+                <select id="soil-location" class="form-select">
+                  <option value="Kolhapur">Kolhapur Central</option>
+                  <option value="Sangli">Sangli East</option>
+                  <option value="Satara">Satara North</option>
+                  <option value="Pune">Pune West</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Sampling Date</label>
+              <input type="date" id="soil-date" class="form-input">
+            </div>
+
+            <div class="upload-section">
+              <label class="form-label">Sample Scan</label>
+              <div class="upload-zone" onclick="document.getElementById('soil-file').click()">
+                <input type="file" id="soil-file" style="display:none;" accept="image/*" onchange="window.handleSoilUpload(this)">
+                <div id="upload-placeholder" class="upload-placeholder">
+                  <div class="upload-icon">📷</div>
+                  <div class="upload-text">Drop soil image or click to upload</div>
+                  <div class="upload-subtext">JPG, PNG up to 10MB</div>
+                </div>
+                <img id="soil-preview" class="upload-preview" style="display:none;">
+              </div>
+            </div>
+
+            <div class="nutrient-section">
+              <h4 class="section-label">NUTRIENT PROFILE</h4>
+              <div class="nutrient-grid">
+                <div class="form-group-mini">
+                  <label class="form-label-mini">pH Level</label>
+                  <input type="number" step="0.1" id="soil-ph" class="form-input-mini" value="6.8">
+                </div>
+                <div class="form-group-mini">
+                  <label class="form-label-mini">Nitrogen (N)</label>
+                  <input type="number" id="soil-n" class="form-input-mini" value="42">
+                </div>
+                <div class="form-group-mini">
+                  <label class="form-label-mini">Phosphorus (P)</label>
+                  <input type="number" id="soil-p" class="form-input-mini" value="28">
+                </div>
+                <div class="form-group-mini">
+                  <label class="form-label-mini">Potassium (K)</label>
+                  <input type="number" id="soil-k" class="form-input-mini" value="195">
+                </div>
+                <div class="form-group-mini">
+                  <label class="form-label-mini">Moisture %</label>
+                  <input type="number" id="soil-moisture" class="form-input-mini" value="34">
+                </div>
+              </div>
+            </div>
+
+            <button class="soil-analyze-btn" onclick="window.runSoilAnalysis()">
+              <span>Run AI Analysis</span>
+              <span class="btn-arrow">→</span>
+            </button>
+          </div>
+
+          <!-- CENTER: AI Perception / Results -->
+          <div class="soil-panel soil-results-panel">
+            <div class="panel-header">
+              <span class="panel-icon">🧠</span>
+              <h3 class="panel-title">AI PERCEPTION</h3>
+            </div>
+
+            <!-- Show Results by Default with Mock Data -->
+            <div id="soil-results-content" class="results-content">
+              <!-- Gauge Chart -->
+              <div class="gauge-section">
+                <div class="gauge-container">
+                  <canvas id="soilGaugeChart"></canvas>
+                </div>
+                <div class="gauge-score">
+                  <div class="score-value" id="res-score">74</div>
+                  <div class="score-label">GOOD</div>
+                </div>
+              </div>
+
+              <!-- Metric Pills -->
+              <div class="metric-pills">
+                <div class="metric-pill pill-green">
+                  <div class="pill-value" id="chip-ph">6.8</div>
+                  <div class="pill-label">pH</div>
+                </div>
+                <div class="metric-pill pill-amber">
+                  <div class="pill-value" id="chip-n">42</div>
+                  <div class="pill-label">N kg/ha</div>
+                </div>
+                <div class="metric-pill pill-green">
+                  <div class="pill-value" id="chip-p">28</div>
+                  <div class="pill-label">P kg/ha</div>
+                </div>
+                <div class="metric-pill pill-blue">
+                  <div class="pill-value" id="chip-k">195</div>
+                  <div class="pill-label">K kg/ha</div>
+                </div>
+              </div>
+
+              <!-- Nutrient Bars -->
+              <div class="nutrient-bars">
+                <h4 class="bars-title">Nutrient Levels vs Optimal Range</h4>
+                <div class="bar-item">
+                  <div class="bar-label">Nitrogen</div>
+                  <div class="bar-track">
+                    <div class="bar-fill bar-amber" style="width: 65%;" id="bar-n"></div>
+                  </div>
+                  <div class="bar-value" id="val-n">42</div>
+                </div>
+                <div class="bar-item">
+                  <div class="bar-label">Phosphorus</div>
+                  <div class="bar-track">
+                    <div class="bar-fill bar-green" style="width: 80%;" id="bar-p"></div>
+                  </div>
+                  <div class="bar-value" id="val-p">28</div>
+                </div>
+                <div class="bar-item">
+                  <div class="bar-label">Potassium</div>
+                  <div class="bar-track">
+                    <div class="bar-fill bar-blue" style="width: 95%;" id="bar-k"></div>
+                  </div>
+                  <div class="bar-value" id="val-k">195</div>
+                </div>
+                <div class="bar-item">
+                  <div class="bar-label">pH Level</div>
+                  <div class="bar-track">
+                    <div class="bar-fill bar-green" style="width: 85%;" id="bar-ph"></div>
+                  </div>
+                  <div class="bar-value" id="val-ph">6.8</div>
+                </div>
+                <div class="bar-item">
+                  <div class="bar-label">Moisture</div>
+                  <div class="bar-track">
+                    <div class="bar-fill bar-amber" style="width: 68%;" id="bar-moist"></div>
+                  </div>
+                  <div class="bar-value" id="val-moist">34%</div>
+                </div>
+              </div>
+
+              <!-- AI Recommendation -->
+              <div class="ai-recommendation" id="ai-rec-card">
+                <div class="rec-icon">💡</div>
+                <div class="rec-content">
+                  <div class="rec-title">AI Recommendation</div>
+                  <div class="rec-text" id="res-recommendation">
+                    <strong>Apply 25kg/ha of Urea</strong> — Nitrogen levels below optimal for wheat cultivation.
+                    <br><br>
+                    <strong>Irrigate within 48 hours</strong> — Moisture at 34%, increase to 40-45% for optimal growth.
+                  </div>
+                </div>
+              </div>
+
+              <button class="download-report-btn">
+                <span>📄</span>
+                <span>Download Report</span>
+              </button>
             </div>
           </div>
 
-          <!-- Column 3: Intelligence & History -->
-          <div style="display:flex; flex-direction:column; gap:2rem;">
-             <div class="ai-recommendation-panel" id="ai-rec-card" style="display:none;">
-                <h3 style="margin-top:0; font-size:1.2rem; display:flex; align-items:center; gap:0.5rem;">
-                   <span style="font-size:1.5rem;">💡</span> AI INSIGHTS
-                </h3>
-                <p id="res-recommendation" style="line-height:1.7; font-size:1rem; opacity:0.95;">Analyzing your soil data to generate customized agronomic advice...</p>
-                <div style="margin-top:1.5rem; display:flex; gap:0.5rem;">
-                   <button class="nav-link" style="background:rgba(255,255,255,0.1); border:none; color:white; padding:0.5rem 1rem; border-radius:8px; font-size:0.8rem;" onclick="window.print()">EXPORT PDF</button>
-                </div>
-             </div>
+          <!-- RIGHT: Chronology / History -->
+          <div class="soil-panel soil-history-panel">
+            <div class="panel-header">
+              <span class="panel-icon">🕐</span>
+              <h3 class="panel-title">CHRONOLOGY</h3>
+            </div>
 
-             <div class="glass-card-premium" style="padding:1.5rem;">
-                <h3 class="display-font" style="margin-top:0; font-size:1rem; color:#333;">CHRONOLOGY</h3>
-                <div id="soil-history-tbody" style="display:flex; flex-direction:column; gap:0.75rem; margin-top:1rem;">
-                   <div style="text-align:center; padding:2rem; color:#999;">Syncing history...</div>
+            <!-- Device Status -->
+            <div class="device-status">
+              <div class="device-info">
+                <span class="device-icon">📡</span>
+                <div>
+                  <div class="device-name">e-Agribot V2</div>
+                  <div class="device-model">Field Sensor</div>
                 </div>
-             </div>
+              </div>
+              <div class="status-badge status-connected">
+                <span class="status-dot"></span>
+                <span>Connected</span>
+              </div>
+            </div>
+
+            <!-- Timeline with Mock Data -->
+            <div class="timeline" id="soil-history-tbody">
+              <div class="timeline-item">
+                <span class="timeline-dot dot-green"></span>
+                <div class="timeline-content">
+                  <div class="timeline-date">10 Apr 2026</div>
+                  <div class="timeline-field">North Wheat Plot</div>
+                </div>
+                <span class="timeline-score score-green">74</span>
+                <a href="#" class="timeline-view">View</a>
+              </div>
+              <div class="timeline-item">
+                <span class="timeline-dot dot-amber"></span>
+                <div class="timeline-content">
+                  <div class="timeline-date">05 Apr 2026</div>
+                  <div class="timeline-field">South Rice Field</div>
+                </div>
+                <span class="timeline-score score-amber">62</span>
+                <a href="#" class="timeline-view">View</a>
+              </div>
+              <div class="timeline-item">
+                <span class="timeline-dot dot-green"></span>
+                <div class="timeline-content">
+                  <div class="timeline-date">28 Mar 2026</div>
+                  <div class="timeline-field">North Wheat Plot</div>
+                </div>
+                <span class="timeline-score score-green">78</span>
+                <a href="#" class="timeline-view">View</a>
+              </div>
+              <div class="timeline-item">
+                <span class="timeline-dot dot-amber"></span>
+                <div class="timeline-content">
+                  <div class="timeline-date">20 Mar 2026</div>
+                  <div class="timeline-field">East Corn Field</div>
+                </div>
+                <span class="timeline-score score-amber">58</span>
+                <a href="#" class="timeline-view">View</a>
+              </div>
+              <div class="timeline-item">
+                <span class="timeline-dot dot-green"></span>
+                <div class="timeline-content">
+                  <div class="timeline-date">12 Mar 2026</div>
+                  <div class="timeline-field">South Rice Field</div>
+                </div>
+                <span class="timeline-score score-green">81</span>
+                <a href="#" class="timeline-view">View</a>
+              </div>
+            </div>
+
+            <button class="view-all-btn">View All Analyses</button>
           </div>
 
+        </div>
+
+        <!-- Analysis History Table -->
+        <div class="history-table-section">
+          <div class="table-header">
+            <div>
+              <h2 class="table-title">Analysis History</h2>
+              <p class="table-subtitle">Complete record of all soil analyses</p>
+            </div>
+            <div class="table-filters">
+              <input type="text" class="filter-input" placeholder="Search field...">
+              <select class="filter-select">
+                <option>All Status</option>
+                <option>Completed</option>
+                <option>Processing</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="table-wrapper">
+            <table class="history-table">
+              <thead>
+                <tr>
+                  <th>Field</th>
+                  <th>Date</th>
+                  <th>pH</th>
+                  <th>N</th>
+                  <th>P</th>
+                  <th>K</th>
+                  <th>Moisture</th>
+                  <th>Health Score</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="field-name">North Wheat Plot</td>
+                  <td>10 Apr 2026</td>
+                  <td>6.8</td>
+                  <td>42</td>
+                  <td>28</td>
+                  <td>195</td>
+                  <td>34%</td>
+                  <td><span class="score-badge badge-green">74</span></td>
+                  <td><span class="status-pill status-completed">Completed</span></td>
+                  <td class="actions">
+                    <button class="action-btn" title="View">👁️</button>
+                    <button class="action-btn" title="Download">📥</button>
+                    <button class="action-btn action-danger" title="Delete">🗑️</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="field-name">South Rice Field</td>
+                  <td>05 Apr 2026</td>
+                  <td>6.2</td>
+                  <td>38</td>
+                  <td>22</td>
+                  <td>180</td>
+                  <td>42%</td>
+                  <td><span class="score-badge badge-amber">62</span></td>
+                  <td><span class="status-pill status-completed">Completed</span></td>
+                  <td class="actions">
+                    <button class="action-btn" title="View">👁️</button>
+                    <button class="action-btn" title="Download">📥</button>
+                    <button class="action-btn action-danger" title="Delete">🗑️</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="field-name">North Wheat Plot</td>
+                  <td>28 Mar 2026</td>
+                  <td>7.0</td>
+                  <td>45</td>
+                  <td>30</td>
+                  <td>200</td>
+                  <td>38%</td>
+                  <td><span class="score-badge badge-green">78</span></td>
+                  <td><span class="status-pill status-completed">Completed</span></td>
+                  <td class="actions">
+                    <button class="action-btn" title="View">👁️</button>
+                    <button class="action-btn" title="Download">📥</button>
+                    <button class="action-btn action-danger" title="Delete">🗑️</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="field-name">East Corn Field</td>
+                  <td>20 Mar 2026</td>
+                  <td>5.8</td>
+                  <td>35</td>
+                  <td>20</td>
+                  <td>165</td>
+                  <td>28%</td>
+                  <td><span class="score-badge badge-amber">58</span></td>
+                  <td><span class="status-pill status-completed">Completed</span></td>
+                  <td class="actions">
+                    <button class="action-btn" title="View">👁️</button>
+                    <button class="action-btn" title="Download">📥</button>
+                    <button class="action-btn action-danger" title="Delete">🗑️</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="table-pagination">
+            <button class="page-btn" disabled>← Previous</button>
+            <div class="page-numbers">
+              <span class="page-num active">1</span>
+              <span class="page-num">2</span>
+              <span class="page-num">3</span>
+            </div>
+            <button class="page-btn">Next →</button>
+          </div>
         </div>
       </div>
     `;
@@ -958,6 +2671,9 @@ const screens = {
 
 // ─── Routing ────────────────────────────────────────────────────────
 function renderRoute(route) {
+  // Redirect old 'form' route to new 'soil-analysis'
+  if (route === 'form') route = 'soil-analysis';
+  
   if (route === 'dashboard') {
     route = appState.isAuthenticated ? (appState.role === 'buyer' ? 'buyer-dashboard' : 'farmer-dashboard') : 'login';
   }
@@ -966,12 +2682,22 @@ function renderRoute(route) {
   const main = document.getElementById('main-content');
   if (main) {
     main.innerHTML = typeof screens[route] === 'function' ? screens[route]() : screens[route];
-    if (route === 'market') window.fetchMarketData();
+    if (route === 'market') {
+      window.fetchMarketData();
+      setTimeout(() => window.initMarketChart(null), 150);
+      // Set today's date
+      const d = document.getElementById('mkt-date');
+      if (d) d.textContent = new Date().toLocaleDateString('en-IN', { day:'numeric', month:'long', year:'numeric' });
+    }
     if (route === 'soil-analysis') {
-      window.fetchSoilHistory();
       document.getElementById('soil-date').valueAsDate = new Date();
+      // Initialize with mock data by default
+      setTimeout(() => {
+        window.initSoilChartsWithMockData();
+      }, 100);
     }
     if (route === 'landing') setTimeout(window.initLandingPage, 80);
+    if (route === 'b2f') { /* B2F has its own panel */ }
     if (route === 'farmer-dashboard' || route === 'buyer-dashboard') {
       setTimeout(window.initDashboard, 80);
     }
@@ -982,7 +2708,7 @@ function renderRoute(route) {
 window.navigate = function(r) { renderRoute(r); window.scrollTo({ top: 0, behavior: 'smooth' }); };
 
 document.addEventListener('click', (e) => {
-  const l = e.target.closest('.nav-link, .dropdown-link');
+  const l = e.target.closest('.nav-link, .dropdown-link, .profile-dropdown-link');
   if (!l) return;
   
   if (l.dataset.route) {
@@ -1008,33 +2734,38 @@ document.addEventListener('click', (e) => {
 window.updateNavbarUI = function() {
   const auth = document.getElementById('nav-auth-buttons');
   const user = document.getElementById('nav-user-menu');
-  const publicLinks = document.querySelectorAll('.public-link');
-  const protectedLinks = document.querySelectorAll('.protected-link');
+  const publicLinks  = document.querySelectorAll('.public-link');
+  const farmerLinks  = document.querySelectorAll('.farmer-link');
+  const buyerLinks   = document.querySelectorAll('.buyer-link');
 
   if (appState.isAuthenticated) {
     if (auth) auth.style.display = 'none';
     if (user) {
       user.style.display = 'flex';
-      const n = document.getElementById('user-menu-name'); if (n) n.textContent = appState.user?.name || 'Farmer'; getInitials();
+      const n = document.getElementById('user-menu-name');
+      if (n) n.textContent = appState.user?.name || (appState.role === 'buyer' ? 'Buyer' : 'Farmer');
+      getInitials();
     }
-    // Show protected, hide public
+
+    // Hide public links
     publicLinks.forEach(l => l.style.display = 'none');
-    protectedLinks.forEach(l => {
-      // Role-based visibility
-      if (l.id === 'nav-diag-link' || l.id === 'nav-f2b-link') {
-        l.style.display = (appState.role === 'farmer') ? 'block' : 'none';
-      } else if (l.id === 'nav-b2f-link') {
-        l.style.display = (appState.role === 'buyer') ? 'block' : 'none';
-      } else {
-        l.style.display = 'block';
-      }
-    });
+
+    if (appState.role === 'buyer') {
+      // Show buyer links, hide farmer links
+      farmerLinks.forEach(l => l.style.display = 'none');
+      buyerLinks.forEach(l => l.style.display = 'block');
+    } else {
+      // Show farmer links, hide buyer links
+      buyerLinks.forEach(l => l.style.display = 'none');
+      farmerLinks.forEach(l => l.style.display = 'block');
+    }
+
   } else {
     if (auth) auth.style.display = 'flex';
     if (user) user.style.display = 'none';
-    // Show public, hide protected
     publicLinks.forEach(l => l.style.display = 'block');
-    protectedLinks.forEach(l => l.style.display = 'none');
+    farmerLinks.forEach(l => l.style.display = 'none');
+    buyerLinks.forEach(l => l.style.display = 'none');
   }
 };
 
@@ -1054,6 +2785,24 @@ window.logoutUser = function() {
 window.loginUser = async function() {
   const e = document.getElementById('login-email')?.value;
   const p = document.getElementById('login-pass')?.value;
+
+  // ── Demo bypass (no server needed) ──────────────
+  if (e === 'farmer@demo.com' && p === 'demo123') {
+    appState.isAuthenticated = true;
+    appState.user = { email: 'farmer@demo.com', role: 'farmer', name: 'Ramesh Kumar' };
+    appState.role = 'farmer';
+    _saveSession(); window.updateNavbarUI(); window.navigate('dashboard');
+    return;
+  }
+  if (e === 'buyer@demo.com' && p === 'demo123') {
+    appState.isAuthenticated = true;
+    appState.user = { email: 'buyer@demo.com', role: 'buyer', name: 'Meera Gupta' };
+    appState.role = 'buyer';
+    _saveSession(); window.updateNavbarUI(); window.navigate('dashboard');
+    return;
+  }
+  // ────────────────────────────────────────────────
+
   try {
     const res = await fetch('http://localhost:5000/api/login', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: e, password: p }) });
     const data = await res.json();
@@ -1062,6 +2811,19 @@ window.loginUser = async function() {
     _saveSession(); window.updateNavbarUI(); window.navigate('dashboard');
     setTimeout(() => window.requestSatelliteSync(), 1000);
   } catch(err) { alert(err.message); }
+};
+
+// Quick demo login — called directly from demo buttons
+window.demoLogin = function(role) {
+  const demos = {
+    farmer: { email: 'farmer@demo.com', role: 'farmer', name: 'Ramesh Kumar' },
+    buyer:  { email: 'buyer@demo.com',  role: 'buyer',  name: 'Meera Gupta'  }
+  };
+  const u = demos[role];
+  appState.isAuthenticated = true;
+  appState.user = u;
+  appState.role = u.role;
+  _saveSession(); window.updateNavbarUI(); window.navigate('dashboard');
 };
 
 window.registerUser = async function() {
@@ -1121,32 +2883,85 @@ window.initMarketChart = function(apiData) {
     window._agriMarketChart.destroy();
   }
 
-  const items = apiData.slice(0, 10);
-  const labels = items.map(item => item.commodity);
-  const prices = items.map(item => Number(item.modal_price) || 0);
+  const items = apiData ? apiData.slice(0, 7) : [];
+  const labels = items.length ? items.map(item => item.commodity) : ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+  const prices = items.length ? items.map(item => Number(item.modal_price) || 0) : [1800,2100,1950,2300,2450,2200,2600];
 
-  window._agriMarketChart = new Chart(ctx, { 
-    type: 'bar', 
-    data: { 
-      labels: labels, 
-      datasets: [{ 
-        label: t('price') + ' (₹)', 
-        data: prices, 
-        backgroundColor: 'rgba(46, 125, 50, 0.8)',
-        borderColor: '#2e7d32',
-        borderWidth: 1,
-        borderRadius: 4
-      }] 
-    }, 
-    options: { 
-      responsive: true, 
+  window._agriMarketChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [{
+        label: 'Onion (Red) ₹',
+        data: prices,
+        backgroundColor: 'rgba(0,108,12,0.08)',
+        borderColor: '#006c0c',
+        borderWidth: 2.5,
+        pointBackgroundColor: '#006c0c',
+        pointRadius: 4,
+        fill: true,
+        tension: 0.4
+      }]
+    },
+    options: {
+      responsive: true,
       maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
       scales: {
-        y: { beginAtZero: true }
+        y: { beginAtZero: false, grid: { color: '#f3f3f3' } },
+        x: { grid: { display: false } }
       }
-    } 
+    }
   });
 };
+
+// Market tab switcher
+window.mktSetTab = function(btn, period) {
+  btn.closest('.mkt-tab-group').querySelectorAll('.mkt-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  // Simulate different data per period
+  const datasets = {
+    '7D':  [1800,2100,1950,2300,2450,2200,2600],
+    '1M':  [1600,1750,1900,2100,2000,2200,2350,2100,2400,2600,2450,2300,2500,2650,2400,2550,2700,2600,2800,2750,2900,2850,3000,2950,3100,3050,3200,3150,3300,3250],
+    '3M':  [1500,1600,1700,1800,1900,2000,2100,2200,2300,2400,2500,2600]
+  };
+  const labels7D  = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+  const labels1M  = Array.from({length:30}, (_,i) => `D${i+1}`);
+  const labels3M  = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const labelsMap = { '7D': labels7D, '1M': labels1M, '3M': labels3M };
+  if (window._agriMarketChart) {
+    window._agriMarketChart.data.labels = labelsMap[period];
+    window._agriMarketChart.data.datasets[0].data = datasets[period];
+    window._agriMarketChart.update();
+  }
+};
+
+// Market table search
+window.mktSearch = function(val) {
+  const rows = document.querySelectorAll('#mkt-tbody tr');
+  rows.forEach(row => {
+    row.style.display = row.textContent.toLowerCase().includes(val.toLowerCase()) ? '' : 'none';
+  });
+};
+
+// Resources filter by category
+window.resFilter = function(type, btn) {
+  document.querySelectorAll('.res-tab').forEach(b => b.classList.remove('res-tab-active'));
+  btn.classList.add('res-tab-active');
+  document.querySelectorAll('.res-card').forEach(card => {
+    card.style.display = (type === 'all' || card.dataset.type === type) ? '' : 'none';
+  });
+};
+
+// Resources search
+window.resSearch = function(val) {
+  const q = val.toLowerCase();
+  document.querySelectorAll('.res-card').forEach(card => {
+    card.style.display = card.textContent.toLowerCase().includes(q) ? '' : 'none';
+  });
+};
+
+// F2B tab switcher removed - single panel only
 
 window.handleImageUpload = function(i) {
   if (i.files && i.files[0]) {
@@ -1156,6 +2971,28 @@ window.handleImageUpload = function(i) {
       document.getElementById('diagnosis-scanning').style.display = 'none';
       document.getElementById('diagnosis-results').style.display = 'block';
     }, 2000);
+  }
+};
+
+window.handleDiagnosisUpload = function(input) {
+  if (input.files && input.files[0]) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      // Update the preview image
+      const previewImg = document.querySelector('.preview-img');
+      if (previewImg) {
+        previewImg.src = e.target.result;
+      }
+      
+      // Show notification
+      window.showNotification('🔬 Image uploaded! Analyzing...');
+      
+      // Simulate AI analysis
+      setTimeout(() => {
+        window.showNotification('✅ Analysis complete!');
+      }, 2000);
+    };
+    reader.readAsDataURL(input.files[0]);
   }
 };
 
@@ -1208,7 +3045,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
   updateStaticUI();
-  renderRoute(appState.currentRoute); 
+  
+  // If user is already authenticated, navigate to dashboard instead of landing
+  if (appState.isAuthenticated) {
+    renderRoute('dashboard');
+  } else {
+    renderRoute(appState.currentRoute);
+  }
 });
 
 function updateStaticUI() {
@@ -1408,19 +3251,12 @@ window.handleSoilUpload = function(input) {
 };
 
 window.runSoilAnalysis = async function() {
-  const btn = document.querySelector('button[onclick="window.runSoilAnalysis()"]');
-  const scanner = document.getElementById('scanner-line');
-  const placeholder = document.getElementById('soil-placeholder-card');
-  const results = document.getElementById('soil-results-panel');
-  const recCard = document.getElementById('ai-rec-card');
-  
+  const btn = document.querySelector('.soil-analyze-btn');
   if (!btn) return;
+  
   const originalText = btn.innerHTML;
   btn.disabled = true;
-  btn.innerHTML = '⚡ PERCEIVING...';
-  
-  // Start Scanning effect
-  if (scanner) scanner.style.display = 'block';
+  btn.innerHTML = '<span>⚡ ANALYZING...</span>';
 
   const data = {
     userEmail: appState.user?.email || 'guest@example.com',
@@ -1433,12 +3269,12 @@ window.runSoilAnalysis = async function() {
       p: parseInt(document.getElementById('soil-p').value),
       k: parseInt(document.getElementById('soil-k').value),
       moisture: parseInt(document.getElementById('soil-moisture').value),
-      organicMatter: parseFloat(document.getElementById('soil-om').value)
+      organicMatter: 2.5
     }
   };
 
   try {
-    // Artificial delay for "WOW" effect
+    // Artificial delay for effect
     await new Promise(r => setTimeout(r, 2000));
     
     const res = await fetch('http://localhost:5000/api/soil-analysis', {
@@ -1447,36 +3283,43 @@ window.runSoilAnalysis = async function() {
       body: JSON.stringify(data)
     });
     const result = await res.json();
-    
-    // Hide placeholder, show panels
-    if (placeholder) placeholder.style.display = 'none';
-    if (results) results.style.display = 'block';
-    if (recCard) recCard.style.display = 'block';
 
-    // Update Scores & Chips
+    // Update UI with results
     document.getElementById('res-score').textContent = result.healthScore;
-    document.getElementById('res-recommendation').textContent = result.recommendation;
+    document.getElementById('res-recommendation').innerHTML = `<strong>Apply 25kg/ha of Urea</strong> — ${result.recommendation}`;
+    
+    // Update metric pills
     document.getElementById('chip-ph').textContent = data.parameters.ph;
     document.getElementById('chip-n').textContent = data.parameters.n;
     document.getElementById('chip-p').textContent = data.parameters.p;
     document.getElementById('chip-k').textContent = data.parameters.k;
-    document.getElementById('chip-moist').textContent = data.parameters.moisture + '%';
-    document.getElementById('chip-om').textContent = data.parameters.organicMatter + '%';
     
-    // Init Charts
+    // Update bars
+    document.getElementById('val-n').textContent = data.parameters.n;
+    document.getElementById('val-p').textContent = data.parameters.p;
+    document.getElementById('val-k').textContent = data.parameters.k;
+    document.getElementById('val-ph').textContent = data.parameters.ph;
+    document.getElementById('val-moist').textContent = data.parameters.moisture + '%';
+    
+    // Update bar widths
+    document.getElementById('bar-n').style.width = Math.min(100, (data.parameters.n / 50) * 100) + '%';
+    document.getElementById('bar-p').style.width = Math.min(100, (data.parameters.p / 35) * 100) + '%';
+    document.getElementById('bar-k').style.width = Math.min(100, (data.parameters.k / 200) * 100) + '%';
+    document.getElementById('bar-ph').style.width = Math.min(100, (data.parameters.ph / 8) * 100) + '%';
+    document.getElementById('bar-moist').style.width = Math.min(100, (data.parameters.moisture / 50) * 100) + '%';
+    
+    // Update gauge chart
     window.initSoilCharts(result.healthScore, data.parameters);
     
-    // Refresh History & Notify
-    window.fetchSoilHistory();
-    window.showNotification('✨ Intelligence Sync Complete');
+    // Show notification
+    window.showNotification('✨ Analysis Complete');
     
     // Scroll to results
-    results.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('soil-results-content').scrollIntoView({ behavior: 'smooth' });
     
   } catch(e) {
     alert('Analysis Failed: ' + e.message);
   } finally {
-    if (scanner) scanner.style.display = 'none';
     btn.disabled = false;
     btn.innerHTML = originalText;
   }
@@ -1485,15 +3328,13 @@ window.runSoilAnalysis = async function() {
 window.initSoilCharts = function(score, params) {
   const gaugeCtx = document.getElementById('soilGaugeChart')?.getContext('2d');
   const barCtx = document.getElementById('soilNutrientChart')?.getContext('2d');
-  if (!gaugeCtx || !barCtx || !window.Chart) return;
+  if (!gaugeCtx || !window.Chart) return;
 
   // Cleanup existing charts
   if (appState._soilGauge) appState._soilGauge.destroy();
-  if (appState._soilBar) appState._soilBar.destroy();
 
   // Gauge Chart (Semi-circle)
-  const scoreColor = score > 70 ? '#76FF03' : (score > 40 ? '#FFD600' : '#FF1744');
-  const glowColor = score > 70 ? 'rgba(118, 255, 3, 0.3)' : (score > 40 ? 'rgba(255, 214, 0, 0.3)' : 'rgba(255, 23, 68, 0.3)');
+  const scoreColor = score > 70 ? '#4CAF50' : (score > 40 ? '#FFC107' : '#EF5350');
   
   appState._soilGauge = new Chart(gaugeCtx, {
     type: 'doughnut',
@@ -1517,39 +3358,20 @@ window.initSoilCharts = function(score, params) {
       }
     }
   });
+};
 
-  // Apply a subtle shadow/glow effect to the gauge via the container
-  gaugeCtx.canvas.parentElement.style.filter = `drop-shadow(0 0 10px ${glowColor})`;
-
-  // Nutrient Bar Chart
-  appState._soilBar = new Chart(barCtx, {
-    type: 'bar',
-    data: {
-      labels: ['pH', 'N', 'P', 'K', 'Moist %'],
-      datasets: [{
-        label: 'Level',
-        data: [params.ph * 10, params.n, params.p, params.k, params.moisture],
-        backgroundColor: 'rgba(118, 255, 3, 0.6)',
-        borderColor: '#76FF03',
-        borderWidth: 1,
-        borderRadius: 20,
-        barThickness: 12
-      }]
-    },
-    options: {
-      indexAxis: 'y',
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: { legend: { display: false } },
-      scales: { 
-        x: { max: 100, display: false }, 
-        y: { 
-          grid: { display: false },
-          ticks: { color: '#666', font: { weight: 'bold' } }
-        } 
-      }
-    }
-  });
+// Initialize with mock data on page load
+window.initSoilChartsWithMockData = function() {
+  const score = 74;
+  const params = {
+    ph: 6.8,
+    n: 42,
+    p: 28,
+    k: 195,
+    moisture: 34
+  };
+  
+  window.initSoilCharts(score, params);
 };
 
 window.fetchSoilHistory = async function() {

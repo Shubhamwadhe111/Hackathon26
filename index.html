@@ -12,6 +12,15 @@
     <meta name="keywords" content="agrofarm ai, smart farming, soil analysis, ai crop recommendation, plant disease, market intelligence, f2b" />
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./soil-hub.css">
+    <link rel="stylesheet" href="./diagnosis.css">
+    <link rel="stylesheet" href="./market.css">
+    <link rel="stylesheet" href="./f2b.css">
+    <link rel="stylesheet" href="./b2f.css">
+    <link rel="stylesheet" href="./resources.css">
+    <link rel="stylesheet" href="./buyer-nav.css">
+    <link rel="stylesheet" href="./profile.css">
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
     <!-- Chart.js for Market Terminal -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
@@ -25,28 +34,31 @@
           </div>
           
           <div class="nav-links" id="main-nav-links" style="gap: 1.5rem; align-items: center; font-weight: 500; white-space: nowrap;">
-            <!-- Public Links (Visible before login) -->
-            <a href="#" data-route="landing" id="nav-home-link" class="nav-link active" style="white-space: nowrap;" data-i18n="nav_home">Home</a>
+            <!-- Public Links (Visible before login only) -->
+            <a href="#" data-route="landing" id="nav-home-link" class="nav-link public-link active" style="white-space: nowrap;" data-i18n="nav_home">Home</a>
             <a href="#features" class="nav-link public-link" style="white-space: nowrap;" data-i18n="nav_feat">Features</a>
             <a href="#about" class="nav-link public-link" style="white-space: nowrap;" data-i18n="nav_about">About</a>
             
-            <!-- Protected Links (Visible after login) -->
-            <a href="#" data-route="dashboard" id="nav-dashboard-link" class="nav-link protected-link" style="white-space: nowrap; display: none;" data-i18n="nav_dashboard">Dashboard</a>
-            <a href="#" data-route="soil-analysis" id="nav-soil-link" class="nav-link protected-link" style="white-space: nowrap; display: none;" data-i18n="nav_soil">Soil Analysis</a>
-            <a href="#" data-route="diagnosis" id="nav-diag-link" class="nav-link protected-link" style="white-space: nowrap; display: none;" data-i18n="ai_diagnosis">AI Diagnosis</a>
-            <a href="#" data-route="market" id="nav-market-link" class="nav-link protected-link" style="white-space: nowrap; display: none;" data-i18n="nav_market">Market</a>
-            <a href="#" data-route="f2b" id="nav-f2b-link" class="nav-link protected-link" style="white-space: nowrap; display: none;" data-i18n="nav_f2b">F2B</a>
-            <a href="#" data-route="b2f" id="nav-b2f-link" class="nav-link protected-link" style="white-space: nowrap; display: none;" data-i18n="nav_b2f">B2F Hub</a>
-            <a href="#" data-route="knowledge" id="nav-resources-link" class="nav-link protected-link" style="white-space: nowrap; display: none;" data-i18n="nav_resources">Resources</a>
+            <!-- Farmer Links (Visible after login as farmer) -->
+            <a href="#" data-route="dashboard" id="nav-farmer-home" class="nav-link farmer-link" style="white-space: nowrap; display: none;">Home</a>
+            <a href="#" data-route="dashboard" id="nav-dashboard-link" class="nav-link farmer-link" style="white-space: nowrap; display: none;" data-i18n="nav_dashboard">Dashboard</a>
+            <a href="#" data-route="soil-analysis" id="nav-soil-link" class="nav-link farmer-link" style="white-space: nowrap; display: none;" data-i18n="nav_soil">Soil Analysis</a>
+            <a href="#" data-route="diagnosis" id="nav-diag-link" class="nav-link farmer-link" style="white-space: nowrap; display: none;" data-i18n="ai_diagnosis">AI Diagnosis</a>
+            <a href="#" data-route="market" id="nav-market-link-farmer" class="nav-link farmer-link" style="white-space: nowrap; display: none;" data-i18n="nav_market">Market</a>
+            <a href="#" data-route="f2b" id="nav-f2b-link" class="nav-link farmer-link" style="white-space: nowrap; display: none;" data-i18n="nav_f2b">F2B</a>
+            <a href="#" data-route="knowledge" id="nav-resources-link" class="nav-link farmer-link" style="white-space: nowrap; display: none;" data-i18n="nav_resources">Resources</a>
+
+            <!-- Buyer Links (Visible after login as buyer) -->
+            <a href="#" data-route="dashboard" id="nav-buyer-home" class="nav-link buyer-link" style="white-space: nowrap; display: none;">Home</a>
+            <a href="#" data-route="market" id="nav-buyer-browse" class="nav-link buyer-link" style="white-space: nowrap; display: none;">Browse Produce</a>
+            <a href="#" data-route="market" id="nav-buyer-market" class="nav-link buyer-link" style="white-space: nowrap; display: none;">Market</a>
+            <a href="#" data-route="f2b" id="nav-buyer-connect" class="nav-link buyer-link" style="white-space: nowrap; display: none;">Connect with Farmers</a>
+            <a href="#" id="nav-buyer-orders" class="nav-link buyer-link" style="white-space: nowrap; display: none;">My Orders</a>
+            <a href="#" id="nav-buyer-messages" class="nav-link buyer-link" style="white-space: nowrap; display: none;">Messages</a>
           </div>
           
           <div style="display: flex; align-items: center; gap: 1rem;">
-            <!-- Language Selector -->
-            <select id="lang-toggle" class="input-field" style="padding: 0.35rem 0.75rem; background: rgba(255,255,255,0.7); backdrop-filter: blur(10px); border: 1px solid rgba(46, 125, 50, 0.2); width: auto; font-size: 0.9rem; border-radius: 8px; font-weight: 500; cursor: pointer;">
-              <option value="en">English</option>
-              <option value="hi">हिंदी</option>
-              <option value="mr">मराठी</option>
-            </select>
+            <!-- Language Selector removed - English only -->
 
             <div id="nav-auth-buttons" style="display: flex; align-items: center; gap: 0.8rem; white-space: nowrap;">
               <a href="#" data-route="login" class="nav-link" style="font-size: 0.9rem; font-weight: 600; white-space: nowrap;" data-i18n="nav_login">Log in</a>
@@ -56,14 +68,27 @@
             <!-- Profile Icon -->
             <div id="nav-user-menu" class="nav-item" style="display: none; align-items: center; gap: 1rem; position: relative;">
               <button id="user-avatar-btn" class="user-avatar-btn" title="My Account" style="background: var(--color-primary); color: white; border: none; width: 40px; height: 40px; border-radius: 50%; font-weight: 600; cursor: pointer; box-shadow: 0 4px 12px rgba(46, 125, 50, 0.2);">
-                <span id="user-avatar-initials">SW</span>
+                <span id="user-avatar-initials">PR</span>
               </button>
-              <div class="dropdown-menu glass dropdown-menu-right" style="min-width: 240px; top: calc(100% + 0.75rem);">
-                <div style="padding: 0.75rem 1rem 0.75rem; border-bottom: 1px solid var(--color-surface-container-high); margin-bottom: 0.25rem;">
-                  <div id="user-menu-name" style="font-weight: 700; color: var(--color-primary); font-size: 0.95rem;" data-i18n="profile_title">Farmer Profile</div>
+              <div class="profile-dropdown">
+                <!-- Header with title -->
+                <div class="profile-dropdown-header">
+                  <div id="user-menu-name" class="profile-dropdown-title">Farmer Profile</div>
                 </div>
-                <a href="#" data-route="profile" class="dropdown-link"><span class="nav-icon">👤</span> <span data-i18n="profile_my">My Profile</span></a>
-                <a href="#" onclick="window.logoutUser()" class="dropdown-link" style="color: #ba1a1a; margin-top: 0.5rem; border-top: 1px solid #eee; padding-top: 0.8rem;"><span class="nav-icon">🚪</span> <span data-i18n="profile_logout">Logout</span></a>
+                <!-- Profile options in light green section -->
+                <div class="profile-dropdown-section profile-section-green">
+                  <a href="#" data-route="profile" class="profile-dropdown-link">
+                    <span class="material-symbols-outlined">person</span>
+                    <span data-i18n="profile_my">My Profile</span>
+                  </a>
+                </div>
+                <!-- Logout in red section -->
+                <div class="profile-dropdown-section">
+                  <a href="#" onclick="window.logoutUser(); return false;" class="profile-dropdown-link profile-link-logout">
+                    <span class="material-symbols-outlined">logout</span>
+                    <span data-i18n="profile_logout">Logout</span>
+                  </a>
+                </div>
               </div>
             </div>
             

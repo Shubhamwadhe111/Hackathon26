@@ -1,0 +1,546 @@
+/* ═══════════════════════════════════════════════════
+   AgroFarm AI — Market Intelligence Page
+   All classes prefixed with mkt- to avoid conflicts
+═══════════════════════════════════════════════════ */
+
+/* ── Wrapper ─────────────────────────────────────── */
+.mkt-wrapper {
+  padding: 2rem 2.5rem 4rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  animation: fadeIn 0.4s ease;
+}
+
+/* ── Header ──────────────────────────────────────── */
+.mkt-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.mkt-title {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  margin: 0 0 0.25rem;
+  font-family: 'Manrope', sans-serif;
+}
+.mkt-subtitle {
+  color: var(--color-on-surface-variant);
+  font-size: 0.95rem;
+  margin: 0;
+}
+.mkt-header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.mkt-select {
+  background: var(--color-surface-container-high, #e8e8e8);
+  border: none;
+  border-radius: 12px;
+  padding: 0.55rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+  color: var(--color-on-surface);
+}
+.mkt-date-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--color-surface-container-high, #e8e8e8);
+  border-radius: 12px;
+  padding: 0.55rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+.mkt-notif-btn {
+  position: relative;
+  background: var(--color-surface-container-high, #e8e8e8);
+  border: none;
+  border-radius: 12px;
+  padding: 0.55rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.mkt-notif-dot {
+  position: absolute;
+  top: 8px; right: 8px;
+  width: 8px; height: 8px;
+  background: #ef4444;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+/* ── Live Ticker ─────────────────────────────────── */
+.mkt-ticker {
+  background: #14532d;
+  color: white;
+  border-radius: 16px;
+  padding: 0.75rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(20,83,45,0.25);
+}
+.mkt-ticker-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding-right: 1rem;
+  border-right: 1px solid rgba(255,255,255,0.15);
+  flex-shrink: 0;
+}
+.mkt-live-dot {
+  width: 8px; height: 8px;
+  background: #ef4444;
+  border-radius: 50%;
+  animation: pulse 1.5s infinite;
+}
+.mkt-ticker-track {
+  overflow: hidden;
+  flex: 1;
+}
+.mkt-ticker-scroll {
+  display: flex;
+  gap: 3rem;
+  animation: mktMarquee 35s linear infinite;
+  width: max-content;
+}
+.mkt-tick-item {
+  white-space: nowrap;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.mkt-tick-item strong { font-weight: 700; }
+.mkt-up   { color: #86efac; font-style: normal; }
+.mkt-down { color: #fca5a5; font-style: normal; }
+.mkt-neutral { color: #a1a1aa; font-style: normal; }
+
+@keyframes mktMarquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ── KPI Grid ────────────────────────────────────── */
+.mkt-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.25rem;
+}
+@media (max-width: 1100px) { .mkt-kpi-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 700px)  { .mkt-kpi-grid { grid-template-columns: repeat(2, 1fr); } }
+
+.mkt-kpi-card {
+  background: white;
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+}
+.mkt-kpi-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-on-surface-variant);
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+}
+.mkt-kpi-value {
+  font-size: 1.9rem;
+  font-weight: 800;
+  margin: 0;
+  font-family: 'Manrope', sans-serif;
+  line-height: 1.1;
+}
+.mkt-kpi-unit { font-size: 0.85rem; font-weight: 500; color: var(--color-on-surface-variant); }
+.mkt-kpi-bar  { height: 4px; background: #e8e8e8; border-radius: 99px; margin-top: 1rem; overflow: hidden; }
+.mkt-kpi-bar-fill { height: 100%; background: var(--color-primary); border-radius: 99px; }
+.mkt-kpi-row  { display: flex; align-items: center; justify-content: space-between; }
+.mkt-kpi-share { color: var(--color-primary); font-weight: 700; font-size: 0.85rem; margin: 0.4rem 0 0; }
+.mkt-kpi-gainer { border-left: 4px solid #16a34a; }
+.mkt-kpi-loser  { border-left: 4px solid #dc2626; }
+.mkt-kpi-change { display: flex; align-items: center; gap: 0.25rem; font-weight: 700; font-size: 0.85rem; margin: 0.4rem 0 0; }
+.mkt-pos { color: #16a34a; }
+.mkt-neg { color: #dc2626; }
+.mkt-bullish { color: #16a34a; }
+
+/* Gauge */
+.mkt-gauge-wrap { position: relative; width: 56px; height: 56px; }
+.mkt-gauge-svg  { width: 56px; height: 56px; transform: rotate(-90deg); }
+.mkt-gauge-val  {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.65rem; font-weight: 800;
+}
+
+/* ── Chart + Movers ──────────────────────────────── */
+.mkt-chart-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.5rem;
+}
+@media (max-width: 900px) { .mkt-chart-grid { grid-template-columns: 1fr; } }
+
+.mkt-chart-card,
+.mkt-movers-card {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+}
+.mkt-section-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin: 0;
+  font-family: 'Manrope', sans-serif;
+}
+.mkt-chart-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.mkt-tab-group {
+  display: flex;
+  background: #f3f3f3;
+  border-radius: 10px;
+  padding: 3px;
+  gap: 2px;
+}
+.mkt-tab {
+  padding: 0.3rem 1rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: transparent;
+  color: var(--color-on-surface-variant);
+  transition: all 0.2s;
+}
+.mkt-tab.active {
+  background: white;
+  color: var(--color-primary);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+.mkt-canvas-wrap {
+  height: 280px;
+  position: relative;
+}
+.mkt-legend {
+  display: flex;
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+  flex-wrap: wrap;
+}
+.mkt-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* Movers */
+.mkt-movers-card { display: flex; flex-direction: column; gap: 0; }
+.mkt-movers-section { padding: 1.25rem 0; }
+.mkt-movers-divider { border-top: 1px solid #f3f3f3; }
+.mkt-movers-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 800;
+  margin: 0 0 1rem;
+}
+.mkt-mover-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+.mkt-mover-left { display: flex; align-items: center; gap: 0.75rem; }
+.mkt-mover-emoji { font-size: 1.4rem; }
+.mkt-mover-name { font-size: 0.875rem; font-weight: 700; margin: 0; }
+.mkt-mover-var  { font-size: 0.75rem; color: var(--color-on-surface-variant); margin: 0; }
+.mkt-mover-right { text-align: right; }
+.mkt-mover-pct  { font-size: 0.875rem; font-weight: 700; margin: 0; }
+.mkt-mover-price { font-size: 0.8rem; font-weight: 600; margin: 0; }
+
+/* ── Mandi Table ─────────────────────────────────── */
+.mkt-table-section {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+}
+.mkt-table-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.mkt-table-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.mkt-search-box {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #f3f3f3;
+  border-radius: 12px;
+  padding: 0.5rem 1rem;
+}
+.mkt-search-box .material-symbols-outlined { font-size: 1.1rem; color: #9ca3af; }
+.mkt-search-box input {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 0.875rem;
+  width: 220px;
+}
+.mkt-action-btn {
+  background: #f3f3f3;
+  border: none;
+  border-radius: 12px;
+  padding: 0.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: background 0.2s;
+}
+.mkt-action-btn:hover { background: #e8e8e8; }
+
+.mkt-table-wrap { overflow-x: auto; }
+.mkt-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 0.5rem;
+  font-size: 0.875rem;
+}
+.mkt-table thead th {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-on-surface-variant);
+  font-weight: 700;
+  padding: 0 1rem 0.5rem;
+  white-space: nowrap;
+}
+.mkt-table tbody tr {
+  background: #f9f9f9;
+  transition: background 0.15s;
+}
+.mkt-table tbody tr:hover { background: #f3f3f3; }
+.mkt-table tbody td {
+  padding: 1rem;
+  vertical-align: middle;
+}
+.mkt-table tbody td:first-child { border-radius: 12px 0 0 12px; }
+.mkt-table tbody td:last-child  { border-radius: 0 12px 12px 0; }
+
+.mkt-comm-cell { display: flex; align-items: center; gap: 0.5rem; font-size: 1.1rem; }
+.mkt-comm-cell strong { font-size: 0.875rem; }
+.mkt-loc-cell { display: flex; flex-direction: column; }
+.mkt-loc-cell span { font-weight: 700; font-size: 0.875rem; }
+.mkt-loc-cell small { font-size: 0.7rem; color: var(--color-on-surface-variant); }
+.mkt-range { font-size: 0.8rem; color: var(--color-on-surface-variant); white-space: nowrap; }
+.mkt-modal { font-weight: 800; color: var(--color-primary); font-size: 0.95rem; }
+.mkt-arr-cell { display: flex; align-items: center; gap: 0.5rem; }
+.mkt-arr-bar { width: 60px; height: 5px; background: #e8e8e8; border-radius: 99px; overflow: hidden; }
+.mkt-arr-bar div { height: 100%; background: var(--color-primary); border-radius: 99px; }
+
+.mkt-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 99px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.mkt-badge-pos { background: rgba(22,163,74,0.1); color: #16a34a; }
+.mkt-badge-neg { background: rgba(220,38,38,0.1); color: #dc2626; }
+.mkt-badge-neu { background: rgba(113,113,122,0.1); color: #71717a; }
+
+.mkt-more-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #9ca3af;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+}
+.mkt-more-btn:hover { color: var(--color-primary); }
+
+.mkt-pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid #f3f3f3;
+  font-size: 0.8rem;
+  color: var(--color-on-surface-variant);
+}
+.mkt-page-btns { display: flex; gap: 0.4rem; }
+.mkt-page-btn {
+  width: 32px; height: 32px;
+  border: none;
+  border-radius: 8px;
+  background: #f3f3f3;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.mkt-page-btn:hover { background: #e8e8e8; }
+.mkt-page-active { background: var(--color-primary) !important; color: white; }
+
+/* ── Map + Queue ─────────────────────────────────── */
+.mkt-map-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+@media (max-width: 900px) { .mkt-map-grid { grid-template-columns: 1fr; } }
+
+.mkt-map-card {
+  border-radius: 20px;
+  overflow: hidden;
+  min-height: 380px;
+  position: relative;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+}
+.mkt-map-card iframe { display: block; width: 100%; height: 100%; min-height: 380px; }
+.mkt-map-overlay-label {
+  position: absolute;
+  top: 1rem; left: 1rem;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  padding: 0.6rem 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  z-index: 10;
+}
+.mkt-map-overlay-label h3 { font-size: 0.875rem; font-weight: 700; margin: 0 0 0.1rem; }
+.mkt-map-overlay-label p  { font-size: 0.7rem; color: var(--color-on-surface-variant); margin: 0; }
+
+.mkt-queue-card {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.mkt-queue-list { display: flex; flex-direction: column; gap: 0.75rem; }
+.mkt-queue-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #f9f9f9;
+  border-radius: 14px;
+  padding: 1rem;
+  transition: box-shadow 0.2s;
+  cursor: pointer;
+}
+.mkt-queue-item:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+.mkt-queue-icon {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.mkt-qi-green  { background: rgba(22,163,74,0.1);  color: #16a34a; }
+.mkt-qi-yellow { background: rgba(234,179,8,0.1);  color: #ca8a04; }
+.mkt-qi-red    { background: rgba(220,38,38,0.1);  color: #dc2626; }
+.mkt-queue-info { flex: 1; }
+.mkt-queue-info h4 { font-size: 0.875rem; font-weight: 700; margin: 0 0 0.2rem; }
+.mkt-queue-info p  { font-size: 0.75rem; color: var(--color-on-surface-variant); margin: 0; display: flex; align-items: center; gap: 0.2rem; }
+.mkt-queue-status { text-align: right; display: flex; flex-direction: column; gap: 0.25rem; align-items: flex-end; }
+.mkt-queue-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+}
+.mkt-qb-green  { background: rgba(22,163,74,0.1);  color: #16a34a; }
+.mkt-qb-yellow { background: rgba(234,179,8,0.1);  color: #ca8a04; }
+.mkt-qb-red    { background: rgba(220,38,38,0.1);  color: #dc2626; }
+.mkt-queue-status small { font-size: 0.7rem; color: var(--color-on-surface-variant); }
+
+/* ── Bottom Grid: Weather + AI + Forecast ────────── */
+.mkt-bottom-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr 1fr;
+  gap: 1.5rem;
+}
+@media (max-width: 1000px) { .mkt-bottom-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 650px)  { .mkt-bottom-grid { grid-template-columns: 1fr; } }
+
+.mkt-weather-card,
+.mkt-ai-card,
+.mkt-forecast-card {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+}
+
+/* Weather */
+.mkt-weather-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; }
+.mkt-weather-loc  { font-size: 0.8rem; color: var(--color-on-surface-variant); margin: 0.2rem 0 0; }
+.mkt-weather-icon { font-size: 2.5rem; color: #ca8a04; }
+.mkt-temp-row     { display: flex; align-items: flex-end; gap: 0.5rem; margin-bottom: 1.25rem; }
+.mkt-temp         { font-size: 3.5rem; font-weight: 800; margin: 0; line-height: 1; font-family: 'Manrope', sans-serif; }
+.mkt-condition    { font-size: 0.875rem; font-weight: 500; margin: 0 0 0.4rem; }
+.mkt-weather-details { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+.mkt-weather-detail { background: #f9f9f9; border-radius: 12px; padding: 0.75rem; }
+.mkt-detail-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; color: #9ca3af; margin: 0 0 0.2rem; }
+.mkt-detail-val   { font-size: 0.95rem; font-weight: 700; margin: 0; }
+
+/* AI Insights */
+.mkt-ai-card { background: rgba(0,108,12,0.03); border: 1px solid rgba(0,108,12,0.1); }
+.mkt-ai-head { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.25rem; }
+.mkt-ai-title { font-size: 1.1rem; font-weight: 800; color: var(--color-primary); margin: 0; font-family: 'Manrope', sans-serif; }
+.mkt-ai-alert { background: white; border-radius: 14px; padding: 1rem; margin-bottom: 0.75rem; }
+.mkt-ai-warn    { border-left: 4px solid #ef4444; }
+.mkt-ai-success { border-left: 4px solid #16a34a; }
+.mkt-ai-alert-title { font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; margin: 0 0 0.4rem; }
+.mkt-ai-warn .mkt-ai-alert-title    { color: #ef4444; }
+.mkt-ai-success .mkt-ai-alert-title { color: #16a34a; }
+.mkt-ai-alert p { font-size: 0.85rem; line-height: 1.5; margin: 0; color: var(--color-on-surface); }
+
+/* Forecast */
+.mkt-forecast-list { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1.25rem; }
+.mkt-forecast-row  { display: flex; align-items: center; justify-content: space-between; }
+.mkt-fday  { font-size: 0.875rem; font-weight: 600; width: 36px; }
+.mkt-ficon { font-size: 1.4rem; color: #9ca3af; }
+.mkt-frain  { color: #60a5fa; }
+.mkt-fstorm { color: #3b82f6; }
+.mkt-ftemps { display: flex; gap: 0.5rem; font-size: 0.875rem; font-weight: 700; }
+.mkt-flow   { color: #9ca3af; }
