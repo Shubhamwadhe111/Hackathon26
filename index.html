@@ -3,11 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AgroIntel | AI Crop Recommendation</title>
+    <title>AgroFarm AI | Smart Farming Starts Here</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+    <meta name="description" content="AgroFarm AI — Smart farming powered by AI. Soil analysis, crop recommendation, market intelligence, and AI plant disease diagnosis for farmers and agri-businesses across India." />
+    <meta name="keywords" content="agrofarm ai, smart farming, soil analysis, ai crop recommendation, plant disease, market intelligence, f2b" />
     <link rel="stylesheet" href="./style.css">
     <!-- Chart.js for Market Terminal -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -22,11 +24,19 @@
           </div>
           
           <div class="nav-links" id="main-nav-links" style="gap: 1.5rem; align-items: center; font-weight: 500; white-space: nowrap;">
-            <a href="#" data-route="landing" class="nav-link active" style="white-space: nowrap;" data-i18n="nav_home">Home</a>
-            <a href="#" data-route="dashboard" id="nav-dashboard-link" class="nav-link" style="white-space: nowrap;" data-i18n="nav_dashboard">Dashboard</a>
-            <a href="#" data-route="form" class="nav-link" style="white-space: nowrap;" data-i18n="nav_soil">Soil Analysis</a>
-            <a href="#" data-route="market" class="nav-link" style="white-space: nowrap;" data-i18n="nav_market">Market</a>
-            <a href="#" data-route="knowledge" class="nav-link" style="white-space: nowrap;" data-i18n="nav_resources">Resources</a>
+            <!-- Public Links (Visible before login) -->
+            <a href="#" data-route="landing" id="nav-home-link" class="nav-link active" style="white-space: nowrap;" data-i18n="nav_home">Home</a>
+            <a href="#features" class="nav-link public-link" style="white-space: nowrap;">Features</a>
+            <a href="#about" class="nav-link public-link" style="white-space: nowrap;">About</a>
+            
+            <!-- Protected Links (Visible after login) -->
+            <a href="#" data-route="dashboard" id="nav-dashboard-link" class="nav-link protected-link" style="white-space: nowrap; display: none;" data-i18n="nav_dashboard">Dashboard</a>
+            <a href="#" data-route="soil-analysis" id="nav-soil-link" class="nav-link protected-link" style="white-space: nowrap; display: none;" data-i18n="nav_soil">Soil Analysis</a>
+            <a href="#" data-route="diagnosis" id="nav-diag-link" class="nav-link protected-link" style="white-space: nowrap; display: none;" data-i18n="ai_diagnosis">AI Diagnosis</a>
+            <a href="#" data-route="market" id="nav-market-link" class="nav-link protected-link" style="white-space: nowrap; display: none;" data-i18n="nav_market">Market</a>
+            <a href="#" data-route="f2b" id="nav-f2b-link" class="nav-link protected-link" style="white-space: nowrap; display: none;">F2B</a>
+            <a href="#" data-route="b2f" id="nav-b2f-link" class="nav-link protected-link" style="white-space: nowrap; display: none;">B2F Hub</a>
+            <a href="#" data-route="knowledge" id="nav-resources-link" class="nav-link protected-link" style="white-space: nowrap; display: none;" data-i18n="nav_resources">Resources</a>
           </div>
           
           <div style="display: flex; align-items: center; gap: 1rem;">
@@ -66,7 +76,7 @@
         <!-- Rendered by JS -->
       </main>
 
-      <footer style="text-align: center; padding: 2rem; border-top: 1px solid var(--color-surface-container-high); color: var(--color-on-surface-variant); margin-top: auto; font-size: 0.9rem;">
+      <footer id="about" style="text-align: center; padding: 2rem; border-top: 1px solid var(--color-surface-container-high); color: var(--color-on-surface-variant); margin-top: auto; font-size: 0.9rem;">
         <div style="margin-bottom: 0.5rem;">
           <strong>Contact us:</strong> support@agrofarmai.com | +91 800 123 4567
         </div>
@@ -114,6 +124,7 @@
       </div>
     </div>
 
+    <script src="./dashboard.js"></script>
     <script type="module" src="./main.js"></script>
     <script>
       /* 3D Navbar: intensify shadow on scroll */
