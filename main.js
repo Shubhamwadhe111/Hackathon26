@@ -29,7 +29,19 @@ const i18n = {
     sign_in: "Sign In", email: "Email", password: "Password", login: "Login",
     register: "Register", role: "Role", role_farmer: "Farmer", role_buyer: "Buyer", create_account: "Create Account",
     auth_sync: "Authorize connection to agricultural satellites?", authorize: "Authorize", cancel: "Cancel",
-    sat_sync_title: "Satellite Sync", linking: "Linking..."
+    sat_sync_title: "Satellite Sync", linking: "Linking...",
+    hero_badge: "🛰️ AI-Powered Agricultural Intelligence",
+    hero_main_title: "Smart Farming", hero_main_sub: "Starts Here",
+    hero_sub: "Harness AI to optimize your crop yields, soil health, and market profits — all in one platform.",
+    stat_farmers: "Total Farmers", stat_crops: "Crops Monitored", stat_soil: "Soil Reports", stat_ai: "AI Diagnoses Done",
+    feat_title: "Everything You Need to Farm Smarter",
+    feat_home_title: "Home", feat_home_desc: "Your central command center — see weather, alerts, and crop status at a glance every morning.",
+    feat_dash_title: "Dashboard", feat_dash_desc: "Visualize farm performance with real-time charts, predictive analytics, and field summaries.",
+    feat_soil_title: "Soil Analysis", feat_soil_desc: "Deep-dive into nutrient profiles and moisture levels with satellite-assisted mapping technology.",
+    feat_diag_title: "AI Diagnosis", feat_diag_desc: "Upload a leaf photo — get instant pest & disease identification with treatment guidance.",
+    feat_market_title: "Market", feat_market_desc: "Access live mandi prices, wholesale trends, and best-time-to-sell recommendations.",
+    feat_f2b_title: "F2B / B2F", feat_f2b_desc: "Bridge farmers and agri-businesses with direct bulk contracts and verified supply chains.",
+    news_title: "Stay Ahead of the Season", news_sub: "Get AI insights, market forecasts & farming tips delivered to your inbox.", news_btn: "Subscribe"
   },
   hi: {
     nav_home: "मुख्य पृष्ठ", nav_dashboard: "डैशबोर्ड", nav_soil: "मृदा विश्लेषण", nav_market: "बाज़ार", nav_resources: "संसाधन",
@@ -53,7 +65,19 @@ const i18n = {
     sign_in: "साइन इन", email: "ईमेल", password: "पासवर्ड", login: "लॉगिन",
     register: "पंजीकरण", role: "भूमिका", role_farmer: "किसान", role_buyer: "खरीदार", create_account: "खाता बनाएँ",
     auth_sync: "कृषि उपग्रहों से कनेक्शन अधिकृत करें?", authorize: "अधिकृत करें", cancel: "रद्द करें",
-    sat_sync_title: "उपग्रह सिंक", linking: "लिंक हो रहा है..."
+    sat_sync_title: "उपग्रह सिंक", linking: "लिंक हो रहा है...",
+    hero_badge: "🛰️ AI-संचालित कृषि बुद्धिमत्ता",
+    hero_main_title: "स्मार्ट खेती", hero_main_sub: "यहाँ से शुरू होती है",
+    hero_sub: "AI की मदद से अपनी फसल की उपज, मिट्टी की सेहत और बाजार के मुनाफे को बेहतर बनाएं।",
+    stat_farmers: "कुल किसान", stat_crops: "निगरानी में फसलें", stat_soil: "मिट्टी रिपोर्ट", stat_ai: "AI निदान पूर्ण",
+    feat_title: "स्मार्ट खेती के लिए सब कुछ",
+    feat_home_title: "मुख्य पृष्ठ", feat_home_desc: "आपका केंद्रीय कमांड सेंटर — हर सुबह मौसम, अलर्ट और फसल की स्थिति एक नज़र में देखें।",
+    feat_dash_title: "डैशबोर्ड", feat_dash_desc: "रियल-टाइम चार्ट और पूर्वानुमान विश्लेषण के साथ खेत का प्रदर्शन देखें।",
+    feat_soil_title: "मृदा विश्लेषण", feat_soil_desc: "उपग्रह-सहायता से पोषक तत्वों और नमी का गहन विश्लेषण करें।",
+    feat_diag_title: "AI निदान", feat_diag_desc: "पत्ती की फोटो अपलोड करें — तुरंत कीट और रोग पहचान और उपचार पाएं।",
+    feat_market_title: "बाज़ार", feat_market_desc: "लाइव मंडी कीमतें, थोक रुझान और सर्वोत्तम बिक्री समय की सिफ़ारिशें प्राप्त करें।",
+    feat_f2b_title: "F2B / B2F", feat_f2b_desc: "किसानों और कृषि व्यवसायों को सीधे थोक अनुबंध और आपूर्ति श्रृंखला से जोड़ें।",
+    news_title: "मौसम से एक कदम आगे रहें", news_sub: "AI अंतर्दृष्टि, बाज़ार पूर्वानुमान और खेती की टिप्स अपने इनबॉक्स में पाएं।", news_btn: "सदस्यता लें"
   },
   mr: {
     nav_home: "मुखपृष्ठ", nav_dashboard: "डॅशबोर्ड", nav_soil: "माती विश्लेषण", nav_market: "बाजार", nav_resources: "संसाधने",
@@ -77,7 +101,19 @@ const i18n = {
     sign_in: "साइन इन", email: "ईमेल", password: "पासवर्ड", login: "लॉगिन",
     register: "नोंदणी", role: "भूमिका", role_farmer: "शेतकरी", role_buyer: "खरेदीदार", create_account: "खाते तयार करा",
     auth_sync: "कृषी उपग्रहांशी कनेक्शन अधिकृत करावे?", authorize: "अधिकृत करा", cancel: "रद्द करा",
-    sat_sync_title: "उपग्रह सिंक", linking: "लिंक होत आहे..."
+    sat_sync_title: "उपग्रह सिंक", linking: "लिंक होत आहे...",
+    hero_badge: "🛰️ AI-समर्थित कृषी बुद्धिमत्ता",
+    hero_main_title: "स्मार्ट शेती", hero_main_sub: "इथून सुरू होते",
+    hero_sub: "AI च्या मदतीने तुमची पीक उत्पादकता, मातीचे आरोग्य आणि बाजारातील नफा सुधारा.",
+    stat_farmers: "एकूण शेतकरी", stat_crops: "देखरेखीतील पिके", stat_soil: "माती अहवाल", stat_ai: "AI निदान पूर्ण",
+    feat_title: "स्मार्ट शेतीसाठी सर्वकाही",
+    feat_home_title: "मुखपृष्ठ", feat_home_desc: "तुमचे केंद्रीय नियंत्रण केंद्र — दररोज सकाळी हवामान, अलर्ट आणि पीक स्थिती एका नजरेत पाहा.",
+    feat_dash_title: "डॅशबोर्ड", feat_dash_desc: "रिअल-टाइम चार्ट आणि भविष्यसूचक विश्लेषणासह शेत कामगिरी पाहा.",
+    feat_soil_title: "माती विश्लेषण", feat_soil_desc: "उपग्रह-सहाय्याने पोषक तत्त्वे आणि ओलावा यांचे सखोल विश्लेषण करा.",
+    feat_diag_title: "AI निदान", feat_diag_desc: "पानाचा फोटो अपलोड करा — तात्काळ कीड आणि रोग ओळख व उपचार मिळवा.",
+    feat_market_title: "बाजार", feat_market_desc: "थेट मंडी किमती, घाऊक ट्रेंड आणि सर्वोत्तम विक्री वेळाच्या शिफारशी मिळवा.",
+    feat_f2b_title: "F2B / B2F", feat_f2b_desc: "शेतकरी आणि कृषी व्यवसायांना थेट थोक करारांद्वारे जोडा.",
+    news_title: "हंगामापूर्वी तयार राहा", news_sub: "AI अंतर्दृष्टी, बाजार अंदाज आणि शेती टिप्स तुमच्या इनबॉक्समध्ये मिळवा.", news_btn: "सदस्य व्हा"
   }
 };
 
@@ -99,6 +135,8 @@ function t(key) {
 }
 
 function _saveSession() {
+  // Always persist language preference regardless of auth state
+  localStorage.setItem('agro_lang', appState.lang);
   if (appState.isAuthenticated) {
     localStorage.setItem('agro_session', JSON.stringify({ user: appState.user, role: appState.role, lang: appState.lang }));
   } else {
@@ -116,10 +154,10 @@ const screens = {
         <div class="home-hero-overlay"></div>
         <div class="home-hero-inner container fade-in">
           <div class="home-hero-badge">
-            <span id="live-weather-value">🛰️ AI-Powered Agricultural Intelligence</span>
+            <span id="live-weather-value">${t('hero_badge')}</span>
           </div>
-          <h1 class="home-hero-title">Smart Farming<br>Starts Here</h1>
-          <p class="home-hero-sub">Harness AI to optimize your crop yields, soil health, and market profits — all in one platform.</p>
+          <h1 class="home-hero-title">${t('hero_main_title')}<br>${t('hero_main_sub')}</h1>
+          <p class="home-hero-sub">${t('hero_sub')}</p>
           <div class="home-hero-ctas">
             <button class="home-cta-primary" onclick="window.navigate('form')" id="cta-get-started">${t('btn_get_started')} →</button>
             <button class="home-cta-ghost" onclick="window.navigate('market')" id="cta-explore-market">${t('btn_market_view')}</button>
@@ -136,22 +174,22 @@ const screens = {
           <div class="home-stat-item" data-target="50000" data-suffix="+" data-prefix="">
             <div class="home-stat-icon">👩‍🌾</div>
             <div class="home-stat-number" id="stat-0">0</div>
-            <div class="home-stat-label">Total Farmers</div>
+            <div class="home-stat-label">${t('stat_farmers')}</div>
           </div>
           <div class="home-stat-item" data-target="200" data-suffix="+" data-prefix="">
             <div class="home-stat-icon">🌾</div>
             <div class="home-stat-number" id="stat-1">0</div>
-            <div class="home-stat-label">Crops Monitored</div>
+            <div class="home-stat-label">${t('stat_crops')}</div>
           </div>
           <div class="home-stat-item" data-target="1.2" data-suffix="M+" data-prefix="">
             <div class="home-stat-icon">🧪</div>
             <div class="home-stat-number" id="stat-2">0</div>
-            <div class="home-stat-label">Soil Reports</div>
+            <div class="home-stat-label">${t('stat_soil')}</div>
           </div>
           <div class="home-stat-item" data-target="800" data-suffix="K+" data-prefix="">
             <div class="home-stat-icon">🤖</div>
             <div class="home-stat-number" id="stat-3">0</div>
-            <div class="home-stat-label">AI Diagnoses Done</div>
+            <div class="home-stat-label">${t('stat_ai')}</div>
           </div>
         </div>
       </section>
@@ -160,40 +198,39 @@ const screens = {
       <section class="home-features-section">
         <div class="container">
           <div class="home-section-header">
-            <div class="home-section-badge">🌿 Platform Features</div>
-            <h2 class="home-section-title">Everything You Need to Farm Smarter</h2>
-            <p class="home-section-sub">One unified platform combining AI, satellite data, and market intelligence for modern agriculture.</p>
+            <div class="home-section-badge">🌿 ${t('feat_title')}</div>
+            <h2 class="home-section-title">${t('feat_title')}</h2>
           </div>
           <div class="home-features-grid" id="features">
             <div class="home-feature-card" onclick="window.navigate('landing')">
               <div class="home-feature-icon">🏠</div>
-              <h3 class="home-feature-title">Home</h3>
-              <p class="home-feature-desc">Your central command center — see weather, alerts, and crop status at a glance every morning.</p>
+              <h3 class="home-feature-title">${t('feat_home_title')}</h3>
+              <p class="home-feature-desc">${t('feat_home_desc')}</p>
             </div>
             <div class="home-feature-card" onclick="window.navigate('dashboard')">
               <div class="home-feature-icon">📊</div>
-              <h3 class="home-feature-title">Dashboard</h3>
-              <p class="home-feature-desc">Visualize farm performance with real-time charts, predictive analytics, and field summaries.</p>
+              <h3 class="home-feature-title">${t('feat_dash_title')}</h3>
+              <p class="home-feature-desc">${t('feat_dash_desc')}</p>
             </div>
             <div class="home-feature-card" onclick="window.navigate('form')">
               <div class="home-feature-icon">🌱</div>
-              <h3 class="home-feature-title">Soil Analysis</h3>
-              <p class="home-feature-desc">Deep-dive into nutrient profiles and moisture levels with satellite-assisted mapping technology.</p>
+              <h3 class="home-feature-title">${t('feat_soil_title')}</h3>
+              <p class="home-feature-desc">${t('feat_soil_desc')}</p>
             </div>
             <div class="home-feature-card" onclick="window.navigate('diagnosis')">
               <div class="home-feature-icon">🤖</div>
-              <h3 class="home-feature-title">AI Diagnosis</h3>
-              <p class="home-feature-desc">Upload a leaf photo — get instant pest & disease identification with treatment guidance.</p>
+              <h3 class="home-feature-title">${t('feat_diag_title')}</h3>
+              <p class="home-feature-desc">${t('feat_diag_desc')}</p>
             </div>
             <div class="home-feature-card" onclick="window.navigate('market')">
               <div class="home-feature-icon">📈</div>
-              <h3 class="home-feature-title">Market</h3>
-              <p class="home-feature-desc">Access live mandi prices, wholesale trends, and best-time-to-sell recommendations.</p>
+              <h3 class="home-feature-title">${t('feat_market_title')}</h3>
+              <p class="home-feature-desc">${t('feat_market_desc')}</p>
             </div>
             <div class="home-feature-card" onclick="window.navigate('f2b')">
               <div class="home-feature-icon">🤝</div>
-              <h3 class="home-feature-title">F2B / B2F</h3>
-              <p class="home-feature-desc">Bridge farmers and agri-businesses with direct bulk contracts and verified supply chains.</p>
+              <h3 class="home-feature-title">${t('feat_f2b_title')}</h3>
+              <p class="home-feature-desc">${t('feat_f2b_desc')}</p>
             </div>
           </div>
         </div>
@@ -269,12 +306,12 @@ const screens = {
       <!-- ═══ NEWSLETTER + FOOTER ═══ -->
       <section class="home-newsletter-section">
         <div class="container" style="text-align:center;">
-          <div class="home-section-badge" style="background: rgba(255,193,7,0.2); color: #ffc107; margin: 0 auto 1rem auto;">📬 Stay Updated</div>
-          <h2 style="font-family: var(--font-display); font-size: 2.5rem; font-weight: 800; color: #fff; margin-bottom: 0.75rem;">Stay Ahead of the Season</h2>
-          <p style="color: rgba(255,255,255,0.7); margin-bottom: 2rem; font-size: 1.05rem;">Get AI insights, market forecasts & farming tips delivered to your inbox.</p>
+          <div class="home-section-badge" style="background: rgba(255,193,7,0.2); color: #ffc107; margin: 0 auto 1rem auto;">📬 ${t('news_title')}</div>
+          <h2 style="font-family: var(--font-display); font-size: 2.5rem; font-weight: 800; color: #fff; margin-bottom: 0.75rem;">${t('news_title')}</h2>
+          <p style="color: rgba(255,255,255,0.7); margin-bottom: 2rem; font-size: 1.05rem;">${t('news_sub')}</p>
           <form class="home-newsletter-form" onsubmit="return false;">
             <input type="email" class="home-newsletter-input" placeholder="Enter your email address..." id="newsletter-email">
-            <button type="submit" class="home-newsletter-btn" onclick="window.handleNewsletterSignup()">Subscribe</button>
+            <button type="submit" class="home-newsletter-btn" onclick="window.handleNewsletterSignup()">${t('news_btn')}</button>
           </form>
         </div>
       </section>
@@ -1040,6 +1077,12 @@ window.authorizeSync = function() {
   }, () => alert('Location Denied'));
 };
 
+// Restore language even for unauthenticated users
+if (!_savedSession) {
+  const savedLang = localStorage.getItem('agro_lang');
+  if (savedLang) appState.lang = savedLang;
+}
+
 document.addEventListener('DOMContentLoaded', () => { 
   window.updateNavbarUI(); 
   
@@ -1048,6 +1091,7 @@ document.addEventListener('DOMContentLoaded', () => {
     langToggle.value = appState.lang;
     langToggle.addEventListener('change', (e) => {
       appState.lang = e.target.value;
+      localStorage.setItem('agro_lang', appState.lang); // save immediately
       _saveSession();
       updateStaticUI();
       renderRoute(appState.currentRoute);
