@@ -41,7 +41,10 @@ const i18n = {
     feat_diag_title: "AI Diagnosis", feat_diag_desc: "Upload a leaf photo — get instant pest & disease identification with treatment guidance.",
     feat_market_title: "Market", feat_market_desc: "Access live mandi prices, wholesale trends, and best-time-to-sell recommendations.",
     feat_f2b_title: "F2B / B2F", feat_f2b_desc: "Bridge farmers and agri-businesses with direct bulk contracts and verified supply chains.",
-    news_title: "Stay Ahead of the Season", news_sub: "Get AI insights, market forecasts & farming tips delivered to your inbox.", news_btn: "Subscribe"
+    news_title: "Stay Ahead of the Season", news_sub: "Get AI insights, market forecasts & farming tips delivered to your inbox.", news_btn: "Subscribe",
+    db_ask_ai: "Ask AI", db_welcome_farmer: "Namaste! I'm your AI farming assistant. Ask me about your crops, diseases, market prices, or soil health!",
+    db_welcome_buyer: "Hello! I'm your procurement AI assistant. I can help you with vendor checks, market trends, and quality verification.",
+    db_ai_placeholder_farmer: "Ask anything about your farm...", db_ai_placeholder_buyer: "Ask about market trends..."
   },
   hi: {
     nav_home: "मुख्य पृष्ठ", nav_dashboard: "डैशबोर्ड", nav_soil: "मृदा विश्लेषण", nav_market: "बाज़ार", nav_resources: "संसाधन",
@@ -77,7 +80,10 @@ const i18n = {
     feat_diag_title: "AI निदान", feat_diag_desc: "पत्ती की फोटो अपलोड करें — तुरंत कीट और रोग पहचान और उपचार पाएं।",
     feat_market_title: "बाज़ार", feat_market_desc: "लाइव मंडी कीमतें, थोक रुझान और सर्वोत्तम बिक्री समय की सिफ़ारिशें प्राप्त करें।",
     feat_f2b_title: "F2B / B2F", feat_f2b_desc: "किसानों और कृषि व्यवसायों को सीधे थोक अनुबंध और आपूर्ति श्रृंखला से जोड़ें।",
-    news_title: "मौसम से एक कदम आगे रहें", news_sub: "AI अंतर्दृष्टि, बाज़ार पूर्वानुमान और खेती की टिप्स अपने इनबॉक्स में पाएं।", news_btn: "सदस्यता लें"
+    news_title: "मौसम से एक कदम आगे रहें", news_sub: "AI अंतर्दृष्टि, बाज़ार पूर्वानुमान और खेती की टिप्स अपने इनबॉक्स में पाएं।", news_btn: "सदस्यता लें",
+    db_ask_ai: "AI से पूछें", db_welcome_farmer: "नमस्ते! मैं आपका AI कृषि सहायक हूँ। अपनी फसलों, बीमारियों, बाजार की कीमतों या मिट्टी के स्वास्थ्य के बारे में पूछें!",
+    db_welcome_buyer: "नमस्ते! मैं आपका खरीद AI सहायक हूँ। मैं विक्रेता जाँच, बाज़ार रुझान और गुणवत्ता सत्यापन में आपकी मदद कर सकता हूँ।",
+    db_ai_placeholder_farmer: "अपने खेत के बारे में कुछ भी पूछें...", db_ai_placeholder_buyer: "बाज़ार के रुझानों के बारे में पूछें..."
   },
   mr: {
     nav_home: "मुखपृष्ठ", nav_dashboard: "डॅशबोर्ड", nav_soil: "माती विश्लेषण", nav_market: "बाजार", nav_resources: "संसाधने",
@@ -113,7 +119,10 @@ const i18n = {
     feat_diag_title: "AI निदान", feat_diag_desc: "पानाचा फोटो अपलोड करा — तात्काळ कीड आणि रोग ओळख व उपचार मिळवा.",
     feat_market_title: "बाजार", feat_market_desc: "थेट मंडी किमती, घाऊक ट्रेंड आणि सर्वोत्तम विक्री वेळाच्या शिफारशी मिळवा.",
     feat_f2b_title: "F2B / B2F", feat_f2b_desc: "शेतकरी आणि कृषी व्यवसायांना थेट थोक करारांद्वारे जोडा.",
-    news_title: "हंगामापूर्वी तयार राहा", news_sub: "AI अंतर्दृष्टी, बाजार अंदाज आणि शेती टिप्स तुमच्या इनबॉक्समध्ये मिळवा.", news_btn: "सदस्य व्हा"
+    news_title: "हंगामापूर्वी तयार राहा", news_sub: "AI अंतर्दृष्टी, बाजार अंदाज आणि शेती टिप्स तुमच्या इनबॉक्समध्ये मिळवा.", news_btn: "सदस्य व्हा",
+    db_ask_ai: "AI ला विचारा", db_welcome_farmer: "नमस्ते! मी तुमचा AI शेती सहाय्यक आहे. तुमची पिके, रोग, बाजारभाव किंवा मातीच्या आरोग्याबद्दल विचारा!",
+    db_welcome_buyer: "नमस्ते! मी तुमचा खरेदी AI सहाय्यक आहे. मी विक्रेता तपासणी, बाजार कल आणि गुणवत्ता पडताळणीमध्ये मदत करू शकतो.",
+    db_ai_placeholder_farmer: "तुमच्या शेताबद्दल काहीही विचारा...", db_ai_placeholder_buyer: "बाजार कल बद्दल विचारा..."
   }
 };
 
@@ -576,9 +585,9 @@ const screens = {
       </div>
 
       <!-- AI Chat Floating Button + Panel -->
-      <button class="db-ai-fab" id="db-ai-fab" onclick="window.dbToggleAiChat()" title="Ask AI">
+      <button class="db-ai-fab" id="db-ai-fab" onclick="window.dbToggleAiChat()" title="${t('db_ask_ai')}">
         <span class="db-ai-fab-icon">🤖</span>
-        <span class="db-ai-fab-label">Ask AI</span>
+        <span class="db-ai-fab-label">${t('db_ask_ai')}</span>
         <div class="db-ai-pulse"></div>
       </button>
 
@@ -588,10 +597,10 @@ const screens = {
           <button onclick="window.dbToggleAiChat()" style="background:rgba(255,255,255,0.15);border:none;color:white;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:0.9rem;">✕</button>
         </div>
         <div class="db-ai-chat-body" id="db-ai-chat-body">
-          <div class="db-ai-msg bot">Namaste! I'm your AI farming assistant. Ask me about your crops, diseases, market prices, or soil health!</div>
+          <div class="db-ai-msg bot">${t('db_welcome_farmer')}</div>
         </div>
         <div class="db-ai-chat-footer">
-          <input type="text" id="db-ai-input" class="db-ai-input" placeholder="Ask anything about your farm..." onkeypress="if(event.key==='Enter') window.dbAiSend()">
+          <input type="text" id="db-ai-input" class="db-ai-input" placeholder="${t('db_ai_placeholder_farmer')}" onkeypress="if(event.key==='Enter') window.dbAiSend()">
           <button onclick="window.dbAiSend()" class="db-ai-send">➔</button>
         </div>
       </div>
@@ -667,9 +676,9 @@ const screens = {
       </div>
 
       <!-- AI Chat Floating Button + Panel -->
-      <button class="db-ai-fab" id="db-ai-fab" onclick="window.dbToggleAiChat()" title="Ask AI">
+      <button class="db-ai-fab" id="db-ai-fab" onclick="window.dbToggleAiChat()" title="${t('db_ask_ai')}">
         <span class="db-ai-fab-icon">🤖</span>
-        <span class="db-ai-fab-label">Ask AI</span>
+        <span class="db-ai-fab-label">${t('db_ask_ai')}</span>
         <div class="db-ai-pulse"></div>
       </button>
 
@@ -679,10 +688,10 @@ const screens = {
           <button onclick="window.dbToggleAiChat()" style="background:rgba(255,255,255,0.15);border:none;color:white;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:0.9rem;">✕</button>
         </div>
         <div class="db-ai-chat-body" id="db-ai-chat-body">
-          <div class="db-ai-msg bot">Hello! I'm your procurement AI assistant. I can help you with vendor checks, market trends, and quality verification.</div>
+          <div class="db-ai-msg bot">${t('db_welcome_buyer')}</div>
         </div>
         <div class="db-ai-chat-footer">
-          <input type="text" id="db-ai-input" class="db-ai-input" placeholder="Ask about market trends..." onkeypress="if(event.key==='Enter') window.dbAiSend()">
+          <input type="text" id="db-ai-input" class="db-ai-input" placeholder="${t('db_ai_placeholder_buyer')}" onkeypress="if(event.key==='Enter') window.dbAiSend()">
           <button onclick="window.dbAiSend()" class="db-ai-send" style="background:#1565C0;">➔</button>
         </div>
       </div>

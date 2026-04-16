@@ -190,18 +190,7 @@ window.initDashboard = function () {
     if (panel) panel.classList.toggle('open');
   };
 
-  const replies = {
-    wheat: 'Wheat rust is the most common issue — look for orange pustules on leaves. Apply propiconazole fungicide. Check nitrogen levels if leaves are yellow. Want an AI diagnosis scan?',
-    rice: 'Rice blast and brown planthopper are major threats. Ensure flooded conditions and 6–8 cm water depth. IR64 and MTU7029 are resistant varieties worth considering.',
-    fertilizer: 'Based on soil reports: Field A needs urea (50 kg/acre), Field B needs agricultural lime to fix pH 5.2, Field C needs DAP (30 kg/acre). Apply after light rainfall for best absorption.',
-    soil: 'Field A: pH 6.5 ✅ Nitrogen OK, Phosphorus low. Field B: pH 5.2 ⚠️ — apply lime. Field C: Overall nutrient-deficient — full soil test recommended before next season.',
-    market: 'Wheat: ₹2,340/Q (+5.2% ↑). Rice: ₹1,890/Q (stable). Onion: ₹1,180/Q (+8.1% ↑). Best window to sell wheat is mid-May per historical 3-year patterns.',
-    weather: 'Dry conditions for 7 days. Light rain forecast April 22–24. 28°C currently. Ideal for pest monitoring. Hold off on irrigation for the next 3 days.',
-    disease: 'Upload a leaf photo on the AI Diagnosis page for instant pathogen detection. Common diseases this season: wheat rust, rice blast, tomato blight. Early detection = 80% cost savings!',
-    default: "I'm your AI farming assistant! Ask me about: 🌾 crop diseases, 🌱 soil & fertilizer, 📈 market prices, 🌦️ weather planning, or any farm question!"
-  };
-
-  window.dbAiSend = function (prefill) {
+  window.dbAiSend = async function (prefill) {
     const input = document.getElementById('db-ai-input');
     const body = document.getElementById('db-ai-chat-body');
     const msg = (prefill || input?.value || '').trim();
@@ -213,6 +202,7 @@ window.initDashboard = function () {
     userDiv.className = 'db-ai-msg user';
     userDiv.textContent = msg;
     body.appendChild(userDiv);
+    body.scrollTop = body.scrollHeight;
 
     // Typing indicator
     const typing = document.createElement('div');
@@ -221,13 +211,32 @@ window.initDashboard = function () {
     body.appendChild(typing);
     body.scrollTop = body.scrollHeight;
 
-    const lower = msg.toLowerCase();
-    const key = Object.keys(replies).find(k => lower.includes(k)) || 'default';
-    setTimeout(() => {
-      typing.classList.remove('typing-indicator');
-      typing.innerHTML = replies[key];
-      body.scrollTop = body.scrollHeight;
-    }, 850 + Math.random() * 600);
+    try {
+      const lang = window.appState?.lang || 'en';
+      const res = await fetch('http://localhost:5000/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: msg, lang })
+      });
+      const data = await res.json();
+      
+      typing.remove();
+      
+      // Response bubble with formatting
+      const botDiv = document.createElement('div');
+      botDiv.className = 'db-ai-msg bot';
+      const formatted = (data.reply || '').replace(/\n/g, '<br>').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+      botDiv.innerHTML = formatted;
+      body.appendChild(botDiv);
+    } catch (e) {
+      typing.remove();
+      const errDiv = document.createElement('div');
+      errDiv.className = 'db-ai-msg bot';
+      errDiv.style.color = '#F44336';
+      errDiv.textContent = window.appState?.lang === 'hi' ? 'क्षमा करें, जवाब पाने में समस्या हुई।' : (window.appState?.lang === 'mr' ? 'क्षमस्व, प्रतिसाद मिळवण्यात अडचण आली.' : 'Sorry, failed to get a response.');
+      body.appendChild(errDiv);
+    }
+    body.scrollTop = body.scrollHeight;
   };
 
   // ── Cleanup Chart.js instances on SPA navigate ────────────────────
