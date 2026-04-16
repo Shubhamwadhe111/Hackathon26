@@ -1121,6 +1121,7 @@ window.sendKisanMessage = async function(msgText) {
 
 window.kisanSuggest = function(text) {
   window.sendKisanMessage(text);
+};
 
 // ─── Home Page — Stat Counters ──────────────────────────────────────
 window.initLandingPage = function() {
