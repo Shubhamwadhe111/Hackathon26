@@ -1233,15 +1233,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
 window.getBotReply = function(userInput) {
     if (!window.chatbotData) return "Sorry, data is not loaded.";
-    userInput = userInput.toLowerCase();
+    
+    // Clean and tokenize input
+    const cleanInput = userInput.toLowerCase().replace(/[^\w\s]/gi, '');
+    const userWords = cleanInput.split(/\s+/).filter(w => w.length > 2);
+    const stopWords = ['what', 'how', 'the', 'best', 'can', 'grow', 'which', 'will', 'is', 'are', 'for', 'you', 'give', 'tell', 'more', 'about'];
+    const keywords = userWords.filter(w => !stopWords.includes(w));
 
-    for (let item of window.chatbotData) {
-        if (userInput.includes(item.question.toLowerCase())) {
-            return item.answer;
+    if (keywords.length === 0) return "Please ask a specific agricultural question (e.g., 'summer crops' or 'NPK for wheat').";
+
+    let bestMatch = { item: null, score: 0 };
+
+    for (const item of window.chatbotData) {
+        let currentScore = 0;
+        const qWords = item.question.toLowerCase().replace(/[^\w\s]/gi, '').split(/\s+/);
+        const aWords = item.answer.toLowerCase().replace(/[^\w\s]/gi, '').split(/\s+/);
+
+        keywords.forEach(word => {
+            // High weight for question matches
+            if (qWords.includes(word)) currentScore += 2.0;
+            // Lower weight for answer matches
+            if (aWords.includes(word)) currentScore += 0.5;
+        });
+
+        if (currentScore > bestMatch.score) {
+            bestMatch = { item, score: currentScore };
         }
     }
 
-    return "Sorry, I don't understand. Please ask something else.";
+    // Threshold for a valid answer
+    if (bestMatch.score >= 1.5) {
+        return bestMatch.item.answer;
+    }
+
+    return "I'm not quite sure about that specific topic. Try asking about crops, fertilizers, pest control, or government schemes.";
 };
 
 function updateStaticUI() {

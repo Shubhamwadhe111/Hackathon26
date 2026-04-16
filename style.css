@@ -4068,35 +4068,37 @@ body.in-dashboard .navbar {
 
 /* Chat Bubbles */
 .ai-msg {
-  max-width: 75%;
-  padding: 1rem 1.5rem;
-  font-size: 0.95rem;
-  line-height: 1.6;
+  max-width: 85%;
+  padding: 1.25rem 1.75rem;
+  font-size: 1rem;
+  line-height: 1.7;
   position: relative;
   animation: slide-up-fade 0.4s ease-out;
+  word-wrap: break-word;
 }
 
 .ai-msg.bot {
   align-self: flex-start;
   background: white;
   color: var(--color-on-surface);
-  border-radius: 4px 20px 20px 20px;
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  border-radius: 4px 24px 24px 24px;
+  border: 1px solid rgba(46, 125, 50, 0.1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
 }
 
 .ai-msg.user {
   align-self: flex-end;
   background: var(--color-primary);
   color: white;
-  border-radius: 20px 20px 4px 20px;
-  box-shadow: 0 8px 20px rgba(46, 125, 50, 0.2);
+  border-radius: 24px 24px 4px 24px;
+  box-shadow: 0 8px 24px rgba(46, 125, 50, 0.2);
 }
 
 .ai-msg.typing {
   font-weight: 800;
   color: var(--color-primary);
   letter-spacing: 2px;
+  padding: 0.75rem 1.25rem;
 }
 
 @media (max-width: 768px) {
