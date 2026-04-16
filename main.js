@@ -201,6 +201,26 @@ const screens = {
       </section>
 
       <!-- ═══ TESTIMONIALS CAROUSEL ═══ -->
+      <section id="kisan-ai" class="home-ai-section">
+        <div class="container">
+          <div class="home-section-header">
+            <div class="home-section-badge" style="background: rgba(46,125,50,0.1); color: var(--color-primary);" data-i18n="chat_kisan_name">Kisan AI Knowledge Hub</div>
+            <h2 class="home-section-title">Ask our AI Agronomist</h2>
+            <p class="home-section-sub">Get instant answers for crops, soil, and weather from our local agricultural database.</p>
+          </div>
+          
+          <div id="chatbox" class="glass-card-premium home-chat-box">
+             <div id="messages" class="home-chat-messages">
+                <div class="ai-msg bot">Namaste! I am the Kisan AI Assistant. Ask me anything about farming!</div>
+             </div>
+             <div class="home-chat-input-wrapper">
+                <input id="userInput" type="text" placeholder="Ask about wheat, soil, PM-Kisan..." class="home-chat-input" onkeypress="if(event.key==='Enter') window.sendMessage()">
+                <button class="btn-modern-signup home-chat-btn" onclick="window.sendMessage()">Send</button>
+             </div>
+          </div>
+        </div>
+      </section>
+
       <section class="home-testimonials-section">
         <div class="container">
           <div class="home-section-header">
@@ -3054,20 +3074,70 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+window.getBotReply = function(userInput) {
+    if (!window.chatbotData) return "Sorry, data is not loaded.";
+    
+    // Clean and tokenize input
+    const cleanInput = userInput.toLowerCase().replace(/[^\w\s]/gi, '');
+    const userWords = cleanInput.split(/\s+/).filter(w => w.length > 2);
+    const stopWords = ['what', 'how', 'the', 'best', 'can', 'grow', 'which', 'will', 'is', 'are', 'for', 'you', 'give', 'tell', 'more', 'about'];
+    const keywords = userWords.filter(w => !stopWords.includes(w));
+
+    if (keywords.length === 0) return "Please ask a specific agricultural question (e.g., 'summer crops' or 'NPK for wheat').";
+
+    let bestMatch = { item: null, score: 0 };
+
+    for (const item of window.chatbotData) {
+        let currentScore = 0;
+        const qWords = item.question.toLowerCase().replace(/[^\w\s]/gi, '').split(/\s+/);
+        const aWords = item.answer.toLowerCase().replace(/[^\w\s]/gi, '').split(/\s+/);
+
+        keywords.forEach(word => {
+            // High weight for question matches
+            if (qWords.includes(word)) currentScore += 2.0;
+            // Lower weight for answer matches
+            if (aWords.includes(word)) currentScore += 0.5;
+        });
+
+        if (currentScore > bestMatch.score) {
+            bestMatch = { item, score: currentScore };
+        }
+    }
+
+    // Threshold for a valid answer
+    if (bestMatch.score >= 1.5) {
+        return bestMatch.item.answer;
+    }
+
+    return "I'm not quite sure about that specific topic. Try asking about crops, fertilizers, pest control, or government schemes.";
+};
+
 function updateStaticUI() {
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
     const translated = t(key);
     
+    let attrHandled = false;
     // Handle special attributes
     if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-      if (el.hasAttribute('placeholder')) el.setAttribute('placeholder', translated);
+      if (el.hasAttribute('placeholder')) {
+        el.setAttribute('placeholder', translated);
+        attrHandled = true;
+      }
     }
-    if (el.hasAttribute('title')) el.setAttribute('title', translated);
+    if (el.hasAttribute('title')) {
+      el.setAttribute('title', translated);
+      attrHandled = true;
+    }
     
-    // Default to innerText if NOT just an attribute target
-    if (el.innerText !== "" || (!el.hasAttribute('placeholder') && !el.hasAttribute('title'))) {
+    // Update text content only if:
+    // 1. It wasn't just an attribute update OR
+    // 2. The element doesn't have complex children (preserving icons/spans)
+    if (!attrHandled || (el.children.length === 0 && el.innerText.trim() !== "")) {
+      // Only overwrite if it's a simple text-carrying element or wasn't handled as an attribute
+      if (el.children.length === 0) {
         el.innerText = translated;
+      }
     }
   });
 }
@@ -3100,6 +3170,20 @@ window.dbAiSend = async function() {
   loader.className = 'db-ai-msg bot typing';
   loader.textContent = '...';
   body.appendChild(loader);
+
+  // ─── Try Local Data First ───
+  const localReply = window.getBotReply(text);
+  if (localReply) {
+    setTimeout(() => {
+      loader.remove();
+      const botMsg = document.createElement('div');
+      botMsg.className = 'db-ai-msg bot';
+      botMsg.innerHTML = localReply.replace(/\n/g, '<br>');
+      body.appendChild(botMsg);
+      body.scrollTop = body.scrollHeight;
+    }, 500); // Small delay for UX
+    return;
+  }
 
   try {
     const res = await fetch('http://localhost:5000/api/chat', {
@@ -3139,6 +3223,20 @@ window.sendKisanMessage = async function(msgText) {
   loader.style.cssText = 'align-self: flex-start; background: white; color: var(--color-on-surface); padding: 0.5rem 1rem; border-radius: 4px 16px 16px 16px; font-size: 0.9rem; border: 1px solid var(--color-outline-variant); margin-bottom: 1rem;';
   loader.innerHTML = `<span style="font-size:0.8rem;opacity:0.6;">${t('chat_typing')} <div class="pulse-ring" style="display:inline-block; position:relative; top:auto; left:auto; width:10px; height:10px; margin-left:5px;"></div></span>`;
   body.appendChild(loader);
+
+  // ─── Try Local Data First ───
+  const localReply = window.getBotReply(text);
+  if (localReply) {
+    setTimeout(() => {
+      loader.remove();
+      const botBubble = document.createElement('div');
+      botBubble.style.cssText = 'align-self: flex-start; background: white; color: var(--color-on-surface); padding: 0.75rem 1rem; border-radius: 4px 16px 16px 16px; font-size: 0.9rem; max-width: 85%; margin-bottom: 1rem; border: 1px solid var(--color-outline-variant); box-shadow: var(--shadow-glass);';
+      botBubble.innerHTML = localReply.replace(/\n/g, '<br>');
+      body.appendChild(botBubble);
+      body.scrollTop = body.scrollHeight;
+    }, 600);
+    return;
+  }
   body.scrollTop = body.scrollHeight;
   
   try {
@@ -3219,7 +3317,40 @@ window.initLandingPage = function() {
     dots.forEach((d, i) => d.classList.toggle('active', i === currentTestimonial));
   }
 
-  window.scrollTestimonials = function(dir) { showTestimonial(currentTestimonial + dir); };
+  window.sendMessage = function() {
+    const input = document.getElementById('userInput');
+    const messages = document.getElementById('messages');
+    const text = input.value.trim();
+    if (!text) return;
+
+    input.value = '';
+    
+    // User Message
+    const userDiv = document.createElement('div');
+    userDiv.className = 'ai-msg user';
+    userDiv.innerText = text;
+    messages.appendChild(userDiv);
+    
+    // Typing indicator
+    const loader = document.createElement('div');
+    loader.className = 'ai-msg bot typing';
+    loader.innerText = '...';
+    messages.appendChild(loader);
+    messages.scrollTop = messages.scrollHeight;
+
+    // Process Reply
+    setTimeout(() => {
+        loader.remove();
+        const reply = window.getBotReply(text);
+        const botDiv = document.createElement('div');
+        botDiv.className = 'ai-msg bot';
+        botDiv.innerText = reply;
+        messages.appendChild(botDiv);
+        messages.scrollTop = messages.scrollHeight;
+    }, 600);
+};
+
+window.scrollTestimonials = function(dir) { showTestimonial(currentTestimonial + dir); };
   window.goToTestimonial = function(idx) { showTestimonial(idx); };
 
   // Auto-advance testimonials every 5s
