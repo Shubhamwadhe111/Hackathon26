@@ -5,10 +5,45 @@ import urllib.request
 import json
 import traceback
 import random
+import os
+from dotenv import load_dotenv
+load_dotenv() # Load variables from .env file
+
 from flask_cors import CORS
+import google.generativeai as genai
 
 app = Flask(__name__)
 CORS(app) # Allow frontend to call the backend
+
+genai.configure(api_key=os.environ.get("GEMINI_API_KEY", ""))
+
+SYSTEM_PROMPT = """You are AgriConnect Assistant, a friendly and knowledgeable agricultural advisor built to help Indian farmers make smarter farming decisions.
+
+## Your role
+You help farmers with:
+- Crop selection based on their soil, season, location, and conditions
+- Understanding soil nutrients (Nitrogen, Phosphorus, Potassium) and what they mean
+- Pest and disease identification and treatment
+- Irrigation and water management advice
+- Fertilizer recommendations (organic and chemical)
+- Harvest timing and post-harvest storage tips
+- Weather-based farming guidance
+- Connecting to buyers and understanding market prices
+
+## How you communicate
+- Always reply in simple, easy language — avoid technical jargon
+- If the farmer writes in Hindi or any regional language, reply in the SAME language
+- Be warm, respectful, and patient — many farmers are not tech-savvy
+- Give short, actionable answers first, then explain if needed
+- Use bullet points for step-by-step advice
+- Never make the farmer feel their question is silly or basic
+
+## Boundaries
+- If a question is outside farming, politely redirect.
+- If unsure, recommend Krishi Vigyan Kendra (KVK).
+- Never recommend illegal pesticides.
+- Always end your reply with: "Koi aur sawaal ho toh zaroor poochein!" (or English equivalent: "Feel free to ask if you have more questions!")
+"""
 
 # MongoDB Connection
 client = MongoClient('mongodb://localhost:27017/')
@@ -150,38 +185,26 @@ def get_market_data():
 @app.route('/api/chat', methods=['POST'])
 def kisan_chat():
     data = request.get_json()
-    message = data.get('message', '').lower()
+    message = data.get('message', '')
     lang = data.get('lang', 'en')
+    api_key = os.environ.get("GEMINI_API_KEY", "")
+    if not api_key or api_key == "INSERT_YOUR_API_KEY_HERE":
+        fallback = "Sorry, the AI backend is missing the GEMINI_API_KEY environment variable. Please set it!"
+        if lang == 'hi': fallback = "क्षमा करें, AI बैकएंड में GEMINI_API_KEY सेट नहीं है।"
+        elif lang == 'mr': fallback = "क्षमस्व, एआय बॅकएंडमध्ये GEMINI_API_KEY सेट केलेले नाही."
+        return jsonify({"reply": fallback})
 
-    responses = {
-        "disease": {
-            "en": "For crop diseases, please use our 'AI Diagnosis' tool.",
-            "hi": "फ़सल की बीमारियों के लिए, हमारे 'AI Diagnosis' टूल का उपयोग करें।",
-            "mr": "पीक रोगांसाठी, कृपया आमचे 'AI Diagnosis' साधन वापरा."
-        },
-        "weather": {
-            "en": "Weather in your region is currently optimal (24-28°C).",
-            "hi": "आपके क्षेत्र में मौसम फिलहाल अनुकूल (24-28°C) है।",
-            "mr": "तुमच्या भागात हवामान सध्या अनुकूल (२४-२८°C) आहे."
-        },
-        "market": {
-            "en": "Mandi prices are trending upwards. Check the Market page for district data.",
-            "hi": "मंडी की कीमतें ऊपर की ओर बढ़ रही हैं। रीयल-टाइम डेटा के लिए मार्केट पेज देखें।",
-            "mr": "मंडीचे दर वाढत आहेत. रिअल-टाइम डेटासाठी मार्केट पेजला भेट द्या."
-        },
-        "help": {
-            "en": "I am your Kisan Assistant. Ask me about crops, diseases, or market prices.",
-            "hi": "मैं आपका किसान सहायक हूँ। मुझसे फसल रोगों, बाजार भाव या मौसम के बारे में पूछें।",
-            "mr": "मी आपला किसान सहाय्यक आहे. मला पिकांचे रोग किंवा बाजारभावाबद्दल विचारा."
-        }
-    }
-
-    reply = responses["help"][lang]
-    if any(k in message for k in ["disease", "sick", "बिमारी", "रोग"]): reply = responses["disease"][lang]
-    elif any(k in message for k in ["weather", "rain", "मौसम", "हवामान"]): reply = responses["weather"][lang]
-    elif any(k in message for k in ["market", "price", "भाव", "दर"]): reply = responses["market"][lang]
-
-    return jsonify({"reply": reply})
+    try:
+        model = genai.GenerativeModel(
+            'gemini-1.5-flash',
+            system_instruction=SYSTEM_PROMPT
+        )
+        lang_instruction = f"The user prefers to communicate in {'Hindi' if lang=='hi' else 'Marathi' if lang=='mr' else 'English'}. Please reply entirely in this language.\n\nFarmer's Query: {message}"
+        response = model.generate_content(lang_instruction)
+        return jsonify({"reply": response.text})
+    except Exception as e:
+        print(f"Gemini API Error: {e}")
+        return jsonify({"reply": "Oops! I encountered an error connecting to the AI system. Please try again later."})
 
 # --- Live Weather & Geocoding Logic ---
 
