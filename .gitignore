@@ -25,3 +25,9 @@ Hackathon26
 *.njsproj
 *.sln
 *.sw?
+
+# Environment Variables
+.env
+.env.*
+**/ .env
+**/ .env.*
