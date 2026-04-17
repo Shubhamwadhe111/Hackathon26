@@ -3063,7 +3063,7 @@ window.loginUser = async function() {
     appState.isAuthenticated = true;
     appState.user = { email: 'farmer@demo.com', role: 'farmer', name: 'Ramesh Kumar' };
     appState.role = 'farmer';
-    _saveSession(); window.updateNavbarUI(); window.navigate('dashboard');
+    _saveSession(); window.updateNavbarUI(); window.navigate('landing');
     window.showNotification('Welcome back, Ramesh!', 'success');
     return;
   }
@@ -3078,7 +3078,7 @@ window.loginUser = async function() {
     if (!res.ok) throw new Error(data.error);
     
     appState.isAuthenticated = true; appState.user = data.user; appState.role = data.user.role;
-    _saveSession(); window.updateNavbarUI(); window.navigate('dashboard');
+    _saveSession(); window.updateNavbarUI(); window.navigate('landing');
     window.showNotification(`Signed in successfully!`, 'success');
   } catch(err) { 
     window.showNotification(err.message || 'Login failed', 'error'); 
@@ -3100,7 +3100,7 @@ window.demoLogin = function(role) {
   appState.isAuthenticated = true;
   appState.user = u;
   appState.role = u.role;
-  _saveSession(); window.updateNavbarUI(); window.navigate('dashboard');
+  _saveSession(); window.updateNavbarUI(); window.navigate('landing');
 };
 
 window.registerUser = async function() {
@@ -3133,7 +3133,7 @@ window.registerUser = async function() {
     appState.role = data.user.role;
     _saveSession();
     window.updateNavbarUI();
-    window.navigate('dashboard');
+    window.navigate('landing');
     window.showNotification('Account created! Welcome to AgroFarm AI.', 'success');
   } catch(err) {
     window.showNotification(err.message, 'error');
