@@ -1800,7 +1800,7 @@ const screens = {
               </article>
               
               <!-- New YouTube Video 1 -->
-              <article class="res-card" data-type="video" onclick="window.open('https://www.youtube.com/watch?v=nsnpEmr1q_k', '_blank')" style="cursor:pointer;">
+              <article class="res-card" data-type="video" onclick="window.openVideoModal('nsnpEmr1q_k')" style="cursor:pointer;">
                 <div class="res-card-img-wrap">
                   <div class="res-card-img" style="background-image: url('https://img.youtube.com/vi/nsnpEmr1q_k/maxresdefault.jpg');"></div>
                   <div class="res-play-overlay">
@@ -1822,7 +1822,7 @@ const screens = {
               </article>
 
               <!-- New YouTube Video 2 -->
-              <article class="res-card" data-type="video" onclick="window.open('https://www.youtube.com/watch?v=zCK9ddpNXcU', '_blank')" style="cursor:pointer;">
+              <article class="res-card" data-type="video" onclick="window.openVideoModal('zCK9ddpNXcU')" style="cursor:pointer;">
                 <div class="res-card-img-wrap">
                   <div class="res-card-img" style="background-image: url('https://img.youtube.com/vi/zCK9ddpNXcU/maxresdefault.jpg');"></div>
                   <div class="res-play-overlay">
@@ -1844,7 +1844,7 @@ const screens = {
               </article>
 
               <!-- New YouTube Video 3 -->
-              <article class="res-card" data-type="video" onclick="window.open('https://www.youtube.com/watch?v=ImxxiVXyY5c', '_blank')" style="cursor:pointer;">
+              <article class="res-card" data-type="video" onclick="window.openVideoModal('ImxxiVXyY5c')" style="cursor:pointer;">
                 <div class="res-card-img-wrap">
                   <div class="res-card-img" style="background-image: url('https://img.youtube.com/vi/ImxxiVXyY5c/maxresdefault.jpg');"></div>
                   <div class="res-play-overlay">
@@ -2067,7 +2067,7 @@ const screens = {
         <div class="db-welcome-banner" style="margin-top:0;">
           <div class="db-welcome-left">
             <div class="db-welcome-subtitle">${t('db_farm_center')}</div>
-            <h2 class="db-welcome-title">${greeting}, ${name.split(' ')[0]} 👋</h2>
+            <h2 class="db-welcome-title" id="db-welcome-name">${greeting}, ${name.split(' ')[0]} 👋</h2>
             <p class="db-welcome-desc">${t('db_monitoring')} <strong>1 ${t('db_alerts_needed')}</strong></p>
             <div style="display:flex; gap:0.75rem; flex-wrap:wrap; margin-top:0.25rem;">
               <button class="db-banner-btn" onclick="document.getElementById('db-alerts-panel')?.scrollIntoView({behavior:'smooth'})">${t('db_view_alerts')} →</button>
@@ -2236,7 +2236,7 @@ const screens = {
         <div class="profile-header">
           <div class="profile-avatar-large">${initials}</div>
           <div class="profile-header-info">
-            <h1 class="profile-name">${name}</h1>
+            <h1 class="profile-name" id="prof-name-header">${name}</h1>
             <p class="profile-role">${role}</p>
             <p class="profile-email">${email}</p>
             <p class="profile-joined">Member since ${joinDate}</p>
@@ -3069,7 +3069,7 @@ window.loginUser = async function() {
   }
 
   try {
-    const res = await fetch('http://localhost:5000/api/login', { 
+    const res = await fetch('http://192.168.137.113:5000/api/login', { 
       method: 'POST', 
       headers: { 'Content-Type': 'application/json' }, 
       body: JSON.stringify({ email, password: pass }) 
@@ -3120,7 +3120,7 @@ window.registerUser = async function() {
   }
 
   try {
-    const res = await fetch('http://localhost:5000/api/signup', {
+    const res = await fetch('http://192.168.137.113:5000/api/signup', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ firstName: f, lastName: l, email: e, password: p, role: r })
@@ -3153,7 +3153,7 @@ window.fetchMarketData = async function() {
   const distFilter  = document.getElementById('mkt-district')?.value;
 
   try {
-    const res = await fetch('http://localhost:5000/api/market-active');
+    const res = await fetch('http://192.168.137.113:5000/api/market-active');
     const data = await res.json();
     let items = data.data || [];
     
@@ -3352,8 +3352,8 @@ window.authorizeSync = function() {
   navigator.geolocation.getCurrentPosition(async (p) => {
     try {
       const { latitude, longitude } = p.coords;
-      const geo = await (await fetch(`http://localhost:5000/api/geocoding?lat=${latitude}&lon=${longitude}`)).json();
-      const wx = await (await fetch(`http://localhost:5000/api/weather?lat=${latitude}&lon=${longitude}`)).json();
+      const geo = await (await fetch(`http://192.168.137.113:5000/api/geocoding?lat=${latitude}&lon=${longitude}`)).json();
+      const wx = await (await fetch(`http://192.168.137.113:5000/api/weather?lat=${latitude}&lon=${longitude}`)).json();
       appState.fieldConditions = { temp: wx.current.temp, humidity: wx.current.humidity, rainfall: wx.current.rainfall, state: geo.state, district: geo.district };
       
       const modal = document.getElementById('sync-modal');
@@ -3514,7 +3514,7 @@ window.dbAiSend = async function() {
   }
 
   try {
-    const res = await fetch('http://localhost:5000/api/chat', {
+    const res = await fetch('http://192.168.137.113:5000/api/chat', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ message: text, lang: appState.lang })
@@ -3568,7 +3568,7 @@ window.sendKisanMessage = async function(msgText) {
   body.scrollTop = body.scrollHeight;
   
   try {
-    const res = await fetch('http://localhost:5000/api/chat', {
+    const res = await fetch('http://192.168.137.113:5000/api/chat', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ message: text, lang: appState.lang })
@@ -3749,7 +3749,7 @@ window.handleSoilCardUpload = async function(file) {
     // Try real backend first
     let extracted = null;
     try {
-      const res = await fetch('http://localhost:5000/upload-soil-card', {
+      const res = await fetch('http://192.168.137.113:5000/upload-soil-card', {
         method: 'POST',
         body: formData
       });
@@ -3941,7 +3941,7 @@ window.runSoilAnalysis = async function() {
       }
     };
 
-    const res = await fetch('http://localhost:5000/api/soil-analysis', {
+    const res = await fetch('http://192.168.137.113:5000/api/soil-analysis', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
@@ -3986,7 +3986,7 @@ window.runSoilAnalysis = async function() {
 window.dropSoilAnalysis = async function(id) {
     if (!confirm('Are you sure you want to delete this analysis?')) return;
     try {
-        const res = await fetch(`http://localhost:5000/api/soil-analysis/${id}`, { method: 'DELETE' });
+        const res = await fetch(`http://192.168.137.113:5000/api/soil-analysis/${id}`, { method: 'DELETE' });
         if (!res.ok) throw new Error('Delete failed');
         window.showNotification('Analysis deleted successfully', 'success');
         window.fetchSoilHistory(); // refresh the list
@@ -4313,7 +4313,7 @@ window.fetchSoilHistory = async function() {
   if (!tbody) return;
   tbody.innerHTML = '<tr><td colspan="10" style="text-align:center;padding:2rem;color:#888;">Loading analyses...</td></tr>';
   try {
-    const res = await fetch(`http://localhost:5000/api/soil-analyses?email=${encodeURIComponent(appState.user?.email || 'guest@example.com')}`);
+    const res = await fetch(`http://192.168.137.113:5000/api/soil-analyses?email=${encodeURIComponent(appState.user?.email || 'guest@example.com')}`);
     const records = await res.json();
     window._soilHistoryData = records;
     window._renderHistoryTable(records);
@@ -4377,7 +4377,7 @@ window.deleteSoilAnalysis = async function(id, btn) {
   const row = btn?.closest('tr');
   if (row) { row.style.opacity='0.4'; row.style.pointerEvents='none'; }
   try {
-    await fetch(`http://localhost:5000/api/soil-analyses/${id}`, {method:'DELETE'});
+    await fetch(`http://192.168.137.113:5000/api/soil-analyses/${id}`, {method:'DELETE'});
     window._soilHistoryData = window._soilHistoryData.filter(r=>r._id!==id);
     window._renderHistoryTable(window._soilHistoryData);
     window.showNotification('🗑️ Analysis deleted.');
@@ -4390,7 +4390,7 @@ window.deleteSoilAnalysis = async function(id, btn) {
 window.viewSoilResult = async function(id) {
   let rec;
   try {
-    const res = await fetch(`http://localhost:5000/api/soil-analyses/${id}`);
+    const res = await fetch(`http://192.168.137.113:5000/api/soil-analyses/${id}`);
     rec = await res.json();
   } catch(e) { rec = window._soilHistoryData.find(r=>r._id===id); }
   if (!rec) { window.showNotification('Could not load analysis.'); return; }
@@ -4431,7 +4431,7 @@ window.showNotification = function(msg) {
 window.fetchDashboardStats = async function() {
   try {
     const email = encodeURIComponent(appState.user?.email||'guest@example.com');
-    const res   = await fetch(`http://localhost:5000/api/dashboard-stats?email=${email}`);
+    const res   = await fetch(`http://192.168.137.113:5000/api/dashboard-stats?email=${email}`);
     if (!res.ok) throw new Error('Stats fetch failed');
     const data  = await res.json();
     const set   = (id,v) => { const el=document.getElementById(id); if(el) el.textContent=v; };
@@ -4447,6 +4447,45 @@ window.fetchDashboardStats = async function() {
     console.error('Dashboard stats error:', e);
     // Silent fail for auto-refresh, but log for debug
   }
+};
+
+// ─── Video Modal ─────────────────────────────────────────────────────
+window.openVideoModal = function(videoId) {
+  const existing = document.getElementById('__video-modal');
+  if (existing) existing.remove();
+  
+  const modal = document.createElement('div');
+  modal.id = '__video-modal';
+  modal.style.cssText = `
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(12px);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    animation: fadeIn 0.3s ease;
+  `;
+  
+  modal.innerHTML = `
+    <div style="position: relative; width: 100%; max-width: 1100px; aspect-ratio: 16 / 9; background: #000; border-radius: 24px; overflow: hidden; box-shadow: 0 32px 128px rgba(0,0,0,0.8); border: 1px solid rgba(255,255,255,0.1);">
+      <button onclick="document.getElementById('__video-modal').remove()" 
+        style="position: absolute; top: 1.5rem; right: 1.5rem; background: rgba(255,255,255,0.2); border: none; color: white; width: 44px; height: 44px; border-radius: 50%; cursor: pointer; font-size: 1.4rem; display: flex; align-items: center; justify-content: center; z-index: 10; transition: background 0.2s;"
+        onmouseover="this.style.background='rgba(255,255,255,0.3)'"
+        onmouseout="this.style.background='rgba(255,255,255,0.2)'">✕</button>
+      <iframe 
+        style="width: 100%; height: 100%; border: none;" 
+        src="https://www.youtube.com/embed/${videoId}?autoplay=1" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
+    </div>
+  `;
+  
+  document.body.appendChild(modal);
+  modal.addEventListener('click', e => { if (e.target === modal) modal.remove(); });
 };
 
 // ─── Profile Edit ─────────────────────────────────────────────────────
@@ -4501,15 +4540,40 @@ window.saveProfile = async function() {
     farmArea:  document.getElementById('pedit-area')?.value.trim()||u.farmArea||''
   };
   try {
-    const res  = await fetch('http://localhost:5000/api/profile', {method:'PATCH',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+    const res  = await fetch('http://192.168.137.113:5000/api/profile', {method:'PATCH',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
     const data = await res.json();
     if (!res.ok) throw new Error(data.error||'Update failed');
     appState.user = {...appState.user,...data.user}; _saveSession();
     if (msg) msg.textContent = '✅ Saved!';
+    
+    // Update UI elements directly
     const s=(id,v)=>{const el=document.getElementById(id);if(el)el.textContent=v;};
-    s('prof-phone',data.user.phone||'—'); s('prof-location',data.user.location||'—');
-    s('prof-farm-name',data.user.farmName||'—'); s('prof-farm-area',data.user.farmArea||'—');
-    setTimeout(()=>document.getElementById('__profile-modal')?.remove(),1200);
+    s('prof-name-header', data.user.name);
+    s('user-menu-name', data.user.name);
+    s('prof-phone',data.user.phone||'—'); 
+    s('prof-location',data.user.location||'—');
+    s('prof-farm-name',data.user.farmName||'—'); 
+    s('prof-farm-area',data.user.farmArea||'—');
+    
+    // Update dashboard greeting if we are on dashboard
+    const welcomeName = document.getElementById('db-welcome-name');
+    if (welcomeName) {
+        const hour = new Date().getHours();
+        const greeting = hour < 12 ? 'Good Morning' : hour < 17 ? 'Good Afternoon' : 'Good Evening';
+        welcomeName.textContent = `${greeting}, ${data.user.name.split(' ')[0]} 👋`;
+    }
+
+    // Update initials in avatar
+    if (window.getInitials) window.getInitials();
+    const navAvatar = document.getElementById('user-avatar-initials');
+    const profAvatar = document.querySelector('.profile-avatar-large');
+    const initials = data.user.name.split(' ').map(n=>n[0]).join('').toUpperCase().slice(0,2);
+    if (navAvatar) navAvatar.textContent = initials;
+    if (profAvatar) profAvatar.textContent = initials;
+    
+    window.updateNavbarUI();
+    
+    setTimeout(()=>document.getElementById('__profile-modal')?.remove(), 1200);
     window.showNotification('✅ Profile updated!');
   } catch(e) { if(msg) msg.textContent='❌ '+e.message; }
 };
@@ -4534,7 +4598,7 @@ window.submitF2BListing = async function() {
   const btn = document.querySelector('.f2b-submit-btn');
   if (btn) { btn.disabled=true; btn.textContent='Publishing...'; }
   try {
-    const res = await fetch('http://localhost:5000/api/f2b/listings',{
+    const res = await fetch('http://192.168.137.113:5000/api/f2b/listings',{
       method:'POST', headers:{'Content-Type':'application/json'},
       body: JSON.stringify({farmerEmail:appState.user?.email||'guest@example.com',farmerName:appState.user?.name||'Farmer',crop,quantity:qty,unit,grade,price,location:appState.user?.location||''})
     });
@@ -4552,7 +4616,7 @@ window.updateBuyerDashboardListings = async function() {
   const container = document.getElementById('buyer-active-listings');
   if (!container) return;
   try {
-    const res = await fetch('http://localhost:5000/api/f2b/listings');
+    const res = await fetch('http://192.168.137.113:5000/api/f2b/listings');
     const list = await res.json();
     if (!list || list.length === 0) {
       container.innerHTML = '<div style="padding:2rem;text-align:center;color:#888;grid-column:1/-1;">No active listings found.</div>';
@@ -4587,7 +4651,7 @@ window.loadF2BListings = async function() {
   // Sync both displays
   window.updateBuyerDashboardListings();
   try {
-    const res  = await fetch('http://localhost:5000/api/f2b/listings');
+    const res  = await fetch('http://192.168.137.113:5000/api/f2b/listings');
     const list = await res.json();
     if (!list||list.length===0) return;
     const aside = document.querySelector('.f2b-aside');
@@ -4647,7 +4711,7 @@ window.runDiagnosis = async function(file) {
     // Artificial delay for UX
     await new Promise(r => setTimeout(r, 1800));
 
-    const res  = await fetch('http://localhost:5000/api/diagnose',{method:'POST',body:form});
+    const res  = await fetch('http://192.168.137.113:5000/api/diagnose',{method:'POST',body:form});
     const data = await res.json();
     if (!data.success) throw new Error(data.error||'Diagnosis failed');
     const sc = data.severity==='High'?'#EF5350':data.severity==='Medium'?'#FFA726':data.severity==='None'?'#66BB6A':'#42A5F5';
@@ -4694,7 +4758,7 @@ window.subscribeNewsletter = async function(input) {
   const email = typeof input==='string' ? input : document.getElementById('newsletter-email')?.value.trim()||'';
   if (!email||!email.includes('@')) { window.showNotification('⚠️ Enter a valid email.'); return; }
   try {
-    const res  = await fetch('http://localhost:5000/api/newsletter',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email})});
+    const res  = await fetch('http://192.168.137.113:5000/api/newsletter',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email})});
     const data = await res.json();
     window.showNotification('✅ '+(data.message||'Subscribed!'));
     const inp = document.getElementById('newsletter-email'); if(inp) inp.value='';

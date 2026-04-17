@@ -18,7 +18,7 @@ window.initDashboard = function () {
         async (pos) => {
           try {
             const { latitude: lat, longitude: lon } = pos.coords;
-            const res = await fetch(`http://localhost:5000/api/weather?lat=${lat}&lon=${lon}`);
+            const res = await fetch(`http://192.168.137.113:5000/api/weather?lat=${lat}&lon=${lon}`);
             const d = await res.json();
             const temp = Math.round(d?.current?.temp ?? 28);
             const emoji = temp > 35 ? '🔥' : temp > 28 ? '🌤️' : temp > 20 ? '⛅' : '🌧️';
@@ -36,7 +36,7 @@ window.initDashboard = function () {
   async function fetchStats() {
     try {
       const email = window.appState?.user?.email || 'guest@example.com';
-      const res = await fetch(`http://localhost:5000/api/dashboard-stats?email=${email}`);
+      const res = await fetch(`http://192.168.137.113:5000/api/dashboard-stats?email=${email}`);
       const d = await res.json();
       
       if (d.error) return;
@@ -79,7 +79,7 @@ window.initDashboard = function () {
     
     try {
       const email = window.appState?.user?.email || 'guest@example.com';
-      const res = await fetch(`http://localhost:5000/api/dashboard-stats?email=${email}&commodity=${commodity}`);
+      const res = await fetch(`http://192.168.137.113:5000/api/dashboard-stats?email=${email}&commodity=${commodity}`);
       const d = await res.json();
       
       if (mVal) {
@@ -275,7 +275,7 @@ window.initDashboard = function () {
 
     try {
       const lang = window.appState?.lang || 'en';
-      const res = await fetch('http://localhost:5000/api/chat', {
+      const res = await fetch('http://192.168.137.113:5000/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: msg, lang })
