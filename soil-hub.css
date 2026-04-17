@@ -1,4 +1,4 @@
-﻿/* ═══════════════════════════════════════════════════════════════════
+/* ═══════════════════════════════════════════════════════════════════
    SOIL INTELLIGENCE HUB — Premium Professional Design
    Modern Agri-Tech SaaS Interface
    ═══════════════════════════════════════════════════════════════════ */
@@ -962,3 +962,574 @@
     min-width: 900px;
   }
 }
+
+/* ═══ SOIL HEALTH CARD UPLOAD COMPONENT ═══ */
+
+.shc-section {
+  margin: 1.5rem 0;
+  padding: 1.25rem;
+  background: linear-gradient(135deg, #F1F8F1, #FAFBFA);
+  border: 2px solid #C8E6C9;
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.shc-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #2E7D32, #66BB6A, #A5D6A7);
+}
+
+.shc-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.shc-header-icon {
+  font-size: 1.25rem;
+}
+
+.shc-title {
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #2E7D32;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+/* ── Drop Zone ── */
+.shc-dropzone {
+  border: 2px dashed #A5D6A7;
+  border-radius: 12px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.shc-dropzone:hover,
+.shc-drag-over {
+  border-color: #4CAF50;
+  background: #F1F8F1;
+  box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.12);
+  transform: scale(1.01);
+}
+
+.shc-drop-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.5rem 1rem;
+  text-align: center;
+}
+
+.shc-drop-icon {
+  width: 52px;
+  height: 52px;
+  margin-bottom: 0.25rem;
+  filter: drop-shadow(0 2px 6px rgba(46, 125, 50, 0.15));
+  animation: shc-float 3s ease-in-out infinite;
+}
+
+@keyframes shc-float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-5px); }
+}
+
+.shc-drop-text {
+  font-weight: 700;
+  color: #2E7D32;
+  font-size: 0.9rem;
+}
+
+.shc-drop-sub {
+  font-size: 0.72rem;
+  color: #999;
+}
+
+/* ── Preview ── */
+.shc-preview-area {
+  width: 100%;
+  min-height: 100px;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem;
+  display: none;
+}
+
+.shc-img-preview {
+  max-width: 100%;
+  max-height: 180px;
+  border-radius: 10px;
+  object-fit: contain;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+
+.shc-pdf-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.shc-pdf-icon {
+  font-size: 2.4rem;
+}
+
+.shc-pdf-name {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #333;
+  word-break: break-all;
+}
+
+.shc-pdf-size {
+  font-size: 0.72rem;
+  color: #888;
+}
+
+/* ── Action Row ── */
+.shc-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.75rem;
+}
+
+.shc-sample-btn {
+  flex: 1;
+  background: white;
+  color: #2E7D32;
+  border: 1.5px solid #C8E6C9;
+  padding: 0.55rem 0.9rem;
+  border-radius: 8px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.shc-sample-btn:hover {
+  background: #E8F5E9;
+  border-color: #4CAF50;
+  color: #1B5E20;
+}
+
+.shc-remove-btn {
+  display: none;
+  align-items: center;
+  gap: 0.3rem;
+  background: #FFEBEE;
+  color: #C62828;
+  border: 1.5px solid #FFCDD2;
+  padding: 0.55rem 0.9rem;
+  border-radius: 8px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.shc-remove-btn:hover {
+  background: #EF9A9A;
+  border-color: #EF5350;
+  color: white;
+}
+
+/* ── Processing Bar ── */
+.shc-processing {
+  margin-top: 0.9rem;
+}
+
+.shc-progress-bar {
+  height: 6px;
+  background: #E8EDE8;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.shc-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #2E7D32, #66BB6A);
+  border-radius: 999px;
+  transition: width 0.2s ease;
+}
+
+.shc-processing-text {
+  font-size: 0.75rem;
+  color: #555;
+  font-weight: 500;
+  animation: shc-blink 1.4s ease-in-out infinite;
+}
+
+@keyframes shc-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.5; }
+}
+
+/* ── Auto-Detected Banner ── */
+.shc-detected-banner {
+  display: none;
+  align-items: flex-start;
+  gap: 0.6rem;
+  background: linear-gradient(135deg, #E8F5E9, #F1F8F1);
+  border: 1.5px solid #A5D6A7;
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  margin-top: 0.85rem;
+  animation: shc-slide-in 0.3s ease;
+}
+
+@keyframes shc-slide-in {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.shc-detected-icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.shc-detected-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.shc-detected-text strong {
+  font-size: 0.82rem;
+  color: #1B5E20;
+  font-weight: 800;
+}
+
+.shc-detected-text span {
+  font-size: 0.72rem;
+  color: #555;
+}
+
+/* ── Error Banner ── */
+.shc-error-banner {
+  display: none;
+  align-items: flex-start;
+  gap: 0.6rem;
+  background: #FFF8E1;
+  border: 1.5px solid #FFE082;
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  margin-top: 0.85rem;
+  font-size: 0.78rem;
+  color: #5D4037;
+  animation: shc-slide-in 0.3s ease;
+}
+
+.shc-error-banner strong {
+  display: block;
+  font-weight: 800;
+  color: #E65100;
+  margin-bottom: 0.15rem;
+}
+
+/* ── Auto-fill Flash ── */
+@keyframes shc-flash {
+  0%   { background: #C8E6C9; border-color: #4CAF50; }
+  100% { background: #FAFBFA; border-color: #E8EDE8; }
+}
+
+.shc-autofill-flash {
+  animation: shc-flash 1.2s ease forwards;
+}
+
+/* ═══ END SOIL HEALTH CARD ═══ */
+
+
+/* ═══════════════════════════════════════════════════════════════
+   AI RECOMMENDATION PANEL — Rich Multi-Section Layout
+   ═══════════════════════════════════════════════════════════════ */
+
+.ai-rec-panel {
+  background: linear-gradient(160deg, #1B5E20 0%, #2E7D32 60%, #388E3C 100%);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(27, 94, 32, 0.25);
+}
+
+/* ── Panel Header ── */
+.ai-rec-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem 0.75rem;
+}
+
+.ai-rec-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.ai-rec-pulse {
+  width: 10px;
+  height: 10px;
+  background: #69F0AE;
+  border-radius: 50%;
+  animation: rec-pulse 1.8s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes rec-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%       { transform: scale(1.5); opacity: 0.6; }
+}
+
+.ai-rec-badge {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: #A5D6A7;
+  text-transform: uppercase;
+}
+
+.ai-rec-header-icon {
+  font-size: 1.6rem;
+  animation: star-pulse 3s ease-in-out infinite;
+}
+
+/* ── Scrollable Body ── */
+.ai-rec-body {
+  padding: 0 0.75rem 0.25rem;
+  max-height: 480px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.2) transparent;
+}
+
+.ai-rec-body::-webkit-scrollbar { width: 4px; }
+.ai-rec-body::-webkit-scrollbar-track { background: transparent; }
+.ai-rec-body::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.25); border-radius: 4px; }
+
+/* ── Individual Section Card ── */
+.ai-rec-section {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-left: 3px solid #69F0AE;
+  border-radius: 12px;
+  padding: 0.9rem 1rem;
+  margin-bottom: 0.6rem;
+  transition: background 0.2s ease;
+}
+
+.ai-rec-section:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.ai-rec-section-warning {
+  border-left-color: #FFD54F;
+  background: rgba(255, 213, 79, 0.06);
+}
+
+/* ── Section Header ── */
+.ai-rec-section-title {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  color: rgba(255, 255, 255, 0.95);
+  text-transform: uppercase;
+  margin-bottom: 0.65rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.ai-rec-section-title span {
+  font-size: 1rem;
+}
+
+/* ── Section Body ── */
+.ai-rec-section-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+/* ── Bullet Items ── */
+.ai-rec-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  font-size: 0.83rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.ai-rec-item strong {
+  color: #E8F5E9;
+  font-weight: 700;
+}
+
+/* ── Status Dots ── */
+.ai-rec-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+
+.ai-rec-dot.dot-green  { background: #69F0AE; box-shadow: 0 0 6px rgba(105,240,174,0.5); }
+.ai-rec-dot.dot-amber  { background: #FFD54F; box-shadow: 0 0 6px rgba(255,213,79,0.5); }
+.ai-rec-dot.dot-blue   { background: #64B5F6; box-shadow: 0 0 6px rgba(100,181,246,0.5); }
+.ai-rec-dot.dot-red    { background: #EF9A9A; box-shadow: 0 0 6px rgba(239,154,154,0.5); }
+
+/* ── Crop Highlight Row ── */
+.ai-rec-highlight-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(105, 240, 174, 0.12);
+  border: 1px solid rgba(105, 240, 174, 0.3);
+  border-radius: 8px;
+  padding: 0.55rem 0.75rem;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.ai-rec-crop-badge {
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #69F0AE;
+  letter-spacing: 0.3px;
+}
+
+.ai-rec-sub-text {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.65);
+}
+
+/* ── Soil Parameter Table ── */
+.ai-rec-table {
+  background: rgba(0,0,0,0.12);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.ai-rec-table-row {
+  display: grid;
+  grid-template-columns: 130px 14px 1fr;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 0.75rem;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.9);
+  transition: background 0.15s ease;
+}
+
+.ai-rec-table-row:last-child {
+  border-bottom: none;
+}
+
+.ai-rec-table-row:hover {
+  background: rgba(255,255,255,0.05);
+}
+
+.ai-rec-table-label {
+  color: rgba(255,255,255,0.65);
+  font-weight: 600;
+  font-size: 0.75rem;
+}
+
+.ai-rec-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.ai-rec-indicator.dot-green  { background: #69F0AE; }
+.ai-rec-indicator.dot-amber  { background: #FFD54F; }
+.ai-rec-indicator.dot-red    { background: #EF9A9A; }
+.ai-rec-indicator.dot-blue   { background: #64B5F6; }
+
+.ai-rec-table-val {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.9);
+  font-weight: 500;
+}
+
+/* ── Note / Italics ── */
+.ai-rec-note {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.55);
+  font-style: italic;
+  margin-top: 0.5rem;
+  padding: 0.4rem 0.6rem;
+  border-left: 2px solid rgba(105,240,174,0.3);
+}
+
+/* ── Action Buttons ── */
+.ai-rec-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+  padding: 0.75rem 1.25rem 1.25rem;
+}
+
+.ai-rec-download-btn,
+.ai-rec-report-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.65rem 0.75rem;
+  border-radius: 10px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  font-family: inherit;
+}
+
+.ai-rec-download-btn {
+  background: rgba(105, 240, 174, 0.15);
+  color: #69F0AE;
+  border: 1.5px solid rgba(105, 240, 174, 0.3);
+}
+
+.ai-rec-download-btn:hover {
+  background: rgba(105, 240, 174, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(105, 240, 174, 0.2);
+}
+
+.ai-rec-report-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.85);
+  border: 1.5px solid rgba(255, 255, 255, 0.15);
+}
+
+.ai-rec-report-btn:hover {
+  background: rgba(255, 255, 255, 0.18);
+  transform: translateY(-2px);
+}
+
+/* ═══ END AI RECOMMENDATION PANEL ═══ */

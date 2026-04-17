@@ -32,6 +32,68 @@ window.initDashboard = function () {
     }
   }
 
+  // ── Dashboard Stats ───────────────────────────────────────────────
+  async function fetchStats() {
+    try {
+      const email = window.appState?.user?.email || 'guest@example.com';
+      const res = await fetch(`http://localhost:5000/api/dashboard-stats?email=${email}`);
+      const d = await res.json();
+      
+      if (d.error) return;
+
+      const fVal = document.getElementById('db-kpi-fields-val');
+      const aVal = document.getElementById('db-kpi-alerts-val');
+      const pVal = document.getElementById('db-kpi-pending-val');
+      const mVal = document.getElementById('db-kpi-market-val');
+
+      if (fVal) fVal.textContent = d.totalFields;
+      if (aVal) aVal.innerHTML = `${d.activeAlerts} ${d.activeAlerts > 0 ? '<span class="db-kpi-badge">!</span>' : ''}`;
+      if (pVal) pVal.textContent = d.pendingReports;
+      if (mVal) mVal.textContent = d.marketPrice;
+      
+      const mLabel = document.getElementById('db-kpi-market-label');
+      if (mLabel) mLabel.textContent = d.commodityName || 'Wheat';
+
+      // Update welcome banner text if exists
+      const welcomeDesc = document.querySelector('.db-welcome-desc');
+      if (welcomeDesc) {
+        const alertText = d.activeAlerts === 1 ? '1 alert needs attention.' : `${d.activeAlerts} alerts need attention.`;
+        welcomeDesc.innerHTML = `Your fields are being monitored. <strong>${alertText}</strong>`;
+      }
+    } catch (e) {
+      console.error('Stats fetch error:', e);
+    }
+  }
+  fetchStats();
+
+  // ── Update Market Price ───────────────────────────────────────────
+  window.dbUpdateMarketPrice = async function(commodity) {
+    const mVal = document.getElementById('db-kpi-market-val');
+    const mLabel = document.getElementById('db-kpi-market-label');
+    
+    if (mVal) {
+      mVal.style.opacity = '0.5';
+      mVal.style.transform = 'scale(0.95)';
+      mVal.style.transition = 'all 0.2s ease';
+    }
+    
+    try {
+      const email = window.appState?.user?.email || 'guest@example.com';
+      const res = await fetch(`http://localhost:5000/api/dashboard-stats?email=${email}&commodity=${commodity}`);
+      const d = await res.json();
+      
+      if (mVal) {
+        mVal.textContent = d.marketPrice;
+        mVal.style.opacity = '1';
+        mVal.style.transform = 'scale(1)';
+      }
+      if (mLabel) mLabel.textContent = d.commodityName;
+    } catch (e) {
+      console.error('Market update error:', e);
+      if (mVal) mVal.style.opacity = '1';
+    }
+  };
+
   // ── Sparklines ────────────────────────────────────────────────────
   const sparkSets = [
     { data: [1,1,2,2,2,2,3,3,3], color: '#2E7D32' },
