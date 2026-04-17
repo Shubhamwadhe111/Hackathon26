@@ -3394,12 +3394,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   updateStaticUI();
   
-  // If user is already authenticated, navigate to dashboard instead of landing
-  if (appState.isAuthenticated) {
-    renderRoute('dashboard');
-  } else {
-    renderRoute(appState.currentRoute);
-  }
+  // Always start on the initial route (landing) regardless of auth state
+  renderRoute(appState.currentRoute);
 });
 
 window.getBotReply = function(userInput) {
